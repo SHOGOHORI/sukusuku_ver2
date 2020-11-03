@@ -17,6 +17,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +32,7 @@ group :development do
   gem 'web-console'
   gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen'
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
