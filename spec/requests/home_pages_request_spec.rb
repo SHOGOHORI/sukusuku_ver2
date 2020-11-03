@@ -4,21 +4,21 @@ RSpec.describe "HomePages", type: :request do
 
   describe "GET /home" do
     it "returns http success" do
-      get "/home_pages/home"
+      get root_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /help" do
     it "returns http success" do
-      get "/home_pages/help"
+      get help_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /privacy" do
     it "returns http success" do
-      get "/home_pages/privacy"
+      get privacy_path
       expect(response).to have_http_status(:success)
     end
   end

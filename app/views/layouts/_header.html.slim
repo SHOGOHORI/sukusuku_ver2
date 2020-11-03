@@ -1,13 +1,12 @@
 header
-  ul.nav.navbar-nav.navbar-left
+  ul.header-left
     li
-      = link_to image_tag('header_logo.png', alt: 'logo', height: '60px', id: 'logo'), root_path
+      = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
     li.search-form
       = text_field '#', placeholder: 'キーワード検索'
 
-  ul.nav.navbar-nav.navbar-right
+  ul.header-right
     li
-      = link_to "ユーザー登録", '#'
+      = link_to 'ユーザー登録', '#'
     li
-      = link_to "ログイン", '#'
-
+      = link_to 'ログイン', '#'
