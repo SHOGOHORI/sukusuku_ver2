@@ -10,17 +10,16 @@ gem 'sass-rails'
 gem 'webpacker'
 gem 'turbolinks'
 gem 'jbuilder'
-# gem 'redis', '~> 4.0'
 gem 'bcrypt'
 gem 'therubyracer', platforms: :ruby
-# gem 'image_processing', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
