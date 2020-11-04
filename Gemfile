@@ -16,6 +16,7 @@ gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
