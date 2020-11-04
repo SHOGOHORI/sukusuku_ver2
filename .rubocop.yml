@@ -1,0 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
