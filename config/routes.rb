@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get  '/privacy', to: 'home_pages#privacy'
 
   devise_for :users, controllers: {
-    registrations: 'devise/registrations',
-    sessions: 'devise/sessions'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -36,6 +36,13 @@ textarea {
   padding: 0;
 }
 
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 /* ヘッダー */
 header{
   min-width: 1000px;
@@ -129,11 +136,21 @@ footer{
 }
 
 /* フォーム */
+.form{
+  margin: 0 auto;
+  width: 700px;
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+  }
+}
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
+/* エラーメッセージ */
+#error_explanation{
+  color: red;
+  font-weight: 800;
 }
 
 

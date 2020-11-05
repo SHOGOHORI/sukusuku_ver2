@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   def new
-    @request.env["devise.mapping"] = Devise.mappings[:user]
+    super
   end
 
   # POST /resource

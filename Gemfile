@@ -24,9 +24,12 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development do
