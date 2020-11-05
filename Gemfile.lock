@@ -87,6 +87,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     diff-lcs (1.4.4)
     erubi (1.9.0)
     execjs (2.7.0)
@@ -292,6 +294,7 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   devise
+  devise-i18n
   factory_bot_rails
   faker
   html2slim

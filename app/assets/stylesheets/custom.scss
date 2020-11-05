@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 /* 共通 */
 
 body {
@@ -122,6 +128,15 @@ footer{
   }
 }
 
+/* フォーム */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+
 /* デバッグ */
 
 .debug_dump {
@@ -130,4 +145,3 @@ footer{
   width: 100%;
   margin-top: 45px;
 }
-
