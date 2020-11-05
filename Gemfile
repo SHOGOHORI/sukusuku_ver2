@@ -16,15 +16,21 @@ gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
+gem 'devise'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'launchy'
 end
 
 group :development do

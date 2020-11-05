@@ -10,7 +10,7 @@ services:
       - db-data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - ${DB_PORT}:3306
+      - 13306:3306
   web:
     build: .
     env_file: .env
@@ -23,6 +23,12 @@ services:
     depends_on:
       - db
     tty: true
+    environment:
+    - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+    logging:
+      driver: none
 
 volumes:
   db-data:

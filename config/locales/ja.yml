@@ -1,0 +1,8 @@
+ja:
+  helpers:
+    label:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        remember_me: パスワードを記憶

@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 /* 共通 */
 
 body {
@@ -28,6 +34,13 @@ textarea {
   width: 100%;
   margin-top: 50px;
   padding: 0;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 /* ヘッダー */
@@ -122,6 +135,25 @@ footer{
   }
 }
 
+/* フォーム */
+.form{
+  margin: 0 auto;
+  width: 700px;
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+  }
+}
+
+/* エラーメッセージ */
+#error_explanation{
+  color: red;
+  font-weight: 800;
+}
+
+
 /* デバッグ */
 
 .debug_dump {
@@ -130,4 +162,3 @@ footer{
   width: 100%;
   margin-top: 45px;
 }
-
