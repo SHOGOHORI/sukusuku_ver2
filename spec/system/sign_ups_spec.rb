@@ -10,7 +10,7 @@ RSpec.describe "SignUps", type: :system do
       click_button '同意して登録する'
     end
     it '登録成功' do
-      expect(page) have_selector '.notice', text: 'アカウント登録を受け付けました'
+      expect(page).to have_selector '.notice', text: 'アカウント登録を受け付けました'
     end
   end
 end

@@ -23,6 +23,12 @@ services:
     depends_on:
       - db
     tty: true
+    environment:
+    - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+  selenium_chrome:
+    image: selenium/standalone-chrome-debug
+    logging:
+      driver: none
 
 volumes:
   db-data:
