@@ -16,3 +16,6 @@
         = f.label :remember_me
     .actions
       = f.submit "ログイン"
+.guest
+  = link_to  users_guest_sign_in_path, method: :post, class:"guest__btn" do
+    ゲスト

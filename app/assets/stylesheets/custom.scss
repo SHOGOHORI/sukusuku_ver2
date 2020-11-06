@@ -157,15 +157,11 @@ footer{
 }
 
 /* 通知メッセージ */
-#error_explanation, .alert{
+#error_explanation{
   color: red;
   font-weight: 800;
 }
 
-.notice{
-  color: green;
-  font-weight: 800;
-}
 
 /* デバッグ */
 
