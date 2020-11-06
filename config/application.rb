@@ -35,7 +35,6 @@ module Sukusuku
 
     config.generators do |g|
       g.test_framework :rspec,
-                        fixtures: false,
                         helper_specs: false,
                         routing_specs: false
     end

@@ -156,6 +156,11 @@ footer{
   }
 }
 
+.guest__btn,
+a.guest__btn {
+  text-align: center;
+}
+
 /* 通知メッセージ */
 #error_explanation{
   color: red;
