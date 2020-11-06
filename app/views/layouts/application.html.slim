@@ -11,10 +11,10 @@ html
     = render 'layouts/header'
     .container
       - if notice
-        p.notice
+        p.notice.alert.alert-success
           = notice
       - if alert
-        p.alert
+        p.alert.alert-danger
           = alert
       = yield
       = render 'layouts/footer'

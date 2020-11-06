@@ -7,7 +7,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'support/capybara.rb'
 
-Dir[Rails.root.join("spec/support/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/*.rb')].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -69,4 +69,5 @@ RSpec.configure do |config|
 
   config.include Rails.application.routes.url_helpers
   config.include Capybara::DSL
+  config.include FactoryBot::Syntax::Methods
 end

@@ -12,7 +12,7 @@
 body {
   font-family: Amatic SC;
   overflow-x: scroll;
-  min-width: 1000px;
+  min-width: 1400px;
 }
 
 section {
@@ -45,7 +45,7 @@ h1 {
 
 /* ヘッダー */
 header{
-  min-width: 1000px;
+  min-width: 1400px;
   background-color: #8B0000;
   width: 100%;
   height: 50px;
@@ -115,6 +115,14 @@ header{
       padding-left: 40px;
     }
   }
+  .home_login{
+    width: 300px;
+    float: right;
+    margin: 300px 100px;
+    p{
+      font-weight: 800;
+    }
+  }
 }
 
 /* フッター */
@@ -147,10 +155,25 @@ footer{
   }
 }
 
-/* エラーメッセージ */
+/* ログイン */
+#user_remember_me, label{
+  float: left;
+  width: auto;
+  padding-left: 5px;
+}
+
+.guest__btn,
+a.guest__btn {
+  text-align: center;
+}
+
+/* 通知メッセージ */
 #error_explanation{
   color: red;
   font-weight: 800;
+}
+.alert{
+  margin: 0;
 }
 
 
