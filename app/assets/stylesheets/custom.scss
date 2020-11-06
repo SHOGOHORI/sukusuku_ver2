@@ -147,12 +147,25 @@ footer{
   }
 }
 
-/* エラーメッセージ */
-#error_explanation{
+/* ログイン */
+.login{
+  #user_remember_me, label{
+    float: left;
+    width: auto;
+    padding-left: 5px;
+  }
+}
+
+/* 通知メッセージ */
+#error_explanation, .alert{
   color: red;
   font-weight: 800;
 }
 
+.notice{
+  color: green;
+  font-weight: 800;
+}
 
 /* デバッグ */
 
