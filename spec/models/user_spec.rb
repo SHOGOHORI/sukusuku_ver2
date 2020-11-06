@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'メールアドレスのバリデーション' do
-    let(:user) { build(:user, email: email ) }
+    let(:user) { build(:user, email: email) }
     subject { user }
     context 'ブランクの場合無効' do
       let(:email) { '       ' }
@@ -31,8 +31,10 @@ RSpec.describe User, type: :model do
   end
 
   describe 'パスワード' do
-    let(:user) { build(:user, password: password,
-                       password_confirmation: password_confirmation) }
+    let(:user) {
+      build(:user, password: password,
+                   password_confirmation: password_confirmation)
+    }
     subject{ user }
 
     context 'ブランクの場合無効' do
@@ -42,7 +44,7 @@ RSpec.describe User, type: :model do
     end
 
     context '短すぎる場合無効' do
-      let(:password){ 'a' * 5  }
+      let(:password){ 'a' * 5 }
       let(:password_confirmation) { 'a' * 5 }
       it { is_expected.to_not be_valid }
     end

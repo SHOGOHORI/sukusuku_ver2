@@ -17,8 +17,8 @@ RSpec.describe 'Logins', type: :system do
 
   scenario '無効なログイン' do
     visit user_session_path
-    fill_in 'メールアドレス', with: "  "
-    fill_in 'パスワード', with: "  "
+    fill_in 'メールアドレス', with: '  '
+    fill_in 'パスワード', with: '  '
     click_button 'ログイン'
     expect(current_path).to eq user_session_path
     expect(page).to have_content '無効なメールアドレスとパスワードの組合わせです。'
@@ -30,7 +30,7 @@ RSpec.describe 'Logins', type: :system do
     user = create(:user)
     visit user_session_path
     fill_in 'メールアドレス', with: user.email
-    fill_in 'パスワード', with: "invalid"
+    fill_in 'パスワード', with: 'invalid'
     click_button 'ログイン'
     expect(current_path).to eq user_session_path
     expect(page).to have_content '無効なメールアドレスとパスワードの組合わせです'
