@@ -28,11 +28,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def profile_create
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user == @user
-  end
-
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to

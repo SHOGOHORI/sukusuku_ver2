@@ -1,9 +1,9 @@
 .profile_create
   h1
     | プロフィール登録
-  = form_with url: user_registration_path, local: true do |f|
+  = form_with model: @user, local: true do |f|
     .field
-      = f.label :name, 'お名前'
+      = f.label :name, 'お名前(必須)'
       br
       = f.text_field :name, autofocus: true, autocomplete: 'name'
     .field
