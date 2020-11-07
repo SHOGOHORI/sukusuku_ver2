@@ -7,8 +7,8 @@ ja:
             email:
               taken: 'は既に使用されています。'
               blank: 'が入力されていません。'
-              too_short: 'は%{count}文字以上に設定して下さい。'
-              too_long: 'は%{count}文字以下に設定して下さい。'
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
               invalid: 'は有効でありません。'
             password:
               taken: 'は既に使用されています。'
@@ -28,25 +28,6 @@ ja:
     models:
       user: 'ユーザ'
   devise:
-    confirmations:
-      new:
-        resend_confirmation_instructions: 'アカウント確認メール再送'
-    mailer:
-      confirmation_instructions:
-        action: 'アカウント確認'
-        greeting: 'ようこそ、%{recipient}さん!'
-        instruction: '次のリンクでメールアドレスの確認が完了します:'
-      reset_password_instructions:
-        action: 'パスワード変更'
-        greeting: 'こんにちは、%{recipient}さん!'
-        instruction: '誰かがパスワードの再設定を希望しました。次のリンクでパスワードの再設定が出来ます。'
-        instruction_2: 'あなたが希望したのではないのなら、このメールは無視してください。'
-        instruction_3: '上のリンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。'
-      unlock_instructions:
-        action: 'アカウントのロック解除'
-        greeting: 'こんにちは、%{recipient}さん!'
-        instruction: 'アカウントのロックを解除するには下のリンクをクリックしてください。'
-        message: 'ログイン失敗が繰り返されたため、アカウントはロックされています。'
     passwords:
       edit:
         change_my_password: 'パスワードを変更する'
@@ -116,7 +97,7 @@ ja:
       confirmed: 'アカウントを登録しました。'
 #      confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
-      signed_up: 'アカウント登録を受け付けました。'
+      signed_up: 'アカウント登録を受け付けました。プロフィールを登録ください。'
 #      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
       updated: 'アカウントを更新しました。'
 #      updated: 'You updated your account successfully.'

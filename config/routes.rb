@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
+    get 'users/:id/profile', to:'users/registrations#profile_create', as: 'profile_create'
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 

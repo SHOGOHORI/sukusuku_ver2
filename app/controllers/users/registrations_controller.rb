@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -27,6 +27,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def destroy
   #   super
   # end
+
+  def profile_create
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user == @user
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -58,4 +63,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_sign_up_path_for(resource)
+    profile_create_path(resource)
+  end
 end
