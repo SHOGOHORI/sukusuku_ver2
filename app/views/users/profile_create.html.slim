@@ -10,5 +10,11 @@
       = f.label :introduction, '自己紹介'
       br
       = f.text_area :introduction, autofocus: true, placeholder: "200字以内"
+    = f.fields_for @child do |i|
+      .field
+        = i.label :nick_name, 'ニックネーム'
+        br
+        = i.text_field :nick_name, autofocus: true, placeholder: "10字以内"
+        = i.hidden_field :user_id, :value => @user.id
     .actions
       = f.submit 'プロフィール登録'

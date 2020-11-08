@@ -1,6 +1,7 @@
 class ChildrenController < ApplicationController
 
   def create
+
   end
 
   def edit
