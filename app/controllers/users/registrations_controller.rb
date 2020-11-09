@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  # before_action :configure_sign_up_params, only: [:create]
+  # skip_before_action :non_username, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
 
   def new
     super
@@ -50,20 +51,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    profile_create_path(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
 
-  def after_sign_up_path_for(resource)
-    profile_create_path(resource)
-  end
-
   def after_update_path_for(user)
     user_path(user)
   end
+
 end
