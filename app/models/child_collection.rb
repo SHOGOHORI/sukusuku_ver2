@@ -1,22 +1,30 @@
-class Form::ChildCollection < Form::Base
-  FORM_COUNT = 3
-  attr_accessor :children
+class ChildCollection
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::AttributeMethods
+  include ActiveModel::Validations
+  CHILD_NUM = 3
+  attr_accessor :collection
 
-  def initialize(attributes = {})
-    super attributes
-    self.children = FORM_COUNT.times.map { Child.new() } unless self.children.present?
-  end
-
-  def children_attributes=(attributes)
-    self.children = attributes.map { |_, v| Child.new(v) }
-  end
-
-  def save
-    Child.transaction do
-      self.children.map(&:save!)
+  # 初期化メソッド
+  def initialize(attributes = [])
+    if attributes.present?
+      self.collection = attributes.map do |value|
+        Child.new(
+          user_id: value['user_id'],
+          child_number: value['child_number'],
+          nick_name: value['nick_name'],
+          birthday: value['birthday']
+        )
+      end
+    else
+      self.collection = CHILD_NUM.times.map{ Child.new }
     end
-      return true
-    rescue => e
-      return false
+  end
+
+  # レコードが存在するか確認するメソッド
+  def persisted?
+    false
   end
 end

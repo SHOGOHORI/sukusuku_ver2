@@ -1,6 +1,8 @@
 ja:
   activerecord:
     errors:
+      messages:
+        record_invalid: '登録が有効ではありません。'
       models:
         user:
           attributes:

@@ -10,25 +10,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @child = Child.new(child_params)
+    @child.save!
+    if @user.update(user_params) && @child.save
       redirect_to @user, notice: 'プロフィールを登録しました。'
     else
-      render :profile_create, alert: '必須項目を入力願います。'
+      flash.now[:alert] = '必須項目を入力願います。'
+      render :profile_create
     end
   end
 
   private
 
     def user_params
-      params.require(:user).permit(:name, :introduction, books_attributes: [:nick_name, :birthday, :child_number])
+      params.require(:user).permit(:name, :introduction)
     end
 
-    # def child_collection_params
-    #   params
-    #     .require(:form_child_collection)
-    #     .permit(children_attributes: :user_id)
-    #   end
-    # end
+    def child_params
+      params.permit(:nick_name, :birthday, :child_number, :user_id)
+    end
 
     def set_user
       @user = User.find(params[:id])
