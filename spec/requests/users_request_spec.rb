@@ -1,17 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/users/show"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /update" do
-    it "returns http success" do
-      get "/users/update"
+  describe 'GET /show' do
+    it 'returns http success' do
+      user = create(:user)
+      sign_in user
+      get user_path(user)
       expect(response).to have_http_status(:success)
     end
   end

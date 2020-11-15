@@ -21,16 +21,16 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :introduction)#, children_attributes: [:nick_name, :birthday, :child_number])
-    end
+  def user_params
+    params.require(:user).permit(:name, :introduction)
+  end
 
-    def child_params
-      params.require(:user).permit(child: [:nick_name, :birthday, :child_number, :user_id])
-    end
+  def child_params
+    params.require(:user).permit(child: [:nick_name, :birthday, :child_number, :user_id])
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user == @user
-    end
+  def set_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user == @user
+  end
 end

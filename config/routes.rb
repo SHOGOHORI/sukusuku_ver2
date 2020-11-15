@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:update, :show]
-  get 'users/:id/profile_register', to:'users#profile_create', as: 'profile_create'
-
+  get 'users/:id/profile_register', to: 'users#profile_create', as: 'profile_create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
