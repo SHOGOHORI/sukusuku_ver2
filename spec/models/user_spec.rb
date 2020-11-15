@@ -35,16 +35,16 @@ RSpec.describe User, type: :model do
       build(:user, password: password,
                    password_confirmation: password_confirmation)
     }
-    subject{ user }
+    subject { user }
 
     context 'ブランクの場合無効' do
       let(:password) { ' ' * 10 }
-      let(:password_confirmation)  { ' ' * 10 }
+      let(:password_confirmation) { ' ' * 10 }
       it { is_expected.to_not be_valid }
     end
 
     context '短すぎる場合無効' do
-      let(:password){ 'a' * 5 }
+      let(:password) { 'a' * 5 }
       let(:password_confirmation) { 'a' * 5 }
       it { is_expected.to_not be_valid }
     end
