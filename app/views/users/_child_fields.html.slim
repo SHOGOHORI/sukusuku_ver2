@@ -1,0 +1,11 @@
+.nested-fields
+  .field
+    = f.label :nick_name, 'ニックネーム'
+    br
+    = f.text_field :nick_name, autofocus: true, placeholder: "10字以内"
+  .field
+    = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
+    br
+    = f.date_field :birthday, autofocus: true
+    = f.hidden_field :child_number, :value => 1
+  = link_to_remove_association "削除", f

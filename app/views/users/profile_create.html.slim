@@ -1,7 +1,7 @@
 .profile_create
   h1
     | プロフィール登録
-  = form_with(model: @user, local: true) do |f|
+  = form_for @user do |f|
     .field
       = f.label :name, 'お名前(必須)'
       br
@@ -10,43 +10,12 @@
       = f.label :introduction, '自己紹介'
       br
       = f.text_area :introduction, autofocus: true, placeholder: "200字以内"
-    = f.fields_for @child do |i|
-      h4
-        | 1人目のお子様 (必須)
-      .field
-        = i.label :nick_name, 'ニックネーム'
-        br
-        = i.text_field :nick_name, autofocus: true, placeholder: "10字以内"
-      .field
-        = i.label :birthday, '誕生日(妊娠中の場合は予定日)'
-        br
-        = i.date_field :birthday, autofocus: true
-        = i.hidden_field :child_number, :value => 1
-        = i.hidden_field :user_id, :value => @user.id
-    / details
-    /   summary 2人めのお子様を追加
-    /   = f.fields_for @child do |i|
-    /     .field
-    /       = i.label :nick_name, 'ニックネーム'
-    /       br
-    /       = i.text_field :nick_name, autofocus: true, placeholder: "10字以内"
-    /     .field
-    /       = i.label :birthday, '誕生日(妊娠中の場合は予定日)'
-    /       br
-    /       = i.date_field :birthday, autofocus: true
-    /       = i.hidden_field :child_number, :value => 2
-    /       = i.hidden_field :user_id, :value => @user.id
-    / details
-    /   summary 3人めのお子様を追加
-    /   = f.fields_for :child do |i|
-    /     .field
-    /       = i.label :nick_name, 'ニックネーム'
-    /       br
-    /       = i.text_field :nick_name, autofocus: true, placeholder: "10字以内"
-    /     .field
-    /       = i.label :brithday, '誕生日(妊娠中の場合は予定日)'
-    /       br
-    /       = i.date_field :brithday, autofocus: true
-    /       = i.hidden_field :child_number, :value => 3
+    h4
+      | 1人目のお子様(必須)
+    #children
+      = f.fields_for :children do |i|
+        = render 'child_fields', f: i
+      .links
+        = link_to_add_association '2人目を追加する', f, :children
     .actions
       = f.submit 'プロフィール登録'

@@ -6,12 +6,11 @@ class UsersController < ApplicationController
   end
 
   def profile_create
-    @child = Child.new
+    @children = @user.children.build
   end
 
   def update
-    @child = Child.new(child_params[:child])
-    if @user.update(user_params) && @child.save
+    if @user.update(user_params)
       redirect_to @user, notice: 'プロフィールを登録しました。'
     else
       flash.now[:alert] = '必須項目を入力願います。'
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, children_attributes:[:nick_name, :birthday, :child_number])
   end
 
   def child_params
