@@ -31,10 +31,10 @@ RSpec.describe User, type: :model do
   end
 
   describe 'パスワード' do
-    let(:user) {
+    let(:user) do
       build(:user, password: password,
                    password_confirmation: password_confirmation)
-    }
+    end
     subject { user }
 
     context 'ブランクの場合無効' do

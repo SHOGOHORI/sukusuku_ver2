@@ -35,8 +35,8 @@ module Sukusuku
 
     config.generators do |g|
       g.test_framework :rspec,
-                        helper_specs: false,
-                        routing_specs: false
+                       helper_specs: false,
+                       routing_specs: false
     end
   end
 end
