@@ -18,6 +18,7 @@ gem 'html2slim'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-i18n'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-rails'

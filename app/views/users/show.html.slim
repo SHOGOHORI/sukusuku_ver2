@@ -1,5 +1,14 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
-= @user.name
-br
-= @user.email
+.mypage
+  .profile
+    h3
+      = @user.name
+    h3
+      = @user.introduction
+  .child_info
+    - @user.children.each do |child|
+      = image_tag('child_icon.png', alt: 'icon', height: '50px')
+      h4
+        = child.nick_name
+      br
+      = child.birthday
+      | 生まれ
