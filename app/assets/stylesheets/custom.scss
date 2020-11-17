@@ -209,6 +209,9 @@ a.guest__btn {
   color: #2c2c2f;
   background: #cde4ff;
   position: relative;
+  ul{
+    list-style: none;
+  }
   img{
     float: left;
   }
@@ -219,7 +222,7 @@ a.guest__btn {
   .edit{
     position: absolute;
     bottom: 10px;
-    margin-left: 500px;
+    margin-left: 450px;
   }
 }
 
