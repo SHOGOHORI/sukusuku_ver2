@@ -213,13 +213,16 @@ a.guest__btn {
   position: relative;
   ul{
     list-style: none;
-  }
-  img{
-    float: left;
-  }
-  .explanation {
-    float: left;
-    margin-left: 20px;
+    li{
+      display: block;
+      img{
+        float: left;
+      }
+      .explanation {
+        float: left;
+        margin-left: 20px;
+      }
+    }
   }
   .edit{
     position: absolute;
