@@ -2,11 +2,11 @@
   h1
     | プロフィール登録
   = form_for @user do |f|
-    .field
+    .field.name
       = f.label :name, 'お名前(必須)'
       br
-      = f.text_field :name, autofocus: true, autocomplete: 'name'
-    .field
+      = f.text_field :name, autofocus: true, autocomplete: 'name', placeholder: "200字以内"
+    .field.introduction
       = f.label :introduction, '自己紹介'
       br
       = f.text_area :introduction, autofocus: true, placeholder: "200字以内"

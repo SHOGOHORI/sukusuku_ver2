@@ -13,7 +13,7 @@
   .child_info
     ul
       - @user.children.each do |child|
-        li
+        li.child_individual
           = image_tag('child_icon.png', alt: 'icon', height: '100px')
           .explanation
             h4
