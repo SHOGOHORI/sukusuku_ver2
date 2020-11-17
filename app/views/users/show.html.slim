@@ -11,13 +11,17 @@
 
 
   .child_info
-    - @user.children.each do |child|
-      = image_tag('child_icon.png', alt: 'icon', height: '100px')
-      .explanation
-        h4
-          = child.nick_name
-        p
-          = child.birthday
-          | 生まれ
-    .edit
-      = link_to 'お子様の情報を編集する', '#'
+    ul
+      - @user.children.each do |child|
+        li.child_individual
+          = image_tag('child_icon.png', alt: 'icon', height: '100px')
+          .explanation
+            h4
+              = child.nick_name
+            p
+              = child.birthday
+              | 生まれ
+              br
+              = age_and_moon_age(child.birthday)
+      li.edit
+        = link_to 'お子様の情報を編集する', '#'

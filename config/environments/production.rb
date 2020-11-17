@@ -112,4 +112,5 @@ Rails.application.configure do
   # config.assets.compile = true
   config.assets.initialize_on_precompile = false
   config.force_ssl = true
+  config.assets.compile = true
 end

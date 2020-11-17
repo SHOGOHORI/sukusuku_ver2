@@ -13,6 +13,7 @@ body {
   font-family: Amatic SC;
   overflow-x: scroll;
   min-width: 1400px;
+  font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
 }
 
 section {
@@ -58,6 +59,7 @@ header{
     li{
       float: left;
       list-style: none;
+      color: white;
     }
   }
   .header-right{
@@ -114,7 +116,6 @@ header{
     left: 30px;
     color: brown;
     h3{
-      font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
       font-weight: 800;
       padding-left: 40px;
     }
@@ -149,8 +150,7 @@ footer{
 
 /* フォーム */
 .form{
-  margin: 0 auto;
-  width: 700px;
+  margin: 0 500px;
   input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
     width: 100%;
@@ -173,8 +173,12 @@ a.guest__btn {
 
 /* プロフィール登録 */
 .profile_create{
-  h1{
-    text-align: left;
+  margin: 0 500px;
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
   }
 }
 /* マイページ */
@@ -209,17 +213,25 @@ a.guest__btn {
   color: #2c2c2f;
   background: #cde4ff;
   position: relative;
-  img{
-    float: left;
-  }
-  .explanation {
-    float: left;
-    margin-left: 20px;
-  }
-  .edit{
-    position: absolute;
-    bottom: 10px;
-    margin-left: 500px;
+  ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    li{
+      margin-top: 10px;
+      img{
+        float: left;
+      }
+      .explanation {
+        float: left;
+        margin-left: 20px;
+      }
+    }
+    .edit{
+      position: absolute;
+      bottom: 10px;
+      margin-left: 450px;
+    }
   }
 }
 
@@ -230,6 +242,7 @@ a.guest__btn {
 }
 .alert{
   margin: 0;
+  font-weight: 800;
 }
 
 
