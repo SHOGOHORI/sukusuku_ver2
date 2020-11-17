@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  # skip_before_action :non_username, only: [:create]
+  skip_before_action :noname_user, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # def new

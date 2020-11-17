@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:profile_create, :update]
+  skip_before_action :noname_user, only: [:profile_create, :update]
 
   def show
     @user = User.find(params[:id])

@@ -13,6 +13,7 @@ body {
   font-family: Amatic SC;
   overflow-x: scroll;
   min-width: 1400px;
+  font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
 }
 
 section {
@@ -58,6 +59,7 @@ header{
     li{
       float: left;
       list-style: none;
+      color: white;
     }
   }
   .header-right{
@@ -233,6 +235,7 @@ a.guest__btn {
 }
 .alert{
   margin: 0;
+  font-weight: 800;
 }
 
 

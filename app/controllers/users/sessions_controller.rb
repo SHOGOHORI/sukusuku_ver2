@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
+  skip_before_action :noname_user, only: [:destroy]
 
   # GET /resource/sign_in
   # def new
@@ -22,7 +23,15 @@ class Users::SessionsController < Devise::SessionsController
     user = User.find_or_create_by!(email: 'guest@example.com') do |u|
       u.password = SecureRandom.urlsafe_base64
       u.name = 'ゲストユーザー'
+      u.introduction = 'よろしくおねがいします。'
     end
+
+    child = Child.find_or_create_by!(user_id: user.id) do |c|
+      c.child_number = 1
+      c.nick_name = 'たろう'
+      c.birthday = '2020-1-1'
+    end
+
     sign_in user
     redirect_to user, notice: 'ゲストユーザーとしてログインしました。'
   end
