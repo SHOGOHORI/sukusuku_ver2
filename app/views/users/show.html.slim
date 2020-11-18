@@ -1,6 +1,9 @@
 .mypage
   .profile
-    = image_tag('user_icon.png', alt: 'icon', height: '150px')
+    - if @user.avatar
+      = image_tag @user.avatar.url, alt: 'icon', height: '150px'
+    - else
+      = image_tag('user_icon.png', alt: 'icon', height: '150px')
     h3
       = @user.name
     br

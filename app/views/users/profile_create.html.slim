@@ -7,6 +7,10 @@
       = f.label :name, 'お名前(必須)'
       br
       = f.text_field :name, autofocus: true, autocomplete: 'name', placeholder:  '10字以内'
+    .field
+      = f.label :avatar
+      br
+      = f.file_field :avatar
     .field.introduction
       = f.label :introduction, '自己紹介'
       br

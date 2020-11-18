@@ -20,6 +20,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'cocoon'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails'
