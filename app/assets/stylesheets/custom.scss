@@ -151,12 +151,12 @@ footer{
 /* フォーム */
 .form{
   margin: 0 500px;
-  input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
-    width: 100%;
-    margin-bottom: 15px;
-    @include box_sizing;
-  }
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
 }
 
 /* ログイン */
@@ -172,15 +172,7 @@ a.guest__btn {
 }
 
 /* プロフィール登録 */
-.profile_create{
-  margin: 0 500px;
-  input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
-    width: 100%;
-    margin-bottom: 15px;
-    @include box_sizing;
-  }
-}
+
 /* マイページ */
 .mypage{
   padding: 0 200px;
