@@ -7,9 +7,14 @@
       = f.label :name, 'お名前(必須)'
       br
       = f.text_field :name, autofocus: true, autocomplete: 'name', placeholder: '10字以内'
+    br
+    p プロフィール画像
+    - if @user.avatar?
+      = image_tag @user.avatar.url, height: '150px'
+    - else
+      = image_tag 'user_icon.png', height: '150px'
+    br
     .field
-      = f.label :avatar
-      br
       = f.file_field :avatar
     .field
       = f.label :introduction, '自己紹介'

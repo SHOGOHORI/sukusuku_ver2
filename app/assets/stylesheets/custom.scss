@@ -71,6 +71,7 @@ header{
       padding-right: 20px;
       img{
         margin-right: 7px;
+        border-radius: 50%;
       }
       b{
         margin-left: 7px;
@@ -173,10 +174,23 @@ a.guest__btn {
 
 /* プロフィール登録 */
 
+/* プロフィール編集 */
+
+.profile_edit{
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
 /* マイページ */
 .mypage{
   padding: 0 200px;
   min-width: 1400px;
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
 .profile {
@@ -186,13 +200,15 @@ a.guest__btn {
   margin: 2em 0;
   color: #2c2c2f;
   background: #cde4ff;
-  img{
-    margin: 0 auto;
-  }
   h3 {
     text-align: center;
     margin: 0;
     padding: 0;
+  }
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

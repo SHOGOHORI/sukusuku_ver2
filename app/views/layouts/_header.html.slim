@@ -18,7 +18,10 @@ header
             = link_to 'アンケート', '#'
       li.dropdown
         a.btn.btn-info.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-          = image_tag('child_icon.png', alt: 'icon', height: '20px')
+          - if @user.avatar?
+            = image_tag @user.avatar.url, alt: 'icon', height: '20px'
+          - else
+            = image_tag 'user_icon.png', alt: 'icon', height: '20px'
           = current_user.name
           b.caret
         ul.dropdown-menu
