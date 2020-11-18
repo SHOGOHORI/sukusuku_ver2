@@ -1,13 +1,16 @@
 .mypage
   .profile
-    = image_tag('user_icon.png', alt: 'icon', height: '150px')
+    - if @user.avatar?
+      = image_tag @user.avatar.url, alt: 'icon', height: '150px'
+    - else
+      = image_tag 'user_icon.png', alt: 'icon', height: '150px'
     h3
       = @user.name
     br
     p
       = @user.introduction
       br
-      = link_to 'プロフィールを編集する', '#'
+      = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
 
 
   .child_info

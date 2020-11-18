@@ -33,8 +33,8 @@ RSpec.describe 'Logins', type: :system do
     fill_in 'パスワード', with: 'invalid'
     click_button 'ログイン'
     expect(current_path).to eq user_session_path
-    expect(page).to have_content '無効なメールアドレスとパスワードの組合わせです'
+    expect(page).to have_content '無効なメールアドレスとパスワードの組合わせです。'
     visit root_path
-    expect(page).to_not have_content '無効なメールアドレスとパスワードの組合わせです'
+    expect(page).to_not have_content '無効なメールアドレスとパスワードの組合わせです。'
   end
 end
