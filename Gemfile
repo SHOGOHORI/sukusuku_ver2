@@ -21,6 +21,8 @@ gem 'devise-i18n'
 gem 'jquery-rails'
 gem 'cocoon'
 gem 'carrierwave'
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry-rails'
