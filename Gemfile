@@ -36,6 +36,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -45,4 +49,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+end
+
+group :production, :staging do
+    gem 'unicorn'
 end
