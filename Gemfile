@@ -36,6 +36,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
