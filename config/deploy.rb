@@ -15,9 +15,12 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
-# どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/○sukusuku_key.pem']
+set :ssh_options, {
+  port: 22,
+  forward_agent: true,
+  # ssh秘密鍵の場所
+  keys: ['~/.ssh/myapp_key_rsa']
+}
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
