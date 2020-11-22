@@ -15,10 +15,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
-set :ssh_options, {
-  keys: [File.expand_path('~/.ssh/myapp_key_rsa)')]
- }
-
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
