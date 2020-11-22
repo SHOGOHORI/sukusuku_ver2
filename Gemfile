@@ -23,6 +23,8 @@ gem 'cocoon'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :development, :test do
   gem 'pry-rails'
