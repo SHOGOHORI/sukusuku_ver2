@@ -16,7 +16,7 @@ gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap-sass'
-gem 'sassc', '2.4.0'
+gem 'sassc'
 gem 'devise'
 gem 'devise-i18n'
 gem 'jquery-rails'
