@@ -15,8 +15,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'bootsnap', require: false
 gem 'slim-rails'
 gem 'html2slim'
-gem 'bootstrap-sass'
-gem 'sassc'
+# gem 'bootstrap-sass'
+# gem 'sassc'
 gem 'devise'
 gem 'devise-i18n'
 gem 'jquery-rails'
