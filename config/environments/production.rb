@@ -113,4 +113,5 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = false
   # config.force_ssl = true
   config.assets.compile = true
+  config.require_master_key = true
 end

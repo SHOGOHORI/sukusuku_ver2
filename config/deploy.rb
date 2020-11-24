@@ -12,7 +12,6 @@ set :repo_url,  'git@github.com:SHOGOHORI/sukusuku_ver2.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 
@@ -30,3 +29,5 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+append :linked_files, 'config/credentials/production.key'
