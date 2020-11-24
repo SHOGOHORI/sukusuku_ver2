@@ -30,4 +30,9 @@ namespace :deploy do
   end
 end
 
+set :default_env, {
+  "RAILS_ENV" => "production",
+  "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
+}
+
 set :linked_files, fetch(:linked_files, []).push("config/master.key")
