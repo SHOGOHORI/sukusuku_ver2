@@ -35,4 +35,6 @@ set :default_env, {
   "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
 }
 
+append :linked_files, 'config/credentials/production.key'
+
 set :linked_files, fetch(:linked_files, []).push("config/master.key")
