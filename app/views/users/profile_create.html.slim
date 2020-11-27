@@ -1,4 +1,3 @@
-= javascript_pack_tag 'users'
 .form.profile_create
   h1
     | プロフィール登録
@@ -20,6 +19,6 @@
         = f.fields_for :children do |i|
           = render 'child_fields', f: i
         .links
-          = link_to_add_association "2人目を追加する", f, :children
+          = link_to_add_association '2人目を追加する', f, :children
     .actions
       = f.submit 'プロフィール登録'

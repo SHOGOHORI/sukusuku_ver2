@@ -1,0 +1,12 @@
+.form.children_edit
+  h1
+    | 子どもの情報を編集する
+  = form_for @user do |f|
+    = render "users/shared/error_messages", resource: @user
+    #children
+      = f.fields_for :children do |i|
+        = render 'child_fields', f: i
+      .links
+        = link_to_add_association "2人目を追加する", f, :children
+    .actions
+      = f.submit 'プロフィール登録'
