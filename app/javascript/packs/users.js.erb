@@ -2,20 +2,20 @@ let number = 2;
 
 $(document).ready(function() {
   $('.profile_create').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
-     $('.childNumber:last').text(number)
-     number += 1
-     $('.hiddenNumber').html("<%= escape_javascript(f.hidden_field :child_number, :value => 2) %>")
+      $('.childNumber:last').text(number);
+      $('#children .hidden:last').val(number);
+      number += 1
   });
 
   $('.profile_create').on('cocoon:after-remove', function(e, insertedItem, originalEvent) {
     number -= 1
   });
 
-  $('#children').on('cocoon:after-insert', function() {
+  $('#children').on('cocoon:after-insert', function(e, insertedItem, originalEvent) {
     check_to_hide_or_show_add_link();
   });
 
-  $('#children').on('cocoon:after-remove', function() {
+  $('#children').on('cocoon:after-remove', function(e, insertedItem, originalEvent) {
     check_to_hide_or_show_add_link();
   });
 
@@ -23,9 +23,9 @@ $(document).ready(function() {
 
   function check_to_hide_or_show_add_link() {
     if ($('#children .nested-fields').length == 3) {
-      $('#add-child a').hide();
+      $('#add-children a').hide();
     } else {
-      $('#add-child a').show();
+      $('#add-children a').show();
     }
   }
 })
