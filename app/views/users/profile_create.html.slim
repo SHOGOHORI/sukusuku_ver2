@@ -1,8 +1,8 @@
 .form.profile_create
   h1
     | プロフィール登録
-  = form_for @user do |f|
-    = render "users/shared/error_messages", resource: @user
+  = form_for @user, local: true do |f|
+    = render 'users/shared/error_messages', resource: @user
     .field.name
       = f.label :name, 'お名前(必須)'
       br
@@ -19,6 +19,6 @@
         = f.fields_for :children do |i|
           = render 'child_fields', f: i
         .links
-          = link_to_add_association '2人目を追加する', f, :children
+          = link_to_add_association '子どもの情報を追加する', f, :children
     .actions
       = f.submit 'プロフィール登録'

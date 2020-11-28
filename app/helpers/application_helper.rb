@@ -20,4 +20,12 @@ module ApplicationHelper
       'お腹の中にいます'
     end
   end
+
+  def children_number
+    if n
+      n += 1
+    else
+      n = 1
+    end
+  end
 end
