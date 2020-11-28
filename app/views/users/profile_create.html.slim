@@ -15,10 +15,10 @@
       = f.label :introduction, '自己紹介'
       br
       = f.text_area :introduction, autofocus: true, placeholder: '200字以内'
-      #children
-        = f.fields_for :children do |i|
-          = render 'child_fields', f: i
-        .links
-          = link_to_add_association '子どもの情報を追加する', f, :children
+    #children
+      = f.fields_for :children do |i|
+        = render 'child_fields', f: i
+      .links
+        = link_to_add_association '子どもの情報を追加する', f, :children
     .actions
       = f.submit 'プロフィール登録'
