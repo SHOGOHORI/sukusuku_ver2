@@ -5,8 +5,9 @@ $(document).ready(function() {
     $('.childNumber').each((i, el) => {
       el.innerText = i + 1;
     })
-    $('.childNumber').each((i, el) => {
-      el.innerText = i + 1;
+    $('#children .hidden').each((i, el) => {
+      el.value =  i + 1;
+      console.log('foo')
     })
   }
   $(function(){
