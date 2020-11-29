@@ -32,7 +32,7 @@ end
 
 set :default_env, {
   "RAILS_ENV" => "production",
-  "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"]
+  "RAILS_MASTER_KEY" => ENV["RAILS_MASTER_KEY"],
   rbenv_root: "/home/shogo/.rbenv",
   path: "/home/shogo/.rbenv/bin:$PATH",
   aws_access_key_id: ENV['AWS_ACCESS_KEY'],
