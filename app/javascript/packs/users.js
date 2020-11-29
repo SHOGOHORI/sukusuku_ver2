@@ -32,4 +32,4 @@ $(document).ready(function() {
       check_to_hide_or_show_add_link();
     });
   })
-})})
+})
