@@ -39,3 +39,4 @@ yarn-debug.log*
 
 /public/uploads
 /.env
+/tmp/myapp_key_rsa

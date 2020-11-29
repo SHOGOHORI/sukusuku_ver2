@@ -10,6 +10,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   apt-get update -qq && apt-get install -y yarn
 
 RUN mkdir /.ssh
+COPY ./tmp/myapp_key_rsa .ssh
 RUN mkdir /sukusuku
 WORKDIR /sukusuku
 COPY Gemfile /sukusuku/Gemfile
