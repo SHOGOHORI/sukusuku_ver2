@@ -7,10 +7,15 @@
     br
     = f.text_field :nick_name, autofocus: true, placeholder: "10字以内"
   .field
+    = f.file_field :avatar
+  .field
+    = f.label :comment, 'コメント'
+    br
+    = f.text_area :comment, autofocus: true, placeholder: '200字以内'
+  .field
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
     = f.date_field :birthday, autofocus: true
-  .hiddenNumber
-    = f.hidden_field :child_number, :value => 1
-    br
-    = link_to_remove_association "削除", f
+  = f.hidden_field :child_number, :value => 1
+  br
+  = link_to_remove_association "削除", f

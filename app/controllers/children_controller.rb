@@ -15,7 +15,7 @@ class ChildrenController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(children_attributes: [:nick_name, :birthday, :child_number, :_destroy])
+    params.require(:user).permit(children_attributes: [:nick_name, :birthday, :avatar, :comment, :child_number, :_destroy])
   end
 
   def set_user
