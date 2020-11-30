@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   def edit
     @children = @user.children
@@ -12,6 +12,12 @@ class ChildrenController < ApplicationController
       flash.now[:alert] = '必須項目を入力願います。'
       render :edit
     end
+  end
+
+  def destroy
+    @children = @user.children
+    @user.destroy
+    redirect_to users_url, flash: { success: '子供の情報を削除しました' }
   end
 
   def user_params
