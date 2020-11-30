@@ -50,7 +50,7 @@ test:
 production:
   <<: *default
   database: sukusuku_production
-  username: root
-  password: sukusuku_password
-  host: sukusuku-mysql.clkp8cqvwkju.ap-northeast-1.rds.amazonaws.com
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>
   socket: /var/lib/mysql/mysql.sock
