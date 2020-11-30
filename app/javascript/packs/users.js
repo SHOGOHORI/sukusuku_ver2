@@ -2,13 +2,15 @@ $(document).ready(function() {
   const resetNumber = () => {
     $('.childNumber').each((i, el) => {
       el.innerText = i + 1;
+      console.log('foo')
     })
     $('#children .hidden').each((i, el) => {
       el.value =  i + 1;
+      console.log('bar')
     })
   }
   $(function(){
-    $('.profile_create')
+    $('#children')
       .on('cocoon:after-insert', resetNumber)
       .on('cocoon:after-remove', resetNumber)
   });

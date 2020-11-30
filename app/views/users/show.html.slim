@@ -17,7 +17,10 @@
     ul
       - @user.children.each do |child|
         li.child_individual
-          = image_tag('child_icon.png', alt: 'icon', height: '100px')
+          - if child.avatar?
+            = image_tag child.avatar.url, alt: 'icon', height: '150px'
+          - else
+            = image_tag 'child_icon.png', alt: 'icon', height: '100px'
           .explanation
             h4
               = child.nick_name
