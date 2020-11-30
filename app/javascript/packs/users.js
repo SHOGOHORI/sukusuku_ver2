@@ -1,5 +1,3 @@
-let number = 2;
-
 $(document).ready(function() {
   const resetNumber = () => {
     $('.childNumber').each((i, el) => {
@@ -7,7 +5,6 @@ $(document).ready(function() {
     })
     $('#children .hidden').each((i, el) => {
       el.value =  i + 1;
-      console.log('foo')
     })
   }
   $(function(){
