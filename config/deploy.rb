@@ -25,11 +25,11 @@ end
 
 set :default_env, {
   RAILS_ENV: "production",
-  RAILS_MASTER_KEY: ENV['RAILS_MASTER_KEY'],
+  RAILS_MASTER_KEY: "5274ce73e59ca29c0502e933fffcabf1",
   rbenv_root: "/home/shogo/.rbenv",
   path: "/home/shogo/.rbenv/bin:$PATH",
-  aws_access_key_id: ENV['AWS_ACCESS_KEY'],
-  aws_secret_access_key: ENV['AWS_SECRET_KEY']
+  aws_access_key_id: "AKIARCPUWMFE6BPS7FFE",
+  aws_secret_access_key: "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"
 }
 
 append :linked_files, 'config/credentials/production.key'
