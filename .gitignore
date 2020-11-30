@@ -38,5 +38,5 @@ yarn-debug.log*
 .DS_Store
 
 /public/uploads
-/.env
+# /.env
 /tmp/myapp_key_rsa
