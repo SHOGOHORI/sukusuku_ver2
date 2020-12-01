@@ -1,12 +1,9 @@
 .form.children_edit
   h1
-    | 子どもの情報を編集する
-  = form_for @user do |f|
-    = render "users/shared/error_messages", resource: @user
-    #children
-      = f.fields_for :children do |i|
-        = render 'child_fields', f: i
-      .links
-        = link_to_add_association '子どもの情報を追加する', f, :children
-    .actions
-      = f.submit 'プロフィール登録'
+    = @child.nick_name
+    | ちゃんの情報を編集する
+  #children
+    = form_for @child do |child|
+      = render 'child_fields', f: child, btn: '更新する'
+  p
+  = link_to '子供の情報を削除する', @child, data: { confirm: '本当に削除しますか?' }, method: :delete

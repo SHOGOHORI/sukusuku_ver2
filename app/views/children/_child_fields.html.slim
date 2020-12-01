@@ -1,11 +1,8 @@
 .nested-fields
-  h4
-   span.childNumber 1
-   | 人目のお子様(必須)
   .field
     = f.label :nick_name, 'ニックネーム'
     br
-    = f.text_field :nick_name, autofocus: true, placeholder: "10字以内"
+    = f.text_field :nick_name, autofocus: true, placeholder: '10字以内'
   .field
     = f.file_field :avatar
   .field
@@ -16,6 +13,7 @@
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
     = f.date_field :birthday, autofocus: true
-  = f.hidden_field :child_number, :value => 1, class: 'hidden'
-  br
-  = link_to_remove_association '削除', f
+  = f.hidden_field :child_number, :value => @child.child_number || current_user.children.count + 1
+  = f.hidden_field :user_id, :value => current_user.id
+  .actions
+  = f.submit btn

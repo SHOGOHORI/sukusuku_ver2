@@ -14,18 +14,10 @@ module ApplicationHelper
   def age_and_moon_age(birthday)
     age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     moon_age = (Date.today.strftime('%m%d').to_i - birthday.strftime('%m%d').to_i) / 100
-    if moon_age.positive?
+    if birthday < Date.today
       "#{age}歳#{moon_age}ヶ月"
     else
       'お腹の中にいます'
-    end
-  end
-
-  def children_number
-    if n
-      n += 1
-    else
-      n = 1
     end
   end
 end

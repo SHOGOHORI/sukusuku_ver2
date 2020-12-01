@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update, :show]
   get 'users/:id/profile_register', to: 'users#profile_create', as: 'profile_create'
 
-  resources :children, only: [:edit, :update, :show]
+  resources :children
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
