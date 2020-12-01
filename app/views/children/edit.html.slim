@@ -4,6 +4,6 @@
     | ちゃんの情報を編集する
   #children
     = form_for @child do |child|
-          = render 'child_fields', f: child
+      = render 'child_fields', f: child, btn: '更新する'
   p
   = link_to '子供の情報を削除する', @child, data: { confirm: '本当に削除しますか?' }, method: :delete

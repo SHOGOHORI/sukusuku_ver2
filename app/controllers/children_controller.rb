@@ -1,6 +1,20 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: [:edit, :update, :destroy]
 
+  def new
+    @child = Child.new
+  end
+
+  def create
+    @child = Child.new(child_params)
+    if @child.save
+      redirect_to user_path(@child.user_id), notice: '子どもの情報を登録しました。'
+    else
+      flash.now[:alert] = '必須項目を入力願います。'
+      render :new
+    end
+  end
+
   def edit
     @child = Child.find(params[:id])
   end

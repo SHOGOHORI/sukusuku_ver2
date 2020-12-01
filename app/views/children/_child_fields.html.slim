@@ -1,7 +1,4 @@
 .nested-fields
-  h4
-   span.childNumber 1
-   | 人目のお子様(必須)
   .field
     = f.label :nick_name, 'ニックネーム'
     br
@@ -16,6 +13,7 @@
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
     = f.date_field :birthday, autofocus: true
+  = f.hidden_field :child_number, :value => @child.child_number || current_user.children.count + 1, class: 'hidden'
 
   .actions
-  = f.submit '更新する'
+  = f.submit btn

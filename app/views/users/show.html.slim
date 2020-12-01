@@ -30,3 +30,6 @@
               br
               = age_and_moon_age(child.birthday)
         = link_to "#{child.nick_name}ちゃんの情報を編集する", edit_child_path(child)
+      - if @user.children.count < 3
+        li
+          = link_to '子どもの情報を登録する', new_child_path
