@@ -30,11 +30,11 @@ class ChildrenController < ApplicationController
 
   def destroy
     @child.destroy
-    redirect_to user_path(current_user), flash: { success: '子供の情報を削除しました' }
+    redirect_to user_path(current_user), notice: '子供の情報を削除しました'
   end
 
   def child_params
-    params.require(:child).permit(:nick_name, :birthday, :avatar, :comment, :child_number)
+    params.require(:child).permit(:nick_name, :birthday, :avatar, :comment, :child_number, :user_id)
   end
 
   def set_child

@@ -401,6 +401,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen
+  mini_magick
   mysql2
   pry-byebug
   pry-rails

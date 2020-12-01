@@ -26,6 +26,7 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-rails'
