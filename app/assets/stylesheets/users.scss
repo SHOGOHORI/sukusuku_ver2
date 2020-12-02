@@ -1,3 +1,99 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* ログイン */
+#user_remember_me, label{
+  float: left;
+  width: auto;
+  padding-left: 5px;
+}
+
+.guest__btn,
+a.guest__btn {
+  text-align: center;
+}
+
+/* プロフィール登録 */
+
+/* プロフィール編集 */
+
+.profile_edit{
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+/* マイページ */
+.mypage{
+  padding: 0 200px;
+  min-width: 1400px;
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.profile {
+  float: left;
+  width: 250px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #cde4ff;
+  h3 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.child_info{
+  margin-left: 100px;
+  width: 700px;
+  float: right;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #2c2c2f;
+  background: #cde4ff;
+  position: relative;
+  ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    li{
+      margin-top: 10px;
+      img{
+        float: left;
+      }
+      .explanation {
+        float: left;
+        margin-left: 20px;
+      }
+    }
+    .edit{
+      position: absolute;
+      bottom: 10px;
+      margin-left: 450px;
+    }
+  }
+}
+
+.child_individual{
+  position: relative;
+  z-index: 1;
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
+  }
+}

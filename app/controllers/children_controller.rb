@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:edit, :update, :destroy]
+  before_action :set_child, only: [:edit, :update, :destroy, :show]
 
   def new
     @child = Child.new
@@ -15,8 +15,10 @@ class ChildrenController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
-    @child = Child.find(params[:id])
   end
 
   def update
@@ -32,6 +34,8 @@ class ChildrenController < ApplicationController
     @child.destroy
     redirect_to user_path(current_user), notice: '子供の情報を削除しました'
   end
+
+  private
 
   def child_params
     params.require(:child).permit(:nick_name, :birthday, :avatar, :comment, :child_number, :user_id)

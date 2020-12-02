@@ -17,18 +17,20 @@
     ul
       - @user.children.each do |child|
         li.child_individual
-          - if child.avatar?
-            = image_tag child.avatar.url, alt: 'icon', height: '100px', width: '100px'
-          - else
-            = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
-          .explanation
-            h4
-              = child.nick_name
-            p
-              = child.birthday
-              | 生まれ
-              br
-              = age_and_moon_age(child.birthday)
+          div.
+            - if child.avatar?
+              = image_tag child.avatar.url, alt: 'icon', height: '100px', width: '100px'
+            - else
+              = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
+            .explanation
+              h4
+                = child.nick_name
+              p
+                = child.birthday
+                | 生まれ
+                br
+                = age_and_moon_age(child.birthday)
+            = link_to '', child_path(child)
         = link_to "#{child.nick_name}ちゃんの情報を編集する", edit_child_path(child)
       - if @user.children.count < 3
         li
