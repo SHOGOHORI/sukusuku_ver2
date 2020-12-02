@@ -7,6 +7,7 @@
 .child_show_left{
   float: left;
   list-style: none;
+  text-align: center;
 }
 
 .child_show_rigth{
@@ -14,28 +15,26 @@
   list-style: none;
 }
 
-.child_comment{
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 0;
-  padding: 7px 10px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #e0edff;
-  border-radius: 15px;
-  &:before{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -30px;
-    margin-top: -15px;
-    border: 15px solid transparent;
-    border-right: 15px solid #e0edff;
+.child_image{
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  img{
+    float: left;
+    margin-right: -50px;
+    width: 100%;
+    height: auto;
   }
-  p {
-    margin: 0;
-    padding: 0;
+  .comment{
+    float: right;
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 50px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #edf1ee;
   }
 }
