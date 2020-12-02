@@ -15,6 +15,7 @@
 .child_show_rigth {
   float: right;
   list-style: none;
+  margin-top: 70px;
 }
 
 .child_image {
@@ -27,6 +28,34 @@
     img {
       width: 100%;
       height: auto;
+    }
+  }
+  .comment {
+    float: right;
+    width: 100%;
+    .say {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 200px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #edf1ee;
+      &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 3px;
+      left: -19px;
+      border: 8px solid transparent;
+      border-right: 18px solid #edf1ee;
+      -webkit-transform: rotate(35deg);
+      transform: rotate(35deg);
+      }
+      h2 {
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 }
