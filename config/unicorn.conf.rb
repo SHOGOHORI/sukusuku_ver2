@@ -15,7 +15,7 @@ pid $pid
 # loading booster
 preload_app true
 # before starting processes
-before_fork do |server, worker|
+before_fork do |server, _worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
   old_pid = "#{server.config[:pid]}.oldbin"
   if old_pid != server.pid
@@ -26,6 +26,6 @@ before_fork do |server, worker|
   end
 end
 
-after_fork do |server, worker|
+after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
