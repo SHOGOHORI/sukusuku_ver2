@@ -1,1 +1,20 @@
-p aaaaaaaaaaa
+.child_show
+  ul.child_show_left
+    li
+      - if @child.avatar?
+        = image_tag @child.avatar.url, alt: 'icon', height: '300px', width: '300px'
+      - else
+        = image_tag 'child_icon.png', alt: 'icon', height: '300px', width: '300px'
+    li
+      h2
+        = @child.nick_name
+  ul.child_show_rigth
+    li
+      h2
+        = age_and_moon_age(@child.birthday)
+    li
+      h2
+        = child_birthday(@child.birthday)
+    li
+      = @child.comment
+  = link_to "#{@child.nick_name}ちゃんの情報を編集する", edit_child_path(@child)

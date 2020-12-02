@@ -20,4 +20,12 @@ module ApplicationHelper
       'お腹の中にいます'
     end
   end
+
+  def child_birthday(birthday)
+    if birthday < Date.today
+      "#{birthday}生まれ"
+    else
+      "生まれるまで後#{(birthday - Date.today).to_i}日"
+    end
+  end
 end
