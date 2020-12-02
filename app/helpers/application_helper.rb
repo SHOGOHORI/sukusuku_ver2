@@ -25,7 +25,7 @@ module ApplicationHelper
     if birthday < Date.today
       "#{birthday}生まれ"
     else
-      "生まれるまで後#{(birthday - Date.today).to_i}日"
+      "生まれるまであと#{(birthday - Date.today).to_i}日"
     end
   end
 end

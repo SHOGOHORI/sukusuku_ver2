@@ -15,6 +15,6 @@
     li
       h2
         = child_birthday(@child.birthday)
-    li
+    li.child_comment
       = @child.comment
-  = link_to "#{@child.nick_name}ちゃんの情報を編集する", edit_child_path(@child)
+  = link_to '編集', edit_child_path(@child)
