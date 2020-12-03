@@ -6,7 +6,7 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    @consultation = current_user.consultations.build(consultation_params)
+    @consultation = Consultation.new(consultation_params)
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
@@ -22,6 +22,6 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title)
+    params.require(:consultation).permit(:content, :title, :user_id)
   end
 end
