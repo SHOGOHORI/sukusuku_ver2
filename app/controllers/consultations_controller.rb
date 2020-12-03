@@ -8,9 +8,10 @@ class ConsultationsController < ApplicationController
   def create
     @consultation = current_user.consultations.build(consultation_params)
     if @consultation.save
-      redirect_to consultation_url(@consultation), flash: { success: '投稿しました' }
+      redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
-      render :new, flash: { danger: '投稿に失敗しました' }
+      flash.now[:alert] = '投稿に失敗しました'
+      render :new
     end
   end
 

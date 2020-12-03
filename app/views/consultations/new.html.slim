@@ -1,0 +1,9 @@
+.form.consultation_new
+  = form_with(model: @consultation, local: true) do |f|
+    = f.label :title, 'タイトル'
+    = f.text_field :title, class: 'form-control'
+
+    = f.label :content, '本文'
+    = f.text_area :content, class: 'form-control'
+
+    = f.submit "投稿する", class: "btn-square-slant"
