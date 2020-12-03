@@ -1,1 +1,1 @@
-json.content @html
+json.body @html
