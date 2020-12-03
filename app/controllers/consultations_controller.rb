@@ -6,7 +6,7 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    @consultation = current_user.consultations.build(consultation_params)
+    @consultation = current_user.consultation.build(consultation_params)
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
