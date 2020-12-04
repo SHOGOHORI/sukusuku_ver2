@@ -10,5 +10,5 @@
       = f.text_area :content, class: 'form-control',:size=>'300x10'
     .field
       = f.file_field :images, multiple: true
-    = f.hidden_field :user_id, :value => current_user.id
+      = f.hidden_field :user_id, :value => current_user.id
     = f.submit '投稿する'
