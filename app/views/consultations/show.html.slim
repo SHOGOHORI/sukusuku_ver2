@@ -1,8 +1,17 @@
-h1
-  = @consultation.title
-span
-  = @consultation.content
-  - if @consultation.image?
-    td
-      - @consultation.image.each do |image|
-        = image_tag image.to_s
+.consultation-show
+  h2
+    | 相談内容
+  .box
+    - if @user.avatar?
+      = image_tag @user.avatar.url, alt: 'icon', height: '150px'
+    - else
+      = image_tag 'user_icon.png', alt: 'icon', height: '150px'
+    =
+    h1
+      = @consultation.title
+    span
+      = @consultation.content
+      - if @consultation.image?
+        td
+          - @consultation.image.each do |image|
+            = image_tag image.to_s

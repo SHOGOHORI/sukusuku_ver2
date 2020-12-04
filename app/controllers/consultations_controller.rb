@@ -15,6 +15,7 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+    @user = User.find_by(id: @consultation.user_id)
   end
 
   private
