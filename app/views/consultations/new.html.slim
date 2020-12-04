@@ -1,0 +1,16 @@
+.form.consultation_new
+  h1
+    | 相談を投稿する
+  = form_for @consultation, local: true do |f|
+    .field
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control'
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control',:size=>'300x10'
+    .field
+      - @consultation.image.each do |i|
+        = hidden_field :consultation, :image, multiple: true, value: image.identifier
+      = f.file_field :image, multiple: true
+      = f.hidden_field :user_id, :value => current_user.id
+    = f.submit '投稿する'
