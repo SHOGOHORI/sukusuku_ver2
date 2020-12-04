@@ -3,15 +3,25 @@
     | 相談内容
   .box
     - if @user.avatar?
-      = image_tag @user.avatar.url, alt: 'icon', height: '150px'
+      = image_tag @user.avatar.url, alt: 'icon', height: '100px'
     - else
-      = image_tag 'user_icon.png', alt: 'icon', height: '150px'
-    =
-    h1
+      = image_tag 'user_icon.png', alt: 'icon', height: '100px'
+    = @user.name
+    .Reception
+      - if current_user == @user
+        span
+          | 受付終了
+
+    h2
       = @consultation.title
     span
       = @consultation.content
-      - if @consultation.image?
-        td
-          - @consultation.image.each do |image|
-            = image_tag image.to_s
+    br
+    - if @consultation.image?
+      td
+        - @consultation.image.each do |image|
+          = image_tag image.to_s
+    br
+    - if current_user == @user
+      = link_to '編集', '#'
+      = link_to '削除', '#'
