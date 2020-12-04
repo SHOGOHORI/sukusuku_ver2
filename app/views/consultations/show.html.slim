@@ -1,4 +1,8 @@
 h1
   = @consultation.title
 span
-    = markdown(@consultation.content)
+  = @consultation.content
+  - if @consultation.image?
+    td
+      - @consultation.images.each do |image|
+        = image_tag image.to_s

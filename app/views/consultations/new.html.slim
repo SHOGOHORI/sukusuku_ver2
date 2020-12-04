@@ -7,8 +7,8 @@
       = f.text_field :title, class: 'form-control'
     .field
       = f.label :content, '本文'
-      = f.text_area :content, class: 'form-control'
+      = f.text_area :content, class: 'form-control',:size=>'300x10'
     .field
-      = f.file_field :image
+      = f.file_field :image, multiple: true
     = f.hidden_field :user_id, :value => current_user.id
     = f.submit '投稿する'

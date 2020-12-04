@@ -21,6 +21,6 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title, :user_id, :image)
+    params.require(:consultation).permit(:content, :title, :user_id, {images: []})
   end
 end
