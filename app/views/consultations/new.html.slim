@@ -2,21 +2,13 @@
   h1
     | 相談を投稿する
   = form_for @consultation, local: true do |f|
-    .row
-      #preview-area
-        .input-field
-          = f.label :title, 'タイトル'
-          = f.text_field :title, class: 'form-control'
-
-          = f.label :content, '本文', for: 'md-textarea'
-          = f.text_area :content, class: 'form-control', class: 'materialize-textarea', id: "md-textarea"
-          .field
-            = f.file_field :image
-          = f.hidden_field :user_id, :value => current_user.id
-    .row
-      .col.s4
-        .btn#markdown.disabled マークダウン
-      .col.s4
-        .btn#preview プレビュー
-      .col.s4
-        = f.submit '投稿する', class: 'btn-square-slant'
+    .field
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control'
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control'
+    .field
+      = f.file_field :image
+    = f.hidden_field :user_id, :value => current_user.id
+    = f.submit '投稿する'
