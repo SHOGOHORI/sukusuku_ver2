@@ -4,14 +4,16 @@
 
 /* 相談詳細 */
 
-.consultation_show{
+.consultation_show {
   padding: 0 200px;
   min-width: 1400px;
-  .box{
-    width: 100%;
+  .box {
+    width: 1000px;
+    height: 100%;
+    padding: 50px;
     border: solid 3px #000;
   }
-  .user{
+  .user {
     position: relative;
     z-index: 1;
     a {
@@ -23,5 +25,13 @@
       text-indent:-999px;
       z-index: 2;
     }
+  }
+  .Reception {
+    float: right;
+  }
+  .content {
+  }
+  .consultation_link {
+    float: right;
   }
 }
