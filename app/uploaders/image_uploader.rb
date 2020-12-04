@@ -1,10 +1,15 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :fog
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
+
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "carrierwave-test-siruku6/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   process resize_to_fit: [200, 200,  'Center']

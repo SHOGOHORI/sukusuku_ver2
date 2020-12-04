@@ -2,7 +2,7 @@ h1
   = @consultation.title
 span
   = @consultation.content
-  - if @consultation.images?
+  - if @consultation.image?
     td
-      - @consultation.images.each do |image|
+      - @consultation.image.each do |image|
         = image_tag image.to_s
