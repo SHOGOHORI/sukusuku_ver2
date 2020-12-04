@@ -7,6 +7,9 @@
 .consultation_show {
   padding: 0 200px;
   min-width: 1400px;
+  .consultation_body{
+    margin-left: 300px;
+  }
   .box {
     width: 1000px;
     height: 100%;
@@ -16,6 +19,7 @@
   .user {
     position: relative;
     z-index: 1;
+    float: left;
     a {
       position: absolute;
       top: 0;
@@ -30,6 +34,7 @@
     float: right;
   }
   .content {
+    float: left;
   }
   .consultation_link {
     float: right;
