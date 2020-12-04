@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
-  has_many :microposts, dependent: :destroy
+  has_many :consultations, dependent: :destroy
   has_many :children, dependent: :destroy, inverse_of: :user
   validates :name, length: { maximum: 10 }
   validates :introduction, length: { maximum: 200 }
