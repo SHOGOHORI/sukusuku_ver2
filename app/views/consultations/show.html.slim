@@ -20,7 +20,8 @@
           h2
             = @consultation.title
           span
-            = link_to 'カテゴリー', '#'
+            | カテゴリー：
+            = link_to @category.category, '#'
             = link_to '年齢月齢', '#'
           br
           span

@@ -7,7 +7,6 @@
       = f.text_field :title, class: 'form-control'
     .field
       = f.collection_select :category_id, @categorys, :id, :category, { prompt: '選択してください' }
-      / = f.select :category, @categorys, { prompt: '選択してください' }
     .field
       = f.label :content, '本文'
       = f.text_area :content, class: 'form-control',:size=>'300x10'
