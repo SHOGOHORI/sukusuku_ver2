@@ -19,6 +19,7 @@
         .content
           h2
             = @consultation.title
+          br
           span
             = @consultation.content
           br
@@ -26,7 +27,7 @@
             td
               - @consultation.image.each do |image|
                 = image_tag image.to_s
-        - if current_user == @user
-          .consultation_link
-            = link_to '編集', '#'
-            = link_to '削除', '#'
+      - if current_user == @user
+        .consultation_link
+          = link_to '編集', '#'
+          = link_to '削除', '#'

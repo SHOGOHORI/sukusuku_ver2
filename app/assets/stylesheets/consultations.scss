@@ -12,7 +12,7 @@
   }
   .box {
     display: block;
-    width: 1000px;
+    width: 900px;
     height: 100%;
     padding: 50px;
     border: solid 3px #000;
@@ -67,7 +67,7 @@
       border-bottom: 12px solid #FFF;
       z-index: 2;
       }
-      &::after {
+    &::after {
         content: "";
         position: absolute;
         top: -30px;
@@ -76,6 +76,10 @@
         border: 14px solid transparent;
         border-bottom: 14px solid #555;
         z-index: 1;
+      }
+      h2{
+        font-weight: 800;
+        text-decoration : underline;
       }
     }
   .consultation_link {
