@@ -15,17 +15,18 @@
           - if current_user == @user
             span
               | 受付終了
-      .content
-        h2
-          = @consultation.title
-        span
-          = @consultation.content
-        br
-        - if @consultation.image?
-          td
-            - @consultation.image.each do |image|
-              = image_tag image.to_s
-      - if current_user == @user
-        .consultation_link
-          = link_to '編集', '#'
-          = link_to '削除', '#'
+      .box_bottom
+        .content
+          h2
+            = @consultation.title
+          span
+            = @consultation.content
+          br
+          - if @consultation.image?
+            td
+              - @consultation.image.each do |image|
+                = image_tag image.to_s
+        - if current_user == @user
+          .consultation_link
+            = link_to '編集', '#'
+            = link_to '削除', '#'

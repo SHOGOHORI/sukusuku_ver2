@@ -11,12 +11,14 @@
     margin-left: 300px;
   }
   .box {
+    display: block;
     width: 1000px;
     height: 100%;
     padding: 50px;
     border: solid 3px #000;
   }
   .box_top{
+    height: 100px;
     .user {
       position: relative;
       z-index: 1;
@@ -32,11 +34,50 @@
       }
     }
     .Reception {
-      float: right;
+    float: right;
+    margin: 30px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
     }
   }
   .content {
-  }
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #FFF;
+    border: solid 3px #555;
+    box-sizing: border-box;
+    &::before{
+      content: "";
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      margin-left: -15px;
+      border: 12px solid transparent;
+      border-bottom: 12px solid #FFF;
+      z-index: 2;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        margin-left: -17px;
+        border: 14px solid transparent;
+        border-bottom: 14px solid #555;
+        z-index: 1;
+      }
+    }
   .consultation_link {
     float: right;
   }
