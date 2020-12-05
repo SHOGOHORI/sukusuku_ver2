@@ -3,17 +3,18 @@
     h2
       | 相談内容
     .box
-      .user
-        - if @user.avatar?
-          = image_tag @user.avatar.url, alt: 'icon', height: '100px'
-        - else
-          = image_tag 'user_icon.png', alt: 'icon', height: '100px'
-        = @user.name
-        = link_to '', user_path(@user)
-      .Reception
-        - if current_user == @user
-          span
-            | 受付終了
+      .box_top
+        .user
+          - if @user.avatar?
+            = image_tag @user.avatar.url, alt: 'icon', height: '100px'
+          - else
+            = image_tag 'user_icon.png', alt: 'icon', height: '100px'
+          = @user.name
+          = link_to '', user_path(@user)
+        .Reception
+          - if current_user == @user
+            span
+              | 受付終了
       .content
         h2
           = @consultation.title
