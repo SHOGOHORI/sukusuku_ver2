@@ -61,7 +61,7 @@
       content: "";
       position: absolute;
       top: -24px;
-      left: 50%;
+      left: 10%;
       margin-left: -15px;
       border: 12px solid transparent;
       border-bottom: 12px solid #FFF;
@@ -71,18 +71,24 @@
         content: "";
         position: absolute;
         top: -30px;
-        left: 50%;
+        left: 10%;
         margin-left: -17px;
         border: 14px solid transparent;
         border-bottom: 14px solid #555;
         z-index: 1;
       }
-      h2{
+      h2 {
         font-weight: 800;
         text-decoration : underline;
+      }
+      a {
+        margin-right: 100px;
       }
     }
   .consultation_link {
     float: right;
+    a {
+      margin-right: 10px;
+    }
   }
 }
