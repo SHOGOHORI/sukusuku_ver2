@@ -22,7 +22,8 @@
           span
             | カテゴリー：
             = link_to @category.category, '#'
-            = link_to '年齢月齢', '#'
+            |
+            = link_to consultation_tag(@consultation), '#'
           br
           span
             = @consultation.content

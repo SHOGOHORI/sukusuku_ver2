@@ -9,8 +9,11 @@
       = f.label :title, 'カテゴリー'
       = f.collection_select :category_id, @categorys, :id, :category, { prompt: '選択してください' }
     .field
+      = f.label :pregnant, '妊娠中'
       = f.check_box :pregnant, autofocus: true
-      = f.select :child_age, options_for_select((1..3).to_a), { include_blank: '選択してください'}
+      = f.label :child_age, '年齢'
+      = f.select :child_age, options_for_select((0..3).to_a), { include_blank: '選択してください'}
+      = f.label :child_age, '月齢'
       = f.select :child_moon_age, options_for_select((1..12).to_a), { include_blank: '選択してください'}
     .field
       = f.label :content, '本文'
