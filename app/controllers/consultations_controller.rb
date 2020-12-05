@@ -1,7 +1,7 @@
 class ConsultationsController < ApplicationController
   def new
     @consultation = Consultation.new
-    @categorys = Category.all#.map{ |c| [c.category, c.id] }
+    @categorys = Category.all
   end
 
   def create
@@ -23,6 +23,6 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title, :user_id, :category_id, { image: [] })
+    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, { image: [] })
   end
 end

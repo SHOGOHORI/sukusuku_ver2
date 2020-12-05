@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_05_054759) do
+ActiveRecord::Schema.define(version: 2020_12_05_084814) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 2020_12_05_054759) do
     t.datetime "updated_at", precision: 6, null: false
     t.json "image"
     t.integer "category_id"
+    t.integer "child_age"
+    t.integer "child_moon_age"
+    t.boolean "pregnant"
+    t.boolean "reception_closed"
     t.index ["user_id", "created_at"], name: "index_consultations_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_consultations_on_user_id"
   end

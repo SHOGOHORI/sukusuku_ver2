@@ -6,7 +6,12 @@
       = f.label :title, 'タイトル'
       = f.text_field :title, class: 'form-control'
     .field
+      = f.label :title, 'カテゴリー'
       = f.collection_select :category_id, @categorys, :id, :category, { prompt: '選択してください' }
+    .field
+      = f.check_box :pregnant, autofocus: true
+      = f.select :child_age, options_for_select((1..3).to_a), { include_blank: '選択してください'}
+      = f.select :child_moon_age, options_for_select((1..12).to_a), { include_blank: '選択してください'}
     .field
       = f.label :content, '本文'
       = f.text_area :content, class: 'form-control',:size=>'300x10'
