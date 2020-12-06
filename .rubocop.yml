@@ -39,3 +39,8 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'node_modules/**/*'
+
+Style/GlobalVars:
+  Exclude:
+    - 'config/unicorn.conf.rb'
+    - 'config/unicorn/production.rb'

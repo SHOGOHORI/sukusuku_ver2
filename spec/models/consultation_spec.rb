@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.describe Consultation, type: :model do
   describe '相談' do
     let!(:user) { create(:user) }
-    let(:consultation) { build(:consultation, title: title,
-                                      content: content,
-                                      user_id: user_id) }
+    let(:consultation) do
+      build(:consultation, title: title,
+                           content: content,
+                           user_id: user_id)
+    end
     subject { consultation }
     context '有効な相談' do
       let(:user_id) { user.id }
