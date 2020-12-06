@@ -13,8 +13,7 @@
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me
-        p
-          |  パスワードを記憶
+        = f.label :remember_me
     .actions
       = f.submit "ログイン"
 .guest

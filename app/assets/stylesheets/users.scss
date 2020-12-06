@@ -6,7 +6,10 @@
 #user_remember_me, label{
   float: left;
   width: auto;
-  padding-left: 5px;
+  font-size: 15px;
+}
+#user_remember_me, input[type="checkbox"]{
+  margin: 10px;
 }
 
 .guest__btn,
