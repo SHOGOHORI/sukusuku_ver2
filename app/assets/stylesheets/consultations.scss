@@ -9,8 +9,12 @@
   width: 15px;
   margin: 10px;
 }
-.form-group select{
-  width: 100px;
+.form-group{
+  margin: 0;
+  select{
+    width: 100px;
+    margin-right: 0;
+  }
 }
 
 /* 相談詳細 */
