@@ -5,10 +5,8 @@ class ConsultationsController < ApplicationController
 
   def create
     @consultation = Consultation.new(consultation_params)
-    if @consultation.pregnant || @consultation.child_age && child_moon_age
-      if @consultation.save
-        redirect_to consultation_url(@consultation), notice: '投稿しました。'
-      end
+    if @consultation.save
+      redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
       flash.now[:alert] = '投稿に失敗しました'
       render :new

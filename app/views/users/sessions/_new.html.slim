@@ -2,12 +2,13 @@
   p
     | ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス'
-    = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード'
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: 'form-control'
+    = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード', class: 'form-control'
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me
-        = f.label :remember_me
+        p
+          | パスワードを記憶
     .actions
       = f.submit "ログイン"
   .guest
