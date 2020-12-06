@@ -6,13 +6,13 @@
     .field
       = f.label :email
       br
-      = f.email_field :email, autofocus: true, autocomplete: 'email'
+      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
     .field
       = f.label :password
-      = f.password_field :password, autocomplete: 'new-password', placeholder: "#{@minimum_password_length}字以上"
+      = f.password_field :password, autocomplete: 'new-password', placeholder: "#{@minimum_password_length}字以上", class: 'form-control'
     .field
       = f.label :password_confirmation
       br
-      = f.password_field :password_confirmation, autocomplete: 'new-password'
+      = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
     .actions
       = f.submit '同意して登録する'

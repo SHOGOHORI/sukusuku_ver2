@@ -159,6 +159,10 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
+label{
+  font-size: 15px;
+  margin: 5px;
+}
 
 /* 通知メッセージ */
 #error_explanation{
