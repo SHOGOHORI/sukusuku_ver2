@@ -1,0 +1,4 @@
+.particular-case
+  li #"consultation-#{consultation.id}"
+    = link_to consultation_path(consultation), class: 'consultation-box' do
+      = consultation.title
