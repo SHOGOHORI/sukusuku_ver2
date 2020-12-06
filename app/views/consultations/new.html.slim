@@ -7,18 +7,20 @@
       = f.text_field :title, class: 'form-control'
     .field
       = f.label :title, 'カテゴリー'
-      = f.collection_select :category_id, @categorys, :id, :category, { prompt: '選択してください' }, class: 'selectpicker form-control'
-    .checkbox.row
+      = f.collection_select :category_id, Category.all, :id, :category, { prompt: '選択してください' }, class: 'selectpicker form-control'
+    .custom-checkbox
       .field
         = f.label :pregnant, '妊娠中'
-        = f.check_box :pregnant, autofocus: true
-    .form-group.row
+        = f.check_box :pregnant, autofocus: true, class: 'custom-control-input'
+    .form-group
       .field
         = f.label :child_age, '年齢'
         = f.select :child_age, options_for_select((0..3).to_a), { include_blank: '選択してください'}, class: 'selectpicker form-control'
+        | 歳
       .field
         = f.label :child_age, '月齢'
         = f.select :child_moon_age, options_for_select((1..12).to_a), { include_blank: '選択してください'}, class: 'selectpicker form-control'
+        | ヶ月
     .field
       = f.label :content, '本文'
       = f.text_area :content, class: 'form-control',:size=>'300x10'
