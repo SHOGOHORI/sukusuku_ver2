@@ -4,9 +4,10 @@
 
 /* 相談投稿フォーム */
 
-.custom-checkbox input{
-  width: 30px;
-  margin-top: 20px;
+.custom-checkbox input[type="checkbox"]{
+  padding-top: 100px;
+  width: 15px;
+  margin: 10px;
 }
 .form-group select{
   width: 100px;
@@ -44,7 +45,6 @@
       }
     }
     .Reception {
-    float: right;
     margin: 30px;
     display: inline-block;
     padding: 0.5em 1em;
