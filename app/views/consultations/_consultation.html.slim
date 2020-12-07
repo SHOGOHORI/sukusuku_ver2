@@ -5,9 +5,8 @@
   li
     - @category = Category.find_by(id: consultation.category_id)
     = @category.category
-  li
-    | 本文：
-    = consultation.content
+    = consultation_tag(consultation)
   span
     = time_ago_in_words(consultation.created_at)
     | 前
+    = consultation.user.name
