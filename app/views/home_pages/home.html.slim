@@ -7,6 +7,6 @@
       = render 'users/sessions/new'
   .consultation-index
     = paginate @consultations, remote: true
-    .card-body
+    ul.card-body
       = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
     = paginate @consultations, remote: true
