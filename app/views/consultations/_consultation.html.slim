@@ -4,9 +4,9 @@
     = link_to consultation.title , consultation_path(consultation), class: 'consultation-box'
   li
     - @category = Category.find_by(id: consultation.category_id)
-    = @category.category
-    = consultation_tag(consultation)
+    = link_to @category.category
+    = link_to consultation_tag(consultation), '#'
   span
     = time_ago_in_words(consultation.created_at)
     | 前
-    = consultation.user.name
+    = link_to consultation.user.name, consultation.user

@@ -10,3 +10,14 @@ items = %w[教育 健康 食事 安全]
 items.each do |i|
   Category.create!(category: i)
 end
+
+20.times do |n|
+  name = Faker::Name.name
+  email = "example-#{name}@example.org"
+  introduction = "#{name}です。宜しくおねがいします。"
+  User.create!(name:  name,
+      email: email,
+      password:              'password',
+      password_confirmation: 'password',
+      introduction: introduction)
+end
