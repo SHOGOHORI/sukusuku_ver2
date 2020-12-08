@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:edit, :update, :destroy, :show]
+  before_action :set_child, only: [:edit, :update, :destroy]
 
   def new
     @child = Child.new
@@ -15,7 +15,9 @@ class ChildrenController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @child = Child.find(params[:id])
+  end
 
   def edit; end
 
