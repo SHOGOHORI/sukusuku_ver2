@@ -1,9 +1,10 @@
 .form.consultation_comment_new
-  = form_for @consultation_comment, local: true do |f|
+  = form_for @comment, local: true do |f|
     .field
       = f.label :content, '本文'
       = f.text_area :content, class: 'form-control',:size=>'300x10'
     .field
       = f.file_field :image, multiple: true
       = f.hidden_field :user_id, :value => current_user.id
+      = f.hidden_field :consultation_id, :value => id
     = f.submit '投稿する'

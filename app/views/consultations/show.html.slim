@@ -38,7 +38,7 @@
           = link_to '削除', '#'
     - if  user_signed_in?
       / .modal.modal_content
-      = link_to 'コメントをする', new_consultation_comment_path
+      = link_to 'コメントをする', consultation_comment_new_path, id: @consultation.id
     - else
       = link_to 'ログイン', user_session_path
       | してコメントする。

@@ -1,9 +1,9 @@
 class ConsultationCommentController < ApplicationController
   def new
-    @consultation_comment = Consultation_comment.new
+    @comment = ConsultationComment.new
   end
 
   def create
-    @consultation_comment = Consultation_comment.new
+    @comment = ConsultationComment.new
   end
 end
