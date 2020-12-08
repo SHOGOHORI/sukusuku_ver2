@@ -34,12 +34,12 @@ s = Random.rand(s1 .. s2)
                 comment: "#{nick_name}だ。")
 end
 
-30.times do
-  users = User.order(:created_at).take(10)
+30.times do |n|
   title = Faker::Lorem.sentence(word_count: 2)
   content = Faker::Lorem.sentence(word_count: 10)
   category_id = Random.rand(0 .. 3)
-  users.each { |user| user.consultations.create!(title: title,
-                                                 content: content,
-                                                 category_id: category_id) }
+  Consultation.create!(title: title,
+                       content: content,
+                       user_id: n + 1,
+                       category_id: 1)
 end
