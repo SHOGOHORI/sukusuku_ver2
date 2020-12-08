@@ -11,13 +11,35 @@ items.each do |i|
   Category.create!(category: i)
 end
 
-20.times do |n|
-  name = Faker::Name.name
-  email = "example-#{name}@example.org"
+30.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
   User.create!(name:  name,
       email: email,
       password:              'password',
       password_confirmation: 'password',
       introduction: introduction)
+end
+
+s1 = Date.parse('2018/01/01')
+s2 = Date.parse('2021/06/15')
+s = Random.rand(s1 .. s2)
+30.times do |n|
+  nick_name = Faker::Games::Pokemon.name
+  Child.create!(user_id: n + 1,
+                nick_name: nick_name,
+                child_number: 1,
+                birthday: s,
+                comment: "#{nick_name}だ。")
+end
+
+30.times do
+  users = User.order(:created_at).take(10)
+  title = Faker::Lorem.sentence(word_count: 2)
+  content = Faker::Lorem.sentence(word_count: 10)
+  category_id = Random.rand(0 .. 3)
+  users.each { |user| user.consultations.create!(title: title,
+                                                 content: content,
+                                                 category_id: category_id) }
 end
