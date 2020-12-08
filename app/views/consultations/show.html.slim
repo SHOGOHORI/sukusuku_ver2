@@ -36,5 +36,9 @@
         .consultation_link
           = link_to '編集', '#'
           = link_to '削除', '#'
-    .modal.modal_content
-      = link_to 'コメントをする', '#'
+    - if  user_signed_in?
+      / .modal.modal_content
+      = link_to 'コメントをする', new_consultation_comment_path
+    - else
+      = link_to 'ログイン', user_session_path
+      | してコメントする。
