@@ -13,3 +13,15 @@ document.addEventListener("turbolinks:load"
     })
   });
 })
+
+$(function() {
+  $(document).on('click', '.button', function() {
+    $('.modal_wrapper').show();
+    $('.modal').show();
+    if ($(this).hasClass('sign_up_button')) {
+      $('.sign_up_modal').show();
+    } else {
+      $('.sign_in_modal').show();
+    }
+  });
+});
