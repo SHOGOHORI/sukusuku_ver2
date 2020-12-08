@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_05_084814) do
+ActiveRecord::Schema.define(version: 2020_12_08_095610) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 2020_12_05_084814) do
     t.string "comment"
     t.index ["user_id", "created_at"], name: "index_children_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "consultation_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content"
+    t.json "image"
+    t.bigint "user_id", null: false
+    t.bigint "consultation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_consultation_comments_on_consultation_id"
+    t.index ["user_id"], name: "index_consultation_comments_on_user_id"
   end
 
   create_table "consultations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -66,5 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_084814) do
   end
 
   add_foreign_key "children", "users"
+  add_foreign_key "consultation_comments", "consultations"
+  add_foreign_key "consultation_comments", "users"
   add_foreign_key "consultations", "users"
 end
