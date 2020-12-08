@@ -13,18 +13,18 @@ end
 
 30.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@example.org"
+  email = "example-#{n + 1}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
-  User.create!(name:  name,
-      email: email,
-      password:              'password',
-      password_confirmation: 'password',
-      introduction: introduction)
+  User.create!(name: name,
+               email: email,
+               password: 'password',
+               password_confirmation: 'password',
+               introduction: introduction)
 end
 
 s1 = Date.parse('2018/01/01')
 s2 = Date.parse('2021/06/15')
-s = Random.rand(s1 .. s2)
+s = Random.rand(s1..s2)
 30.times do |n|
   nick_name = Faker::Games::Pokemon.name
   Child.create!(user_id: n + 1,
@@ -37,7 +37,6 @@ end
 30.times do |n|
   title = Faker::Lorem.sentence(word_count: 2)
   content = Faker::Lorem.sentence(word_count: 10)
-  category_id = Random.rand(0 .. 3)
   Consultation.create!(title: title,
                        content: content,
                        user_id: n + 1,

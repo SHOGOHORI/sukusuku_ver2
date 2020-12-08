@@ -1,12 +1,21 @@
 .particular-case
-  li
-    | タイトル：
-    = link_to consultation.title , consultation_path(consultation), class: 'consultation-box'
-  li
-    - @category = Category.find_by(id: consultation.category_id)
-    = link_to @category.category
-    = link_to consultation_tag(consultation), '#'
-  span
-    = time_ago_in_words(consultation.created_at)
-    | 前
-    = link_to consultation.user.name, consultation.user
+  .box
+    li
+      h4
+        = link_to consultation.title , consultation_path(consultation), class: 'consultation-box'
+    li
+      - @category = Category.find_by(id: consultation.category_id)
+      span
+        | カテゴリー：
+        = link_to @category.category
+      span
+        = link_to consultation_tag(consultation), '#'
+    span
+      = time_ago_in_words(consultation.created_at)
+      | 前
+    span.user
+      - if consultation.user.avatar?
+        = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
+      - else
+        = image_tag 'user_icon.png', alt: 'icon', height: '20px'
+      = link_to consultation.user.name, consultation.user

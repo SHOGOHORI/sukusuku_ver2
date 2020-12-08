@@ -106,3 +106,24 @@
     }
   }
 }
+
+/* 相談一覧 */
+.particular-case {
+  .box {
+    display: block;
+    width: 900px;
+    height: 100%;
+    padding: 10px;
+    border: solid 3px #000;
+    h4 {
+      font-weight: 800;
+      text-decoration : underline;
+    }
+    span {
+      margin-right: 10px;
+    }
+    .user {
+      float: right;
+    }
+  }
+}
