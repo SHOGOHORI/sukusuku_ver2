@@ -1,6 +1,12 @@
-- unless  user_signed_in?
-  .non-login
-    .home-logo
-      h3 あなたの育児の困った！を救う
-      = image_tag 'home_logo.png', height: "200px"
-    = render 'users/sessions/new'
+.home
+  - unless  user_signed_in?
+    .non-login
+      .home-logo
+        h3 あなたの育児の困った！を救う
+        = image_tag 'home_logo.png', height: "200px"
+      = render 'users/sessions/new'
+  .consultation-index
+    = paginate @consultations
+    ul.card-body
+      = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
+    = paginate @consultations

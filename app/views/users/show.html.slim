@@ -10,7 +10,8 @@
     p
       = @user.introduction
       br
-      = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
+      - if current_user == @user
+        = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
 
 
   .child_info
@@ -29,7 +30,8 @@
               br
               = age_and_moon_age(child.birthday)
           = link_to '', child_path(child)
-        = link_to '編集', edit_child_path(child)
-      - if @user.children.count < 3
+        - if current_user == @user
+          = link_to '編集', edit_child_path(child)
+      - if current_user == @user && @user.children.count < 3
         li
           = link_to '子どもの情報を登録する', new_child_path

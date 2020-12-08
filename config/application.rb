@@ -41,3 +41,10 @@ module Sukusuku
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end
+
+module Bookers2Debug
+  class Application < Rails::Application
+    config.load_defaults 5.2
+    config.i18n.default_locale = :ja # 追記
+  end
+end

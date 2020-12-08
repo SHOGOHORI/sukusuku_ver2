@@ -27,6 +27,7 @@ gem 'dotenv-rails'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'mini_magick'
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry-rails'
