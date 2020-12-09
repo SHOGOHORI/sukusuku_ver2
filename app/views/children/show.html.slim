@@ -6,10 +6,11 @@
           = image_tag @child.avatar.url, alt: 'icon', height: '300px', width: '300px'
         - else
           = image_tag 'child_icon.png', alt: 'icon', height: '300px', width: '300px'
-      div.comment
-        div.say
-          h2
-            = @child.comment
+      - if @child.comment
+        div.comment
+          div.say
+            h2
+              = @child.comment
     li
       h2
         = @child.nick_name

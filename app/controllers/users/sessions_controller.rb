@@ -3,6 +3,7 @@
 module Users
   class SessionsController < Devise::SessionsController
     before_action :configure_sign_in_params, only: [:create]
+    before_action :reset_session_before_login, only: :create
     skip_before_action :noname_user, only: [:destroy]
 
     # GET /resource/sign_in
@@ -37,6 +38,14 @@ module Users
       redirect_to user, notice: 'ゲストユーザーとしてログインしました。'
     end
 
+    private
+
+    def reset_session_before_login
+      user_return_to = session[:user_return_to]
+      reset_session
+      session[:user_return_to] = user_return_to if user_return_to
+    end
+
     protected
 
     # If you have extra params to permit, append them to the sanitizer.
@@ -44,8 +53,8 @@ module Users
       devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
     end
 
-    def after_sign_in_path_for(resource)
-      user_path(resource)
+    def after_sign_in_path_for(resource_or_scope)
+      stored_location_for(resource_or_scope) || super
     end
   end
 end
