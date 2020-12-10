@@ -43,7 +43,7 @@
         | コメントをする
       .modal.modal_content
         span.fa_wrapper
-          = fa_icon 'times'
+          i.fas.fa-times
         h2
           | コメントフォーム
         = form_for @comment,  url: consultation_comment_index_path, local: true do |f|
