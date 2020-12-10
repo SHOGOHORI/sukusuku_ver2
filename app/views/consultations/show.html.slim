@@ -36,7 +36,7 @@
       - if current_user == @user
         .consultation_link
           = link_to '編集', '#'
-          = link_to '削除', '#'
+          = link_to "削除", @consultation, method: :delete, data: { confirm: '削除しますか？' }
     - if  user_signed_in?
       .button
         | コメントをする

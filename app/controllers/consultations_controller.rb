@@ -20,6 +20,12 @@ class ConsultationsController < ApplicationController
     @comment = ConsultationComment.new
   end
 
+  def destroy
+    @consultation = Consultation.find(params[:id])
+    @consultation.destroy
+    redirect_to root_path, notice: '削除しました'
+  end
+
   private
 
   def consultation_params
