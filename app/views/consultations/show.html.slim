@@ -8,7 +8,7 @@
           - if @user.avatar?
             = image_tag @user.avatar.url, alt: 'icon', height: '100px'
           - else
-            = image_tag 'user_icon.png', alt: 'icon', height: '100px'
+            i.fas.fa-user.fa-5x
           = @user.name
           = link_to '', @user
         - if current_user == @user

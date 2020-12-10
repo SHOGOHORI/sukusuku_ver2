@@ -17,5 +17,5 @@
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
       - else
-        = image_tag 'user_icon.png', alt: 'icon', height: '20px'
+        i.fas.fa-user
       = link_to consultation.user.name, consultation.user
