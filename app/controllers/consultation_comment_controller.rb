@@ -1,5 +1,4 @@
 class ConsultationCommentController < ApplicationController
-
   def create
     @comment = ConsultationComment.new(consultation_params)
     if @comment.save
