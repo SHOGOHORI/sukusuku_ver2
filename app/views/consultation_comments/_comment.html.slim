@@ -1,0 +1,7 @@
+.particular-case
+  .box
+    = comment.content
+    - if comment.image?
+      td
+        - comment.image.each do |image|
+          = image_tag image.to_s

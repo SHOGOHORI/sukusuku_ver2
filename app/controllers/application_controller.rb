@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
       flash[:alert] = 'お名前を登録願います。'
     end
   end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
 end
