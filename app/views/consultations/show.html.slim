@@ -9,7 +9,8 @@
             = image_tag @user.avatar.url, alt: 'icon', height: '100px'
           - else
             i.fas.fa-user.fa-5x
-          = @user.name
+          p
+            = @user.name
           = link_to '', @user
         - if current_user == @user
           .Reception
