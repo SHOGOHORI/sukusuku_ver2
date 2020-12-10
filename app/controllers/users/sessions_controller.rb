@@ -2,8 +2,8 @@
 
 module Users
   class SessionsController < Devise::SessionsController
-    before_action :configure_sign_in_params, only: [:create]
-    skip_before_action :noname_user, only: [:destroy]
+    before_action :configure_sign_in_params, only: :create
+    skip_before_action :noname_user, only: :destroy
 
     # GET /resource/sign_in
     # def new

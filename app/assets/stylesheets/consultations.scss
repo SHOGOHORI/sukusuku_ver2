@@ -47,6 +47,15 @@
         text-indent:-999px;
         z-index: 2;
       }
+      i {
+        float: right;
+        margin: 0 10px;
+      }
+      p{
+        font-weight: 800;
+        margin-top: 10px;
+        text-align: center;
+      }
     }
     .Reception {
     margin: 30px;
@@ -124,6 +133,9 @@
     }
     .user {
       float: right;
+      i {
+        margin-right: 5px;
+      }
     }
   }
 }

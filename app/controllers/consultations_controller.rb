@@ -17,6 +17,13 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @user = User.find_by(id: @consultation.user_id)
     @category = Category.find_by(id: @consultation.category_id)
+    @comment = ConsultationComment.new
+  end
+
+  def destroy
+    @consultation = Consultation.find(params[:id])
+    @consultation.destroy
+    redirect_to root_path, notice: '削除しました'
   end
 
   private

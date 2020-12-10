@@ -13,3 +13,16 @@ document.addEventListener("turbolinks:load"
     })
   });
 })
+
+$(function() {
+  $(document).on('click', '.button', function() {
+    $('.modal_wrapper').show();
+    $('.modal').show();
+  });
+});
+
+$(document).on('click', '.modal_wrapper, .fa_wrapper', function() {
+  $('.modal_wrapper').hide();
+  $('.modal').hide();
+  $('.modal_content').hide();
+})

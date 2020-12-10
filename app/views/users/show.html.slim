@@ -3,7 +3,7 @@
     - if @user.avatar?
       = image_tag @user.avatar.url, alt: 'icon', height: '150px'
     - else
-      = image_tag 'user_icon.png', alt: 'icon', height: '150px'
+      i.fas.fa-user.fa-7x
     h3
       = @user.name
     br

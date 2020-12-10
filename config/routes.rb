@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'consultation_comment/new'
+  get 'consultation_comment/create'
   root 'home_pages#home'
   get  '/help', to: 'home_pages#help'
   get  '/privacy', to: 'home_pages#privacy'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :children
   resources :consultations
+  resources :consultation_comment, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
