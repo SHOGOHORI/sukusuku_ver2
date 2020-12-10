@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :children
   resources :consultations
-  resources :consultation_comment, only: [:new, :create]
+  resources :consultation_comment, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

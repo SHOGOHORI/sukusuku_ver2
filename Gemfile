@@ -28,6 +28,7 @@ gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'pry-rails'

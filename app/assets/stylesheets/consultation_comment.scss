@@ -4,7 +4,19 @@
 
 /* 相談一覧 */
 
-.modal_wrapper {
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 5px;
+  opacity: .6;
+  transition: .3s;
+  :hover {
+    opacity: 1;
+  }
+}
+
+.consultation_comment_new {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -33,4 +45,9 @@
 .modal_content {
   display: none;
   text-align: center;
+}
+
+.fa_wrapper {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
 }

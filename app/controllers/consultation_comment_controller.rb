@@ -1,10 +1,13 @@
 class ConsultationCommentController < ApplicationController
-  def new
-    @comment = ConsultationComment.new
-  end
 
   def create
     @comment = ConsultationComment.new(consultation_params)
+    if @comment.save
+      redirect_to consultation_url(@comment.consultation), notice: '投稿しました。'
+    else
+      flash.now[:alert] = '投稿に失敗しました'
+      render 'consultations/show'
+    end
   end
 
   def consultation_params

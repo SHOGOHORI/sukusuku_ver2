@@ -18,10 +18,11 @@ $(function() {
   $(document).on('click', '.button', function() {
     $('.modal_wrapper').show();
     $('.modal').show();
-    if ($(this).hasClass('sign_up_button')) {
-      $('.sign_up_modal').show();
-    } else {
-      $('.sign_in_modal').show();
-    }
   });
 });
+
+$(document).on('click', '.modal_wrapper, .fa_wrapper', function() {
+  $('.modal_wrapper').hide();
+  $('.modal').hide();
+  $('.modal_content').hide();
+})
