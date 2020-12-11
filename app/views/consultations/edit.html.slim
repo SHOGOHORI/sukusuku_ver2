@@ -1,4 +1,18 @@
 .form.consultation_new
   h1
     | 相談を編集する
-  = render 'form', btn_name: "更新する"
+  = form_for @consultation, local: true do |f|
+    .field
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control'
+    span
+      | カテゴリー：
+      = link_to @category.category, '#'
+      = link_to consultation_tag(@consultation), '#'
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control',:size=>'300x10'
+    .field
+      = f.file_field :image, multiple: true
+      = f.hidden_field :user_id, :value => current_user.id
+    = f.submit '更新する'

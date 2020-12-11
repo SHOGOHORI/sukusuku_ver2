@@ -1,5 +1,5 @@
 class ConsultationsController < ApplicationController
-  before_action :set_consultation, only: [:edit, :update, :destroy]
+  before_action :set_consultation, only: [:edit, :update, :destroy, :reception_closed]
 
   def new
     @consultation = Consultation.new
@@ -23,7 +23,9 @@ class ConsultationsController < ApplicationController
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
   end
 
-  def edit; end
+  def edit
+    @category = Category.find_by(id: @consultation.category_id)
+  end
 
   def update
     if @consultation.update(consultation_params)
@@ -37,6 +39,12 @@ class ConsultationsController < ApplicationController
   def destroy
     @consultation.destroy
     redirect_to root_path, notice: '削除しました'
+  end
+
+  def reception_closed
+    @consultation.reception_closed = true
+    @consultation.save
+    redirect_to @consultation
   end
 
   private

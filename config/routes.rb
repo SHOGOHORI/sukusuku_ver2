@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   get 'users/:id/profile_register', to: 'users#profile_create', as: 'profile_create'
 
   resources :children
-  resources :consultations
+  resources :consultations do
+    member do
+      post 'reception_closed', to: 'consultations#reception_closed'
+    end
+  end
   resources :consultation_comment, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
