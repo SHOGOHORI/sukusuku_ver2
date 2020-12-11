@@ -9,6 +9,12 @@ class ConsultationCommentController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = ConsultationComment.find(params[:id])
+    @comment.destroy
+    redirect_to @comment.consultation, notice: '削除しました'
+  end
+
   def consultation_params
     params.require(:consultation_comment).permit(:content, :user_id, :consultation_id, { image: [] })
   end
