@@ -1,0 +1,2 @@
+class ConsultationCommentReplyController < ApplicationController
+end
