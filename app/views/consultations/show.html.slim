@@ -5,24 +5,28 @@
     .box
       .box_top
         .user
-          - if @user.avatar?
-            = image_tag @user.avatar.url, alt: 'icon', height: '100px'
-          - else
-            i.fas.fa-user.fa-5x
-          p
-            = @user.name
+          ul
+            li
+              - if @user.avatar?
+                = image_tag @user.avatar.url, alt: 'icon', height: '100px'
+              - else
+                i.fas.fa-user.fa-5x
+            li
+              p
+                = @user.name
           = link_to '', @user
-        - unless @consultation.reception_closed
-          - if current_user == @user
-            .Reception_open
-              span
-                = link_to '受付終了する', reception_closed_consultation_path(@consultation), method: :post
+        .Reception
+          - unless @consultation.reception_closed
+            - if current_user == @user
+              .Reception_open
+                span
+                  = link_to '受付終了する', reception_closed_consultation_path(@consultation), method: :post
+            - else
+              | コメント受付中
           - else
-            | コメント受付中
-        - else
-          .Reception_close
-            span
-              | 受付終了しました
+            .Reception_close
+              span
+                | 受付終了しました
       .box_bottom
         .content
           h2
