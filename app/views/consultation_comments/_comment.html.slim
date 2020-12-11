@@ -1,7 +1,15 @@
-.particular-case
-  .box
-    = comment.content
-    - if comment.image?
-      td
-        - comment.image.each do |image|
-          = image_tag image.to_s
+- @consultation.consultation_comments.recently.each do |comment|
+  .particular-case
+    .box
+      - if comment.user.avatar?
+        = image_tag @user.avatar.url, alt: 'icon', height: '80px'
+      - else
+        i.fas.fa-user.fa-2x
+      = link_to comment.user.name, comment.user
+      br
+      = comment.content
+      br
+      - if comment.image?
+        td
+          - comment.image.each do |image|
+            = image_tag image.to_s
