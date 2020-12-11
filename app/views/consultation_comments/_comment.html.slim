@@ -1,4 +1,4 @@
-- @consultation.consultation_comments.recently.each do |comment|
+- @comments.each do |comment|
   .particular-case
     .box
       - if comment.user.avatar?
@@ -13,3 +13,5 @@
         td
           - comment.image.each do |image|
             = image_tag image.to_s
+
+= paginate @comments

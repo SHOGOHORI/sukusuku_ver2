@@ -23,7 +23,7 @@ class ChildrenController < ApplicationController
 
   def update
     if @child.update(child_params)
-      redirect_to user_path(current_user), notice: '子どもの情報を更新しました。'
+      redirect_to current_user, notice: '子どもの情報を更新しました。'
     else
       flash.now[:alert] = '必須項目を入力願います。'
       render :edit
