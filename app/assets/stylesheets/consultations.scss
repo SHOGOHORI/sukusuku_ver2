@@ -4,14 +4,14 @@
 
 /* 相談投稿フォーム */
 
-.custom-checkbox input[type="checkbox"]{
+.custom-checkbox input[type="checkbox"] {
   padding-top: 100px;
   width: 15px;
   margin: 10px;
 }
-.form-group{
+.form-group {
   margin: 0;
-  select{
+  select {
     width: 100px;
     margin-right: 0;
   }
@@ -86,7 +86,7 @@
     background: #FFF;
     border: solid 3px #555;
     box-sizing: border-box;
-    &::before{
+    &::before {
       content: "";
       position: absolute;
       top: -24px;
