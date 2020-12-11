@@ -41,6 +41,9 @@
             td
               - @consultation.image.each do |image|
                 = image_tag image.to_s
+      span
+        = time_ago_in_words(@consultation.created_at)
+        | 前
       - if current_user == @user
         .consultation_link
           = link_to '編集', edit_consultation_path(@consultation)

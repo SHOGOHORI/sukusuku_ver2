@@ -1,3 +1,6 @@
+- unless @comments
+  p
+    | コメントはまだありません。
 - @comments.each do |comment|
   .particular-case
     .box
@@ -13,5 +16,4 @@
         td
           - comment.image.each do |image|
             = image_tag image.to_s
-
 = paginate @comments
