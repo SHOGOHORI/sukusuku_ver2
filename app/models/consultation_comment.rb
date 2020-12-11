@@ -4,5 +4,6 @@ class ConsultationComment < ApplicationRecord
   mount_uploaders :image, ImageUploader
   validates :user_id, presence: true
   validates :consultation_id, presence: true
-  validates :content, presence: true, length: { maximum: 1000 }
+  validates :content, presence: true, length: { maximum: 500 }
+  scope :recently, -> { order(created_at: :desc) }
 end
