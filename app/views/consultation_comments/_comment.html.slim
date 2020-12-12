@@ -18,4 +18,5 @@
             = image_tag image.to_s
       - if current_user == comment.user
         = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
+      = link_to '返信', comment, method: :delete, data: { confirm: '削除しますか？' }
 = paginate @comments

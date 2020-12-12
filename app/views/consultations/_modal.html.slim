@@ -3,7 +3,7 @@
     i.fas.fa-times
   h2
     | コメントフォーム
-  = form_for @comment,  url: consultation_comment_index_path, local: true do |f|
+  = form_for message,  url: consultation_comment_index_path, local: true do |f|
     .field
       = f.label :content, '本文'
       = f.text_area :content, class: 'form-control', placeholder: '500字以内'
