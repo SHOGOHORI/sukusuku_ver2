@@ -22,5 +22,5 @@
         - if  user_signed_in?
           .button
             | 返信をする
-          = render 'consultation_comments/modal'
+          = render 'consultation_comment_replies/modal', comment: comment
 = paginate @comments

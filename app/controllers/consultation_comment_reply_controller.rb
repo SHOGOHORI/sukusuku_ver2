@@ -3,8 +3,9 @@ class ConsultationCommentReplyController < ApplicationController
 
   def create
     @reply = ConsultationCommentReply.new(reply_params)
+    @consultation = @reply.consultation_comment.consultation
     if @reply.save
-      redirect_to consultation_url(@reply.consultsation_comment.consultation), notice: '投稿しました。'
+      redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
       flash.now[:alert] = '投稿に失敗しました'
       render 'consultations/show'
