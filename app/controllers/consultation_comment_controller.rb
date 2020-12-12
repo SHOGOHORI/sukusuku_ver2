@@ -16,6 +16,8 @@ class ConsultationCommentController < ApplicationController
     redirect_to request.referrer, notice: '削除しました'
   end
 
+  private
+
   def comment_params
     params.require(:consultation_comment).permit(:content, :user_id, :consultation_id, { image: [] })
   end

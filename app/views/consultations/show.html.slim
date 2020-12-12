@@ -56,7 +56,7 @@
       - if  user_signed_in?
         .button
           | コメントをする
-        = render 'modal', message: @comment
+        = render 'consultation_comments/modal'
       - else
         = link_to 'ログイン', user_session_path
         | してコメントする。

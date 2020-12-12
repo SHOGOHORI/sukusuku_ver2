@@ -2,7 +2,7 @@ class ConsultationCommentReplyController < ApplicationController
   before_action :set_comment, only: :destroy
 
   def create
-    @reply = ConsultationComment.new(comment_params)
+    @reply = ConsultationCommentReply.new(reply_params)
     if @reply.save
       redirect_to consultation_url(@reply.consultsation_comment.consultation), notice: '投稿しました。'
     else
@@ -16,7 +16,9 @@ class ConsultationCommentReplyController < ApplicationController
     redirect_to request.referrer, notice: '削除しました'
   end
 
-  def comment_params
+  private
+
+  def reply_params
     params.require(:consultation_comment_reply).permit(:content, :user_id, :consultation_comment_id, { image: [] })
   end
 
