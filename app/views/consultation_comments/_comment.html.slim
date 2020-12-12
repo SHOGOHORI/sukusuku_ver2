@@ -20,8 +20,9 @@
         = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
       - unless @consultation.reception_closed
         - if  user_signed_in?
-          .reply_button
-            | 返信をする
+          <div class='button reply_button' value="#{comment.id}">
+            | 返信する
+          </div>
           = render 'consultation_comment_replies/modal', comment: comment
       = render 'consultation_comment_replies/reply', comment: comment
 = paginate @comments

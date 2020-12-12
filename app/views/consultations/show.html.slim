@@ -52,12 +52,12 @@
         .consultation_link
           = link_to '編集', edit_consultation_path(@consultation)
           = link_to '削除', @consultation, method: :delete, data: { confirm: '削除しますか？' }
+    .modal_wrapper
     - unless @consultation.reception_closed
       - if  user_signed_in?
-        .comment_button
+        .button.comment_button
           | コメントをする
-          = render 'consultation_comments/modal'
-          .modal_wrapper
+        = render 'consultation_comments/modal'
       - else
         = link_to 'ログイン', user_session_path
         | してコメントする。
