@@ -54,9 +54,10 @@
           = link_to '削除', @consultation, method: :delete, data: { confirm: '削除しますか？' }
     - unless @consultation.reception_closed
       - if  user_signed_in?
-        .button
+        .comment_button
           | コメントをする
-        = render 'consultation_comments/modal'
+          = render 'consultation_comments/modal'
+          .modal_wrapper
       - else
         = link_to 'ログイン', user_session_path
         | してコメントする。

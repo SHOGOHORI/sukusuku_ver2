@@ -15,14 +15,14 @@ document.addEventListener("turbolinks:load"
 })
 
 $(function() {
-  $(document).on('click', '.button', function() {
+  $(document).on('click', '.comment_button', function() {
     $('.modal_wrapper').show();
-    $('.modal').show();
+    $('.comment_modal').show();
   });
 });
 
 $(document).on('click', '.modal_wrapper, .fa_wrapper', function() {
   $('.modal_wrapper').hide();
-  $('.modal').hide();
-  $('.modal_content').hide();
+  $('.comment_modal').hide();
+  $('.comment_modal_content').hide();
 })

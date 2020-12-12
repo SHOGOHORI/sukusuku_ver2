@@ -1,5 +1,5 @@
 class ConsultationCommentReplyController < ApplicationController
-  before_action :set_comment, only: :destroy
+  before_action :set_reply, only: :destroy
 
   def create
     @reply = ConsultationCommentReply.new(reply_params)

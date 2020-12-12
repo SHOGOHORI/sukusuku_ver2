@@ -4,7 +4,7 @@
 
 /* 相談一覧 */
 
-.button {
+.comment_button, .reply_button {
   display: inline-block;
   cursor: pointer;
   border: 2px solid black;
@@ -16,7 +16,7 @@
   }
 }
 
-.consultation_comment_new {
+.modal_wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -27,7 +27,7 @@
   display: none;
 }
 
-.modal {
+.comment_modal, .reply_modal {
   position: absolute;
   background-color: #fff;
   width: 450px;
@@ -42,7 +42,7 @@
   text-align: right;
 }
 
-.modal_content {
+.comment_modal_content, .reply_modal_content {
   display: none;
   text-align: center;
 }
