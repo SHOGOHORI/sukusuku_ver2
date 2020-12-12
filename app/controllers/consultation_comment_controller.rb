@@ -12,7 +12,7 @@ class ConsultationCommentController < ApplicationController
   def destroy
     @comment = ConsultationComment.find(params[:id])
     @comment.destroy
-    redirect_to @comment.consultation, notice: '削除しました'
+    redirect_to request.referrer, notice: '削除しました'
   end
 
   def consultation_params
