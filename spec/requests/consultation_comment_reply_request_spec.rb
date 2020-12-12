@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "ConsultationCommentReplies", type: :request do
-
+RSpec.describe 'ConsultationCommentReplies', type: :request do
 end

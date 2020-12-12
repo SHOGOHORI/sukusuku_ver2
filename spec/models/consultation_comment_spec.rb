@@ -5,15 +5,15 @@ RSpec.describe ConsultationComment, type: :model do
     let!(:user) { create(:user) }
     let!(:category) { create(:category) }
     let!(:consultation) do
-      create(:consultation, title: "title",
-                            content: "content",
+      create(:consultation, title: 'title',
+                            content: 'content',
                             category_id: category.id,
                             user_id: user.id)
     end
     let(:consultation_comment) do
       build(:consultation_comment, content: content,
-                           consultation_id: consultation_id,
-                           user_id: user_id)
+                                   consultation_id: consultation_id,
+                                   user_id: user_id)
     end
     subject { consultation_comment }
     context '有効なコメント' do
