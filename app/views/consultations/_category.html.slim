@@ -1,0 +1,9 @@
+.category
+  h4 カテゴリー
+  .category-index
+    - @categories.each do|category|
+      = search_form_for @q do |f|
+        = f.hidden_field :category_id_eq, value: category.id
+        = button_tag type: 'submit', class: 'card-category' do
+          i
+            = category.category
