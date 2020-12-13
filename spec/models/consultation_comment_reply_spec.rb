@@ -10,7 +10,7 @@ RSpec.describe ConsultationCommentReply, type: :model do
     end
     let!(:consultation_comment) do
       create(:consultation_comment, consultation_id: consultation.id,
-                                   user_id: user.id)
+                                    user_id: user.id)
     end
     let(:consultation_comment_reply) do
       build(:consultation_comment_reply, content: content,
