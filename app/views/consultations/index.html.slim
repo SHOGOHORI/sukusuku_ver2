@@ -9,3 +9,4 @@
   ul.card-body
     = render partial: 'consultations/consultation', collection: @search_consultations, id: 'consultation-index'
   = paginate @search_consultations
+= render partial: 'consultations/category'
