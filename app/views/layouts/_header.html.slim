@@ -3,7 +3,10 @@ header
     li
       = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
     li.search-form
-      = text_field '#', placeholder: 'キーワード検索'
+      = search_form_for @q do |f|
+        = f.text_field :content_or_title_cont, placeholder: 'キーワード検索'
+        = button_tag type: 'submit', class: 'btn btn-primary' do
+          i.fas.fa-search
 
   ul.header-right
     - if user_signed_in?

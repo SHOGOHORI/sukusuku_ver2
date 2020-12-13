@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :noname_user
+  before_action :set_search
+
+  def set_search
+    @q = Consultation.ransack(params[:q])
+    @q.sorts = 'updated_at desc' if @q.sorts.empty?
+    @search_consultations = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
+  end
 
   def noname_user
     if user_signed_in? && !current_user.name

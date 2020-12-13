@@ -1,0 +1,7 @@
+.consultation-index
+  - if @search_consultations.count == 0
+    h3 相談がありません。
+  = paginate @search_consultations
+  ul.card-body
+    = render partial: 'consultations/consultation', collection: @search_consultations, id: 'consultation-index'
+  = paginate @search_consultations
