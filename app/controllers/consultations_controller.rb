@@ -24,6 +24,10 @@ class ConsultationsController < ApplicationController
     @reply = ConsultationCommentReply.new
   end
 
+  def index
+    @consultations = Consultation.all.recently.page(params[:page]).per(5)
+  end
+
   def edit
     @category = Category.find_by(id: @consultation.category_id)
   end

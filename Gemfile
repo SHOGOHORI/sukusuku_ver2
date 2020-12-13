@@ -29,6 +29,7 @@ gem 'bcrypt_pbkdf'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'font-awesome-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry-rails'
