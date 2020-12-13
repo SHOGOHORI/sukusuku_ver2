@@ -4,8 +4,6 @@ module ConsultationsHelper
       '妊娠中の相談'
     elsif consultation.child_age && consultation.child_moon_age
       "#{consultation.child_age}歳#{consultation.child_moon_age}ヶ月の相談"
-    else
-      ''
     end
   end
 end
