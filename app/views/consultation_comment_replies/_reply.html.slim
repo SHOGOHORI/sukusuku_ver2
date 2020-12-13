@@ -1,0 +1,16 @@
+- comment.consultation_comment_replies.each do |reply|
+  .reply
+    - if reply.user.avatar?
+      = image_tag reply.user.avatar.url, alt: 'icon', height: '80px'
+    - else
+      i.fas.fa-user.fa-2x
+    = link_to reply.user.name, reply.user
+    br
+    = reply.content
+    br
+    - if reply.image?
+      td
+        - reply.image.each do |image|
+          = image_tag image.to_s
+    - if current_user == reply.user
+      = link_to '削除', reply, method: :delete, data: { confirm: '削除しますか？' }

@@ -11,12 +11,12 @@
   padding: 5px;
   opacity: .6;
   transition: .3s;
-  :hover {
+  &:hover {
     opacity: 1;
   }
 }
 
-.consultation_comment_new {
+.modal_wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -24,14 +24,16 @@
   left: 0;
   background-color: black;
   opacity: .7;
+  z-index: 6;
   display: none;
 }
 
-.modal {
-  position: absolute;
+.comment_modal, .reply_modal {
+  position: fixed;
   background-color: #fff;
   width: 450px;
-  height: 350px;
+  height: 40vh;
+  border-radius: 10px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -40,9 +42,10 @@
   border: 1px solid #eee;
   display: none;
   text-align: right;
+  z-index: 7;
 }
 
-.modal_content {
+.comment_modal_content, .reply_modal_content {
   display: none;
   text-align: center;
 }
@@ -50,4 +53,5 @@
 .fa_wrapper {
   cursor: pointer;
   margin: 3px 3px 0 0;
+
 }

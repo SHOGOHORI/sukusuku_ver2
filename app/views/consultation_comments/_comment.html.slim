@@ -5,7 +5,7 @@
   .particular-case
     .box
       - if comment.user.avatar?
-        = image_tag @user.avatar.url, alt: 'icon', height: '80px'
+        = image_tag comment.user.avatar.url, alt: 'icon', height: '80px'
       - else
         i.fas.fa-user.fa-2x
       = link_to comment.user.name, comment.user
@@ -16,4 +16,13 @@
         td
           - comment.image.each do |image|
             = image_tag image.to_s
+      - if current_user == comment.user
+        = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
+      - unless @consultation.reception_closed
+        - if  user_signed_in?
+          <div class='button reply_button' value="#{comment.id}">
+            | 返信する
+          </div>
+          = render 'consultation_comment_replies/modal', comment: comment
+      = render 'consultation_comment_replies/reply', comment: comment
 = paginate @comments

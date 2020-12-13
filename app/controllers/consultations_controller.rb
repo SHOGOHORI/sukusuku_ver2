@@ -21,6 +21,7 @@ class ConsultationsController < ApplicationController
     @category = Category.find_by(id: @consultation.category_id)
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
+    @reply = ConsultationCommentReply.new
   end
 
   def edit

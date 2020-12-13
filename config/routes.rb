@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :consultation_comment, only: [:create, :destroy]
+  resources :consultation_comment_reply, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
