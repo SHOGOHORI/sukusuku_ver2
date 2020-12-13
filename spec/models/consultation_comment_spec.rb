@@ -5,9 +5,7 @@ RSpec.describe ConsultationComment, type: :model do
     let!(:user) { create(:user) }
     let!(:category) { create(:category) }
     let!(:consultation) do
-      create(:consultation, title: 'title',
-                            content: 'content',
-                            category_id: category.id,
+      create(:consultation, category_id: category.id,
                             user_id: user.id)
     end
     let(:consultation_comment) do

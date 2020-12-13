@@ -25,7 +25,6 @@ $(function() {
     $('.reply_modal').fadeIn();
     let comment_id = $('.reply_button').attr('value');
     $('.reply_hidden').val(comment_id);
-    console.log(comment_id);
   });
 
   $(document).on('click', '.modal_wrapper, .fa_wrapper', function() {
