@@ -34,20 +34,34 @@ end
                 comment: "#{nick_name}だ。")
 end
 
-50.times do
+10.times do
   title = Faker::Lorem.sentence(word_count: 3)
   content = Faker::Lorem.sentence(word_count: 30)
   category = Category.all.sample
   user = User.all.sample
   Consultation.create!(title: title,
                        content: content,
+                       pregnant: true,
                        user_id: user.id,
                        category_id: category.id)
 end
 
-30.times do
+40.times do
+  title = Faker::Lorem.sentence(word_count: 3)
   content = Faker::Lorem.sentence(word_count: 30)
-  consultation = Consultation.order(:created_at).take(6).sample
+  category = Category.all.sample
+  user = User.all.sample
+  Consultation.create!(title: title,
+                       content: content,
+                       child_age: rand(1..3),
+                       child_moon_age: rand(1..12),
+                       user_id: user.id,
+                       category_id: category.id)
+end
+
+40.times do
+  content = Faker::Lorem.sentence(word_count: 30)
+  consultation = Consultation.order(:created_at).last(3).sample
   user = User.all.sample
   ConsultationComment.create!(content: content,
                                user_id: user.id,
