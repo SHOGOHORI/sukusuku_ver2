@@ -123,6 +123,22 @@
 }
 
 /* 相談一覧 */
+.category, .consultation-index {
+  float: left;
+  margin: 50px;
+  .box {
+    display: block;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+    border: solid 3px #000;
+  }
+}
+
+.category {
+  margin-top: 120px;
+}
+
 .particular-case {
   .box {
     display: block;
