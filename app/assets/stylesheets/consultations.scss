@@ -20,7 +20,7 @@
 /* 相談詳細 */
 
 .consultation_show {
-  padding: 0 200px;
+  padding: 0;
   min-width: 1400px;
   .consultation_body{
     margin-left: 300px;
@@ -142,6 +142,7 @@
 }
 
 .particular-case {
+  margin-top: 5px;
   .box {
     display: block;
     width: 900px;
