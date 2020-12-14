@@ -25,7 +25,7 @@ class ConsultationsController < ApplicationController
   end
 
   def index
-    @consultations = Consultation.all.recently.page(params[:page]).per(5)
+    @consultations = Consultation.all.recently.page(params[:page]).per(10)
   end
 
   def edit
