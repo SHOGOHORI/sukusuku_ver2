@@ -14,6 +14,22 @@ document.addEventListener("turbolinks:load"
   });
 })
 
+document.addEventListener("turbolinks:load"
+, function () {
+  $(function(){
+    $('#q_pregnant_eq').click(function(){
+    if($('#q_pregnant_eq').prop('checked')) {
+        $('#q_child_age_eq').prop('disabled', true);
+        $('#q_child_moon_age_eq').prop('disabled', true);
+      }
+      else {
+        $('#q_child_age_eq').prop('disabled', false);
+        $('#q_child_moon_age_eq').prop('disabled', false);
+      }
+    })
+  });
+})
+
 $(function() {
   $(document).on('click', '.comment_button', function() {
     $('.modal_wrapper').show();
