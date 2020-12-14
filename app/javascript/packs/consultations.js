@@ -19,12 +19,16 @@ document.addEventListener("turbolinks:load"
   $(function(){
     $('#q_pregnant_eq').click(function(){
     if($('#q_pregnant_eq').prop('checked')) {
-        $('#q_child_age_eq').prop('disabled', true);
-        $('#q_child_moon_age_eq').prop('disabled', true);
+        $('#q_child_age_lteq').prop('disabled', true);
+        $('#q_child_moon_age_lteq').prop('disabled', true);
+        $('#q_child_age_gteq').prop('disabled', true);
+        $('#q_child_moon_age_gteq').prop('disabled', true);
       }
       else {
-        $('#q_child_age_eq').prop('disabled', false);
-        $('#q_child_moon_age_eq').prop('disabled', false);
+        $('#q_child_age_lteq').prop('disabled', false);
+        $('#q_child_moon_age_lteq').prop('disabled', false);
+        $('#q_child_age_gteq').prop('disabled', false);
+        $('#q_child_moon_age_gteq').prop('disabled', false);
       }
     })
   });
