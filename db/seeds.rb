@@ -65,6 +65,6 @@ end
   consultation = Consultation.order(:created_at).last(3).sample
   user = User.all.sample
   ConsultationComment.create!(content: content,
-                               user_id: user.id,
-                               consultation_id: consultation.id)
+                              user_id: user.id,
+                              consultation_id: consultation.id)
 end
