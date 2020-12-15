@@ -12,7 +12,7 @@
     details
       summary
         | 詳細検索
-      = search_form_for @q do |f|
+      = search_form_for @q, remote: true do |f|
         .field
           = f.label :title, 'カテゴリー'
           = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
