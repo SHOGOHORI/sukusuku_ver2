@@ -3,19 +3,27 @@
     li
       h4
         = link_to consultation.title , consultation_path(consultation), class: 'consultation-box'
-    li
+    li.category_tag
       - @category = Category.find_by(id: consultation.category_id)
       span
         | カテゴリー：
-        = link_to @category.category
+        = search_form_for @q do |f|
+          = f.hidden_field :category_id_eq, value: @category.id
+          = button_tag type: 'submit', class: 'card-category' do
+            = @category.category
       span
-        = link_to consultation_tag(consultation), '#'
-    span
-      = time_ago_in_words(consultation.created_at)
-      | 前
+        - if consultation_tag(consultation)
+          = search_form_for @q do |f|
+            = f.hidden_field :child_age_eq, value: consultation.child_age
+            = f.hidden_field :child_moon_age_eq, value: consultation.child_moon_age
+            = f.hidden_field :pregnant_eq, value: consultation.pregnant
+            = button_tag type: 'submit', class: 'card-category' do
+              = consultation_tag(consultation)
     span.user
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
       - else
         i.fas.fa-user
       = link_to consultation.user.name, consultation.user
+      = time_ago_in_words(consultation.created_at)
+      | 前に投稿

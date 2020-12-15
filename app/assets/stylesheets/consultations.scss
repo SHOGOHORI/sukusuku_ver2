@@ -20,7 +20,7 @@
 /* 相談詳細 */
 
 .consultation_show {
-  padding: 0 200px;
+  padding: 0;
   min-width: 1400px;
   .consultation_body{
     margin-left: 300px;
@@ -31,6 +31,7 @@
     height: 100%;
     padding: 50px;
     border: solid 3px #000;
+    box-shadow: 10px 10px 15px -10px;
   }
   .box_top{
     height: 90px;
@@ -123,19 +124,59 @@
 }
 
 /* 相談一覧 */
+.category, .consultation-index {
+  float: left;
+  margin: 50px;
+  .box {
+    display: block;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
+    border: solid 3px #000;
+    box-shadow: 10px 10px 15px -10px;
+  }
+}
+
+.category {
+  margin-top: 120px;
+  details {
+    transition: .5s;
+    height: 25px;
+    &[open] {
+      height: 400px;
+    }
+    summary {
+      cursor: pointer;
+      width: 100%;
+      font-weight: 800;
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+  h4 {
+    font-weight: 800;
+    text-align: center;
+  }
+}
+
 .particular-case {
+  margin-top: 5px;
   .box {
     display: block;
     width: 900px;
     height: 100%;
     padding: 10px;
     border: solid 3px #000;
+    box-shadow: 10px 10px 15px -10px;
     h4 {
       font-weight: 800;
       text-decoration : underline;
     }
     span {
       margin-right: 10px;
+    }
+    .category_tag {
+      display: inline;
     }
     .user {
       float: right;

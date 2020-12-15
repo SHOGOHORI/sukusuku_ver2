@@ -22,10 +22,12 @@ class ConsultationsController < ApplicationController
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
     @reply = ConsultationCommentReply.new
+    store_location
   end
 
   def index
-    @consultations = Consultation.all.recently.page(params[:page]).per(5)
+    @consultations = Consultation.all.recently.page(params[:page]).per(10)
+    store_location
   end
 
   def edit
@@ -61,5 +63,13 @@ class ConsultationsController < ApplicationController
   def set_consultation
     @consultation = Consultation.find(params[:id])
     redirect_to(root_url) unless current_user.id == @consultation.user_id
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def consultations_path_with_search_params
+    URI(request.referer).path == '/sonsultations' ? request.referer : items_path
   end
 end

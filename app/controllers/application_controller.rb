@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :noname_user
   before_action :set_search
+  before_action :set_category
 
   def set_search
     @q = Consultation.ransack(params[:q])
     @q.sorts = 'updated_at desc' if @q.sorts.empty?
     @search_consultations = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
+  end
+
+  def set_category
+    @categories = Category.all
   end
 
   def noname_user

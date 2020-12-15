@@ -1,0 +1,50 @@
+.category
+  .box
+    h4 カテゴリー
+    .category-index
+      - @categories.each do|category|
+        = search_form_for @q do |f|
+          = f.hidden_field :category_id_eq, value: category.id
+          = button_tag type: 'submit', class: 'card-category' do
+            i
+              = category.category
+  .box
+    details
+      summary
+        | 詳細検索
+      = search_form_for @q, remote: true do |f|
+        .field
+          = f.label :title, 'カテゴリー'
+          = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
+        .field
+          = f.label :pregnant, '妊娠中'
+          = f.select :pregnant_eq, [['いいえ',0],['はい',1]], { include_blank: '選択'}, class: 'selectpicker form-control'
+        .form-group
+          .form-inline
+            .col
+              = f.label :child_age, '年齢:'
+            .col
+              = f.select :child_age_eq, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+              |  歳
+          .form-inline
+            .col
+              = f.label :child_age, '月齢:'
+            .col
+              = f.select :child_moon_age_eq, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+              |  ヶ月
+          / | 〜
+          / .form-inline
+          /   .col
+          /     = f.label :child_age, '年齢:'
+          /   .col
+          /     = f.select :child_age_lteq, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          /     |  歳
+          / .form-inline
+          /   .col
+          /     = f.label :child_age, '月齢:'
+          /   .col
+          /     = f.select :child_moon_age_lteq, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          /     |  ヶ月
+        .field
+          = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control'
+        = f.submit '検索する', class: "btn btn-primary"

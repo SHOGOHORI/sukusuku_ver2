@@ -26,15 +26,14 @@ module Users
         u.name = 'ゲストユーザー'
         u.introduction = 'よろしくおねがいします。'
       end
-
       Child.find_or_create_by!(user_id: user.id) do |c|
         c.child_number = 1
         c.nick_name = 'たろう'
         c.birthday = '2020-1-1'
       end
-
       sign_in user
-      redirect_to user, notice: 'ゲストユーザーとしてログインしました。'
+      redirect_back_or(user)
+      flash[:notice] = 'ゲストユーザーとしてログインしました。'
     end
 
     protected
