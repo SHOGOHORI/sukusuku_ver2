@@ -1,37 +1,61 @@
-.mypage
-  .profile
-    - if @user.avatar?
-      = image_tag @user.avatar.url, alt: 'icon', height: '150px'
-    - else
-      i.fas.fa-user.fa-7x
-    h3
-      = @user.name
-    br
-    p
-      = @user.introduction
-      br
-      - if current_user == @user
-        = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
+ul.mypage
+  li
+    = render partial: 'consultations/category'
+  li.user_part
+      .profile
+        - if @user.avatar?
+          = image_tag @user.avatar.url, alt: 'icon', height: '150px'
+        - else
+          i.fas.fa-user.fa-7x
+        h3
+          = @user.name
+        br
+        p
+          = @user.introduction
+          br
+          - if current_user == @user
+            = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
 
+      .child_info
+        ul
+          - @user.children.each do |child|
+            li.child_individual
+              - if child.avatar?
+                = image_tag child.avatar, alt: 'icon', height: '100px', width: '100px'
+              - else
+                = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
+              .explanation
+                h4
+                  = child.nick_name
+                p
+                  = child_birthday(child.birthday)
+                  br
+                  = age_and_moon_age(child.birthday)
+              = link_to '', child_path(child)
+            - if current_user == @user
+              = link_to '編集', edit_child_path(child)
+          - if current_user == @user && @user.children.count < 3
+            li
+              = link_to '子どもの情報を登録する', new_child_path
 
-  .child_info
-    ul
-      - @user.children.each do |child|
-        li.child_individual
-          - if child.avatar?
-            = image_tag child.avatar, alt: 'icon', height: '100px', width: '100px'
-          - else
-            = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
-          .explanation
-            h4
-              = child.nick_name
-            p
-              = child_birthday(child.birthday)
-              br
-              = age_and_moon_age(child.birthday)
-          = link_to '', child_path(child)
-        - if current_user == @user
-          = link_to '編集', edit_child_path(child)
-      - if current_user == @user && @user.children.count < 3
-        li
-          = link_to '子どもの情報を登録する', new_child_path
+  li.p-3
+    ul.nav.nav-tabs
+      li.nav-item
+        a.nav-link.active href='#tab1' data-toggle='tab'
+          | 相談（
+          = @user.consultations.count
+          | ）
+      li.nav-item
+        a.nav-link href='#tab2' data-toggle='tab'
+          | コメント（
+          = @user_comments.uniq.count
+          | ）
+    .tab-content
+      #tab1.tab-pane.active
+        = paginate @user_consultations
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
+        = paginate @user_consultations
+      #tab2.tab-pane
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_comments.uniq, id: 'consultation-index'
