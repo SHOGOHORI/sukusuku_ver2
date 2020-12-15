@@ -30,6 +30,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'ransack'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-rails'
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
