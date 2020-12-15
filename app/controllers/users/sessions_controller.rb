@@ -34,7 +34,8 @@ module Users
       end
 
       sign_in user
-      redirect_to user, notice: 'ゲストユーザーとしてログインしました。'
+      redirect_back_or(user)
+      flash[:notice] = 'ゲストユーザーとしてログインしました。'
     end
 
     protected
