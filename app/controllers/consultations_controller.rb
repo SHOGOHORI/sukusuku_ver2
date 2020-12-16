@@ -26,6 +26,7 @@ class ConsultationsController < ApplicationController
   end
 
   def index
+    @consultations = Consultation.all.recently.page(params[:page]).per(10)
     store_location
   end
 

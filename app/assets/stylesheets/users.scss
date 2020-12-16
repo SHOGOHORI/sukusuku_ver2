@@ -29,7 +29,6 @@ a.guest__btn {
 }
 /* マイページ */
 .mypage{
-  padding: 0 200px;
   min-width: 1400px;
   img{
     border-radius: 50%;
@@ -46,6 +45,7 @@ a.guest__btn {
     margin: 2em;
     color: #2c2c2f;
     background: #cde4ff;
+    box-shadow: 10px 10px 15px -10px;
     h3 {
       text-align: center;
       margin: 0;
@@ -70,6 +70,7 @@ a.guest__btn {
     color: #2c2c2f;
     background: #cde4ff;
     position: relative;
+    box-shadow: 10px 10px 15px -10px;
     ul{
       display: flex;
       flex-direction: column;
@@ -108,5 +109,7 @@ a.guest__btn {
 }
 
 .p-3 {
-  float: right;
+  float: left;
+  margin-left: 50px;
+  margin-bottom: 100px;
 }
