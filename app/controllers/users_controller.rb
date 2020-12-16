@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user_consultations = Kaminari.paginate_array(@user.consultations.recently).page(params[:page])
     @user_comments = Consultation.joins(:consultation_comments).where(consultation_comments: { user: User.find(@user.id) })
     @comments = ConsultationComment.joins(:consultation_comment_replies).where(consultation_comment_replies: { user: User.find(@user.id) })
-    @user_comments += Consultation.joins(:consultation_comments).where(consultation_comments: @comments )
+    @user_comments += Consultation.joins(:consultation_comments).where(consultation_comments: @comments)
   end
 
   def profile_create

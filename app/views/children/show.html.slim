@@ -23,3 +23,10 @@
         = child_birthday(@child.birthday)
     li
       = link_to '編集', edit_child_path(@child)
+h2
+  = age_and_moon_age(@child.birthday)
+  | の記事
+= paginate @consultations
+ul.card-body
+  = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
+= paginate @consultations
