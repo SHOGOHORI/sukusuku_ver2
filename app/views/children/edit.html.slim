@@ -1,7 +1,7 @@
 .form.children_edit
   h1
     | お子様のプロフィール編集
-  #children
+  #children_edit
     = form_for @child do |child|
       = render 'child_fields', f: child, btn: '更新する'
   p

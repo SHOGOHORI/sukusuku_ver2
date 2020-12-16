@@ -4,6 +4,7 @@ module Users
   class SessionsController < Devise::SessionsController
     before_action :configure_sign_in_params, only: :create
     skip_before_action :noname_user, only: :destroy
+    before_action :reset_session_before_login, only: :create
 
     # GET /resource/sign_in
     # def new
@@ -44,7 +45,15 @@ module Users
     end
 
     def after_sign_in_path_for(resource)
-      user_path(resource)
+      session[:user_return_to] || resource
+    end
+
+    private
+
+    def reset_session_before_login
+      user_return_to = session[:user_return_to]
+      reset_session
+      session[:user_return_to] = user_return_to if user_return_to
     end
   end
 end

@@ -17,6 +17,9 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find(params[:id])
+    age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
+    moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
+    @consultations = Consultation.where(child_age: age, child_moon_age: moon_age).recently.page(params[:page]).per(5)
   end
 
   def edit; end

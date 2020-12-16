@@ -29,65 +29,67 @@ a.guest__btn {
 }
 /* マイページ */
 .mypage{
-  padding: 0 200px;
   min-width: 1400px;
   img{
     border-radius: 50%;
     object-fit: cover;
   }
 }
-
-.profile {
-  float: left;
-  width: 250px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #2c2c2f;
-  background: #cde4ff;
-  h3 {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-  i {
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-  }
-  img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.child_info{
-  margin-left: 100px;
-  width: 700px;
-  float: right;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #2c2c2f;
-  background: #cde4ff;
-  position: relative;
-  ul{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    li{
-      margin-top: 10px;
-      img{
-        float: left;
-      }
-      .explanation {
-        float: left;
-        margin-left: 20px;
-      }
+.user_part{
+  margin: 0 50px 50px 100px;
+  height: 300px;
+  .profile {
+    float: left;
+    width: 250px;
+    padding: 0.5em 1em;
+    margin: 2em;
+    color: #2c2c2f;
+    background: #cde4ff;
+    box-shadow: 10px 10px 15px -10px;
+    h3 {
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
-    .edit{
-      position: absolute;
-      bottom: 10px;
-      margin-left: 450px;
+    i {
+      display: block;
+      margin: 1rem auto;
+      text-align: center;
+    }
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .child_info{
+    width: 500px;
+    float: left;
+    padding: 0.5em 1em;
+    margin: 2em;
+    color: #2c2c2f;
+    background: #cde4ff;
+    position: relative;
+    box-shadow: 10px 10px 15px -10px;
+    ul{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      li{
+        margin-top: 10px;
+        img{
+          float: left;
+        }
+        .explanation {
+          float: left;
+          margin-left: 20px;
+        }
+      }
+      .edit{
+        position: absolute;
+        bottom: 10px;
+        margin-left: 450px;
+      }
     }
   }
 }
@@ -104,4 +106,10 @@ a.guest__btn {
     text-indent:-999px;
     z-index: 2;
   }
+}
+
+.p-3 {
+  float: left;
+  margin-left: 50px;
+  margin-bottom: 100px;
 }
