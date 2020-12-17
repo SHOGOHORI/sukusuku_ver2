@@ -1,5 +1,1 @@
-$(function(){
-  $("a[data-remote]").on "ajax:success"(function(){
-    $('#home_pagenate').html("<%= javascript(render 'index_page') %>");
-  })
-});
+$('#home_pagenate').html("<%= escape_javascript(render 'index_page') %>");
