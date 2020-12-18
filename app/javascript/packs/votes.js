@@ -13,4 +13,31 @@ document.addEventListener("turbolinks:load"
       }
     })
   });
+  const resetNumber = () => {
+    $('.itemNumber').each((i, el) => {
+      el.innerText = i + 2;
+    })
+  }
+  $(function(){
+    $('#vote_items')
+      .on('cocoon:after-insert', resetNumber)
+      .on('cocoon:after-remove', resetNumber)
+  });
+
+  const check_to_hide_or_show_add_link = () => {
+    if ($('#vote_items .nested-fields').length == 3) {
+      $('#vote_items .links').hide();
+    } else {
+      $('#vote_items .links').show();
+    }
+  }
+  $(function() {
+    $('#vote_items').on('cocoon:after-insert', function() {
+      check_to_hide_or_show_add_link();
+    });
+
+    $('#vote_items').on('cocoon:after-remove', function() {
+      check_to_hide_or_show_add_link();
+    });
+  })
 })

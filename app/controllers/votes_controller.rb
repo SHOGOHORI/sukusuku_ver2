@@ -23,6 +23,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item])
+    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item])
   end
 end
