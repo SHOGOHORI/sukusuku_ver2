@@ -3,6 +3,10 @@ class HomePagesController < ApplicationController
 
   def home
     @consultations = Consultation.all.recently.page(params[:page]).per(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def help

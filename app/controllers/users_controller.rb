@@ -4,10 +4,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_consultations = Kaminari.paginate_array(@user.consultations.recently).page(params[:page])
-    @user_comments = Consultation.joins(:consultation_comments).where(consultation_comments: { user: User.find(@user.id) })
+    @user_consultations = Kaminari.paginate_array(@user.consultations.recently).page(params[:page]).per(5)
+    @c = Consultation.joins(:consultation_comments).where(consultation_comments: { user: User.find(@user.id) })
     @comments = ConsultationComment.joins(:consultation_comment_replies).where(consultation_comment_replies: { user: User.find(@user.id) })
-    @user_comments += Consultation.joins(:consultation_comments).where(consultation_comments: @comments)
+    @c += Consultation.joins(:consultation_comments).where(consultation_comments: @comments).recently
+    @user_comments = Kaminari.paginate_array(@c.uniq).page(params[:page]).per(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def profile_create

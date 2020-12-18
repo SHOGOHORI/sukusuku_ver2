@@ -1,0 +1,37 @@
+ ul
+  .child_show
+    ul.child_show_left
+      li.child_image
+        div.image
+          - if @child.avatar?
+            = image_tag @child.avatar.url, alt: 'icon', height: '300px', width: '300px'
+          - else
+            = image_tag 'child_icon.png', alt: 'icon', height: '300px', width: '300px'
+        - if @child.comment
+          div.comment
+            div.say
+              h2
+                = @child.comment
+      li
+        h2
+          = @child.nick_name
+    ul.child_show_rigth
+      li
+        h2
+          = age_and_moon_age(@child.birthday)
+      li
+        h2
+          = child_birthday(@child.birthday)
+      li
+        = link_to '編集', edit_child_path(@child)
+  ul
+    li
+      = render partial: 'consultations/category'
+    li.birthday_consultation
+      h2
+        = age_and_moon_age(@child.birthday)
+        | の記事
+      = paginate @consultations, remote:true
+      ul.card-body
+        = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
+      = paginate @consultations, remote:true
