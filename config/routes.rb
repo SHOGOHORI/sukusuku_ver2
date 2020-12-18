@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'votes/new'
+  get 'votes/show'
+  get 'votes/edit'
   get 'consultation_comment/new'
   get 'consultation_comment/create'
   root 'home_pages#home'
@@ -23,6 +26,8 @@ Rails.application.routes.draw do
   end
   resources :consultation_comment, only: [:create, :destroy]
   resources :consultation_comment_reply, only: [:create, :destroy]
+
+  resources :votes
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
