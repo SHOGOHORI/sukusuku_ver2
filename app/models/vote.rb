@@ -6,5 +6,6 @@ class Vote < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :user_id, presence: true
+  accepts_nested_attributes_for :vote_items, allow_destroy: true
   scope :recently, -> { order(created_at: :desc) }
 end

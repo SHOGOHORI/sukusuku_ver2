@@ -33,7 +33,7 @@
       = f.hidden_field :user_id, :value => current_user.id
     #vote_items
       = f.fields_for :vote_items do |i|
-        = render 'vite_item_fields', f: i
+        = render 'vote_item_fields', f: i
       .links
         = link_to_add_association '追加', f, :vote_items
     .actions
