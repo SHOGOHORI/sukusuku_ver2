@@ -1,0 +1,7 @@
+.nested-fields
+  .field
+    = f.label :item, '項目'
+    br
+    = f.text_field :item, placeholder: '30字以内', class: 'form-control'
+  br
+  = link_to_remove_association '削除', f
