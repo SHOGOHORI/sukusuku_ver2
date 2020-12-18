@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-items = %w[教育 健康 食事 安全 ママの悩み]
+items = %w[教育 健康 食事 美容 仕事 住まい 安全 マネー ママの悩み]
 items.each do |i|
   Category.create!(category: i)
 end
 
-30.times do |n|
+100.times do |n|
   name  = Faker::Name.name
   email = "example-#{n + 1}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
@@ -22,7 +22,7 @@ end
                introduction: introduction)
 end
 
-30.times do |n|
+100.times do |n|
   nick_name = Faker::Games::Pokemon.name
   s1 = Date.parse('2018/01/01')
   s2 = Date.parse('2021/06/15')
