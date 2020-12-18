@@ -17,6 +17,9 @@ document.addEventListener("turbolinks:load"
     $('.itemNumber').each((i, el) => {
       el.innerText = i + 2;
     })
+    $('#vote_items .item_hidden').each((i, el) => {
+      el.value =  i + 2;
+    })
   }
   $(function(){
     $('#vote_items')
