@@ -32,10 +32,10 @@
       = f.file_field :image, multiple: true
       = f.hidden_field :user_id, :value => current_user.id
     #vote_items
-      = f.fields_for :vote_items do |f|
-        p 項目1
-        = f.text_field :item, placeholder: '30字以内', class: 'form-control'
-        = f.hidden_field :item_number, :value => 1
+      / = f.fields_for :vote_item do |f|
+      /   p 項目1
+      /   = f.text_field :item, placeholder: '30字以内', class: 'form-control'
+      /   = f.hidden_field :item_number, :value => 1
       = f.fields_for :vote_items do |i|
         = render 'vote_item_fields', f: i
       .links
