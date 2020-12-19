@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :vote_item do
-    item { "MyString" }
+    item { 'MyString' }
     vote { nil }
   end
 end
