@@ -5,9 +5,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    # Vote.create!(vote_params)
     @vote = Vote.new(vote_params)
-    # pry.building
     if @vote.save
       redirect_to root_path, notice: '投稿しました。'
     else
@@ -25,6 +23,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] })#, vote_items_attributes: [:id, :item, :item_number, :_destroy])
+    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number, :vote_id])
   end
 end

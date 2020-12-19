@@ -15,10 +15,10 @@ document.addEventListener("turbolinks:load"
   });
   const resetNumber = () => {
     $('.itemNumber').each((i, el) => {
-      el.innerText = i + 2;
+      el.innerText = i + 1;
     })
     $('#vote_items .item_hidden').each((i, el) => {
-      el.value =  i + 2;
+      el.value =  i + 1;
     })
   }
   $(function(){
@@ -28,7 +28,7 @@ document.addEventListener("turbolinks:load"
   });
 
   const check_to_hide_or_show_add_link = () => {
-    if ($('#vote_items .nested-fields').length == 3) {
+    if ($('#vote_items .nested-fields').length == 4) {
       $('#vote_items .links').hide();
     } else {
       $('#vote_items .links').show();
