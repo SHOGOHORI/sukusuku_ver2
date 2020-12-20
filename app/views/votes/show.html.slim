@@ -1,2 +1,49 @@
-h1 Votes#show
-p Find me in app/views/votes/show.html.slim
+ul
+  li
+    = render partial: 'consultations/category'
+  li.consultation_show
+    .consultation_body
+      h2
+        | アンケート内容
+      .box
+        .box_top
+          .user
+            ul
+              li
+                - if @vote.user.avatar?
+                  = image_tag @vote.user.avatar.url, alt: 'icon', height: '100px'
+                - else
+                  i.fas.fa-user.fa-5x
+              li
+                p
+                  = @vote.user.name
+            = link_to '', @vote.user
+        .box_bottom
+          .content
+            h2
+              = @vote.title
+            span
+              | カテゴリー：
+              = search_form_for @q do |f|
+                = f.hidden_field :category_id_eq, value: @category.id
+                = button_tag type: 'submit', class: 'card-category' do
+                  = @category.category
+              - if consultation_tag(@vote)
+                = search_form_for @q do |f|
+                  = f.hidden_field :child_age_eq, value: @vote.child_age
+                  = f.hidden_field :child_moon_age_eq, value: @vote.child_moon_age
+                  = f.hidden_field :pregnant_eq, value: @vote.pregnant
+                  = button_tag type: 'submit', class: 'card-category' do
+                    = consultation_tag(@vote)
+            br
+            br
+            span
+              = @vote.content
+            br
+            - if @vote.image?
+              td
+                - @vote.image.each do |image|
+                  = image_tag image.to_s
+        span
+          = time_ago_in_words(@vote.created_at)
+          | 前

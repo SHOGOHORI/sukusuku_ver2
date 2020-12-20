@@ -7,16 +7,22 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
-      redirect_to root_path, notice: '投稿しました。'
+      redirect_to @vote, notice: '投稿しました。'
     else
       flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end
 
-  def show; end
+  def show
+    @vote = Vote.find(params[:id])
+    @category = Category.find_by(id: @vote.category_id)
+  end
 
-  def edit; end
+  def destroy
+    @vote.destroy
+    redirect_to root_path, notice: '削除しました'
+  end
 
   private
 

@@ -5,6 +5,5 @@
       span.itemNumber 1
     = f.text_field :item, placeholder: '30字以内', class: 'form-control'
     = f.hidden_field :item_number, :value => 1, class: 'item_hidden'
-    = f.hidden_field :vote_id, :value => @vote.id
   br
   = link_to_remove_association '削除', f
