@@ -18,7 +18,7 @@ header
           li
             = link_to '相談', new_consultation_path
           li
-            = link_to 'アンケート', '#'
+            = link_to 'アンケート', new_vote_path
       li.dropdown
         a.btn.btn-info.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
           - if current_user.avatar?
