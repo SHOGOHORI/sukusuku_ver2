@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  root 'home_pages#home'
+  get '/help', to: 'home_pages#help'
+  get '/privacy', to: 'home_pages#privacy'
   get 'votes/new'
   get 'votes/show'
   get 'votes/edit'
   get 'consultation_comment/new'
   get 'consultation_comment/create'
-  root 'home_pages#home'
-  get  '/help', to: 'home_pages#help'
-  get  '/privacy', to: 'home_pages#privacy'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :consultation_comment_reply, only: [:create, :destroy]
 
   resources :votes
+  resources :vote_items, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
