@@ -16,7 +16,6 @@ class VotesController < ApplicationController
 
   def show
     @vote = Vote.find(params[:id])
-    @category = Category.find_by(id: @vote.category_id)
   end
 
   def destroy
@@ -27,6 +26,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number, :vote_id])
+    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number])
   end
 end

@@ -25,9 +25,9 @@ ul
             span
               | カテゴリー：
               = search_form_for @q do |f|
-                = f.hidden_field :category_id_eq, value: @category.id
+                = f.hidden_field :category_id_eq, value: @vote.category.id
                 = button_tag type: 'submit', class: 'card-category' do
-                  = @category.category
+                  = @vote.category.category
               - if consultation_tag(@vote)
                 = search_form_for @q do |f|
                   = f.hidden_field :child_age_eq, value: @vote.child_age
@@ -47,3 +47,7 @@ ul
         span
           = time_ago_in_words(@vote.created_at)
           | 前
+        - @vote.vote_items.each do |vote_item|
+          p
+            = vote_item.item
+          = radio_button :,"#"

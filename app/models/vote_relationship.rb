@@ -1,0 +1,2 @@
+class VoteRelationship < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_141524) do
+ActiveRecord::Schema.define(version: 2020_12_21_020744) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 2020_12_19_141524) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "item_number"
     t.index ["vote_id"], name: "index_vote_items_on_vote_id"
+  end
+
+  create_table "vote_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vote_item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "vote_item_id"], name: "index_vote_relationships_on_user_id_and_vote_item_id", unique: true
+    t.index ["user_id"], name: "index_vote_relationships_on_user_id"
+    t.index ["vote_item_id"], name: "index_vote_relationships_on_vote_item_id"
   end
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
