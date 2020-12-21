@@ -47,9 +47,9 @@ ul
         span
           = time_ago_in_words(@vote.created_at)
           | 前
-        = form_for @vote_relationship do |f|
           - @vote.vote_items.each do |vote_item|
-            p
+            = form_for @vote_relationship do |i|
               = vote_item.item
-            = f.radio_button :vote_item_id, autofocus: true, class: 'custom-control-input', :value => vote_item.id
-          = f.submit '投票する', class: 'btn btn-primary'
+              = i.radio_button :vote_item_id, autofocus: true, class: 'custom-control-input', :value => vote_item.id
+              = i.hidden_field :user_id, :value => current_user.id
+              = i.submit '投票する', class: 'btn btn-primary'
