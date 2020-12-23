@@ -43,7 +43,7 @@
             .col
               = f.label :moon_age, '月齢:'
             .col
-              = f.select :moon_age_lteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+              = f.select :moon_age_lteq, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
               |  ヶ月
         .field
           = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control'
