@@ -18,7 +18,6 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
-    @category = Category.find_by(id: @consultation.category_id)
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
     @reply = ConsultationCommentReply.new
@@ -30,6 +29,7 @@ class ConsultationsController < ApplicationController
   end
 
   def index
+    pry.building
     store_location
     respond_to do |format|
       format.html

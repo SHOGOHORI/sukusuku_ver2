@@ -38,9 +38,9 @@ ul
             span
               | カテゴリー：
               = search_form_for @q do |f|
-                = f.hidden_field :category_id_eq, value: @category.id
+                = f.hidden_field :category_id_eq, value: @consultation.category_id
                 = button_tag type: 'submit', class: 'card-category' do
-                  = @category.category
+                  = @consultation.category.category
               - if consultation_tag(@consultation)
                 = search_form_for @q do |f|
                   = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
