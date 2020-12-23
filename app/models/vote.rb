@@ -1,4 +1,5 @@
 class Vote < ApplicationRecord
+  attr_accessor :child_age, :child_moon_age
   belongs_to :user
   belongs_to :category
   has_many :vote_items, dependent: :destroy

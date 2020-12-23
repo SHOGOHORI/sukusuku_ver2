@@ -6,7 +6,8 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    @consultation = Consultation.new(consultation_information)
+    @consultation = Consultation.new(consultation_params)
+    @consultation.moon_age = @consultation.child_age * 12 + @consultation.child_moon_age
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
@@ -63,16 +64,8 @@ class ConsultationsController < ApplicationController
 
   private
 
-  def set_extra_information
-    {:moon_age => child_age * 12 + child_moon_age}
-  end
-
   def consultation_params
     params.require(:consultation).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] })
-  end
-
-  def consultation_information
-    consultation_params.merge(@consultation.set_extra_information)
   end
 
   def set_consultation
@@ -86,9 +79,5 @@ class ConsultationsController < ApplicationController
 
   def consultations_path_with_search_params
     URI(request.referer).path == '/sonsultations' ? request.referer : items_path
-  end
-
-  def moon_age
-    child_age * 12 + child_moon_age
   end
 end
