@@ -54,7 +54,7 @@ end
   Consultation.create!(title: title,
                        content: content,
                        pregnant: 0,
-                       moon_age: rand(0..47),
+                       child_age_moon_age: rand(0..47),
                        user_id: user.id,
                        category_id: category.id)
 end
