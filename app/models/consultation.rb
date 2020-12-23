@@ -1,4 +1,5 @@
 class Consultation < ApplicationRecord
+  attr_accessor :age, :moon_age
   belongs_to :user
   belongs_to :category
   has_many :consultation_comments, dependent: :destroy

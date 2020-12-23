@@ -7,7 +7,7 @@ class ConsultationsController < ApplicationController
 
   def create
     @consultation = Consultation.new(consultation_params)
-    @consultation.moon_age = @consultation.child_age * 12 + @consultation.child_moon_age
+    @consultation.child_age_moon_age = @consultation.age * 12 + @consultation.moon_age
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
@@ -65,7 +65,7 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] })
+    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] })
   end
 
   def set_consultation
