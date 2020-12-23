@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :set_category
 
   def set_search
-    search_options = {
-      child_age_moon_age_lteq: params[:q][:age_lteq].to_i * 12 + params[:q][:moon_age_lteq].to_i,
-      child_age_moon_age_gteq: params[:q][:age_gteq].to_i * 12 + params[:q][:moon_age_gteq].to_i
-    }
-    @q = Consultation.ransack(params[:q], search_options)
+    # search_options = {
+    #   child_age_moon_age_lteq: params[:q][:age_lteq].to_i * 12 + params[:q][:moon_age_lteq].to_i,
+    #   child_age_moon_age_gteq: params[:q][:age_gteq].to_i * 12 + params[:q][:moon_age_gteq].to_i
+    # }
+    @q = Consultation.ransack(params[:q])
     @q.sorts = 'updated_at desc' if @q.sorts.empty?
     @search_consultations = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
   end
