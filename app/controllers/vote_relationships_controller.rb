@@ -5,8 +5,8 @@ class VoteRelationshipsController < ApplicationController
     if @vote_relationship.save
       redirect_to @vote_relationship.vote_item.vote, notice: '投票しました。'
     else
-      flash.now[:alert] = '投票に失敗しました'
-      redirect_to :back
+      flash[:alert] = '投票に失敗しました'
+      redirect_to request.referer
     end
   end
 

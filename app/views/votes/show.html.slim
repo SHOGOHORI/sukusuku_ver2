@@ -48,9 +48,11 @@ ul
           = time_ago_in_words(@vote.created_at)
           | 前
           = form_for @vote_relationship do |i|
-            - @vote.vote_items.each do |vote_item|
-              = i.fields_for :vote_relationship do |f|
-                = vote_item.item
-                = f.radio_button :vote_item_id, :value => vote_item.id
-                = f.hidden_field :user_id, :value => current_user.id
+            ul
+              - @vote.vote_items.each do |vote_item|
+                = i.fields_for :vote_relationship do |f|
+                  li
+                    = f.radio_button :vote_item_id, :value => vote_item.id
+                    = vote_item.item
+                    = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
