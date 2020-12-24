@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search_option
-    params[:q][:child_age_moon_age_lteq] = params[:q][:age_lteq].to_i * 12 + params[:q][:moon_age_lteq].to_i
+    params[:q][:child_age_moon_age_lteq] = params[:q][:age_lteq].to_i * 12 + params[:q][:moon_age_lteq].to_i,
     params[:q][:child_age_moon_age_gteq] = params[:q][:age_gteq].to_i * 12 + params[:q][:moon_age_gteq].to_i
   end
 end

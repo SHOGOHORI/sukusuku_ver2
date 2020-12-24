@@ -49,7 +49,8 @@ ul
           | 前
           = form_for @vote_relationship do |i|
             - @vote.vote_items.each do |vote_item|
-              = vote_item.item
-              = i.radio_button :vote_item_id, autofocus: true, class: 'custom-control-input', :value => vote_item.id
-              = i.hidden_field :user_id, :value => current_user.id
+              = i.fields_for :vote_relationship do |f|
+                = vote_item.item
+                = f.radio_button :vote_item_id, :value => vote_item.id
+                = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
