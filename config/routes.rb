@@ -27,10 +27,10 @@ Rails.application.routes.draw do
   resources :consultation_comment, only: [:create, :destroy]
   resources :consultation_comment_reply, only: [:create, :destroy]
 
-  resources :votes do
-    resources :vote_items, only: [:create, :destroy]
-    resources :vote_relationships, only: [:create, :destroy]
-  end
+  resources :votes
+  resources :vote_items, only: [:create, :destroy]
+  resources :vote_relationships, only: [:create, :destroy]
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
