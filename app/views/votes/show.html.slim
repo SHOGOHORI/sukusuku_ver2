@@ -30,8 +30,7 @@ ul
                   = @vote.category.category
               - if consultation_tag(@vote)
                 = search_form_for @q do |f|
-                  = f.hidden_field :child_age_eq, value: @vote.child_age
-                  = f.hidden_field :child_moon_age_eq, value: @vote.child_moon_age
+                  = f.hidden_field :child_age_moon_age_eq, value: @vote.child_age_moon_age
                   = f.hidden_field :pregnant_eq, value: @vote.pregnant
                   = button_tag type: 'submit', class: 'card-category' do
                     = consultation_tag(@vote)
@@ -56,3 +55,15 @@ ul
                     = vote_item.item
                     = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
+      .modal_wrapper
+      - if  user_signed_in?
+        .button.comment_button
+          | コメントをする
+        = render 'vote_comments/modal'
+      - else
+        = link_to 'ログイン', user_session_path
+        | してコメントする。
+      .comment_index
+        h2
+          | コメント
+        = render 'vote_comments/comment'

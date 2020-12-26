@@ -3,6 +3,14 @@ class ConsultationCommentController < ApplicationController
 
   def create
     @comment = ConsultationComment.new(comment_params)
+    @consultation = @comment.consultation
+    @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
+    @reply = ConsultationCommentReply.new
+    store_location
+    respond_to do |format|
+      format.html
+      format.js
+    end
     if @comment.save
       redirect_to consultation_url(@comment.consultation), notice: '投稿しました。'
     else
@@ -25,5 +33,9 @@ class ConsultationCommentController < ApplicationController
   def set_comment
     @comment = ConsultationComment.find(params[:id])
     redirect_to(root_url) unless current_user.id == @comment.user_id
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

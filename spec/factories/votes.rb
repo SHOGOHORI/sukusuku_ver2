@@ -3,8 +3,7 @@ FactoryBot.define do
     title { 'MyString' }
     content { 'MyText' }
     image { '' }
-    child_age { 1 }
-    child_moon_age { 1 }
+    child_age_moon_age { 1 }
     pregnant { false }
     user { nil }
     category { '' }

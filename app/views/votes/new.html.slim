@@ -15,15 +15,15 @@
     .form-group
       .form-inline
         .col
-          = f.label :child_age, '年齢:'
+          = f.label :age, '年齢:'
         .col
-          = f.select :child_age, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          = f.select :age, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
           |  歳
       .form-inline
         .col
-          = f.label :child_age, '月齢:'
+          = f.label :moon_age, '月齢:'
         .col
-          = f.select :child_moon_age, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          = f.select :moon_age, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
           |  ヶ月
     .field
       = f.label :content, '本文'
