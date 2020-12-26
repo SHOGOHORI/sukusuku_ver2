@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Votes', type: :request do
   let!(:user) { create(:user) }
-  let!(:vote) { create(:vote) }
+  let!(:category) { create(:category) }
+  let!(:vote) do
+    create(:vote, category_id: category.id,
+                          user_id: user.id)
+  end
   describe 'GET /new' do
     it 'returns http success' do
       sign_in user
@@ -13,8 +17,7 @@ RSpec.describe 'Votes', type: :request do
 
   describe 'GET /show' do
     it 'returns http success' do
-      sign_in user
-      get '/votes/show'
+      get vote_path(vote)
       expect(response).to have_http_status(:success)
     end
   end
