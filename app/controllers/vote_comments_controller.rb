@@ -1,0 +1,4 @@
+class VoteCommentsController < ApplicationController
+
+
+end
