@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "VoteRelationships", type: :request do
-
+RSpec.describe 'VoteRelationships', type: :request do
 end

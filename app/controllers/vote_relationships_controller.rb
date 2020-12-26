@@ -1,5 +1,4 @@
 class VoteRelationshipsController < ApplicationController
-
   def create
     @vote_relationship = VoteRelationship.new(vote_relationship_params)
     if @vote_relationship.save
@@ -10,8 +9,7 @@ class VoteRelationshipsController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
