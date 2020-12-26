@@ -11,17 +11,17 @@ ul
           .user
             ul
               li
-                - if @user.avatar?
-                  = image_tag @user.avatar.url, alt: 'icon', height: '100px'
+                - if @consultation.user.avatar?
+                  = image_tag @consultation.user.avatar.url, alt: 'icon', height: '100px'
                 - else
                   i.fas.fa-user.fa-5x
               li
                 p
-                  = @user.name
-            = link_to '', @user
+                  = @consultation.user.name
+            = link_to '', @consultation.user
           .Reception
             - unless @consultation.reception_closed
-              - if current_user == @user
+              - if current_user == @consultation.user
                 .Reception_open
                   span
                     = link_to '受付終了する', reception_closed_consultation_path(@consultation), method: :post
@@ -38,13 +38,12 @@ ul
             span
               | カテゴリー：
               = search_form_for @q do |f|
-                = f.hidden_field :category_id_eq, value: @category.id
+                = f.hidden_field :category_id_eq, value: @consultation.category_id
                 = button_tag type: 'submit', class: 'card-category' do
-                  = @category.category
+                  = @consultation.category.category
               - if consultation_tag(@consultation)
                 = search_form_for @q do |f|
-                  = f.hidden_field :child_age_eq, value: @consultation.child_age
-                  = f.hidden_field :child_moon_age_eq, value: @consultation.child_moon_age
+                  = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
                   = f.hidden_field :pregnant_eq, value: @consultation.pregnant
                   = button_tag type: 'submit', class: 'card-category' do
                     = consultation_tag(@consultation)
@@ -60,10 +59,11 @@ ul
         span
           = time_ago_in_words(@consultation.created_at)
           | 前
-        - if current_user == @user
-          .consultation_link
-            = link_to '編集', edit_consultation_path(@consultation)
-            = link_to '削除', @consultation, method: :delete, data: { confirm: '削除しますか？' }
+        - if  user_signed_in?
+          - if current_user == @consultation.user
+            .consultation_link
+              = link_to '編集', edit_consultation_path(@consultation)
+              = link_to '削除', @consultation, method: :delete, data: { confirm: '削除しますか？' }
       .modal_wrapper
       - unless @consultation.reception_closed
         - if  user_signed_in?

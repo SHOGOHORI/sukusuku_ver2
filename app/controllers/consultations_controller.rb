@@ -7,6 +7,7 @@ class ConsultationsController < ApplicationController
 
   def create
     @consultation = Consultation.new(consultation_params)
+    @consultation.child_age_moon_age = @consultation.age.to_i * 12 + @consultation.moon_age.to_i
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
@@ -17,8 +18,6 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
-    @user = User.find_by(id: @consultation.user_id)
-    @category = Category.find_by(id: @consultation.category_id)
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
     @reply = ConsultationCommentReply.new
@@ -30,7 +29,6 @@ class ConsultationsController < ApplicationController
   end
 
   def index
-    @consultations = Consultation.all.recently.page(params[:page]).per(10)
     store_location
     respond_to do |format|
       format.html
@@ -65,7 +63,7 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] })
+    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] })
   end
 
   def set_consultation

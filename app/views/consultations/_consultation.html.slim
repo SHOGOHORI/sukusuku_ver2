@@ -14,8 +14,7 @@
       span
         - if consultation_tag(consultation)
           = search_form_for @q do |f|
-            = f.hidden_field :child_age_eq, value: consultation.child_age
-            = f.hidden_field :child_moon_age_eq, value: consultation.child_moon_age
+            = f.hidden_field :child_age_moon_age_eq, value: consultation.child_age_moon_age
             = f.hidden_field :pregnant_eq, value: consultation.pregnant
             = button_tag type: 'submit', class: 'card-category' do
               = consultation_tag(consultation)
