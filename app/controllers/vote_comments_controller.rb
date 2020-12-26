@@ -3,6 +3,9 @@ class VoteCommentsController < ApplicationController
 
   def create
     @comment = VoteComment.new(comment_params)
+    @vote = @comment.vote
+    @vote_relationship = VoteRelationship.new
+    @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
     if @comment.save
       redirect_to @comment.vote, notice: '投稿しました。'
     else
