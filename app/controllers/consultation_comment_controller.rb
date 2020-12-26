@@ -24,6 +24,7 @@ class ConsultationCommentController < ApplicationController
 
   def set_comment
     @comment = ConsultationComment.find(params[:id])
+    @consultation = @comment.consultation
     redirect_to(root_url) unless current_user.id == @comment.user_id
   end
 end
