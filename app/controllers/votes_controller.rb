@@ -15,8 +15,11 @@ class VotesController < ApplicationController
   end
 
   def show
+    store_location
     @vote = Vote.find(params[:id])
     @vote_relationship = VoteRelationship.new
+    @comment = VoteComment.new
+    @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
   end
 
   def destroy
@@ -28,5 +31,9 @@ class VotesController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number])
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

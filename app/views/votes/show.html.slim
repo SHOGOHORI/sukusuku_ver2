@@ -56,3 +56,15 @@ ul
                     = vote_item.item
                     = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
+      .modal_wrapper
+        - if  user_signed_in?
+          .button.comment_button
+            | コメントをする
+          / = render 'consultation_comments/modal'
+        - else
+          = link_to 'ログイン', user_session_path
+          | してコメントする。
+      .comment_index
+        h2
+          | コメント
+        = render 'vote_comments/comment'
