@@ -5,7 +5,7 @@ RSpec.describe 'Votes', type: :request do
   let!(:category) { create(:category) }
   let!(:vote) do
     create(:vote, category_id: category.id,
-                          user_id: user.id)
+                  user_id: user.id)
   end
   describe 'GET /new' do
     it 'returns http success' do
