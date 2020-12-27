@@ -35,6 +35,9 @@ ul
           .content
             h2
               = @consultation.title
+            p
+              = number_with_delimiter(@consultation.impressionist_count)
+              | PV
             span
               | カテゴリー：
               = search_form_for @q do |f|
