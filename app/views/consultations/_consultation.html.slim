@@ -6,7 +6,6 @@
     li.category_tag
       - @category = Category.find_by(id: consultation.category_id)
       span
-        | カテゴリー：
         = search_form_for @q do |f|
           = f.hidden_field :category_id_eq, value: @category.id
           = button_tag type: 'submit', class: 'card-category' do
@@ -19,8 +18,9 @@
             = button_tag type: 'submit', class: 'card-category' do
               = consultation_tag(consultation)
         br
-        = number_with_delimiter(consultation.impressionist_count)
-        | PV
+        p.pv_count
+          = number_with_delimiter(consultation.impressionist_count)
+          |  PV
     span.user
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
