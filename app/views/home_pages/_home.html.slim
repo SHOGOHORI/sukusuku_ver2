@@ -8,8 +8,22 @@
   ul
     li
       = render partial: 'consultations/category'
-    li.consultation-index
-      = paginate @consultations, remote: true
-      ul.card-body
-        = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-      = paginate @consultations, remote: true
+    li.p-3
+      ul.nav.nav-tabs
+        li.nav-item
+          a.nav-link.active href='#tab1' data-toggle='tab'
+            | 相談
+        li.nav-item
+          a.nav-link href='#tab2' data-toggle='tab'
+            | アンケート
+      .tab-content
+        #tab1.tab-pane.active
+          = paginate @consultations, remote: true
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
+          = paginate @consultations, remote: true
+        #tab2.tab-pane
+          = paginate @votes, remote: true
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
+          = paginate @votes, remote: true

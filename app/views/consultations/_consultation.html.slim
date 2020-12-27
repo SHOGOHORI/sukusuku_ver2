@@ -2,7 +2,7 @@
   .box
     li
       h4
-        = link_to consultation.title , consultation_path(consultation), class: 'consultation-box'
+        = link_to consultation.title , consultation, class: 'consultation-box'
     li.category_tag
       - @category = Category.find_by(id: consultation.category_id)
       span
