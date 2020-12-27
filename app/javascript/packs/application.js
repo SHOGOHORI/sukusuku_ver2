@@ -24,7 +24,7 @@ import "bootstrap"
 document.addEventListener("turbolinks:load"
 , function () {
   $(function(){
-    $('.tab-pane #tab2').click(function(){
+    $('.tab-pane #tab2 .pagination').click(function(){
       $('.tab-pane #tab2').addClass('active');
       $('.tab-pane #tab1').removeClass('active');
       console.log('bar')
