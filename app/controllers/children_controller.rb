@@ -20,6 +20,7 @@ class ChildrenController < ApplicationController
     age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
     moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
     @consultations = Consultation.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
+    @votes = Vote.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
     respond_to do |format|
       format.html
       format.js
