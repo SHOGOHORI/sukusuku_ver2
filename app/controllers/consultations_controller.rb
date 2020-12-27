@@ -1,5 +1,6 @@
 class ConsultationsController < ApplicationController
   before_action :set_consultation, only: [:edit, :update, :destroy, :reception_closed]
+  impressionist :actions=> [:show]
 
   def new
     @consultation = Consultation.new
@@ -18,6 +19,7 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+    impressionist(@consultation, nil, :unique => [:session_hash])
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
     @reply = ConsultationCommentReply.new
