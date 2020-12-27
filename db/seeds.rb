@@ -67,3 +67,56 @@ end
                               user_id: user.id,
                               consultation_id: consultation.id)
 end
+
+10.times do
+  title = Faker::Lorem.sentence(word_count: 3)
+  content = Faker::Lorem.sentence(word_count: 30)
+  category = Category.all.sample
+  user = User.all.sample
+  Vote.create!(title: title,
+               content: content,
+               pregnant: 1,
+               user_id: user.id,
+               category_id: category.id)
+end
+
+40.times do
+  title = Faker::Lorem.sentence(word_count: 3)
+  content = Faker::Lorem.sentence(word_count: 30)
+  category = Category.all.sample
+  user = User.all.sample
+  Vote.create!(title: title,
+               content: content,
+               pregnant: 0,
+               child_age_moon_age: rand(0..47),
+               user_id: user.id,
+               category_id: category.id)
+end
+
+50.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 1)
+end
+
+50.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 2)
+end
+
+50.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 3)
+end
+
+50.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 4)
+end
