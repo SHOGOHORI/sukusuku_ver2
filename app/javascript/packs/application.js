@@ -20,12 +20,3 @@ import "bootstrap"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-document.addEventListener("turbolinks:load"
-, function () {
-	$(document).on('click', '#tab2 a', function(event) {
-    $('.tab-pane #tab2').addClass('active');
-    $('.tab-pane #tab1').removeClass('active');
-    console.log('bar')
-  });
-})
