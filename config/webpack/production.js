@@ -2,6 +2,5 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 
 const environment = require('./environment')
 
-module.exports = { environment.toWebpackConfig(),
-  performance: { hints: false }
-}
+module.exports = environment.toWebpackConfig()
+module.exports = performance: { hints: false }
