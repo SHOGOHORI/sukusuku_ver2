@@ -100,23 +100,23 @@ end
                    item_number: 1)
 end
 
-50.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 2)
-end
+# 50.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 2)
+# end
 
-50.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 3)
-end
+# 50.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 3)
+# end
 
-50.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 4)
-end
+# 50.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 4)
+# end

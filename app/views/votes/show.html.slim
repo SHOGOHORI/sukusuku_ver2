@@ -23,7 +23,6 @@ ul
             h2
               = @vote.title
             span
-              | カテゴリー：
               = search_form_for @q do |f|
                 = f.hidden_field :category_id_eq, value: @vote.category.id
                 = button_tag type: 'submit', class: 'card-category' do
