@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  impressionist :actions=> [:show]
+  impressionist actions: [:show]
 
   def new
     @vote = Vote.new
@@ -20,7 +20,7 @@ class VotesController < ApplicationController
   def show
     store_location
     @vote = Vote.find(params[:id])
-    impressionist(@vote, nil, :unique => [:session_hash])
+    impressionist(@vote, nil, unique: [:session_hash])
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
