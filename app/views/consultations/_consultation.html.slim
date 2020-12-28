@@ -3,6 +3,7 @@
     li
       h4
         = link_to consultation.title , consultation, class: 'consultation-box'
+      = consultation.model_name.human
     li.category_tag
       - @category = Category.find_by(id: consultation.category_id)
       span

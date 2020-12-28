@@ -60,9 +60,8 @@ ul
                 - @consultation.image.each do |image|
                   = image_tag image.to_s
           br
-          = link_to "https://twitter.com/share?url=#{ request.url }&text=Twitterでみんなに広めよう！", class: 'btn btn-default', target: '_blank' do
+          = link_to "https://twitter.com/share?url=#{ request.url }&text=#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
-          <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
         span
           = time_ago_in_words(@consultation.created_at)
           | 前
