@@ -9,8 +9,6 @@ class VoteRelationshipsController < ApplicationController
     end
   end
 
-  def destroy; end
-
   private
 
   def vote_relationship_params

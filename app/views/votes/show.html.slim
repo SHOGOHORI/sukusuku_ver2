@@ -42,17 +42,15 @@ ul
               td
                 - @vote.image.each do |image|
                   = image_tag image.to_s
-        span
-          = time_ago_in_words(@vote.created_at)
-          | 前
         - if  user_signed_in?
           = form_for @vote_relationship do |i|
-            ul
+            ul.vote_item
               - @vote.vote_items.each do |vote_item|
                 = i.fields_for :vote_relationship do |f|
-                  li
-                    = f.radio_button :vote_item_id, :value => vote_item.id
-                    = vote_item.item
+                  li.item
+                    = f.radio_button :vote_item_id, :value => vote_item.id, class: 'form-check-input'
+                    p
+                      = vote_item.item
                     = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
         - else
@@ -61,6 +59,9 @@ ul
             = vote_item.item
           br
           | ログインして投票する。
+        span
+          = time_ago_in_words(@vote.created_at)
+          | 前
       .modal_wrapper
       - if  user_signed_in?
         .button.comment_button
