@@ -10,6 +10,8 @@ ja:
   activerecord:
     models:
       child: 子どもの情報
+      consultation: 相談
+      vote: アンケート
     attributes:
       children:
         nick_name: ニックネーム

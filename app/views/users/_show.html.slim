@@ -47,9 +47,17 @@ ul.mypage
           | ）
       li.nav-item
         a.nav-link href='#tab2' data-toggle='tab'
-          | コメント（
+          | 相談コメント（
           = @c.uniq.count
           | ）
+      li.nav-item
+        a.nav-link href='#tab3' data-toggle='tab'
+          | アンケート（
+          = @user.votes.count
+          | ）
+      li.nav-item
+        a.nav-link href='#tab' data-toggle='tab'
+          | 投票したアンケート
     .tab-content
       #tab1.tab-pane.active
         = paginate @user_consultations, remote: true
@@ -61,3 +69,8 @@ ul.mypage
         ul.card-body
           = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
         = paginate @user_comments, remote: true
+      #tab3.tab-pane
+        = paginate @user_votes, remote: true
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_votes, id: 'consultation-index'
+        = paginate @user_votes, remote: true

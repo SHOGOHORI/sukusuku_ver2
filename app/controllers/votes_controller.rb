@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  impressionist actions: [:show]
+
   def new
     @vote = Vote.new
     @vote_item = @vote.vote_items.build
@@ -18,6 +20,7 @@ class VotesController < ApplicationController
   def show
     store_location
     @vote = Vote.find(params[:id])
+    impressionist(@vote, nil, unique: [:session_hash])
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
@@ -31,7 +34,7 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:content, :title, :user_id, :category_id, :child_age, :child_moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number])
+    params.require(:vote).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number])
   end
 
   def store_location

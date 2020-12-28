@@ -35,6 +35,9 @@ ul
           .content
             h2
               = @consultation.title
+            p
+              = number_with_delimiter(@consultation.impressionist_count)
+              | PV
             span
               | カテゴリー：
               = search_form_for @q do |f|
@@ -56,6 +59,9 @@ ul
               td
                 - @consultation.image.each do |image|
                   = image_tag image.to_s
+          br
+          = link_to "https://twitter.com/share?url=#{ request.url }&text=#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            i.fab.fa-twitter style='color: #3399FF;'
         span
           = time_ago_in_words(@consultation.created_at)
           | 前

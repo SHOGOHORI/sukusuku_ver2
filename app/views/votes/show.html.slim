@@ -23,7 +23,6 @@ ul
             h2
               = @vote.title
             span
-              | カテゴリー：
               = search_form_for @q do |f|
                 = f.hidden_field :category_id_eq, value: @vote.category.id
                 = button_tag type: 'submit', class: 'card-category' do
@@ -46,6 +45,7 @@ ul
         span
           = time_ago_in_words(@vote.created_at)
           | 前
+        - if  user_signed_in?
           = form_for @vote_relationship do |i|
             ul
               - @vote.vote_items.each do |vote_item|
@@ -55,6 +55,12 @@ ul
                     = vote_item.item
                     = f.hidden_field :user_id, :value => current_user.id
             = i.submit '投票する', class: 'btn btn-primary'
+        - else
+          - @vote.vote_items.each do |vote_item|
+            br
+            = vote_item.item
+          br
+          | ログインして投票する。
       .modal_wrapper
       - if  user_signed_in?
         .button.comment_button

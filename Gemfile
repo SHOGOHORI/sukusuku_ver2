@@ -31,6 +31,7 @@ gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'ransack'
 gem 'faker'
+gem 'impressionist'
 
 group :development, :test do
   gem 'pry-rails'
