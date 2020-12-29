@@ -5,6 +5,9 @@ ul
     .consultation_body
       h2
         | アンケート内容
+      p
+        = number_with_delimiter(@vote.impressionist_count)
+        | PV
       .box
         .box_top
           .user
@@ -42,6 +45,8 @@ ul
               td
                 - @vote.image.each do |image|
                   = image_tag image.to_s
+          = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            i.fab.fa-twitter style='color: #3399FF;'
         - if  user_signed_in?
           = form_for @vote_relationship do |i|
             ul.vote_item
