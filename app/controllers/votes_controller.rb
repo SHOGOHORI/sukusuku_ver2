@@ -21,7 +21,7 @@ class VotesController < ApplicationController
     store_location
     @vote = Vote.find(params[:id])
     impressionist(@vote, nil, unique: [:session_hash])
-    @vote_relationship = VoteRelationship.new
+    @form = Form::ItemCollection.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
   end

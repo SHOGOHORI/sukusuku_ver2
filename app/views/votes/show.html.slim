@@ -48,10 +48,10 @@ ul
           = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
         - if  user_signed_in?
-          = form_for @vote_relationship do |i|
+          = form_for @form, url: vote_relationships_path do |i|
             ul.vote_item
               - @vote.vote_items.each do |vote_item|
-                = i.fields_for :vote_relationship do |f|
+                = fields_for :items do |f|
                   li.item
                     = f.radio_button :vote_item_id, :value => vote_item.id, class: 'form-check-input'
                     p
