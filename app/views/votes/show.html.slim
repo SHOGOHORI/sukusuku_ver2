@@ -47,24 +47,30 @@ ul
                   = image_tag image.to_s
           = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
-        - if  user_signed_in?
-          = form_tag "/vote_relationships", method: :post, local: true do |i|
-            = hidden_field(:vote_relationship, :user_id, value: current_user.id)
-            ul.vote_item
-              - @vote.vote_items.each do |vote_item|
-                li.item
-                  = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
-                  p
-                    = vote_item.item
-                    = vote_item.vote_relationships.count
-            = submit_tag '投票する', class: 'btn btn-primary'
-        - else
-          - @vote.vote_items.each do |vote_item|
+        - if Date.today < @vote.closed_at
+          - unless  user_signed_in?
+            - @vote.vote_items.each do |vote_item|
+              br
+              p
+                | ・
+                = vote_item.item
             br
-            p
-              = vote_item.item
-          br
-          | ログインして投票する。
+            | ログインして投票する。
+          - else
+            = form_tag "/vote_relationships", method: :post, local: true do |i|
+              = hidden_field(:vote_relationship, :user_id, value: current_user.id)
+              ul.vote_item
+                - @vote.vote_items.each do |vote_item|
+                  li.item
+                    = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
+                    p
+                      = vote_item.item
+              = submit_tag '投票する', class: 'btn btn-primary'
+        - else
+          = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
+          p.btn-secondary
+            | 受付終了
+        br
         span
           = time_ago_in_words(@vote.created_at)
           | 前
@@ -80,4 +86,3 @@ ul
         h2
           | コメント
         = render 'vote_comments/comment'
-= pie_chart @data, id: "column-chart", width: "700px", height: "400px"

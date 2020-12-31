@@ -73,7 +73,7 @@ end
   content = Faker::Lorem.sentence(word_count: 30)
   category = Category.all.sample
   user = User.all.sample
-  s1 = Date.parse('2020/12/31')
+  s1 = Date.parse('2020/11/30')
   s2 = Date.parse('2021/03/31')
   s = Random.rand(s1..s2)
   Vote.create!(title: title,
@@ -89,7 +89,7 @@ end
   content = Faker::Lorem.sentence(word_count: 30)
   category = Category.all.sample
   user = User.all.sample
-  s1 = Date.parse('2020/12/31')
+  s1 = Date.parse('2020/11/30')
   s2 = Date.parse('2021/03/31')
   s = Random.rand(s1..s2)
   Vote.create!(title: title,
