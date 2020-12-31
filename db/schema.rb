@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_054843) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "child_age_moon_age"
-    t.datetime "closed_at"
+    t.date "closed_at"
     t.index ["user_id", "created_at"], name: "index_votes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
