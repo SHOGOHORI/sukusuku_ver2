@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_035526) do
+ActiveRecord::Schema.define(version: 2020_12_31_054843) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -138,8 +138,10 @@ ActiveRecord::Schema.define(version: 2020_12_27_035526) do
     t.integer "vote_item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "vote_id", null: false
     t.index ["user_id", "vote_item_id"], name: "index_vote_relationships_on_user_id_and_vote_item_id", unique: true
     t.index ["user_id"], name: "index_vote_relationships_on_user_id"
+    t.index ["vote_id"], name: "index_vote_relationships_on_vote_id"
     t.index ["vote_item_id"], name: "index_vote_relationships_on_vote_item_id"
   end
 
@@ -153,6 +155,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_035526) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "child_age_moon_age"
+    t.datetime "closed_at"
     t.index ["user_id", "created_at"], name: "index_votes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
