@@ -48,16 +48,15 @@ ul
           = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
         - if  user_signed_in?
-          = form_for @form, url: vote_relationships_path do |i|
+          = form_tag "/vote_relationships", method: :post, local: true do |i|
+            = hidden_field(:vote_relationship, :user_id, value: current_user.id)
             ul.vote_item
               - @vote.vote_items.each do |vote_item|
-                = fields_for :items do |f|
-                  li.item
-                    = f.radio_button :vote_item_id, :value => vote_item.id, class: 'form-check-input'
-                    p
-                      = vote_item.item
-                    = f.hidden_field :user_id, :value => current_user.id
-            = i.submit '投票する', class: 'btn btn-primary'
+                li.item
+                  = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
+                  p
+                    = vote_item.item
+            = submit_tag '投票する', class: 'btn btn-primary'
         - else
           - @vote.vote_items.each do |vote_item|
             br
