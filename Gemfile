@@ -32,6 +32,7 @@ gem 'font-awesome-rails'
 gem 'ransack'
 gem 'faker'
 gem 'impressionist'
+gem 'chartkick'
 
 group :development, :test do
   gem 'pry-rails'
