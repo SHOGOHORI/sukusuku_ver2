@@ -56,11 +56,13 @@ ul
                   = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
                   p
                     = vote_item.item
+                    = vote_item.vote_relationships.count
             = submit_tag '投票する', class: 'btn btn-primary'
         - else
           - @vote.vote_items.each do |vote_item|
             br
-            = vote_item.item
+            p
+              = vote_item.item
           br
           | ログインして投票する。
         span
@@ -78,3 +80,4 @@ ul
         h2
           | コメント
         = render 'vote_comments/comment'
+= pie_chart @data, id: "column-chart", width: "700px", height: "400px"
