@@ -73,11 +73,15 @@ end
   content = Faker::Lorem.sentence(word_count: 30)
   category = Category.all.sample
   user = User.all.sample
+  s1 = Date.parse('2020/12/31')
+  s2 = Date.parse('2021/03/31')
+  s = Random.rand(s1..s2)
   Vote.create!(title: title,
                content: content,
                pregnant: 1,
                user_id: user.id,
-               category_id: category.id)
+               category_id: category.id,
+               closed_at: s)
 end
 
 40.times do
@@ -85,38 +89,42 @@ end
   content = Faker::Lorem.sentence(word_count: 30)
   category = Category.all.sample
   user = User.all.sample
+  s1 = Date.parse('2020/12/31')
+  s2 = Date.parse('2021/03/31')
+  s = Random.rand(s1..s2)
   Vote.create!(title: title,
                content: content,
                pregnant: 0,
                child_age_moon_age: rand(0..47),
                user_id: user.id,
-               category_id: category.id)
+               category_id: category.id,
+               closed_at: s)
 end
 
-50.times do |n|
+40.times do |n|
   item = Faker::Lorem.sentence(word_count: 7)
   VoteItem.create!(item: item,
                    vote_id: n + 1,
                    item_number: 1)
 end
 
-# 50.times do |n|
-#   item = Faker::Lorem.sentence(word_count: 7)
-#   VoteItem.create!(item: item,
-#                    vote_id: n + 1,
-#                    item_number: 2)
-# end
+40.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 2)
+end
 
-# 50.times do |n|
-#   item = Faker::Lorem.sentence(word_count: 7)
-#   VoteItem.create!(item: item,
-#                    vote_id: n + 1,
-#                    item_number: 3)
-# end
+40.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 3)
+end
 
-# 50.times do |n|
-#   item = Faker::Lorem.sentence(word_count: 7)
-#   VoteItem.create!(item: item,
-#                    vote_id: n + 1,
-#                    item_number: 4)
-# end
+40.times do |n|
+  item = Faker::Lorem.sentence(word_count: 7)
+  VoteItem.create!(item: item,
+                   vote_id: n + 1,
+                   item_number: 4)
+end
