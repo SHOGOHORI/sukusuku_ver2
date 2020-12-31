@@ -21,13 +21,14 @@ class VotesController < ApplicationController
   def show
     store_location
     @vote = Vote.find(params[:id])
-    @vote.vote_items.each
+    @vote.vote_items.each do |vote_item|
+
+    end
     impressionist(@vote, nil, unique: [:session_hash])
-    # @form = Form::ItemCollection.new
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
-    @data = [['2019-06-01', 100], ['2019-06-02', 200], ['2019-06-03', 150]]
+    @data = @vote.vote_items.group(:item)
   end
 
   def destroy

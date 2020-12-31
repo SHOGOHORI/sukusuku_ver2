@@ -66,6 +66,8 @@ ul
                     p
                       = vote_item.item
               = submit_tag '投票する', class: 'btn btn-primary'
+          / - else
+          /   = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
         - else
           = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
           p.btn-secondary
