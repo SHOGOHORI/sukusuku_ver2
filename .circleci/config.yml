@@ -6,6 +6,9 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: 'test'
     executor: ruby/default
     steps:
       - checkout
