@@ -1,15 +1,14 @@
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/ruby:2.7.2-stretch-node
-        environment:
-          - BUNDLER_VERSION: 2.1.4
-          - RAILS_ENV: 'test'
-    executor: ruby/default
-    steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+  steps:
+    - checkout
+    - run:
+      name: echo
+      command: echo "Hello, World!"
+workflows:
+  test_workflow:
+    jobs:
+      - test
