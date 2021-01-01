@@ -25,7 +25,7 @@ class VotesController < ApplicationController
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
-    @data = @vote.vote_items.group(:item)
+    @data = @vote.vote_items.map { |item| [item.item, item.vote_relationships.count] }.to_h
   end
 
   def destroy
