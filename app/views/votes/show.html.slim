@@ -47,15 +47,9 @@ ul
                   = image_tag image.to_s
           = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
-        - if Date.today < @vote.closed_at
-          - unless  user_signed_in?
-            - @vote.vote_items.each do |vote_item|
-              br
-              p
-                | ・
-                = vote_item.item
-            br
-            | ログインして投票する。
+        - if  user_signed_in?
+          - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
+            = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
           - else
             = form_tag "/vote_relationships", method: :post, local: true do |i|
               = hidden_field(:vote_relationship, :user_id, value: current_user.id)
@@ -66,11 +60,19 @@ ul
                     p
                       = vote_item.item
               = submit_tag '投票する', class: 'btn btn-primary'
-          / - else
-          /   = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
         - else
-          = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
-          p.btn-secondary
+          - if Date.today > @vote.closed_at
+            = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
+          - else
+            - @vote.vote_items.each do |vote_item|
+              br
+              p
+                | ・
+                = vote_item.item
+            br
+            | ログインして投票する。
+        - if Date.today > @vote.closed_at
+          p.btn-warning
             | 受付終了
         br
         span
