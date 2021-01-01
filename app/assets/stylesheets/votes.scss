@@ -3,3 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /* アンケート投稿ページ */
+
+ul.vote_item{
+  display: block;
+}
+
+li.item {
+  margin: 10px 2px;
+  font-weight: 800;
+  input[type="radio"] {
+    width: auto;
+    float: left;
+  }
+  p {
+    margin-left: 10px;
+  }
+}

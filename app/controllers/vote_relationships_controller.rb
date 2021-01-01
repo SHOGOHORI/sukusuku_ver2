@@ -9,11 +9,9 @@ class VoteRelationshipsController < ApplicationController
     end
   end
 
-  def destroy; end
-
   private
 
   def vote_relationship_params
-    params.require(:vote_relationship).permit(:user_id, :vote_id)
+    params.require(:vote_relationship).permit(:user_id, :vote_item_id)
   end
 end

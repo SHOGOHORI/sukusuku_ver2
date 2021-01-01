@@ -9,6 +9,7 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     @vote.child_age_moon_age = @vote.age.to_i * 12 + @vote.moon_age.to_i
+    @vote.closed_at = Date.today + @vote.days.to_i
     if @vote.save
       redirect_to @vote, notice: '投稿しました。'
     else
@@ -24,6 +25,7 @@ class VotesController < ApplicationController
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new
     @comments = @vote.vote_comments.recently.page(params[:page]).per(5)
+    @data = @vote.vote_items.map { |item| [item.item, item.vote_relationships.count] }.to_h
   end
 
   def destroy
@@ -34,7 +36,7 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] }, vote_items_attributes: [:item, :item_number])
+    params.require(:vote).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] }, :days, vote_items_attributes: [:item, :item_number])
   end
 
   def store_location

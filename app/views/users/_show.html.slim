@@ -56,8 +56,10 @@ ul.mypage
           = @user.votes.count
           | ）
       li.nav-item
-        a.nav-link href='#tab' data-toggle='tab'
-          | 投票したアンケート
+        a.nav-link href='#tab4' data-toggle='tab'
+          | 投票したアンケート(
+          = @user_poll.count
+          | )
     .tab-content
       #tab1.tab-pane.active
         = paginate @user_consultations, remote: true
@@ -74,3 +76,8 @@ ul.mypage
         ul.card-body
           = render partial: 'consultations/consultation', collection: @user_votes, id: 'consultation-index'
         = paginate @user_votes, remote: true
+      #tab4.tab-pane
+        = paginate @user_poll, remote: true
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_poll, id: 'consultation-index'
+        = paginate @user_poll, remote: true

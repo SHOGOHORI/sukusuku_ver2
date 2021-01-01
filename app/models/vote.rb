@@ -1,5 +1,5 @@
 class Vote < ApplicationRecord
-  attr_accessor :age, :moon_age
+  attr_accessor :age, :moon_age, :days
 
   belongs_to :user
   belongs_to :category
@@ -11,6 +11,6 @@ class Vote < ApplicationRecord
   validates :user_id, presence: true
   validates :category_id, presence: true
   accepts_nested_attributes_for :vote_items, allow_destroy: true
-  scope :recently, -> { order(created_at: :desc) }
+  scope :recently, -> { order(closed_at: :desc) }
   is_impressionable
 end

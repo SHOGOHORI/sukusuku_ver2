@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @c += Consultation.joins(:consultation_comments).where(consultation_comments: @comments).recently
     @user_comments = Kaminari.paginate_array(@c.uniq).page(params[:page]).per(5)
     @user_votes =  Kaminari.paginate_array(@user.votes.recently).page(params[:page]).per(5)
+    @p = VoteItem.joins(:vote_relationships).where(vote_relationships: { user: User.find(@user.id) })
+    @user_poll =  Kaminari.paginate_array(Vote.where(id: @p.pluck(:vote_id)).recently).page(params[:page]).per(5)
     respond_to do |format|
       format.html
       format.js

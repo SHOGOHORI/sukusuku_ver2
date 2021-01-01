@@ -12,6 +12,8 @@ require("@nathanvda/cocoon")
 require ("packs/users")
 require ("packs/consultations")
 require ("packs/votes")
+require("chartkick")
+require("chart.js")
 import "bootstrap"
 
 // Uncomment to copy all static images under ../images to the output folder and reference
