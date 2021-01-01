@@ -18,12 +18,12 @@
             | アンケート
       .tab-content
         #tab1.tab-pane.active
-          = paginate @consultations, :param_name => 'consultaion_page', remote: true
+          = paginate @consultations, remote: true
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-          = paginate @consultations, :param_name => 'consultaion_page', remote: true
+          = paginate @consultations, remote: true
         #tab2.tab-pane
-          = paginate @votes, :param_name => 'vote_page', remote: true
+          = paginate @votes, remote: true
           ul.card-body
             = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
-          = paginate @votes, :param_name => 'vote_page', remote: true
+          = paginate @votes, remote: true
