@@ -57,7 +57,9 @@ ul.mypage
           | ）
       li.nav-item
         a.nav-link href='#tab4' data-toggle='tab'
-          | 投票したアンケート
+          | 投票したアンケート(
+          = @user_poll.count
+          | )
     .tab-content
       #tab1.tab-pane.active
         = paginate @user_consultations, remote: true
