@@ -36,9 +36,11 @@ Metrics/BlockLength:
     - 'spec/**/*'
 
 AllCops:
+  TargetRubyVersion: 2.5.1
   Exclude:
     - 'db/schema.rb'
     - 'node_modules/**/*'
+    - 'vendor/**/*'
 
 Style/GlobalVars:
   Exclude:
