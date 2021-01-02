@@ -1,5 +1,6 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:edit, :update, :destroy]
+  before_action :set_child, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_root, only: [:edit, :update, :destroy]
 
   def new
     @child = Child.new
@@ -16,7 +17,6 @@ class ChildrenController < ApplicationController
   end
 
   def show
-    @child = Child.find(params[:id])
     age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
     moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
     @consultations = Consultation.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
@@ -51,6 +51,9 @@ class ChildrenController < ApplicationController
 
   def set_child
     @child = Child.find(params[:id])
+  end
+
+  def redirect_root
     redirect_to(root_url) unless current_user.id == @child.user_id
   end
 end

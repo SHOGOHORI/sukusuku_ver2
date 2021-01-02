@@ -50,7 +50,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem "rspec_junit_formatter"
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
