@@ -58,7 +58,13 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX"
-
+      - deploy:
+          name: Capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "main" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
 workflows:
   build_workflow:
     jobs:
