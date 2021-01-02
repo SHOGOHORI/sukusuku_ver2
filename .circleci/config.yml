@@ -60,11 +60,7 @@ jobs:
             - "d5:22:63:00:87:af:f0:28:c8:7f:bf:66:58:16:be:e6"
       - deploy:
           name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "main" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+          command: bundle exec cap production deploy
 workflows:
   build_workflow:
     jobs:
