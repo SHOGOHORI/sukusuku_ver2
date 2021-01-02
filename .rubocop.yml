@@ -46,3 +46,9 @@ Style/GlobalVars:
   Exclude:
     - 'config/unicorn.conf.rb'
     - 'config/unicorn/production.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/**/*'
+    - 'config/**/*'
+    - 'db/**/*'

@@ -59,6 +59,9 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+      - add_ssh_keys:
+          fingerprints:
+            - "XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX"
 
 workflows:
   build_workflow:
