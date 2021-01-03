@@ -72,23 +72,11 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - checkout
-      - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "http://18.177.13.105/",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
+      - slack/status:
+          success_message: ':ok:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Success!'
+          failure_message: ':ng:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Failure!'
+          webhook: "${SLACK_WEBHOOK}"
+
 
 workflows:
   version: 2
