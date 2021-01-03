@@ -70,7 +70,7 @@ jobs:
       - run:
           name: Build
           command: make build
-      - slack/status
+      - slack/notify
 
 workflows:
   version: 2
