@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  slack: circleci/slack@4.2.0
+  slack: circleci/slack@3.4.2
 
 jobs:
   build:
@@ -72,23 +72,11 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - checkout
-      - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "http://18.177.13.105/",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
+      - slack/status:
+          success_message: ':circleci-pass: $CIRCLE_BRANCH 完了しました\n:github_octocat: User：$CIRCLE_USERNAME'
+          failure_message: ':circleci-fail: $CIRCLE_BRANCH 失敗しました\n:github_octocat: User：$CIRCLE_USERNAME'
+          webhook: "${SLACK_WEBHOOK}"
+
 
 workflows:
   version: 2
