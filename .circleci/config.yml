@@ -61,16 +61,17 @@ jobs:
           destination: test-results
       - deploy:
           name: Capistrano deploy
-          command: bundle exec cap production deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "main" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy
 
   notify:
     docker:
       - image: 'cimg/base:stable'
     steps:
       - checkout
-      - run:
-          name: Build
-          command: make build
       - slack/notify:
           custom: |
             {
@@ -80,7 +81,7 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "*This is a text notification*",
+                      "text": "http://18.177.13.105/",
                       "emoji": true
                     }
                   ]
