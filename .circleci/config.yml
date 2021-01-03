@@ -73,8 +73,8 @@ jobs:
     steps:
       - checkout
       - slack/status:
-          success_message: ':ok:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Success!'
-          failure_message: ':ng:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Failure!'
+          success_message: ':circleci-pass: $CIRCLE_BRANCH 完了しました\n:github_octocat: User：$CIRCLE_USERNAME'
+          failure_message: ':circleci-fail: $CIRCLE_BRANCH 失敗しました\n:github_octocat: User：$CIRCLE_USERNAME'
           webhook: "${SLACK_WEBHOOK}"
 
 
