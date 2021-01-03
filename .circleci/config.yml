@@ -63,7 +63,20 @@ jobs:
           name: Capistrano deploy
           command: bundle exec cap production deploy
 
+  notify:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - run:
+          name: Build
+          command: make build
+      - slack/status
+
 workflows:
+  version: 2
   build_workflow:
     jobs:
       - build
+      - notify:
+          requires:
+            - build
