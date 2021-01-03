@@ -67,13 +67,27 @@ jobs:
     docker:
       - image: 'cimg/base:stable'
     steps:
+      - checkout
       - run:
           name: Build
           command: make build
       - slack/notify:
-          success_message: ':ok:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Success!'
-          failure_message: ':ng:\nRepository: $CIRCLE_PROJECT_REPONAME\nBranch: $CIRCLE_BRANCH\nPull Requests: $CIRCLE_PULL_REQUESTS\nDeploy Failure!'
-          webhook: "${SLACK_WEBHOOK}"
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*This is a text notification*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
 
 workflows:
   version: 2
