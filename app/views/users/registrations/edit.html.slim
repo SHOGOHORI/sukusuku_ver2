@@ -11,6 +11,7 @@
     p プロフィール画像
     - if @user.avatar?
       = image_tag @user.avatar.url, height: '150px'
+      = link_to '削除', delete_avater_path(resource), method: :delete
     - else
       = image_tag 'user_icon.png', height: '150px'
     br
