@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:show, :edit, :update, :destroy]
+  before_action :set_child, only: [:show, :edit, :update, :destroy, :delete_avater]
   before_action :redirect_root, only: [:edit, :update, :destroy]
 
   def new
@@ -41,6 +41,12 @@ class ChildrenController < ApplicationController
   def destroy
     @child.destroy
     redirect_to user_path(current_user), notice: '子供の情報を削除しました'
+  end
+
+  def delete_avater
+    @child.remove_avatar!
+    @child.save
+    redirect_to edit_child_path(@child), notice: '画像を削除しました。'
   end
 
   private

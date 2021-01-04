@@ -4,7 +4,7 @@ module Users
   class SessionsController < Devise::SessionsController
     before_action :configure_sign_in_params, only: :create
     skip_before_action :noname_user, only: :destroy
-    before_action :reset_session_before_login, only: :create
+    # before_action :reset_session_before_login, only: :create
 
     # GET /resource/sign_in
     # def new
@@ -41,7 +41,7 @@ module Users
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_in_params
-      devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
     end
 
     def after_sign_in_path_for(resource)

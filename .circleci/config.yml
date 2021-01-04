@@ -86,3 +86,6 @@ workflows:
       - notify:
           requires:
             - build
+          filters:
+            branches:
+              only: main

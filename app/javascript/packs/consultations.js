@@ -39,8 +39,9 @@ $(function() {
   $(document).on('click', '.reply_button', function() {
     $('.modal_wrapper').show();
     $('.reply_modal').fadeIn();
-    let comment_id = $('.reply_button').attr('value');
+    var comment_id = $(this).attr('value');
     $('.reply_hidden').val(comment_id);
+    console.log('foo');
   });
 
   $(document).on('click', '.modal_wrapper, .fa_wrapper', function() {

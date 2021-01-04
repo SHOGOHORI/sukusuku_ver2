@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   root 'home_pages#home'
   get '/help', to: 'home_pages#help'
   get '/privacy', to: 'home_pages#privacy'
-  get 'votes/new'
-  get 'votes/show'
-  get 'votes/edit'
-  get 'consultation_comment/new'
-  get 'consultation_comment/create'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -17,8 +12,11 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update, :show]
   get 'users/:id/profile_register', to: 'users#profile_create', as: 'profile_create'
+  delete 'users/:id/delete_avater', to: 'users#delete_avater', as: 'user_delete_avater'
 
   resources :children
+  delete 'children/:id/delete_avater', to: 'children#delete_avater', as: 'child_delete_avater'
+
   resources :consultations do
     member do
       post 'reception_closed', to: 'consultations#reception_closed'

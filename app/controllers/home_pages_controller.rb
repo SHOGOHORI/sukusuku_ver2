@@ -1,5 +1,6 @@
 class HomePagesController < ApplicationController
   skip_before_action :store_current_location
+  before_action :delete_url
 
   def home
     @consultations = Consultation.all.recently.page(params[:page]).per(5)
@@ -14,5 +15,12 @@ class HomePagesController < ApplicationController
   end
 
   def privacy
+  end
+
+  private
+
+  def delete_url
+    session.delete(:forwarding_url)
+    reset_session
   end
 end

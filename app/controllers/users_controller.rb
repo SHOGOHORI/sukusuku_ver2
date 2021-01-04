@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:profile_create, :update]
+  before_action :set_user, only: [:profile_create, :update, :delete_avater]
   skip_before_action :noname_user, only: [:profile_create, :update]
 
   def show
@@ -29,6 +29,12 @@ class UsersController < ApplicationController
       flash.now[:alert] = '必須項目を入力願います。'
       render :profile_create
     end
+  end
+
+  def delete_avater
+    @user.remove_avatar!
+    @user.save
+    redirect_to edit_user_registration_path(@user), notice: 'プロフィール画像を削除しました。'
   end
 
   private
