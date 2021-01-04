@@ -24,7 +24,8 @@ RSpec.describe 'Votes', type: :request do
 
   describe 'GET /edit' do
     it 'returns http success' do
-      get '/votes/edit'
+      sign_in user
+      get edit_vote_path(vote)
       expect(response).to have_http_status(:success)
     end
   end
