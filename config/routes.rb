@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   delete 'users/:id/delete_avater', to: 'users#delete_avater', as: 'user_delete_avater'
 
   resources :children
+  delete 'children/:id/delete_avater', to: 'children#delete_avater', as: 'child_delete_avater'
+
   resources :consultations do
     member do
       post 'reception_closed', to: 'consultations#reception_closed'
