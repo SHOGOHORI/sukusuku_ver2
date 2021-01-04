@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def delete_avater
     @user.remove_avatar!
     @user.save
-    redirect_to edit_user_registration_path(@user)
+    redirect_to edit_user_registration_path(@user), notice: 'プロフィール画像を削除しました。'
   end
 
   private
