@@ -34,6 +34,6 @@ header
             = link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else
       li
-        = link_to 'アカウント登録', new_user_registration_path
+        = link_to 'アカウント登録', new_user_registration_path, class: 'white'
       li
-        = link_to 'ログイン', user_session_path
+        = link_to 'ログイン', user_session_path, class: 'white'
