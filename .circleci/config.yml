@@ -83,4 +83,9 @@ workflows:
   build_workflow:
     jobs:
       - build
-      - notify
+      - notify:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
