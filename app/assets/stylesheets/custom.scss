@@ -58,7 +58,7 @@ h1 {
 /* ヘッダー */
 header{
   min-width: 1100px;
-  background-color: #8B0000;
+  background-color: #B37E69;
   width: 100%;
   height: 50px;
   padding: 0 50px;
@@ -88,9 +88,9 @@ header{
         color: black;
       }
       a.white {
-        color: #ddd;
+        color: white;
         :hover {
-          color: #ddd;
+          color: white;
         }
       }
     }
@@ -133,7 +133,7 @@ header{
     position: absolute;
     top: 300px;
     left: 30px;
-    color: brown;
+    color: #800000;
     h3{
       font-weight: 800;
       padding-left: 40px;
@@ -202,47 +202,49 @@ header{
 
 /* フッター */
 footer{
-  margin-top: 20px;
-  .footer_top{
-    background-color: #8B0000;
-    color: white;
-    height: 250px;
-    .left{
-      float: left;
-      padding-top: 20px;
-      padding-left: 20PX;
-      p {
-        margin-left: 20px;
-        font-weight: 800;
-      }
+  position: relative;
+  margin-top: 100px;
+  background-color: #B37E69;
+  color: white;
+  height: 250px;
+  .left{
+    float: left;
+    padding-top: 20px;
+    margin-left: 100px;
+    p {
+      margin-left: 20px;
+      font-weight: 800;
+      display: block;
+    }
+    .icon {
+      margin-top: 10px;
+      display: block;
       i {
         margin-left: 20px;
       }
-      .copylight{
-        float: right;
-        padding:0 50px;
-        color: #777;
-
-      }
-    }
-    .right {
-      float: right;
     }
   }
-  .footer_bottom{
-    clear: both;
-    margin: 45px 0;
-    padding-top: 5px;
+  .copylight{
+    float: left;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0;
+    padding: 0;
     color: #777;
-    li{
-      list-style: none;
-      float: left;
-      padding: 0 10px;
+  }
+  .right {
+    float: right;
+    margin-right: 100px;
+    margin-top: 100px;
+    a {
+      font-weight: 800;
+      color: white;
+      :hover {
+        color: white;
+      }
+    li {
+      margin-top: 30px;
     }
-    .copylight{
-      float: right;
-      padding:0 50px;
-      color: #777;
     }
   }
 }
