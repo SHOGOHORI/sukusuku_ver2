@@ -5,9 +5,11 @@
       - @categories.each do|category|
         = search_form_for @q do |f|
           = f.hidden_field :category_id_eq, value: category.id
-          = button_tag type: 'submit', class: 'card-category' do
+          = button_tag type: 'submit', class: 'btn btn-light' do
             i
-              = category.category
+              = image_tag category.icon.url, alt: 'icon', height: '15px'
+              p
+                = category.category
   .box
     details
       summary

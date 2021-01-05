@@ -126,6 +126,10 @@
 .category, .consultation-index {
   float: left;
   margin: 50px;
+  i {
+    font-weight: 800;
+    display: inline;
+  }
   .box {
     display: block;
     width: 200px;
