@@ -123,8 +123,10 @@
 }
 
 /* 相談一覧 */
-.category, .consultation-index {
+.category{
   background-color: white;
+  display: inline;
+  float: left;
   margin: 50px;
   .box {
     display: block;
@@ -133,6 +135,12 @@
     padding: 10px;
     box-shadow: 10px 10px 15px -10px;
   }
+}
+
+.consultation-index {
+  display: inline;
+  position:relative;
+  margin: 10px auto;
 }
 
 .category {
