@@ -6,10 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-items = %w[教育 健康 食事 美容 仕事 住まい 安全 マネー ママの悩み]
+items = %w[教育 食事 美容 仕事 住まい 安全 マネー ママの悩み]
 items.each do |i|
   Category.create!(category: i)
 end
+
+category = Category.create(category: '健康')
+category.icon.attach(io: File.open(Rails.root.join('app/assets/images/heart-solid.svg')),
+                     filename: 'heart-solid.svg')
 
 100.times do |n|
   name  = Faker::Name.name
