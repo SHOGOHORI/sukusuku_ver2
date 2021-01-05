@@ -15,6 +15,7 @@ body {
   overflow-x: scroll;
   min-width: 1400px;
   font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+  background-color: #fffaee;
 }
 
 ul {
@@ -201,19 +202,29 @@ header{
 
 /* フッター */
 footer{
-  clear: both;
-  margin: 45px 0;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-  li{
-    list-style: none;
-    float: left;
-    padding: 0 10px;
+  margin-top: 50px;
+  .footer_top{
+    background-color: #8B0000;
+    color: white;
+    height: 400px;
+    p {
+      font-weight: 800;
+    }
   }
-  .copylight{
-    float: right;
-    padding:0 50px;
+  .footer_bottom{
+    clear: both;
+    margin: 45px 0;
+    padding-top: 5px;
+    color: #777;
+    li{
+      list-style: none;
+      float: left;
+      padding: 0 10px;
+    }
+    .copylight{
+      float: right;
+      padding:0 50px;
+    }
   }
 }
 

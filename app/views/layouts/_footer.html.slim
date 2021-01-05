@@ -1,12 +1,22 @@
 footer
-  small
-    ul
-      li SukuSuku
-      li
-        = link_to "概要", help_path
-      li
-        = link_to "プライバシーポリシー", privacy_path
-      li
-        = link_to "お問い合わせ", '#'
-      .copylight
-        span Copyright ©︎ shogo hori All Rights Reserved.
+  .footer_top
+    p
+      | あなたの育児の困った！を救う
+    = image_tag('header_logo.png', alt: 'logo', height: '100px', id: 'logo')
+    br
+    = link_to 'https://twitter.com/shogo19881' do
+      i.fab.fa-twitter.fa-2x
+    = link_to 'https://github.com/SHOGOHORI/sukusuku_ver2' do
+      i.fab.fa-github.fa-2x style='color: black;'
+  .footer_bottom
+    small
+      ul
+        li SukuSuku
+        li
+          = link_to "概要", help_path
+        li
+          = link_to "プライバシーポリシー", privacy_path
+        li
+          = link_to "お問い合わせ", '#'
+        .copylight
+          span Copyright ©︎ shogo hori All Rights Reserved.

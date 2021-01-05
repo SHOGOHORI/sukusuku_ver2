@@ -124,24 +124,20 @@
 
 /* 相談一覧 */
 .category, .consultation-index {
+  background-color: white;
   float: left;
   margin: 50px;
-  i {
-    font-weight: 800;
-    display: inline;
-  }
   .box {
     display: block;
     width: 200px;
     height: 100%;
     padding: 10px;
-    border: solid 3px #000;
     box-shadow: 10px 10px 15px -10px;
   }
 }
 
 .category {
-  margin-top: 120px;
+  margin-top: 100px;
   details {
     transition: .5s;
     height: 25px;
@@ -159,6 +155,28 @@
   h4 {
     font-weight: 800;
     text-align: center;
+  }
+}
+
+.category-index {
+  :hover{
+    background-color: #C0C0C0;
+  }
+  button {
+    background-color: white;
+    width: 100%;
+    }
+  img {
+    display: inline;
+    float: left;
+    margin: auto;
+  }
+  p {
+    margin: auto;
+    margin-left: 5px;
+    font-weight: 800;
+    display: inline;
+    float: left;
   }
 }
 
