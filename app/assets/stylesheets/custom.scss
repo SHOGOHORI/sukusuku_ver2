@@ -202,13 +202,31 @@ header{
 
 /* フッター */
 footer{
-  margin-top: 50px;
+  margin-top: 20px;
   .footer_top{
     background-color: #8B0000;
     color: white;
-    height: 400px;
-    p {
-      font-weight: 800;
+    height: 250px;
+    .left{
+      float: left;
+      padding-top: 20px;
+      padding-left: 20PX;
+      p {
+        margin-left: 20px;
+        font-weight: 800;
+      }
+      i {
+        margin-left: 20px;
+      }
+      .copylight{
+        float: right;
+        padding:0 50px;
+        color: #777;
+
+      }
+    }
+    .right {
+      float: right;
     }
   }
   .footer_bottom{
@@ -224,6 +242,7 @@ footer{
     .copylight{
       float: right;
       padding:0 50px;
+      color: #777;
     }
   }
 }
