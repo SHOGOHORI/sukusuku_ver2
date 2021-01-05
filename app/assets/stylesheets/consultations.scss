@@ -190,18 +190,25 @@
 .particular-case {
   margin-top: 5px;
   .box {
+    position:relative;
     display: block;
     width: 700px;
     height: 100%;
     padding: 10px;
     border: solid 3px #000;
     box-shadow: 10px 10px 15px -10px;
+    .hukidashi {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
     h4 {
       font-weight: 800;
       text-decoration : underline;
     }
     span {
       margin-right: 10px;
+      display: inline;
     }
     .category_tag {
       display: inline;

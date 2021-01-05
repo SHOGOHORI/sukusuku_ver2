@@ -3,8 +3,8 @@
     li
       h4
         = link_to consultation.title , consultation, class: 'consultation-box'
-      = consultation.model_name.human
     li.category_tag
+      = consultation.model_name.human
       - @category = Category.find_by(id: consultation.category_id)
       span
         = search_form_for @q do |f|
@@ -22,6 +22,7 @@
         p.pv_count
           = number_with_delimiter(consultation.impressionist_count)
           |  PV
+    = image_tag 'hukidashi.png', height: "100px",class: 'hukidashi'
     span.user
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'

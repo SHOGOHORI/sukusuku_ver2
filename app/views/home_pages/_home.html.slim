@@ -22,6 +22,6 @@
           = paginate @consultations, remote: true, :param_name => 'page_1'
         .content2
           ul.card-body
-            = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
+            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
           = paginate @votes, remote: true, :param_name => 'page_2'
 .credit
