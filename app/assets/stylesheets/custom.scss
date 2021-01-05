@@ -69,15 +69,10 @@ header{
     li{
       float: left;
       list-style: none;
-      a {
-        color: white;
-        :hover{
-          color: white;
-        }
-      }
-      button {
-        margin-left: 5px;
-      }
+      color: white;
+    }
+    button {
+      margin-left: 5px;
     }
   }
   .header-right{
@@ -91,12 +86,12 @@ header{
       i {
         color: black;
       }
-      // .white {
-      //   color: #ddd;
-      //   :hover {
-      //     color: #ddd;
-      //   }
-      // }
+      a.white {
+        color: #ddd;
+        :hover {
+          color: #ddd;
+        }
+      }
     }
   }
 }
@@ -154,8 +149,8 @@ header{
 }
 
 .tabs{
-  width:50%;
-  margin:10px auto;
+  width: 50%;
+  margin: 10px auto;
   position:relative;
 }
 .tab-buttons {
