@@ -131,7 +131,10 @@
 }
 
 .category {
-  display: inline-block;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: inline;
+  float: left;
   box-shadow: 10px 10px 15px -10px;
   .box {
     margin: 0;
