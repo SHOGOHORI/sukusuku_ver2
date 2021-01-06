@@ -6,24 +6,24 @@
         = image_tag 'home_logo.png', height: "200px"
       = render 'users/sessions/new'
   ul
-    li
+    li.category
       = render partial: 'consultations/category'
-    li.p-3
-      ul.nav.nav-tabs
-        li.nav-item
-          a.nav-link.active href='#tab1' data-toggle='tab'
-            | 相談
-        li.nav-item
-          a.nav-link href='#tab2' data-toggle='tab'
-            | アンケート
+    li.tabs
+      .tab-buttons
+        span.content1
+          | 相談
+        span.content2
+          | アンケート
+        #lamp.content1
       .tab-content
-        #tab1.tab-pane.active
-          = paginate @consultations, remote: true
+        .content1
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-          = paginate @consultations, remote: true
-        #tab2.tab-pane
-          = paginate @votes, remote: true
+          .page
+            = paginate @consultations, remote: true, :param_name => 'page_1'
+        .content2
           ul.card-body
-            = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
-          = paginate @votes, remote: true
+            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
+          .page
+            = paginate @votes, remote: true, :param_name => 'page_2'
+.credit

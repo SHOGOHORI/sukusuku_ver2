@@ -4,5 +4,5 @@ class ConsultationCommentReply < ApplicationRecord
   mount_uploaders :image, ImageUploader
   validates :user_id, presence: true
   validates :consultation_comment_id, presence: true
-  validates :content, presence: true, length: { maximum: 500 }
+  validates :content, presence: true, length: { maximum: 1000 }
 end

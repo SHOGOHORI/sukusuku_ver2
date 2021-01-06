@@ -15,6 +15,7 @@ body {
   overflow-x: scroll;
   min-width: 1400px;
   font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+  background-color: #fffaee;
 }
 
 ul {
@@ -49,14 +50,31 @@ h1 {
   text-align: center;
 }
 
+.page {
+  width: 100%;
+  text-align: center;
+}
+
 .pagination {
-  box-shadow: 10px 10px 15px -10px;
+  display: inline-block;
+  box-shadow: 3px 3px 4px -3px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination>li>a {
+  color: #A7C278;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
 /* ヘッダー */
 header{
-  min-width: 1000px;
-  background-color: #8B0000;
+  min-width: 1100px;
+  background-color: #B37E69;
   width: 100%;
   height: 50px;
   padding: 0 50px;
@@ -70,24 +88,26 @@ header{
       list-style: none;
       color: white;
     }
+    button {
+      margin-left: 5px;
+    }
   }
   .header-right{
     float: right;
+    font-weight: 800;
     li{
       float: left;
       list-style: none;
       padding-left: 20px;
       padding-right: 20px;
-      img{
-        margin-right: 7px;
-        border-radius: 50%;
-      }
-      b{
-        margin-left: 7px;
-      }
       i {
-        margin-right: 5px;
         color: black;
+      }
+      a.white {
+        color: white;
+        :hover {
+          color: white;
+        }
       }
     }
   }
@@ -129,7 +149,7 @@ header{
     position: absolute;
     top: 300px;
     left: 30px;
-    color: brown;
+    color: #800000;
     h3{
       font-weight: 800;
       padding-left: 40px;
@@ -145,21 +165,105 @@ header{
   }
 }
 
+.tabs{
+  display: inline-block;
+  width: 800px;
+  margin: 10px auto;
+  position:relative;
+}
+.tab-buttons {
+  span {
+  color:#333;
+  font-weight: 800;
+  cursor:pointer;
+  border-bottom:2px solid #ddd;
+  display:block;
+  width:50%;
+  float:left;
+  text-align:center;
+  height:40px;
+  line-height:40px;
+  }
+}
+.tab-content{
+  padding:15px;
+  display:inline-block;
+  color:#333;
+}
+#lamp{
+  width:50%;
+  height:2px;
+  background:#333;
+  display:block;
+  position:absolute;
+  top:40px;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content2{
+  left:50%;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content1{
+  left:0;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+
 /* フッター */
 footer{
   clear: both;
-  margin: 45px 0;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-  li{
-    list-style: none;
+  position: relative;
+  margin-top: 100px;
+  background-color: #B37E69;
+  color: white;
+  height: 250px;
+  .left{
     float: left;
-    padding: 0 10px;
+    padding-top: 20px;
+    margin-left: 100px;
+    p {
+      margin-left: 20px;
+      font-weight: 800;
+      display: block;
+    }
+    .icon {
+      margin-top: 10px;
+      display: block;
+      i {
+        margin-left: 20px;
+      }
+    }
   }
   .copylight{
+    float: left;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 0;
+    padding: 0;
+    color: #777;
+  }
+  .right {
     float: right;
-    padding:0 50px;
+    margin-right: 100px;
+    margin-top: 30px;
+    li{
+      margin-top: 30px;
+      a {
+        font-weight: 800;
+        color: white;
+        :hover {
+          color: white;
+        }
+      }
+    }
   }
 }
 

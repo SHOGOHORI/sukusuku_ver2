@@ -18,12 +18,12 @@ document.addEventListener("turbolinks:load"
   $(function(){
     $('#q_pregnant_eq').change(function(){
       if ($(this).val() == 1) {
-        $('#q_child_age_eq').prop('disabled', true);
-        $('#q_child_moon_age_eq').prop('disabled', true);
+        $('#q_child_age_moon_age_gteq').prop('disabled', true);
+        $('#q_child_age_moon_age_lteq').prop('disabled', true);
         console.log('foo');
         } else {
-        $('#q_child_age_eq').prop('disabled', false);
-        $('#q_child_moon_age_eq').prop('disabled', false);
+        $('#q_child_age_moon_age_gteq').prop('disabled', false);
+        $('#q_child_age_moon_age_lteq').prop('disabled', false);
       }
     })
   });

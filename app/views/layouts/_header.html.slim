@@ -2,11 +2,11 @@ header
   ul.header-left
     li
       = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
-    / li.search-form
-    /   = search_form_for @q do |f|
-    /     = f.text_field :content_or_title_cont, placeholder: 'キーワード検索'
-    /     = button_tag type: 'submit', class: 'btn btn-primary' do
-    /       i.fas.fa-search
+    li.search-form
+      = search_form_for @q do |f|
+        = f.text_field :content_or_title_cont, placeholder: 'キーワード検索'
+        = button_tag type: 'submit', class: 'btn btn-primary' do
+          i.fas.fa-search
 
   ul.header-right
     - if user_signed_in?
@@ -34,6 +34,6 @@ header
             = link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else
       li
-        = link_to 'アカウント登録', new_user_registration_path
+        = link_to 'アカウント登録', new_user_registration_path, class: 'white fas fa-sign-in-alt'
       li
-        = link_to 'ログイン', user_session_path
+        = link_to 'ログイン', user_session_path, class: 'white fas fa-key'
