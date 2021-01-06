@@ -49,7 +49,7 @@ RSpec.describe ConsultationCommentReply, type: :model do
     context '本文が長すぎる' do
       let(:user_id) { user.id }
       let(:consultation_comment_id) { consultation_comment.id }
-      let(:content) { 'a' * 501 }
+      let(:content) { 'a' * 1001 }
       it { is_expected.to_not be_valid }
     end
   end
