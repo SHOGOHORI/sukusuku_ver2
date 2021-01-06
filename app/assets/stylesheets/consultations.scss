@@ -124,15 +124,10 @@
 
 /* 相談一覧 */
 .category{
-  background-color: white;
-  display: inline;
+  overflow: hidden;
   margin: 50px;
   .box {
-    display: block;
-    width: 200px;
-    height: 100%;
-    padding: 10px;
-    box-shadow: 10px 10px 15px -10px;
+
   }
 }
 
@@ -145,9 +140,15 @@
 .category {
   margin-top: 100px;
   display: inline;
+  float: left;
+  box-shadow: 10px 10px 15px -10px;
   .box {
     margin: 0;
-    float: none;
+    background-color: white;
+    display: block;
+    width: 200px;
+    height: 100%;
+    padding: 10px;
   }
   details {
     transition: .5s;
@@ -195,10 +196,12 @@
   display: inline;
   margin-top: 5px;
   .box {
+    background-color: white;
+    margin-top: 5px;
     position:relative;
     display: block;
     width: 700px;
-    height: 200px;
+    height: 180px;
     padding: 10px;
     border: solid 3px #000;
     box-shadow: 10px 10px 15px -10px;
@@ -207,34 +210,58 @@
       top: 30px;
       right: 30px;
     }
+    .check {
+      position: absolute;
+      top: 80px;
+      right: 30px;
+    }
     h4 {
       font-weight: 800;
       text-decoration : underline;
     }
     .content {
       width: 500px;
+      color: #666666;
     }
     li.category_tag {
-      margin-right: 10px;
+      display: inline;
+      position: absolute;
+      left: 0;
+      bottom: 5px;
       li.tag {
         float: left;
+        button {
+          margin-right: 5px;
+          color: #fff;
+          font-weight: 800;
+          background-color: #777777;
+          border-radius: 100vh;
+          border-width: 0;
+          :hover {
+            background-color: #888888;
+          }
+        }
       }
     }
-    .category_tag {
-      display: inline;
-      float: left;
+    .comment_count {
       position: absolute;
-      bottom: 0;
-      margin: 0;
-      margin: 0;
+      top: 40px;
+      right: 45px;
+      p {
+        margin-bottom: 0;
+      }
+      .count {
+        text-align: center;
+        font-weight: 800;
+        margin-top: 0;
+      }
     }
     .user {
-      float: right;
       position: absolute;
-      bottom: 0;
-      margin: 0;
-      margin: 0;
+      right: 5px;
+      bottom: 5px;
       .pv_count {
+        float: left;
         font-weight: 800;
       }
       i {
