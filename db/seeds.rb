@@ -9,11 +9,11 @@
 icons = %w[heart-solid.svg book-open-solid.svg utensils-solid.svg building-solid.svg home-solid.svg hard-hat-solid.svg yen-sign-solid.svg female-solid.svg]
 items = %w[健康 教育 食事 仕事 住まい 安全 マネー ママの悩み]
 
-  items.zip(icons) do |t, c|
-    url = 'app/assets/images/'
-    Category.create!(category: t,
-                     icon: open(url + c))
-  end
+items.zip(icons) do |t, c|
+  url = 'app/assets/images/'
+  Category.create!(category: t,
+                   icon: open(url + c))
+end
 
 100.times do |n|
   name  = Faker::Name.name
@@ -93,7 +93,7 @@ ConsultationComment.create!(content: "こんにちは。\n
 
 # サンプル質問、回答(2)
 food = Category.find_by(category: '食事')
-Consultation.create!(title: "離乳食を嫌がる",
+Consultation.create!(title: '離乳食を嫌がる',
                      content: "数日前から離乳食をはじめました。\n
                                初日に10倍粥をあげたのですが全然食べてくれず、たらたらと口からこぼれてしまい…\n
                                最初だから仕方がないと思ったのですが、数日経った今も全然食べてくれません。\n
@@ -117,7 +117,7 @@ ConsultationComment.create!(content: "うちも10倍粥嫌がりました！\n
                             consultation_id: 2)
 
 # サンプル質問、回答(3)
-Consultation.create!(title: "寝返りで起きる",
+Consultation.create!(title: '寝返りで起きる',
                      content: "寝返りを覚えたばかりの息子が夜寝ている間に寝ぼけて？寝返りしてしまい苦しくなって起きて泣いてしまいます。\n
                                寝返りしないようにタオルを丸めたものをサイドにおいたのですが乗り越えて寝返りしてしまいます。\n
                                夜中毎晩のように起こされて寝かしつけをしているので寝不足になってしまいました。\n
@@ -136,7 +136,7 @@ ConsultationComment.create!(content: "こんにちは。ゆっくりと眠れな
 
 # サンプル質問、回答(4)
 education = Category.find_by(category: '教育')
-Consultation.create!(title: "汚い言葉を辞めさせたい",
+Consultation.create!(title: '汚い言葉を辞めさせたい',
                      content: "３歳の息子が「死ね」や「殺す」などという言葉を使うようになってしまいました…\n
                                はじめてその言葉を息子の口から聞いた時はショックでかたまってしまいました。\n
                                家でそんな言葉は使っていないつもりなのですが…外で覚えてきてしまったのでしょうか。\n
@@ -156,7 +156,7 @@ ConsultationComment.create!(content: "今幼稚園に通っているうちの子
                             consultation_id: 4)
 
 # サンプル質問、回答(5)
-Consultation.create!(title: "吐き戻しはいつまで？",
+Consultation.create!(title: '吐き戻しはいつまで？',
                      content: "生後３ヶ月の娘がミルクの後毎回吐き戻します。\n
                                飲ませすぎなのかと思い量を減らしたのですが足りないのか泣いてしまい、結局たくさん飲んでは戻してしまいます。戻したあとも元気そうにしているので体調が悪いわけではなさそうです。\n
                                吐き戻しを減らすコツはありますか？また、いつまで吐き戻しは続くのでしょうか？",
@@ -177,7 +177,7 @@ ConsultationComment.create!(content: "赤ちゃんのお腹はとっくり上に
                             consultation_id: 5)
 
 # サンプル質問、回答(6)
-Consultation.create!(title: "終わらないつわり・・・",
+Consultation.create!(title: '終わらないつわり・・・',
                      content: "現在妊娠５ヶ月です\n
                                つわりがいつまでも終わりません・・・\n
                                最近はお腹も少し出てきて腰痛にも悩まされるようになりました\n
@@ -200,5 +200,5 @@ ConsultationComment.create!(content: "こればかりは個人差なのでなん
                                       効き目はこれまた個人差がありますが効く人はかなり効くようです！\n
                                       少しでも早くつわりがおさまって素敵なマタニティライフが送れますように…\n
                                       頑張ってください、赤ちゃんに会えるのはもうすぐですよ！",
-                                      user_id: 9,
-                                      consultation_id: 6)
+                            user_id: 9,
+                            consultation_id: 6)
