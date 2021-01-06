@@ -3,12 +3,25 @@
     li
       h4
         = link_to consultation.title , consultation, class: 'consultation-box'
+      -if consultation.reception_closed
+        .danger
+          p
+            | 受付終了
+      - else
+        .success
+          p
+            | 受付中
       .content
-        = consultation.content.truncate(200, separator: '.')
+        = consultation.content.truncate(100, separator: '.')
     li.category_tag
       ul
+        li
+          i.fas.fa-tags
         li.tag
-          = button_tag consultation.model_name.human, type: 'submit', class: 'card-category  btn-secondary'
+          = search_form_for @q do |f|
+            = f.hidden_field :category_id_eq, value: ''
+            = button_tag type: 'submit', class: 'card-category  btn-secondary' do
+              = consultation.model_name.human
           - @category = Category.find_by(id: consultation.category_id)
         li.tag
            = search_form_for @q do |f|
@@ -30,10 +43,10 @@
         | コメント数
       h1.count
         = consultation.consultation_comments.count
-    span.user
-      .pv_count
+    .pv_count
         = number_with_delimiter(consultation.impressionist_count)
         |  PV
+    span.user
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
       - else

@@ -168,6 +168,48 @@ ConsultationComment.create!(content: "こんにちは。ゆっくりと眠れな
                             user_id: 4,
                             consultation_id: consultation_third.id)
 
+# サンプル質問、回答(4)
+education = Category.find_by(category: '教育')
+consultation_fourth = Consultation.create!(title: "汚い言葉を辞めさせたい",
+                                           content: "３歳の息子が「死ね」や「殺す」などという言葉を使うようになってしまいました…\n
+                                                     はじめてその言葉を息子の口から聞いた時はショックでかたまってしまいました。\n
+                                                     家でそんな言葉は使っていないつもりなのですが…外で覚えてきてしまったのでしょうか。\n
+                                                     そういうことは言わないようにと注意しても笑うだけで聞いてくれません。\n
+                                                     とても悲しいです。今すぐ辞めさせたいです。",
+                                           pregnant: 0,
+                                           child_age_moon_age: 39,
+                                           user_id: 8,
+                                           category_id: education.id)
+
+ConsultationComment.create!(content: "今幼稚園に通っているうちの子どもも言いますよ！\n
+                                      辞めなさいと言っても面白がるだけで辞めないんですよね～\n
+                                      テレビや友達の真似なのかなと思ってます\n
+                                      いずれその言葉の重みがわかれば自然と使わなくなるんじゃないですかね？\n
+                                      一応諦めずに根気強くそういう言葉はよくないということだけは都度伝えるようにしてます！",
+                            user_id: 9,
+                            consultation_id: consultation_fourth.id)
+
+# サンプル質問、回答(5)
+consultation_fifth = Consultation.create!(title: "吐き戻しはいつまで？",
+                                           content: "生後３ヶ月の娘がミルクの後毎回吐き戻します。\n
+                                                     飲ませすぎなのかと思い量を減らしたのですが足りないのか泣いてしまい、結局たくさん飲んでは戻してしまいます。戻したあとも元気そうにしているので体調が悪いわけではなさそうです。\n
+                                                     吐き戻しを減らすコツはありますか？また、いつまで吐き戻しは続くのでしょうか？",
+                                           pregnant: 0,
+                                           child_age_moon_age: 3,
+                                           user_id: 10,
+                                           category_id: health.id)
+
+ConsultationComment.create!(content: "吐き戻しはだいたい３～４ヶ月ほどで落ち着いてきますが、個人差がありますので１歳頃まで続く子もいます。\n
+                                      一日に何度も大量に吐いたり、吐いたものがピンク色だったりしませんか？その場合は病院で診てもらった方が良さそうです。",
+                            user_id: 9,
+                            consultation_id: consultation_fourth.id)
+
+ConsultationComment.create!(content: "赤ちゃんのお腹はとっくり上になっているのでちょっとの刺激で中身が出てしまうことがあります。\n
+                                      うちの下の子もよく吐き戻すのでタオルをひいてなるべく家具など洗いづらいものを汚さないようにしています＾＾；\n
+                                      代わりにタオルは一日何枚も洗います！",
+                            user_id: 20,
+                            consultation_id: consultation_fifth.id)
+
 # 40.times do |n|
 #   item = Faker::Lorem.sentence(word_count: 7)
 #   VoteItem.create!(item: item,
