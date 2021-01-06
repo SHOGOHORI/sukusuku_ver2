@@ -23,6 +23,7 @@
               = button_tag type: 'submit', class: 'card-category' do
                 = consultation_tag(consultation)
     = image_tag 'hukidashi.png', height: '80px', width: '100px',class: 'hukidashi'
+    .
     span.user
       p.pv_count
         = number_with_delimiter(consultation.impressionist_count)

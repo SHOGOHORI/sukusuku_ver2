@@ -126,7 +126,6 @@
 .category{
   background-color: white;
   display: inline;
-  float: left;
   margin: 50px;
   .box {
     display: block;
@@ -145,6 +144,11 @@
 
 .category {
   margin-top: 100px;
+  display: inline;
+  .box {
+    margin: 0;
+    float: none;
+  }
   details {
     transition: .5s;
     height: 25px;
@@ -188,6 +192,7 @@
 }
 
 .particular-case {
+  display: inline;
   margin-top: 5px;
   .box {
     position:relative;

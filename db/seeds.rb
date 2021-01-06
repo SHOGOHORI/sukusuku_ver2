@@ -125,30 +125,73 @@ ConsultationComment.create!(content: "こんにちは。\n
                             user_id: 4,
                             consultation_id: consultation_first.id)
 
-40.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 1)
-end
+# サンプル質問、回答(2)
+food = Category.find_by(category: '食事')
+consultation_second = Consultation.create!(title: "離乳食を嫌がる",
+                                          content: "数日前から離乳食をはじめました。\n
+                                                    初日に10倍粥をあげたのですが全然食べてくれず、たらたらと口からこぼれてしまい…\n
+                                                    最初だから仕方がないと思ったのですが、数日経った今も全然食べてくれません。\n
+                                                    こぼしていたのは最初だけで今は食べさせると体をのけぞらせて嫌がります。\n
+                                                    どうしたら食べてくれるでしょうか…",
+                                          pregnant: 0,
+                                          child_age_moon_age: 7,
+                                          user_id: 3,
+                                          category_id: food.id)
 
-40.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 2)
-end
+ConsultationComment.create!(content: "裏ごしはしっかりしていますか？\n
+                                      赤ちゃんは母乳やミルクなどの液体以外を口にするのが初めてなので固形っぽさが残っていると戸惑ってしまいます。\n
+                                      もし裏ごしがたらずつぶつぶしているようだったらしっかり裏ごしすると少し違うかもしれません。",
+                            user_id: 4,
+                            consultation_id: consultation_second.id)
 
-40.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 3)
-end
+ConsultationComment.create!(content: "うちも10倍粥嫌がりました！\n
+                                      にんじんのペーストは食べてくれたのでおかゆににんじんを混ぜてあげたら食べてくれるようになりましたよ！\n
+                                      無理してバランスよくあげることだけ考えずに食べられるものから食事に慣らしていくのも良いかもしれません(^^)",
+                            user_id: 5,
+                            consultation_id: consultation_second.id)
 
-40.times do |n|
-  item = Faker::Lorem.sentence(word_count: 7)
-  VoteItem.create!(item: item,
-                   vote_id: n + 1,
-                   item_number: 4)
-end
+# サンプル質問、回答(3)
+consultation_third = Consultation.create!(title: "寝返りで起きる",
+                                          content: "寝返りを覚えたばかりの息子が夜寝ている間に寝ぼけて？寝返りしてしまい苦しくなって起きて泣いてしまいます。\n
+                                                    寝返りしないようにタオルを丸めたものをサイドにおいたのですが乗り越えて寝返りしてしまいます。\n
+                                                    夜中毎晩のように起こされて寝かしつけをしているので寝不足になってしまいました。\n
+                                                    どうにか寝返りせずに寝てもらうにはどうしたら良いでしょうか？",
+                                          pregnant: 0,
+                                          child_age_moon_age: 6,
+                                          user_id: 3,
+                                          category_id: health.id)
+
+ConsultationComment.create!(content: "こんにちは。ゆっくりと眠れない夜が続くとつらいですよね。\n
+                                      うちは寝返りをし始めた頃は２リットルペットボトルに水を入れて蓋をテープでしっかり留めたものを何個か用意してそれをタオルに巻いてストッパーにしていましたよ。\n
+                                      時折それでも寝返りしてしまうことがありましたが、もう潔く夜は眠れないもの（新生児の頃もそうでしたし）と割り切って昼夜問わず子供が寝ているときに一緒に細切れで寝るようにしていました。\n
+                                      いずれ寝返り返りを覚えるのでそれまでの辛抱です！眠れるときに寝てくださいね！",
+                            user_id: 4,
+                            consultation_id: consultation_third.id)
+
+# 40.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 1)
+# end
+
+# 40.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 2)
+# end
+
+# 40.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 3)
+# end
+
+# 40.times do |n|
+#   item = Faker::Lorem.sentence(word_count: 7)
+#   VoteItem.create!(item: item,
+#                    vote_id: n + 1,
+#                    item_number: 4)
+# end
