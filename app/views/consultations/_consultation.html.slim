@@ -3,7 +3,8 @@
     li
       h4
         = link_to consultation.title , consultation, class: 'consultation-box'
-      = consultation.content
+      .content
+        = consultation.content.truncate(200, separator: '.')
     li.category_tag
       ul
         li.tag
@@ -21,7 +22,7 @@
               = f.hidden_field :pregnant_eq, value: consultation.pregnant
               = button_tag type: 'submit', class: 'card-category' do
                 = consultation_tag(consultation)
-    = image_tag 'hukidashi.png', height: "100px",class: 'hukidashi'
+    = image_tag 'hukidashi.png', height: '80px', width: '100px',class: 'hukidashi'
     span.user
       p.pv_count
         = number_with_delimiter(consultation.impressionist_count)
