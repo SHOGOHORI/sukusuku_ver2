@@ -123,13 +123,6 @@
 }
 
 /* 相談一覧 */
-.category{
-  overflow: hidden;
-  margin: 50px;
-  .box {
-
-  }
-}
 
 .consultation-index {
   display: inline;
@@ -138,9 +131,7 @@
 }
 
 .category {
-  margin-top: 100px;
-  display: inline;
-  float: left;
+  display: inline-block;
   box-shadow: 10px 10px 15px -10px;
   .box {
     margin: 0;
