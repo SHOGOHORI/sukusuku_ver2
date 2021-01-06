@@ -50,10 +50,26 @@ h1 {
   text-align: center;
 }
 
-.pagination {
-  box-shadow: 10px 10px 15px -10px;
+.page {
+  width: 100%;
+  text-align: center;
 }
 
+.pagination {
+  display: inline-block;
+  box-shadow: 3px 3px 4px -3px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination>li>a {
+  color: #A7C278;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
 
 /* ヘッダー */
 header{
