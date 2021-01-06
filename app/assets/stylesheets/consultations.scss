@@ -210,7 +210,7 @@
       color: white;
       position: absolute;
       top: 10px;
-      right: 300px;
+      right: 200px;
       p {
         margin: 2px;
         font-weight: 800;
@@ -236,6 +236,7 @@
       font-weight: 800;
       text-decoration : underline;
       display: inline;
+      font-size: 25px;
     }
     .content {
       margin-top: 10px;
@@ -246,7 +247,7 @@
       display: inline;
       position: absolute;
       left: -20px;
-      bottom: 30px;
+      bottom: 50px;
       li {
         float: left;
         i {
@@ -284,13 +285,13 @@
     .pv_count {
       position: absolute;
       left: 20px;
-      bottom: 5px;
+      bottom: 10px;
       font-weight: 800;
     }
     .user {
       position: absolute;
       right: 5px;
-      bottom: 5px;
+      bottom: 10px;
       i {
         margin-right: 5px;
       }
