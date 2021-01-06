@@ -3,27 +3,29 @@
     li
       h4
         = link_to consultation.title , consultation, class: 'consultation-box'
+      = consultation.content
     li.category_tag
-      = consultation.model_name.human
-      - @category = Category.find_by(id: consultation.category_id)
-      span
-        = search_form_for @q do |f|
-          = f.hidden_field :category_id_eq, value: @category.id
-          = button_tag type: 'submit', class: 'card-category' do
-            = @category.category
-      span
-        - if consultation_tag(consultation)
-          = search_form_for @q do |f|
-            = f.hidden_field :child_age_moon_age_eq, value: consultation.child_age_moon_age
-            = f.hidden_field :pregnant_eq, value: consultation.pregnant
-            = button_tag type: 'submit', class: 'card-category' do
-              = consultation_tag(consultation)
-        br
-        p.pv_count
-          = number_with_delimiter(consultation.impressionist_count)
-          |  PV
+      ul
+        li.tag
+          = link_to consultation.model_name.human, '#', class: 'btn'
+          - @category = Category.find_by(id: consultation.category_id)
+        li.tag
+           = search_form_for @q do |f|
+             = f.hidden_field :category_id_eq, value: @category.id
+             = button_tag type: 'submit', class: 'card-category' do
+               = @category.category
+        li.tag
+          - if consultation_tag(consultation)
+            = search_form_for @q do |f|
+              = f.hidden_field :child_age_moon_age_eq, value: consultation.child_age_moon_age
+              = f.hidden_field :pregnant_eq, value: consultation.pregnant
+              = button_tag type: 'submit', class: 'card-category' do
+                = consultation_tag(consultation)
     = image_tag 'hukidashi.png', height: "100px",class: 'hukidashi'
     span.user
+      p.pv_count
+        = number_with_delimiter(consultation.impressionist_count)
+        |  PV
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
       - else

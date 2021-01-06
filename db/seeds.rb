@@ -105,6 +105,26 @@ end
                closed_at: s)
 end
 
+# サンプル質問、回答(1)
+health = Category.find_by(category: '健康')
+consultation_first = Consultation.create!(title: '生後一ヶ月のイビキについて',
+                                          content: "こんにちは。生後1ヶ月になる娘がいます。\n
+                                                   夜中になるとフガフガとイビキをかいていて息苦しそうにしています。\n
+                                                   寝ている間にSIDSにならないか心配です。\n
+                                                   このまま様子を見るだけで良いのか、それとも鼻の吸引などしてあげた方がいいのでしょうか？",
+                                          pregnant: 0,
+                                          child_age_moon_age: 1,
+                                          user_id: 3,
+                                          category_id: health.id)
+
+ConsultationComment.create!(content: "こんにちは。\n
+                                      息苦しそうにしている赤ちゃんを見ていると心配になりますよね。\n
+                                      赤ちゃんは大人より鼻孔が狭いためイビキをかきやすいです。\n
+                                      イビキをかいているときに無呼吸にはなっておらず、顔色も悪くなく、起きているときに元気そうにしていれば大きな問題はないかと思います。\n
+                                      もしイビキがひどく心配なようでしたらお医者様に相談した方が良いかもしれません。",
+                            user_id: 4,
+                            consultation_id: consultation_first.id)
+
 40.times do |n|
   item = Faker::Lorem.sentence(word_count: 7)
   VoteItem.create!(item: item,
