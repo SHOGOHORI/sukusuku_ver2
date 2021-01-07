@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Consultation.ransack(params[:q])
+    @q = Vote.ransack(params[:q])
     @q.sorts = 'updated_at desc' if @q.sorts.empty?
     @search_consultations = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
   end

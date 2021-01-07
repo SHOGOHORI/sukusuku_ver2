@@ -28,6 +28,14 @@ class VotesController < ApplicationController
     @data = @vote.vote_items.map { |item| [item.item, item.vote_relationships.count] }.to_h
   end
 
+  def index
+    store_location
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def destroy
     @vote.destroy
     redirect_to root_path, notice: '削除しました'
