@@ -30,14 +30,15 @@ a.guest__btn {
 /* マイページ */
 .mypage{
   min-width: 1400px;
-  img{
-    border-radius: 50%;
-    object-fit: cover;
-  }
 }
 .user_part{
   margin: 0 50px 50px 100px;
   height: 300px;
+  display: block;
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
   .profile {
     float: left;
     width: 250px;
@@ -107,8 +108,68 @@ a.guest__btn {
     z-index: 2;
   }
 }
-
-.p-3 {
-  float: left;
-  margin: 100px 50px;
+.content_part {
+  margin-top: 100px;
+  display: block;
+  .tabs{
+    float: left;
+    width:800px;
+    margin:10px auto;
+    position:relative;
+  }
+  .tab-buttons span{
+    cursor:pointer;
+    border-bottom:2px solid #ddd;
+    display:block;
+    width:25%;
+    float:left;
+    text-align:center;
+    height:40px;
+    line-height:40px;
+  }
+  .tab-content{
+    padding:15px;
+    display:inline-block;
+    color:#333;
+  }
+  #lamp{
+    width:25%;
+    height:2px;
+    background:#333;
+    display:block;
+    position:absolute;
+    top:40px;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content2{
+    left:25%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content3{
+    left:50%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content4{
+    left:75%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content1{
+    left:0;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
 }
