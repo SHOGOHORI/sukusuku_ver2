@@ -20,12 +20,35 @@ document.addEventListener("turbolinks:load"
       if ($(this).val() == 1) {
         $('#q_child_age_moon_age_gteq').prop('disabled', true);
         $('#q_child_age_moon_age_lteq').prop('disabled', true);
-        console.log('foo');
-        } else {
+      } else {
         $('#q_child_age_moon_age_gteq').prop('disabled', false);
         $('#q_child_age_moon_age_lteq').prop('disabled', false);
       }
     })
+    $('.pregnant_eq').change(function(){
+      if ($(this).val() == 1) {
+        $('.child_age_moon_age').prop('disabled', true);
+      } else {
+        $('.child_age_moon_age').prop('disabled', false);
+      }
+    })
+  });
+})
+
+document.addEventListener("turbolinks:load"
+, function () {
+  $(function() {
+    $('input:radio[name="model"]').change(function(){
+      if ($('#vote_search').prop('checked')) {
+        $('.category .vote_search').show();
+        $('.category .consultation_search').hide();
+        console.log('foo');
+      } else {
+        $('.category .vote_search').hide();
+        $('.category .consultation_search').show();
+        console.log('bar');
+      }
+    });
   });
 })
 

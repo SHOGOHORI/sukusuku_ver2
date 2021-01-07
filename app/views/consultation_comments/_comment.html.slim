@@ -10,7 +10,7 @@
         i.fas.fa-user.fa-2x
       = link_to comment.user.name, comment.user
       br
-      = comment.content
+      = safe_join(comment.content.split("\n"),tag(:br))
       br
       - if comment.image?
         td

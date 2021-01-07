@@ -14,7 +14,7 @@
       br
       = link_to '削除', user_delete_avater_path(resource), method: :delete
     - else
-      = image_tag 'user_icon.png', height: '150px'
+      i.fas.fa-user.fa-5x
     br
     .field
       = f.file_field :avatar

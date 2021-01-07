@@ -125,7 +125,7 @@
 /* 相談一覧 */
 
 .consultation-index {
-  display: inline;
+  float: left;
   position:relative;
   margin: 10px auto;
 }
@@ -133,7 +133,7 @@
 .category {
   margin-top: 100px;
   margin-bottom: 100px;
-  display: inline;
+  margin-right: 100px;
   float: left;
   box-shadow: 10px 10px 15px -10px;
   .box {
@@ -143,6 +143,14 @@
     width: 200px;
     height: 100%;
     padding: 10px;
+  }
+  .radio .col {
+    margin-left: 30px;
+    font-weight: 800;
+    input {
+      float: left;
+      width: auto;
+    }
   }
   details {
     transition: .5s;
@@ -161,6 +169,9 @@
   h4 {
     font-weight: 800;
     text-align: center;
+  }
+  .vote_search {
+    display: none;
   }
 }
 

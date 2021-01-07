@@ -1,0 +1,24 @@
+= search_form_for @q do |f|
+  .field
+    = f.label :title, 'カテゴリー'
+    = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
+  .field
+    = f.label :pregnant, '妊娠中'
+    = f.select :pregnant_eq, [['いいえ',0],['はい',1]], { include_blank: '選択'}, class: 'selectpicker form-control'
+  .form-group
+    .form-inline
+      .col
+        = f.label :moon_age, '月齢:'
+      .col
+        = f.select :child_age_moon_age_gteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+        |  ヶ月
+    | 〜
+    .form-inline
+      .col
+        = f.label :moon_age, '月齢:'
+      .col
+        = f.select :child_age_moon_age_lteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+        |  ヶ月
+  .field
+    = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control'
+  = f.submit '検索する', class: 'btn btn-primary'
