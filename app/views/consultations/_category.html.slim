@@ -3,7 +3,7 @@
   .category-index
     - @categories.each do|category|
       = form_tag search_path, method: :get do
-        = hidden_field_tag :category, value: category.id
+        = hidden_field_tag :category, category.id
         = button_tag type: 'submit', class: 'btn btn-light' do
           i
             = image_tag category.icon.url, alt: 'icon', height: '20px', width: '20px'
@@ -13,6 +13,12 @@
   details
     summary
       | 詳細検索
+    .radio
+      input type="radio" name="model" id="consultation_search"
+      | 相談
+      br
+      input type="radio" name="model" id="vote_search"
+      | アンケート
     = search_form_for @q do |f|
       .field
         = f.label :title, 'カテゴリー'
@@ -21,12 +27,6 @@
         = f.label :pregnant, '妊娠中'
         = f.select :pregnant_eq, [['いいえ',0],['はい',1]], { include_blank: '選択'}, class: 'selectpicker form-control'
       .form-group
-        / .form-inline
-        /   .col
-        /     = f.label :age, '年齢:'
-        /   .col
-        /     = f.select :age_gteq , options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
-        /     |  歳
         .form-inline
           .col
             = f.label :moon_age, '月齢:'
@@ -34,12 +34,6 @@
             = f.select :child_age_moon_age_gteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
             |  ヶ月
         | 〜
-        / .form-inline
-        /   .col
-        /     = f.label :age, '年齢:'
-        /   .col
-        /     = f.select :age_lteq, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
-            |  歳
         .form-inline
           .col
             = f.label :moon_age, '月齢:'

@@ -6,11 +6,11 @@
       .tab-buttons
         span.content1
           | 相談（
-          = @consultations_result.count
+          = @consultations_result.total_count
           | ）
         span.content2
           | アンケート（
-          = @votes_result.count
+          = @votes_result.total_count
           | ）
         #lamp.content1
       .tab-content
