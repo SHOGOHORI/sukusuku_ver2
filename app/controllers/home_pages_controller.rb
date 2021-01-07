@@ -17,6 +17,14 @@ class HomePagesController < ApplicationController
   def privacy
   end
 
+  def search
+    q = params[:q]
+    @c = Consultation.ransack(content_or_title_cont: q)
+    @consultations_result = Kaminari.paginate_array(@c.result).page(params[:page])
+    @v = Vote.ransack(content_or_title_cont: q)
+    @votes_result = Kaminari.paginate_array(@v.result).page(params[:page])
+  end
+
   private
 
   def delete_url
