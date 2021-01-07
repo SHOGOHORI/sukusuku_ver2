@@ -2,6 +2,7 @@ doctype html
 html
   head
     title
+      = yield(:title)
       | SukuSuku
     = csrf_meta_tags
     = csp_meta_tag
