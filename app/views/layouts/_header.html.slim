@@ -4,7 +4,7 @@ header
       = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
     li.search-form
       = form_tag search_path, method: :get do
-        = text_field_tag :q, nil, placeholder: 'キーワード検索'
+        = text_field_tag :keyword, nil, placeholder: 'キーワード検索'
         = button_tag type: 'submit', class: 'btn btn-primary' do
           i.fas.fa-search
 

@@ -2,8 +2,8 @@
   h4 カテゴリー
   .category-index
     - @categories.each do|category|
-      = search_form_for @q do |f|
-        = f.hidden_field :category_id_eq, value: category.id
+      = form_tag search_path, method: :get do
+        = hidden_field_tag :category, value: category.id
         = button_tag type: 'submit', class: 'btn btn-light' do
           i
             = image_tag category.icon.url, alt: 'icon', height: '20px', width: '20px'

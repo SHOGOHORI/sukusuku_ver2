@@ -74,10 +74,10 @@ ul.mypage
       #tab3.tab-pane
         = paginate @user_votes, remote: true
         ul.card-body
-          = render partial: 'consultations/consultation', collection: @user_votes, id: 'consultation-index'
+          = render partial: 'votes/vote', collection: @user_votes
         = paginate @user_votes, remote: true
       #tab4.tab-pane
         = paginate @user_poll, remote: true
         ul.card-body
-          = render partial: 'consultations/consultation', collection: @user_poll, id: 'consultation-index'
+          = render partial: 'votes/vote', collection: @user_poll
         = paginate @user_poll, remote: true

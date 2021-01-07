@@ -18,10 +18,11 @@ class HomePagesController < ApplicationController
   end
 
   def search
-    q = params[:q]
-    @c = Consultation.ransack(content_or_title_cont: q)
+    keyword = params[:keyword]
+    category = params[:category]
+    @c = Consultation.ransack(content_or_title_cont: keyword, category_id_eq: category)
     @consultations_result = Kaminari.paginate_array(@c.result).page(params[:page])
-    @v = Vote.ransack(content_or_title_cont: q)
+    @v = Vote.ransack(content_or_title_cont: keyword, category_id_eq: category)
     @votes_result = Kaminari.paginate_array(@v.result).page(params[:page])
   end
 

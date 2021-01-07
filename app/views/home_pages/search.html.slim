@@ -5,9 +5,13 @@
     li.tabs
       .tab-buttons
         span.content1
-          | 相談
+          | 相談（
+          = @consultations_result.count
+          | ）
         span.content2
-          | アンケート
+          | アンケート（
+          = @votes_result.count
+          | ）
         #lamp.content1
       .tab-content
         .content1
