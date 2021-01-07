@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     @search_consultations = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
 
     @p = Vote.ransack(params[:q])
-    @p.sorts = 'updated_at desc' if @q.sorts.empty?
-    @search_votes = Kaminari.paginate_array(@q.result).page(params[:page]).per(5)
+    @p.sorts = 'updated_at desc' if @p.sorts.empty?
+    @search_votes = Kaminari.paginate_array(@p.result).page(params[:page]).per(5)
   end
 
   def set_category

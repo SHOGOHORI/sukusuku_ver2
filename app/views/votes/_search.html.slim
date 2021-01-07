@@ -1,9 +1,9 @@
-= search_form_for @q do |f|
+= search_form_for @p do |f|
   .field
-    = f.label :title, 'カテゴリーqqq'
+    = f.label :title, 'カテゴリー'
     = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
   .field
-    = f.label :pregnant, '妊娠中qqqqqqqqqq'
+    = f.label :pregnant, '妊娠中'
     = f.select :pregnant_eq, [['いいえ',0],['はい',1]], { include_blank: '選択'}, class: 'selectpicker form-control'
   .form-group
     .form-inline

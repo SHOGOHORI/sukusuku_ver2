@@ -3,13 +3,13 @@
     li.category
       = render partial: 'consultations/category'
     li.consultation-index
-      - if @search_consultations.count == 0
+      - if @search_votes.count == 0
         h3 相談がありません。
       h3
         | 検索結果
-        = @search_consultations.total_count
+        = @search_votes.total_count
         | 件
-      = paginate @search_consultations, remote: true
+      = paginate @search_votes
       ul.card-body
-        = render partial: 'votes/vote', collection: @search_consultations, id: 'consultation-index'
-      = paginate @search_consultations, remote: true
+        = render partial: 'votes/vote', collection: @search_votes, id: 'consultation-index'
+      = paginate @search_votes
