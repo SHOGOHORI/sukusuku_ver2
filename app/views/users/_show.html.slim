@@ -35,49 +35,48 @@
           - if current_user == @user && @user.children.count < 3
             li
               = link_to '子どもの情報を登録する', new_child_path
-  ul
-    li.category
-      = render partial: 'consultations/category'
-    li.p-3
-      ul.nav.nav-tabs
-        li.nav-item
-          a.nav-link.active href='#tab1' data-toggle='tab'
-            | 相談（
-            = @user.consultations.count
-            | ）
-        li.nav-item
-          a.nav-link href='#tab2' data-toggle='tab'
-            | 相談コメント（
-            = @c.uniq.count
-            | ）
-        li.nav-item
-          a.nav-link href='#tab3' data-toggle='tab'
-            | アンケート（
-            = @user.votes.count
-            | ）
-        li.nav-item
-          a.nav-link href='#tab4' data-toggle='tab'
-            | 投票したアンケート(
-            = @user_poll.total_count
-            | )
-      .tab-content
-        #tab1.tab-pane.active
-          = paginate @user_consultations, remote: true
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
-          = paginate @user_consultations, remote: true
-        #tab2.tab-pane
-          = paginate @user_comments, remote: true
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
-          = paginate @user_comments, remote: true
-        #tab3.tab-pane
-          = paginate @user_votes, remote: true
-          ul.card-body
-            = render partial: 'votes/vote', collection: @user_votes
-          = paginate @user_votes, remote: true
-        #tab4.tab-pane
-          = paginate @user_poll, remote: true
-          ul.card-body
-            = render partial: 'votes/vote', collection: @user_poll
-          = paginate @user_poll, remote: true
+  .category
+    = render partial: 'consultations/category'
+  .p-3
+    ul.nav.nav-tabs
+      li.nav-item
+        a.nav-link.active href='#tab1' data-toggle='tab'
+          | 相談（
+          = @user.consultations.count
+          | ）
+      li.nav-item
+        a.nav-link href='#tab2' data-toggle='tab'
+          | 相談コメント（
+          = @c.uniq.count
+          | ）
+      li.nav-item
+        a.nav-link href='#tab3' data-toggle='tab'
+          | アンケート（
+          = @user.votes.count
+          | ）
+      li.nav-item
+        a.nav-link href='#tab4' data-toggle='tab'
+          | 投票したアンケート(
+          = @user_poll.total_count
+          | )
+    .tab-content
+      #tab1.tab-pane.active
+        = paginate @user_consultations, remote: true
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
+        = paginate @user_consultations, remote: true
+      #tab2.tab-pane
+        = paginate @user_comments, remote: true
+        ul.card-body
+          = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
+        = paginate @user_comments, remote: true
+      #tab3.tab-pane
+        = paginate @user_votes, remote: true
+        ul.card-body
+          = render partial: 'votes/vote', collection: @user_votes
+        = paginate @user_votes, remote: true
+      #tab4.tab-pane
+        = paginate @user_poll, remote: true
+        ul.card-body
+          = render partial: 'votes/vote', collection: @user_poll
+        = paginate @user_poll, remote: true

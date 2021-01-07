@@ -20,10 +20,16 @@ document.addEventListener("turbolinks:load"
       if ($(this).val() == 1) {
         $('#q_child_age_moon_age_gteq').prop('disabled', true);
         $('#q_child_age_moon_age_lteq').prop('disabled', true);
-        console.log('foo');
       } else {
         $('#q_child_age_moon_age_gteq').prop('disabled', false);
         $('#q_child_age_moon_age_lteq').prop('disabled', false);
+      }
+    })
+    $('.pregnant_eq').change(function(){
+      if ($(this).val() == 1) {
+        $('.child_age_moon_age').prop('disabled', true);
+      } else {
+        $('.child_age_moon_age').prop('disabled', false);
       }
     })
   });
