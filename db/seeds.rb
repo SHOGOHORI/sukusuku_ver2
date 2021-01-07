@@ -187,7 +187,7 @@ Consultation.create!(title: '終わらないつわり・・・',
                                これがまだずっと続くのかもしれないと思うと憂鬱です・・・\n
                                一般的にはもうじき落ち着く頃らしいですが・・・毎日つらいです",
                      pregnant: 1,
-                     user_id: 15,
+                     user_id: 21,
                      category_id: health.id)
 
 ConsultationComment.create!(content: "こればかりは個人差なのでなんとも言えませんが、遅くとも出産すると必ずつわりは終わります。\n
@@ -202,3 +202,19 @@ ConsultationComment.create!(content: "こればかりは個人差なのでなん
                                       頑張ってください、赤ちゃんに会えるのはもうすぐですよ！",
                             user_id: 9,
                             consultation_id: 6)
+
+# サンプル質問、回答(7)
+Consultation.create!(title: '人見知り場所見知りが酷い',
+                     content: "生後５ヶ月過ぎから人見知りや場所見知りをするようになりました。\n
+                               外出すると火がついたように泣いてしまうのでどこにも行けません。\n
+                               この時期がすぎるまで家で過ごしていてもそのうちおさまるのでしょうか？",
+                     pregnant: 0,
+                     child_age_moon_age: 5,
+                     user_id: 23,
+                     category_id: education.id)
+
+ConsultationComment.create!(content: "家で過ごさずどんどん外に連れて行って上げた方が外に慣れて泣くことも減ると思います。\n
+                                      最初のうちは泣いてしまって戸惑うかもしれませんが、赤ちゃんは泣いてしまうもの！\n
+                                      割り切って赤ちゃんが泣いていても大丈夫そうなところから外に慣らしていくと良いと思います。",
+                            user_id: 25,
+                            consultation_id: 7)
