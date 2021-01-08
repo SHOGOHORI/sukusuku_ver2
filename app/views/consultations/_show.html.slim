@@ -34,25 +34,37 @@ ul
               - else
                 .Reception_close
                   span
-                    | 受付終了しました
-            p
-              = number_with_delimiter(@consultation.impressionist_count)
-              | PV
-            span
-              | カテゴリー：
-              = search_form_for @q do |f|
-                = f.hidden_field :category_id_eq, value: @consultation.category_id
-                = button_tag type: 'submit', class: 'card-category' do
-                  = @consultation.category.category
-              - if consultation_tag(@consultation)
+                    | 受付終了
+            - if @consultation.created_at == @consultation.updated_at
+              p
+                | 投稿日時：
+                = @consultation.created_at.to_s(:datetime_jp)
+            - else
+              p
+                | 更新日時：
+                = @consultation.updated_at.to_s(:datetime_jp)
+            ul.category_tag
+              li
+                i.fas.fa-tags
+              li.tag
                 = search_form_for @q do |f|
-                  = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
-                  = f.hidden_field :pregnant_eq, value: @consultation.pregnant
-                  = button_tag type: 'submit', class: 'card-category' do
-                    = consultation_tag(@consultation)
+                  = f.hidden_field :category_id_eq, value: ''
+                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                    = @consultation.model_name.human
+              li.tag
+                = search_form_for @q do |f|
+                  = f.hidden_field :category_id_eq, value: @consultation.category_id
+                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                    = @consultation.category.category
+              li.tag
+                - if consultation_tag(@consultation)
+                  = search_form_for @q do |f|
+                    = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
+                    = f.hidden_field :pregnant_eq, value: @consultation.pregnant
+                    = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      = consultation_tag(@consultation)
             br
-            br
-            span
+            span.sentence
               = safe_join(@consultation.content.split("\n"),tag(:br))
             br
             - if @consultation.image?
@@ -63,9 +75,6 @@ ul
           = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
             |  tweet
-        span
-          = time_ago_in_words(@consultation.created_at)
-          | 前
         - if  user_signed_in?
           - if current_user == @consultation.user
             .consultation_link

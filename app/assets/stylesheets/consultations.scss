@@ -57,9 +57,6 @@
         margin-top: 10px;
         text-align: center;
       }
-      i {
-
-      }
     }
   }
   .box_bottom {
@@ -67,6 +64,9 @@
     width: 100%;
     margin: 10px 0;
     overflow: hidden;
+    .category_tag {
+      margin-left: -40px;
+    }
   }
   .content {
     width: 600px;
@@ -81,11 +81,11 @@
         display: inline-block;
         position: absolute;
         top: 20px;
-        left: -19px;
-        border: 8px solid transparent;
-        border-right: 18px solid #edf1ee;
-        -webkit-transform: rotate(35deg);
-        transform: rotate(35deg);
+        left: -28px;
+        border: 10px solid transparent;
+        border-right: 26px solid #edf1ee;
+        -webkit-transform: rotate(32deg);
+        transform: rotate(32deg);
       }
       h2 {
         font-weight: 800;
@@ -183,6 +183,7 @@
 .category-index {
   :hover{
     background-color: #C0C0C0;
+    border-radius: 10px;
   }
   button {
     background-color: white;
@@ -258,26 +259,6 @@
       position: absolute;
       left: -20px;
       bottom: 50px;
-      li {
-        float: left;
-        i {
-          color: #777777;
-          margin-right: 5px;
-        }
-        .btn-secondary {
-          margin-right: 5px;
-          color: #fff;
-          font-weight: 800;
-          background-color: #777777;
-          border-radius: 100vh;
-          border-width: 0;
-          &:hover {
-            background-color: #888888;
-            border-radius: 100vh;
-            margin-right: 5px;
-          }
-        }
-      }
     }
     .comment_count {
       position: absolute;
@@ -303,6 +284,29 @@
       right: 5px;
       bottom: 10px;
       i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.category_tag {
+  li {
+    float: left;
+    i {
+      color: #777777;
+      margin-right: 5px;
+    }
+    .btn-secondary {
+      margin-right: 5px;
+      color: #fff;
+      font-weight: 800;
+      background-color: #777777;
+      border-radius: 100vh;
+      border-width: 0;
+      &:hover {
+        background-color: #888888;
+        border-radius: 100vh;
         margin-right: 5px;
       }
     }
