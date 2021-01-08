@@ -316,8 +316,7 @@ health = Category.find_by(category: '健康')
                        pregnant: 0,
                        child_age_moon_age: 12,
                        user_id: 49,
-                       category_id: health.id,
-                       image: File.read('app/assets/images/baby.png').to_json)
+                       category_id: health.id)
 
 ConsultationComment.create!(content: "保湿用のクリームがお肌に合ってないのかも？
                                       別のクリームも試してみては？",

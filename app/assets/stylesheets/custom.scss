@@ -189,8 +189,15 @@ header{
   padding:15px;
   display:inline-block;
   color:#333;
-  h2 {
+  margin: 0 auto;
+  .unfind {
+    margin-top: 50px;
+    width: 800px;
     text-align: center;
+    i {
+      text-align: center;
+      color: silver;
+    }
   }
 }
 #lamp{
