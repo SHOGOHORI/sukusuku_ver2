@@ -5,9 +5,10 @@
   .particular-case
     .box
       - if comment.user.avatar?
-        = image_tag comment.user.avatar.url, alt: 'icon', height: '80px'
+        = image_tag comment.user.avatar.url, alt: 'icon', height: '50px'
       - else
-        = image_tag 'user.png', alt: 'icon', height: '80px'
+        = image_tag 'user.png', alt: 'icon', height: '50px'
+      br
       = link_to comment.user.name, comment.user
       br
       = safe_join(comment.content.split("\n"),tag(:br))
@@ -20,7 +21,8 @@
         = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
       - unless @consultation.reception_closed
         - if  user_signed_in?
-          <div class='button reply_button' value="#{comment.id}">
+          <div class='button reply_button btn btn-success' value="#{comment.id}">
+            i.fas.fa-comments
             | 返信する
           </div>
           = render 'consultation_comment_replies/modal', comment: comment

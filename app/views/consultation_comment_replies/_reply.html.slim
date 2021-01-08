@@ -1,9 +1,9 @@
 - comment.consultation_comment_replies.each do |reply|
   .reply
     - if reply.user.avatar?
-      = image_tag reply.user.avatar.url, alt: 'icon', height: '80px'
+      = image_tag reply.user.avatar.url, alt: 'icon', height: '50px'
     - else
-      = image_tag 'user.png', alt: 'icon', height: '80px'
+      = image_tag 'user.png', alt: 'icon', height: '50px'
     = link_to reply.user.name, reply.user
     br
     = reply.content

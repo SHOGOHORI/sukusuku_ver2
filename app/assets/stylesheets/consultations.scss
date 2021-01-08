@@ -40,9 +40,6 @@
       position: relative;
       z-index: 1;
       float: left;
-      img{
-        border-radius: 50%;
-      }
       ul {
         padding-left: 0;
       }
@@ -69,6 +66,10 @@
     overflow: hidden;
     .category_tag {
       margin-left: -40px;
+    }
+    .post_time, .pv_count {
+      color: #808080;
+      margin-top: 10px;
     }
   }
   .content {
@@ -120,6 +121,9 @@
     background: #3399FF;
     color: white;
     font-weight: 800;
+  }
+  img{
+    border-radius: 50%;
   }
 }
 
