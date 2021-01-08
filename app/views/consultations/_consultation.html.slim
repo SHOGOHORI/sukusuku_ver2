@@ -50,7 +50,7 @@
       - if consultation.user.avatar?
         = image_tag consultation.user.avatar.url, alt: 'icon', height: '20px'
       - else
-        i.fas.fa-user
+        = image_tag 'user.png', alt: 'icon', height: '20px'
       = link_to consultation.user.name, consultation.user
       = time_ago_in_words(consultation.created_at)
       | 前に投稿

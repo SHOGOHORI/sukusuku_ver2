@@ -17,7 +17,7 @@ ul
                 - if @vote.user.avatar?
                   = image_tag @vote.user.avatar.url, alt: 'icon', height: '100px'
                 - else
-                  i.fas.fa-user.fa-5x
+                  = image_tag 'user.png', alt: 'icon', height: '100px'
               li
                 p
                   = @vote.user.name

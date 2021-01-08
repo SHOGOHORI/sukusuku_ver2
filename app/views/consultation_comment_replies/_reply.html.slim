@@ -3,7 +3,7 @@
     - if reply.user.avatar?
       = image_tag reply.user.avatar.url, alt: 'icon', height: '80px'
     - else
-      i.fas.fa-user.fa-2x
+      = image_tag 'user.png', alt: 'icon', height: '80px'
     = link_to reply.user.name, reply.user
     br
     = reply.content

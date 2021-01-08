@@ -7,7 +7,7 @@
       - if comment.user.avatar?
         = image_tag comment.user.avatar.url, alt: 'icon', height: '80px'
       - else
-        i.fas.fa-user.fa-2x
+        = image_tag 'user.png', alt: 'icon', height: '80px'
       = link_to comment.user.name, comment.user
       br
       = safe_join(comment.content.split("\n"),tag(:br))

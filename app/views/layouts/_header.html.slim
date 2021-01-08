@@ -24,7 +24,7 @@ header
           - if current_user.avatar?
             = image_tag current_user.avatar.url, alt: 'icon', height: '20px'
           - else
-            i.fas.fa-user
+            = image_tag 'user.png', alt: 'icon', height: '20px'
           = current_user.name
           b.caret
         ul.dropdown-menu
