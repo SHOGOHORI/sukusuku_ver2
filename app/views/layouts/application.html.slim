@@ -21,5 +21,5 @@ html
         p.alert.alert-danger
           = alert
       = yield
-      = render 'layouts/footer'
-      = debug(params) if Rails.env.development?
+    = render 'layouts/footer'
+    = debug(params) if Rails.env.development?

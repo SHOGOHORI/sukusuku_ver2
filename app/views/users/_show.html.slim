@@ -59,23 +59,23 @@
         #lamp.content1
       .tab-content
         .content1
-          = paginate @user_consultations, remote: true
           ul.card-body
             = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
-          = paginate @user_consultations, remote: true
+          .page
+            = paginate @user_consultations, remote: true
         .content2
-          = paginate @user_comments, remote: true
           ul.card-body
             = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
-          = paginate @user_comments, remote: true
+          .page
+            = paginate @user_comments, remote: true
         .content3
-          = paginate @user_votes, remote: true
           ul.card-body
             = render partial: 'votes/vote', collection: @user_votes
-          = paginate @user_votes, remote: true
+          .page
+            = paginate @user_votes, remote: true
         .content4
-          = paginate @user_poll, remote: true
           ul.card-body
             = render partial: 'votes/vote', collection: @user_poll
-          = paginate @user_poll, remote: true
+          .page
+            = paginate @user_poll, remote: true
 .credit

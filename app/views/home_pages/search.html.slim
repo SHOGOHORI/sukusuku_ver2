@@ -15,11 +15,19 @@
         #lamp.content1
       .tab-content
         .content1
+          - if @consultations_result.total_count == 0
+            .unfind
+              i.far.fa-tired.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations_result, id: 'consultation-index'
           .page
             = paginate @consultations_result
         .content2
+          - if @votes_result.total_count == 0
+            .unfind
+              i.far.fa-tired.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'votes/vote', collection: @votes_result, id: 'consultation-index'
           .page
