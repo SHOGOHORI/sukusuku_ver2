@@ -27,25 +27,27 @@
   ul
     li.category
       = render partial: 'consultations/category'
-    li.p-3
+    li
       h2
         = age_and_moon_age(@child.birthday)
         | の記事
-      ul.nav.nav-tabs
-        li.nav-item
-          a.nav-link.active href='#tab1' data-toggle='tab'
-            | 相談
-        li.nav-item
-          a.nav-link href='#tab2' data-toggle='tab'
-            | アンケート
-      .tab-content
-        #tab1.tab-pane.active
-          = paginate @consultations, remote:true
-          ul.card-body
+      .tabs
+        .tab-buttons
+          span.content1
+            | 相談（
+            = @consultations.total_count
+            | ）
+          span.content2
+            | アンケート（
+            = @votes.total_count
+            | ）
+        .tab-content
+          .content1
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-          = paginate @consultations, remote:true
-        #tab2.tab-pane
-          = paginate @votes, remote:true
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
-          = paginate @votes, remote:true
+            .page
+              = paginate @consultations, remote:true
+          .content2
+            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
+            .page
+              = paginate @votes, remote:true
+  .credit
