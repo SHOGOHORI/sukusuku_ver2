@@ -1,11 +1,8 @@
 .home
   - unless  user_signed_in?
     .non-login
-      / .home-logo
-      /   / h3 あなたの育児の困った！を救う
-      /   = image_tag 'home_logo.png', height: "200px"
-      / = render 'users/sessions/new'
-  ul
+      = image_tag 'home.png', alt: 'img', height: '100%', width: '100%'
+  ul.item
     li.category
       = render partial: 'consultations/category'
     li.tabs
@@ -19,7 +16,7 @@
         .content1
           - if @consultations.total_count == 0
             .unfind
-              i.far.fa-tired.fa-3x
+              i.far.fa-flushed.fa-3x
               h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
@@ -28,7 +25,7 @@
         .content2
           - if @votes.total_count == 0
             .unfind
-              i.far.fa-tired.fa-3x
+              i.far.fa-flushed.fa-3x
               h2 投稿はありません
           ul.card-body
             = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'

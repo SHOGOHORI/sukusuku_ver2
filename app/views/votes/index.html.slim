@@ -3,8 +3,10 @@
     li.category
       = render partial: 'consultations/category'
     li.consultation-index
-      - if @search_votes.count == 0
-        h3 相談がありません。
+      - if @search_consultations.count == 0
+        .unfind
+          i.far.fa-flushed.fa-3x
+          h2 投稿はありません
       h3
         | 検索結果
         = @search_votes.total_count

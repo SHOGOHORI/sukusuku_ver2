@@ -38,11 +38,9 @@ textarea {
 }
 
 .container {
-  width: 1400px;
+  width: 100%;
   margin-top: 50px;
   padding: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 h1 {
@@ -142,13 +140,9 @@ header{
 }
 
 /* ホーム */
-.non-login{
-  background: image-url('home.png');
-  height: 700px;
-  width: 100%;
-  max-width: 2000px;
-  background-size: cover;
+.item {
   margin: 0 auto;
+  width: 1400px;
 }
 
 .tabs{
