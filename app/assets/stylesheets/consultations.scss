@@ -40,6 +40,9 @@
       position: relative;
       z-index: 1;
       float: left;
+      img{
+        border-radius: 50%;
+      }
       ul {
         padding-left: 0;
       }
@@ -111,8 +114,7 @@
       }
     }
     .sentence {
-      clear: both;
-      margin-top: 1000px;
+      width: 100%;
     }
   .consultation_link {
     float: right;

@@ -64,22 +64,23 @@ ul
                     = button_tag type: 'submit', class: 'card-category btn-secondary' do
                       = consultation_tag(@consultation)
             br
-            span.sentence
-              = safe_join(@consultation.content.split("\n"),tag(:br))
+            .sentence
+              span
+                = safe_join(@consultation.content.split("\n"),tag(:br))
             br
             - if @consultation.image?
               td
                 - @consultation.image.each do |image|
                   = image_tag image.to_s
-                  - if  user_signed_in?
-            - if current_user == @consultation.user
-              .consultation_link
-                = link_to edit_consultation_path(@consultation) do
-                  i.fas.fa-edit
-                  | 編集
-                = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' }
-                  i.fas.fa-trash-alt
-                  | 削除
+            - if  user_signed_in?
+              - if current_user == @consultation.user
+                .consultation_link
+                  = link_to edit_consultation_path(@consultation) do
+                    i.fas.fa-edit
+                    | 編集
+                  = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' }
+                    i.fas.fa-trash-alt
+                    | 削除
           br
           = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter style='color: #3399FF;'
