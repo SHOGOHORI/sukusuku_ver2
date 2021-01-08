@@ -38,5 +38,6 @@ yarn-debug.log*
 .DS_Store
 
 /public/uploads
+/public/carrierwave-test-siruku6
 /.env
 /tmp/myapp_key_rsa
