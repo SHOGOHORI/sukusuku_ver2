@@ -1,0 +1,175 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* ログイン */
+#user_remember_me, label{
+  float: left;
+  width: auto;
+  font-size: 15px;
+}
+#user_remember_me, input[type="checkbox"]{
+  margin: 10px;
+}
+
+.guest__btn,
+a.guest__btn {
+  text-align: center;
+}
+
+/* プロフィール登録 */
+
+/* プロフィール編集 */
+
+.profile_edit{
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+/* マイページ */
+.mypage{
+  min-width: 1400px;
+}
+.user_part{
+  margin: 0 50px 50px 100px;
+  height: 300px;
+  display: block;
+  img{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .profile {
+    float: left;
+    width: 250px;
+    padding: 0.5em 1em;
+    margin: 2em;
+    color: #2c2c2f;
+    background: white;
+    box-shadow: 10px 10px 15px -10px;
+    h3 {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    i {
+      display: block;
+      margin: 1rem auto;
+      text-align: center;
+    }
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .child_info{
+    width: 500px;
+    float: left;
+    padding: 0.5em 1em;
+    margin: 2em;
+    color: #2c2c2f;
+    background: white;
+    position: relative;
+    box-shadow: 10px 10px 15px -10px;
+    ul{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      li{
+        margin-top: 10px;
+        img{
+          float: left;
+        }
+        .explanation {
+          float: left;
+          margin-left: 20px;
+        }
+      }
+      .edit{
+        position: absolute;
+        bottom: 10px;
+        margin-left: 450px;
+      }
+    }
+  }
+}
+
+.child_individual{
+  position: relative;
+  z-index: 1;
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
+  }
+}
+.content_part {
+  margin-top: 100px;
+  display: block;
+  .tabs{
+    float: left;
+    width:800px;
+    margin:10px auto;
+    position:relative;
+  }
+  .tab-buttons span{
+    cursor:pointer;
+    border-bottom:2px solid #ddd;
+    display:block;
+    width:25%;
+    float:left;
+    text-align:center;
+    height:40px;
+    line-height:40px;
+  }
+  .tab-content{
+    padding:15px;
+    display:inline-block;
+    color:#333;
+  }
+  #lamp{
+    width:25%;
+    height:2px;
+    background:#333;
+    display:block;
+    position:absolute;
+    top:40px;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content2{
+    left:25%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content3{
+    left:50%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content4{
+    left:75%;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+  #lamp.content1{
+    left:0;
+    transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  }
+}

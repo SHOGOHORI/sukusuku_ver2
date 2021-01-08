@@ -1,0 +1,46 @@
+.form.vote_new
+  h1 アンケートを投稿
+  = form_for @vote, local: true do |f|
+    .field
+      = f.label :title, 'タイトル'
+      = f.text_field :title, class: 'form-control'
+    .field
+      = f.label :category_id, 'カテゴリー'
+      = f.collection_select :category_id, Category.all, :id, :category, { prompt: '選択してください' }, class: 'selectpicker form-control'
+    .custom-checkbox
+      .field
+        = f.label :pregnant, '妊娠中'
+        = f.check_box :pregnant, autofocus: true, class: 'custom-control-input'
+      br
+    .form-group
+      .form-inline
+        .col
+          = f.label :age, '年齢:'
+        .col
+          = f.select :age, options_for_select((0..3).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          |  歳
+      .form-inline
+        .col
+          = f.label :moon_age, '月齢:'
+        .col
+          = f.select :moon_age, options_for_select((0..11).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+          |  ヶ月
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control',:size=>'300x10'
+    .field
+      = f.file_field :image, multiple: true
+      = f.hidden_field :user_id, :value => current_user.id
+    .form-inline
+      .col
+        = f.label :days, '投票期間：'
+      .col
+        = f.select :days, options_for_select((1..7).to_a), { include_blank: '選択'}, class: 'selectpicker form-control'
+        | 日間
+    #vote_items
+      = f.fields_for :vote_items do |i|
+        = render 'vote_item_fields', f: i
+      .links
+        = link_to_add_association '追加(最大4つまで)', f, :vote_items
+    .actions
+      = f.submit '投稿する'

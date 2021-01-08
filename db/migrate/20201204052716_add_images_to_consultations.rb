@@ -1,0 +1,5 @@
+class AddImagesToConsultations < ActiveRecord::Migration[6.0]
+  def change
+    add_column :consultations, :images, :json
+  end
+end

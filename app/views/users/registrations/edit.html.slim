@@ -1,0 +1,34 @@
+.form.profile_edit
+  h2
+    | プロフィールを編集する
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = render "users/shared/error_messages", resource: resource
+    .field
+      = f.label :name, 'お名前'
+      br
+      = f.text_field :name, autocomplete: 'name', placeholder: '10字以内', class: 'form-control'
+    br
+    p プロフィール画像
+    - if @user.avatar?
+      = image_tag @user.avatar.url, height: '150px'
+      br
+      = link_to '削除', user_delete_avater_path(resource), method: :delete
+    - else
+      i.fas.fa-user.fa-5x
+    br
+    .field
+      = f.file_field :avatar
+    .field
+      = f.label :introduction, '自己紹介'
+      br
+      = f.text_area :introduction, placeholder: '200字以内', class: 'form-control'
+    .field
+      = f.label :email
+      br
+      = f.email_field :email, autocomplete: "email", class: 'form-control'
+    .actions
+      = f.submit '更新する'
+  p
+  = link_to 'アカウントを削除する', registration_path(resource_name), data: { confirm: '本当に削除しますか?' }, method: :delete
+  br
+  = link_to '戻る', :back

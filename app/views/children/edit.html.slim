@@ -1,0 +1,8 @@
+.form.children_edit
+  h1
+    | お子様のプロフィール編集
+  #children_edit
+    = form_for @child do |child|
+      = render 'child_fields', f: child, btn: '更新する'
+  p
+  = link_to '子供の情報を削除する', @child, data: { confirm: '本当に削除しますか?' }, method: :delete

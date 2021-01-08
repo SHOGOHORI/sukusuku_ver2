@@ -1,0 +1,9 @@
+.nested-fields
+  .field
+    p
+      | 項目
+      span.itemNumber 1
+    = f.text_field :item, placeholder: '30字以内', class: 'form-control'
+    = f.hidden_field :item_number, :value => 1, class: 'item_hidden'
+  br
+  = link_to_remove_association '削除', f

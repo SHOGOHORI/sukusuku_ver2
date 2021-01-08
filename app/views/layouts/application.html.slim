@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+      = yield(:title)
+      | SukuSuku
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag('favicon.ico')
+    script src="https://kit.fontawesome.com/6201f9bda5.js" crossorigin="anonymous"
+    link href="css/jquery.tabpager.css"
+  body
+    = render 'layouts/header'
+    .container
+      - if notice
+        p.notice.alert.alert-success
+          = notice
+      - if alert
+        p.alert.alert-danger
+          = alert
+      = yield
+      = render 'layouts/footer'
+      = debug(params) if Rails.env.development?

@@ -1,0 +1,25 @@
+.nested-fields
+  .field
+    = f.label :nick_name, 'ニックネーム'
+    br
+    = f.text_field :nick_name, autofocus: true, placeholder: '10字以内'
+  - if @child.avatar?
+    = image_tag @child.avatar.url, alt: 'icon', height: '100px', width: '100px'
+    br
+    = link_to '削除', child_delete_avater_path(@child), method: :delete
+  - else
+    = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
+  .field
+    = f.file_field :avatar
+  .field
+    = f.label :comment, 'コメント'
+    br
+    = f.text_area :comment, autofocus: true, placeholder: '200字以内'
+  .field
+    = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
+    br
+    = f.date_field :birthday, autofocus: true
+  = f.hidden_field :child_number, :value => @child.child_number || current_user.children.count + 1
+  = f.hidden_field :user_id, :value => current_user.id
+  .actions
+  = f.submit btn

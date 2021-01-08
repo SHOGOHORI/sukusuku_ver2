@@ -1,0 +1,14 @@
+ .reply_modal.reply_modal_content
+  span.fa_wrapper
+    i.fas.fa-times.fa-2x
+  h2
+    | 返信フォーム
+  = form_for @reply,  url: consultation_comment_reply_index_path, local: true do |f|
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control', placeholder: '500字以内'
+    .field
+      = f.file_field :image, multiple: true
+      = f.hidden_field :user_id, :value => current_user.id
+      = f.hidden_field :consultation_comment_id, class: 'reply_hidden'
+    = f.submit '投稿する'

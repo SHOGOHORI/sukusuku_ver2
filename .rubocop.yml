@@ -1,0 +1,54 @@
+inherit_from: .rubocop_todo.yml
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+
+Style/GlobalVars:
+  Exclude:
+    - 'config/unicorn.conf.rb'
+    - 'config/unicorn/production.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/**/*'
+    - 'config/**/*'
+    - 'db/**/*'

@@ -1,0 +1,27 @@
+.box
+  h4 カテゴリー
+  .category-index
+    - @categories.each do|category|
+      = form_tag search_path, method: :get do
+        = hidden_field_tag :category, category.id
+        = button_tag type: 'submit', class: 'btn btn-light' do
+          i
+            = image_tag category.icon.url, alt: 'icon', height: '20px', width: '20px'
+            p
+              = category.category
+.box
+  details
+    summary
+      | 詳細検索
+    .radio
+      .col
+        input type="radio" name="model" id="consultation_search" class="visually-hidden" checked="checked"
+        | 相談
+      br
+      .col
+        input type="radio" name="model" id="vote_search" class="visually-hidden"
+        | アンケート
+    .consultation_search
+      = render 'consultations/search'
+    .vote_search
+      = render 'votes/search'

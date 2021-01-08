@@ -1,0 +1,24 @@
+.form.profile_create
+  h1
+    | プロフィール登録
+  = form_for @user, local: true do |f|
+    = render 'users/shared/error_messages', resource: @user
+    .field.name
+      = f.label :name, 'お名前(必須)'
+      br
+      = f.text_field :name, autocomplete: 'name', placeholder:  '10字以内', class: 'form-control'
+    .field
+      = f.label :avatar
+      br
+      = f.file_field :avatar
+    .field.introduction
+      = f.label :introduction, '自己紹介'
+      br
+      = f.text_area :introduction, placeholder: '200字以内', class: 'form-control'
+    #children
+      = f.fields_for :children do |i|
+        = render 'child_fields', f: i
+      .links
+        = link_to_add_association '子どもの情報を追加する', f, :children
+    .actions
+      = f.submit 'プロフィール登録'

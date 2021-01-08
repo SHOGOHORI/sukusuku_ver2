@@ -1,0 +1,57 @@
+// Place all the styles related to the Consultation_comment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* 相談一覧 */
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 5px;
+  opacity: .6;
+  transition: .3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.modal_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  z-index: 6;
+  display: none;
+}
+
+.comment_modal, .reply_modal {
+  position: fixed;
+  background-color: #fff;
+  width: 450px;
+  height: 40vh;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto 0;
+  border: 1px solid #eee;
+  display: none;
+  text-align: right;
+  z-index: 7;
+}
+
+.comment_modal_content, .reply_modal_content {
+  display: none;
+  text-align: center;
+}
+
+.fa_wrapper {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+
+}

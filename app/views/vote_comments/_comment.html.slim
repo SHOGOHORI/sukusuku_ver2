@@ -1,0 +1,19 @@
+- if @comments.count == 0
+  p
+    | コメントはまだありません。
+- else
+  .particular-case
+    .box
+      - @comments.each do |comment|
+        br
+        - if comment.user.avatar?
+          = image_tag comment.user.avatar.url, alt: 'icon', height: '80px'
+        - else
+          i.fas.fa-user.fa-2x
+        = link_to comment.user.name, comment.user
+        br
+        = comment.content
+        br
+        - if current_user == comment.user
+          = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
+  = paginate @comments, remote: true

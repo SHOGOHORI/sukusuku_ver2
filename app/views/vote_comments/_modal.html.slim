@@ -1,0 +1,13 @@
+.comment_modal.comment_modal_content
+  span.fa_wrapper
+    i.fas.fa-times.fa-2x
+  h2
+    | コメントフォーム
+  = form_for @comment, local: true do |f|
+    .field
+      = f.label :content, '本文'
+      = f.text_area :content, class: 'form-control', placeholder: '500字以内'
+    .field
+      = f.hidden_field :user_id, :value => current_user.id
+      = f.hidden_field :vote_id, :value => @vote.id
+    = f.submit '投稿する'
