@@ -83,7 +83,7 @@
         content: "";
         display: inline-block;
         position: absolute;
-        top: 20px;
+        top: 40px;
         left: -28px;
         border: 10px solid transparent;
         border-right: 26px solid #edf1ee;
@@ -102,19 +102,9 @@
         float: right;
         display: inline;
       }
-      .Reception_open {
-      margin: 10px;
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border-bottom: solid 4px #627295;
-      border-radius: 3px;
-      }
     }
     .sentence {
-      width: 100%;
+      width: 550px;
     }
   .consultation_link {
     float: right;
