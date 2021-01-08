@@ -17,11 +17,19 @@
         #lamp.content1
       .tab-content
         .content1
+          - if @consultations.total_count == 0
+            .unfind
+              i.far.fa-tired.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
           .page
             = paginate @consultations, remote: true, :param_name => 'page_1'
         .content2
+          - if @votes.total_count == 0
+            .unfind
+              i.far.fa-tired.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
           .page
