@@ -4,11 +4,6 @@ ul
     = render partial: 'consultations/category'
   li.consultation_show
     .consultation_body
-      h2
-        | アンケート内容
-      p
-        = number_with_delimiter(@vote.impressionist_count)
-        | PV
       .box
         .box_top
           .user
@@ -26,28 +21,51 @@ ul
           .content
             h2
               = @vote.title
-            span
-              = search_form_for @q do |f|
-                = f.hidden_field :category_id_eq, value: @vote.category.id
-                = button_tag type: 'submit', class: 'card-category' do
-                  = @vote.category.category
-              - if consultation_tag(@vote)
-                = search_form_for @q do |f|
-                  = f.hidden_field :child_age_moon_age_eq, value: @vote.child_age_moon_age
-                  = f.hidden_field :pregnant_eq, value: @vote.pregnant
-                  = button_tag type: 'submit', class: 'card-category' do
-                    = consultation_tag(@vote)
+            .Reception
+              - if Date.today < @vote.closed_at
+                | 投票受付中
+              - else
+                .Reception_close
+                  span
+                    | 投票受付終了
+            .post_time
+              p
+                | 投稿日時：
+                = @vote.created_at.to_s(:datetime_jp)
+            ul.category_tag
+              li
+                i.fas.fa-tags
+              li.tag
+                = search_form_for @v, as: :v do |f|
+                  = f.hidden_field :category_id_eq, value: ''
+                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                    = @vote.model_name.human
+              li.tag
+                = search_form_for @v, as: :v do |f|
+                  = f.hidden_field :category_id_eq, value: @vote.category.id
+                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                    = @vote.category.category
+              li.tag
+                - if consultation_tag(@vote)
+                  = search_form_for @v, as: :v do |f|
+                    = f.hidden_field :child_age_moon_age_eq, value: @vote.child_age_moon_age
+                    = f.hidden_field :pregnant_eq, value: @vote.pregnant
+                    = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      = consultation_tag(@vote)
             br
             br
-            span
-              = @vote.content
+            .sentence
+              span
+                = safe_join(@vote.content.split("\n"),tag(:br))
             br
             - if @vote.image?
               td
                 - @vote.image.each do |image|
                   = image_tag image.to_s
-          = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
-            i.fab.fa-twitter style='color: #3399FF;'
+            .pv_count
+              i.fas.fa-shoe-prints.fa-rotate-270
+              | 閲覧数
+              = number_with_delimiter(@vote.impressionist_count)
         - if  user_signed_in?
           - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
             = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
@@ -60,7 +78,7 @@ ul
                     = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
                     p
                       = vote_item.item
-              = submit_tag '投票する', class: 'btn btn-primary'
+              = submit_tag '投票', class: 'btn btn-primary'
         - else
           - if Date.today > @vote.closed_at
             = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
@@ -81,13 +99,15 @@ ul
           | 前
       .modal_wrapper
       - if  user_signed_in?
-        .button.comment_button
-          | コメントをする
+        .button.comment_button.btn.btn-success
+          i.fas.fa-comments
+          | コメント
         = render 'vote_comments/modal'
       - else
         = link_to 'ログイン', user_session_path
         | してコメントする。
+      = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+        i.fab.fa-twitter
+        |  tweet
       .comment_index
-        h2
-          | コメント
         = render 'vote_comments/comment'

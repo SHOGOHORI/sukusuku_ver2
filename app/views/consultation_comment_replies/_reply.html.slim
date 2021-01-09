@@ -6,7 +6,8 @@
       - else
         = image_tag 'user.png', alt: 'icon', height: '50px'
       br
-      = link_to reply.user.name, reply.user
+      = reply.user.name
+      = link_to '', reply.user
     .reply_balloon
       = safe_join(reply.content.split("\n"),tag(:br))
       br

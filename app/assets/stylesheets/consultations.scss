@@ -97,6 +97,9 @@
         text-decoration : underline;
         display: inline;
       }
+      img {
+        border-radius: 0;
+      }
       a {
         margin-right: 100px;
       }
@@ -144,14 +147,14 @@
     }
   }
   .page {
-    width: 700px;
+    width: 900px;
   }
 }
 
 /* 相談一覧 */
 
 .consultation-index {
-  float: right;
+  float: left;
   position:relative;
   margin: 10px auto;
   .unfind {

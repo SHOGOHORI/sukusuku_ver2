@@ -14,7 +14,8 @@
           - else
             = image_tag 'user.png', alt: 'icon', height: '50px'
           br
-        = link_to comment.user.name, comment.user
+        = comment.user.name
+        = link_to '', comment.user
       .comment_balloon
         = safe_join(comment.content.split("\n"),tag(:br))
         br
