@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/* 相談一覧 */
+/* 相談コメント一覧 */
 .modal_wrapper {
   position: fixed;
   width: 100%;
@@ -44,4 +44,32 @@
 
 .comment_index .particular-case .box {
   height: 100%;
+  .comment_balloon {
+    height: 100%;
+    width: 500px;
+    position: relative;
+    margin: 0 0 0 80px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #edf1ee;
+    box-sizing: border-box;
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      right: -28px;
+      border: 10px solid transparent;
+      border-right: 26px solid #edf1ee;
+      -webkit-transform: rotate(160deg);
+      transform: rotate(160deg);
+    }
+  }
+  .comment_user {
+    float: right;
+    text-align: center;
+  }
+  .btn {
+    margin: 0 100px;
+  }
 }

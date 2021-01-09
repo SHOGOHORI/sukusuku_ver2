@@ -27,7 +27,7 @@ ul
               - else
                 .Reception_close
                   span
-                    | 受付終了
+                    | コメント受付終了
             .post_time
               - if @consultation.created_at == @consultation.updated_at
                 p
@@ -85,7 +85,7 @@ ul
         - if  user_signed_in?
           .button.comment_button.btn.btn-success
             i.fas.fa-comments
-            | コメントをする
+            | コメント
           = render 'consultation_comments/modal'
         - else
           = link_to 'ログイン', user_session_path

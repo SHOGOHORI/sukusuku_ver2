@@ -1,29 +1,41 @@
 - if @comments.count == 0
-  p
-    | コメントはまだありません。
+  .non_comment
+    h2
+      i.far.fa-flushed.fa-2x
+      br
+      | コメントはまだありません。
 - @comments.each do |comment|
   .particular-case
     .box
-      - if comment.user.avatar?
-        = image_tag comment.user.avatar.url, alt: 'icon', height: '50px'
-      - else
-        = image_tag 'user.png', alt: 'icon', height: '50px'
+      .comment_user
+        .image
+          - if comment.user.avatar?
+            = image_tag comment.user.avatar.url, alt: 'icon', height: '50px'
+          - else
+            = image_tag 'user.png', alt: 'icon', height: '50px'
+          br
+        = link_to comment.user.name, comment.user
+      .comment_balloon
+        = safe_join(comment.content.split("\n"),tag(:br))
+        br
+        - if comment.image?
+          td
+            - comment.image.each do |image|
+              = image_tag image.to_s
+        br
+        p
+          | 投稿日時：
+          = @consultation.created_at.to_s(:datetime_jp)
+        - if current_user == comment.user
+          = link_to comment, method: :delete, data: { confirm: '削除しますか？' } do
+            i.fas.fa-trash-alt
+            | 削除
       br
-      = link_to comment.user.name, comment.user
-      br
-      = safe_join(comment.content.split("\n"),tag(:br))
-      br
-      - if comment.image?
-        td
-          - comment.image.each do |image|
-            = image_tag image.to_s
-      - if current_user == comment.user
-        = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
       - unless @consultation.reception_closed
         - if  user_signed_in?
           <div class='button reply_button btn btn-success' value="#{comment.id}">
             i.fas.fa-comments
-            | 返信する
+            | 返信
           </div>
           = render 'consultation_comment_replies/modal', comment: comment
       = render 'consultation_comment_replies/reply', comment: comment
