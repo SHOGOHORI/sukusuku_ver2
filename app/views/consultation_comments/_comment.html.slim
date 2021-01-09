@@ -39,4 +39,5 @@
           </div>
           = render 'consultation_comment_replies/modal', comment: comment
       = render 'consultation_comment_replies/reply', comment: comment
-= paginate @comments, remote: true
+.page
+  = paginate @comments, remote: true

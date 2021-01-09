@@ -1,17 +1,23 @@
 - comment.consultation_comment_replies.each do |reply|
   .reply
-    - if reply.user.avatar?
-      = image_tag reply.user.avatar.url, alt: 'icon', height: '50px'
-    - else
-      = image_tag 'user.png', alt: 'icon', height: '50px'
-    br
-    = link_to reply.user.name, reply.user
-    br
-    = reply.content
-    br
-    - if reply.image?
-      td
-        - reply.image.each do |image|
-          = image_tag image.to_s
-    - if current_user == reply.user
-      = link_to '削除', reply, method: :delete, data: { confirm: '削除しますか？' }
+    .reply_user
+      - if reply.user.avatar?
+        = image_tag reply.user.avatar.url, alt: 'icon', height: '50px'
+      - else
+        = image_tag 'user.png', alt: 'icon', height: '50px'
+      br
+      = link_to reply.user.name, reply.user
+    .reply_balloon
+      = safe_join(reply.content.split("\n"),tag(:br))
+      br
+      - if reply.image?
+        td
+          - reply.image.each do |image|
+            = image_tag image.to_s
+      p.post_time
+          | 投稿日時：
+          = comment.created_at.to_s(:datetime_jp)
+      - if current_user == reply.user
+        = link_to reply, method: :delete, data: { confirm: '削除しますか？' }, class: 'delete' do
+          i.fas.fa-trash-alt
+          | 削除

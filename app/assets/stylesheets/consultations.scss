@@ -143,12 +143,15 @@
       color: silver;
     }
   }
+  .page {
+    width: 700px;
+  }
 }
 
 /* 相談一覧 */
 
 .consultation-index {
-  float: left;
+  float: right;
   position:relative;
   margin: 10px auto;
   .unfind {

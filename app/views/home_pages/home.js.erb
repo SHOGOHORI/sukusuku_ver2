@@ -1,11 +1,15 @@
 $('#home_pagenate').html("<%= escape_javascript(render 'home') %>");
 
-$('.content2 .pagination').click(function(){
-  $('#lamp').removeClass().addClass('#lamp').addClass('.content2');
+$('.content1 .pagination').on('click',function(){
+  $('.tab-content>div').hide();
+  $('.tab-content>div').first().slideDown();
+  console.log('bar');
 });
 
-$('.tab-content>div').hide();
-$('.tab-content>div').first().show();
+$('.content2 .pagination').on('click',function(){
+  console.log('foo');
+});
+
 $('.tab-buttons span').click(function(){
   var thisclass=$(this).attr('class');
   $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
