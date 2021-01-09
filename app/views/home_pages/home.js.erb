@@ -1,1 +1,20 @@
 $('#home_pagenate').html("<%= escape_javascript(render 'home') %>");
+
+$('.content2 .pagination').click(function(){
+  $('#lamp').removeClass().addClass('#lamp').addClass('.content2');
+});
+
+$('.tab-content>div').hide();
+$('.tab-content>div').first().show();
+$('.tab-buttons span').click(function(){
+  var thisclass=$(this).attr('class');
+  $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
+  $('.tab-content>div').each(function(){
+    if($(this).hasClass(thisclass)){
+      $(this).fadeIn(800);
+    }
+    else{
+      $(this).hide();
+    }
+  });
+});

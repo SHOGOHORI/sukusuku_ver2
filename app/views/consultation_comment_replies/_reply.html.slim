@@ -4,6 +4,7 @@
       = image_tag reply.user.avatar.url, alt: 'icon', height: '50px'
     - else
       = image_tag 'user.png', alt: 'icon', height: '50px'
+    br
     = link_to reply.user.name, reply.user
     br
     = reply.content

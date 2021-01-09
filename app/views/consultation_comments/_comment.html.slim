@@ -23,11 +23,11 @@
             - comment.image.each do |image|
               = image_tag image.to_s
         br
-        p
+        p.post_time
           | 投稿日時：
-          = @consultation.created_at.to_s(:datetime_jp)
+          = comment.created_at.to_s(:datetime_jp)
         - if current_user == comment.user
-          = link_to comment, method: :delete, data: { confirm: '削除しますか？' } do
+          = link_to comment, method: :delete, data: { confirm: '削除しますか？' },class: 'delete' do
             i.fas.fa-trash-alt
             | 削除
       br

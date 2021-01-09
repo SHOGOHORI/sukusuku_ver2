@@ -18,17 +18,17 @@
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
           .page
             = paginate @consultations, remote: true, :param_name => 'page_1'
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
         .content2
           - if @votes.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
           .page
             = paginate @votes, remote: true, :param_name => 'page_2'
+          ul.card-body
+            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
 .credit
