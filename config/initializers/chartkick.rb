@@ -1,8 +1,5 @@
 Chartkick.options = {
-  generateLabels: {
-    suffix: "%",
-  },
-  padding: 30,
+  legend: false,
   colors: ["#FF0000", "#008000", "#FFFF00", "#0000FF"],
   fontSize: 20
 }
