@@ -1,19 +1,31 @@
 - if @comments.count == 0
-  p
-    | コメントはまだありません。
-- else
+  .non_comment
+    h2
+      i.far.fa-flushed.fa-2x
+      br
+      | コメントはまだありません。
+-else
   .particular-case
     .box
       - @comments.each do |comment|
-        br
-        - if comment.user.avatar?
-          = image_tag comment.user.avatar.url, alt: 'icon', height: '80px'
-        - else
-          = image_tag 'user.png', alt: 'icon', height: '80px'
-        = link_to comment.user.name, comment.user
-        br
-        = comment.content
-        br
-        - if current_user == comment.user
-          = link_to '削除', comment, method: :delete, data: { confirm: '削除しますか？' }
-  = paginate @comments, remote: true
+        .comment
+          .comment_user
+            .image
+              - if comment.user.avatar?
+                = image_tag comment.user.avatar.url, alt: 'icon', height: '50px'
+              - else
+                = image_tag 'user.png', alt: 'icon', height: '50px'
+              br
+            = comment.user.name
+            = link_to '', comment.user
+          .comment_balloon
+            = safe_join(comment.content.split("\n"),tag(:br))
+            br
+            p.post_time
+              | 投稿日時：
+              = comment.created_at.to_s(:datetime_jp)
+            - if current_user == comment.user
+              = link_to comment, method: :delete, data: { confirm: '削除しますか？' },class: 'delete' do
+                i.fas.fa-trash-alt
+                | 削除
+= paginate @comments, remote: true

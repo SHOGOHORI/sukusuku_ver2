@@ -76,7 +76,7 @@ ul
                   = link_to edit_consultation_path(@consultation) do
                     i.fas.fa-edit
                     | 編集
-                  = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' }
+                  = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
                     i.fas.fa-trash-alt
                     | 削除
       .modal_wrapper

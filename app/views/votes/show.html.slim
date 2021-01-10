@@ -66,6 +66,13 @@ ul
               i.fas.fa-shoe-prints.fa-rotate-270
               | 閲覧数
               = number_with_delimiter(@vote.impressionist_count)
+            - if  user_signed_in?
+              - if current_user == @vote.user
+                .consultation_link
+                  = link_to @vote, method: :delete, data: { confirm: '削除しますか？' } do
+                    i.fas.fa-trash-alt
+                    | 削除
+      .box
         - if  user_signed_in?
           - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
             = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
@@ -93,10 +100,6 @@ ul
         - if Date.today > @vote.closed_at
           p.btn-warning
             | 受付終了
-        br
-        span
-          = time_ago_in_words(@vote.created_at)
-          | 前
       .modal_wrapper
       - if  user_signed_in?
         .button.comment_button.btn.btn-success
