@@ -10,13 +10,15 @@ ul.vote_item{
 
 li.item {
   margin: 10px 2px;
-  font-weight: 800;
+
   input[type="radio"] {
     width: auto;
     float: left;
   }
   p {
+    font-weight: 800;
     margin-left: 10px;
+    font-size: 20px;
   }
 }
 ul.vote_box {

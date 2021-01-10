@@ -85,7 +85,9 @@ ul
                     = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
                     p
                       = vote_item.item
-              = submit_tag '投票', class: 'btn btn-primary'
+              = button_tag type: 'submit', class: 'btn btn-warning' do
+                i.fas.fa-vote-yea
+                | 投票
         - else
           - if Date.today > @vote.closed_at
             = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
