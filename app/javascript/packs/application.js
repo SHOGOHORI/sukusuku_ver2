@@ -12,7 +12,7 @@ require("@nathanvda/cocoon")
 require ("packs/users")
 require ("packs/consultations")
 require ("packs/votes")
-require("chartkick")
+require("chartkick").use(require("highcharts"))
 require("chart.js")
 import "bootstrap"
 

@@ -81,9 +81,9 @@ ul
               = hidden_field(:vote_relationship, :user_id, value: current_user.id)
               ul.vote_item data-toggle="buttons" autocomplete="off" aria-pressed="false"
                 - @vote.vote_items.each do |vote_item|
-                  li.item.btn
+                  li.item.btn.btn-light
                     = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
-                    p ・
+                    .circle
                     span
                       = vote_item.item
               = button_tag type: 'submit', class: 'btn btn-warning' do
