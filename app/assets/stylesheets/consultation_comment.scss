@@ -49,7 +49,7 @@
     height: 100%;
     width: 500px;
     position: relative;
-    margin: 0 0 0 80px;
+    margin: 20px 0 0 80px;
     padding: 10px;
     border-radius: 12px;
     background: #edf1ee;
@@ -80,6 +80,8 @@
   }
   .comment_user {
     float: right;
+    display: block;
+    margin-top: 20px;
     position: relative;
     z-index: 1;
     text-align: center;

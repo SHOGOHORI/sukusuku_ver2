@@ -112,5 +112,5 @@ ul
       = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
         i.fab.fa-twitter
         |  tweet
-      .comment_index
+      .vote_comment
         = render 'vote_comments/comment'
