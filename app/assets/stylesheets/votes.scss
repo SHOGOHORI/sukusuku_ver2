@@ -4,7 +4,7 @@
 
 /* アンケート投稿ページ */
 
-ul.vote_item{
+ulc{
   display: block;
   padding-left: 40px;
   list-style: disc;
@@ -33,16 +33,16 @@ ul.vote_item{
       color: white;
     }
     &:nth-child(1) {
-      color: red;
+      color: #FF0000;
     }
     &:nth-child(2) {
-      color: green;
+      color: #008000;
     }
     &:nth-child(3) {
-      color: yellow;
+      color: #FFFF00;
     }
     &:nth-child(4) {
-      color: blue;
+      color: #0000FF;
     }
   }
 }

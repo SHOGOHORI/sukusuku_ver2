@@ -75,12 +75,11 @@ ul
       .box
         - if  user_signed_in?
           - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
-            h1 アンケート集計結果
-            = pie_chart @data, id: "column-chart", width: "400px", height: "400px"
+            = render 'result'
           - else
             = form_tag "/vote_relationships", method: :post, local: true do |i|
               = hidden_field(:vote_relationship, :user_id, value: current_user.id)
-              ul.vote_item data-toggle="buttons"
+              ul.vote_item data-toggle="buttons" autocomplete="off" aria-pressed="false"
                 - @vote.vote_items.each do |vote_item|
                   li.item.btn
                     = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
@@ -101,9 +100,6 @@ ul
                 = vote_item.item
             br
             | ログインして投票する。
-        - if Date.today > @vote.closed_at
-          p.btn-warning
-            | 受付終了
         | 受付期間：
         = @vote.created_at.to_date
         | 〜

@@ -1,0 +1,9 @@
+h1 アンケート集計結果
+= pie_chart @data, suffix: "%", id: "column-chart", width: "400px", height: "400px"
+ul.vote_item
+  - @vote.vote_items.each do |vote_item|
+    li.btn
+      p
+        | ・
+      span
+        = vote_item.item
