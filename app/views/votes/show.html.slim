@@ -100,10 +100,11 @@ ul
                 = vote_item.item
             br
             | ログインして投票する。
-        | 受付期間：
-        = @vote.created_at.to_date
-        | 〜
-        = @vote.closed_at.to_s
+        .period
+          | 受付期間：
+          = @vote.created_at.to_date
+          | 〜
+          = @vote.closed_at.to_s
       .modal_wrapper
       - if  user_signed_in?
         .button.comment_button.btn.btn-success

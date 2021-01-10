@@ -44,8 +44,9 @@
       h1.count
         = vote.vote_comments.count
     .pv_count
-        = number_with_delimiter(vote.impressionist_count)
-        |  PV
+      i.fas.fa-shoe-prints.fa-rotate-270
+      | 閲覧数
+      = number_with_delimiter(vote.impressionist_count)
     span.user
       - if vote.user.avatar?
         = image_tag vote.user.avatar.url, alt: 'icon', height: '20px'

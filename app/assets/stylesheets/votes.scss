@@ -4,13 +4,17 @@
 
 /* アンケート投稿ページ */
 
-ulc{
+ul.vote_item{
   display: block;
   padding-left: 40px;
   list-style: disc;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   li.btn{
     width: 500px;
     padding: 0;
+    margin: 0;
     p {
       float: left;
       font-size: 30px;
@@ -103,6 +107,22 @@ li.comment {
   }
 }
 
-.chartjs-render-monitor {
+#column-chart {
   margin: 30px;
+  font-size: 30px;
+  text-align: right;
+  width: 600px;
+  height: 600px;
+}
+.box {
+  .btn-warning {
+    float: left;
+    margin: 0 40px;
+  }
+  .period {
+    float: left;
+    height: 35px;
+    text-align: center;
+    padding: 8px 0;
+  }
 }
