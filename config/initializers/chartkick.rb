@@ -1,6 +1,5 @@
 Chartkick.options = {
   donut: true,
-  legend: false,
   colors: ["#FF0000",
            "#008000",
            "#FFFF00",
@@ -8,12 +7,8 @@ Chartkick.options = {
           ],
   message: {empty: "データがありません"},
   thousands: ",",
-  suffix: "円",
+  suffix: "票",
   library: {
-    title: {
-      align: 'center',
-      verticalAlign: 'middle',
-    },
     chart: {
       backgroundColor: 'none',
       plotBorderWidth: 0,
@@ -28,12 +23,12 @@ Chartkick.options = {
           style: {
             color: '#555',
             textAlign: 'center',
-            textOutline: 0,
+            textOutline: 0
           }
         },
         size: '110%',
-        innerSize: '40%',
-        borderWidth: 0,
+        innerSize: '50%',
+        borderWidth: 0
       }
     }
   }
