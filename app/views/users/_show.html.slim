@@ -4,7 +4,7 @@
         - if @user.avatar?
           = image_tag @user.avatar.url, alt: 'icon', height: '150px'
         - else
-          i.fas.fa-user.fa-7x
+          = image_tag 'user.png', alt: 'icon', height: '150px'
         h3
           = @user.name
         br
@@ -59,21 +59,37 @@
         #lamp.content1
       .tab-content
         .content1
+          - if @user_consultations.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
           .page
             = paginate @user_consultations, remote: true
         .content2
+          - if @user_comments.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
           .page
             = paginate @user_comments, remote: true
         .content3
+          - if @user_votes.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'votes/vote', collection: @user_votes
           .page
             = paginate @user_votes, remote: true
         .content4
+          - if @user_poll.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'votes/vote', collection: @user_poll
           .page

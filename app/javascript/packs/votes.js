@@ -44,3 +44,9 @@ document.addEventListener("turbolinks:load"
     });
   })
 })
+document.addEventListener("turbolinks:load"
+, function () {
+  $(document).ready(function() {
+    $('.aggregate').fadeIn(700);
+  });
+})

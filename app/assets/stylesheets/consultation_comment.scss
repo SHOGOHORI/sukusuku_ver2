@@ -2,20 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/* 相談一覧 */
-
-.button {
-  display: inline-block;
-  cursor: pointer;
-  border: 2px solid black;
-  padding: 5px;
-  opacity: .6;
-  transition: .3s;
-  &:hover {
-    opacity: 1;
-  }
-}
-
+/* 相談コメント一覧 */
 .modal_wrapper {
   position: fixed;
   width: 100%;
@@ -53,5 +40,62 @@
 .fa_wrapper {
   cursor: pointer;
   margin: 3px 3px 0 0;
+}
 
+.comment_index .particular-case .box {
+  height: 100%;
+  border: 0;
+  .comment_balloon {
+    height: 100%;
+    width: 500px;
+    position: relative;
+    margin: 20px 0 0 80px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #edf1ee;
+    box-sizing: border-box;
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      right: -28px;
+      border: 10px solid transparent;
+      border-right: 26px solid #edf1ee;
+      -webkit-transform: rotate(160deg);
+      transform: rotate(160deg);
+    }
+    img {
+      border-radius: 0;
+    }
+    .delete {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .post_time {
+      margin-bottom: 0;
+      color: #808080;
+    }
+  }
+  .comment_user {
+    float: right;
+    display: block;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-indent:-999px;
+      z-index: 2;
+    }
+  }
+  .btn {
+    margin: 0 100px;
+  }
 }

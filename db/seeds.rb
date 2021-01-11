@@ -302,23 +302,65 @@ ConsultationComment.create!(content: "うちの息子も生後間もない頃に
 
 # サンプル質問、回答(11)
 health = Category.find_by(category: '健康')
-  Consultation.create!(title: '1才児の肌荒れについて',
-                       content: "1歳になって間もない子どもの肌荒れがすごいです
-                                 数ヶ月前からお腹のあたりが真っ赤になってぶつぶつしています（写真のような状態です）
-                                 本人は痒がったり痛がったりしている様子はないのですが
-                                 見ていてとても可哀想です・・・
-                                 病院に相談に行ったら保湿で治ると言われたのですが
-                                 ベビーオイルで保湿していますがよくなっている様子はありません
-                                 ２度相談に行きましたが２回ともこのまま保湿するようにとしか言われませんでした
-                                 保湿しても治っている様子がないので心配です
-                                 かといってまた病院で同じことを言われるのも・・・
-                                 みなさまは肌荒れ対策として気をつけていることはありますか？",
-                       pregnant: 0,
-                       child_age_moon_age: 12,
-                       user_id: 49,
-                       category_id: health.id)
+Consultation.create!(title: '1才児の肌荒れについて',
+                     content: "1歳になって間もない子どもの肌荒れがすごいです
+                               数ヶ月前からお腹のあたりが真っ赤になってぶつぶつしています（写真のような状態です）
+                               本人は痒がったり痛がったりしている様子はないのですが
+                               見ていてとても可哀想です・・・
+                               病院に相談に行ったら保湿で治ると言われたのですが
+                               ベビーオイルで保湿していますがよくなっている様子はありません
+                               ２度相談に行きましたが２回ともこのまま保湿するようにとしか言われませんでした
+                               保湿しても治っている様子がないので心配です
+                               かといってまた病院で同じことを言われるのも・・・
+                               みなさまは肌荒れ対策として気をつけていることはありますか？",
+                     pregnant: 0,
+                     child_age_moon_age: 12,
+                     user_id: 49,
+                     category_id: health.id)
 
 ConsultationComment.create!(content: "保湿用のクリームがお肌に合ってないのかも？
                                       別のクリームも試してみては？",
                             user_id: 11,
                             consultation_id: 11)
+
+# サンプルアンケート(1)
+vote_first = Vote.create!(title: '6ヶ月の子供の寝る時間について',
+                          content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
+                          pregnant: 0,
+                          child_age_moon_age: 6,
+                          user_id: 49,
+                          category_id: health.id,
+                          closed_at: '2021/03/31')
+
+v1 = VoteItem.create!(item: 'PM7:00〜8:00',
+                      vote_id: vote_first.id,
+                      item_number: 1)
+v2 = VoteItem.create!(item: 'PM8:00〜9:00',
+                      vote_id: vote_first.id,
+                      item_number: 2)
+v3 = VoteItem.create!(item: 'PM9:00〜10:00',
+                      vote_id: vote_first.id,
+                      item_number: 3)
+v4 = VoteItem.create!(item: 'PM10:00〜',
+                      vote_id: vote_first.id,
+                      item_number: 4)
+
+27.times do |n|
+  VoteRelationship.create!(user_id: n + 1,
+                           vote_item_id: v1.id)
+end
+
+15.times do |n|
+  VoteRelationship.create!(user_id: n + 30,
+                           vote_item_id: v2.id)
+end
+
+19.times do |n|
+  VoteRelationship.create!(user_id: n + 50,
+                           vote_item_id: v3.id)
+end
+
+21.times do |n|
+  VoteRelationship.create!(user_id: n + 75,
+                           vote_item_id: v4.id)
+end
