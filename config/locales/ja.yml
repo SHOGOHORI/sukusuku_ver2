@@ -6,6 +6,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         remember_me: パスワードを記憶
+        introduction: 自己紹介
         avatar: プロフィール画像
   activerecord:
     models:

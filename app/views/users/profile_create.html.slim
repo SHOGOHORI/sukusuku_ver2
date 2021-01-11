@@ -14,7 +14,7 @@
     .field.introduction
       = f.label :introduction, '自己紹介'
       br
-      = f.text_area :introduction, placeholder: '200字以内', class: 'form-control'
+      = f.text_area :introduction, placeholder: '100字以内', class: 'form-control'
     #children
       = f.fields_for :children do |i|
         = render 'child_fields', f: i
