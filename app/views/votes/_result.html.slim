@@ -3,11 +3,10 @@
   = pie_chart @data, id: "myPieChart", width: "400px", height: "400px"
   ul.aggregate
     - @vote.vote_items.each do |vote_item|
-      li
+      li.item
         .circle
         span
           = vote_item.item
         p
           = (VoteRelationship.where(vote_item_id: vote_item.id).count.to_f / @data.values.sum.to_f * 100).round
           | ％
-      br

@@ -91,13 +91,15 @@ ul
                 | 投票
         - else
           - if Date.today > @vote.closed_at
-            = pie_chart @data, id: "column-chart", width: "700px", height: "400px"
+            = render 'result'
           - else
-            - @vote.vote_items.each do |vote_item|
-              br
-              p
-                | ・
-                = vote_item.item
+            .result
+              ul.aggregate
+                - @vote.vote_items.each do |vote_item|
+                  li.item
+                    .circle
+                    span
+                      = vote_item.item
             br
             | ログインして投票する。
         .period

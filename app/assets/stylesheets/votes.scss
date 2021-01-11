@@ -7,7 +7,6 @@
 ul.vote_item{
   display: block;
   padding-left: 40px;
-  list-style: disc;
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -158,14 +157,19 @@ li.comment {
     position: absolute;
     bottom: 100px;
     right: 30px;
-    li {
-      width: 300px;
+    li.item {
+      display: block;
+      width: 350px;
+      height: 40px;
+      padding: 0;
+      margin-top: 10px;
       .circle {
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        padding: 14px;
+        margin: 14px;
         display: inline;
+        float: left;
       }
       &:nth-child(1) {
         .circle {
@@ -193,6 +197,7 @@ li.comment {
         margin: 5px;
         font-size: 20px;
         color: black;
+        float: left;
       }
       p {
         display: inline;

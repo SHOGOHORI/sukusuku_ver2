@@ -47,6 +47,6 @@ document.addEventListener("turbolinks:load"
 document.addEventListener("turbolinks:load"
 , function () {
   $(document).ready(function() {
-    $('ul .aggregate').fadeIn(700);
+    $('.aggregate').fadeIn(700);
   });
 })
