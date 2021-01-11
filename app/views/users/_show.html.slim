@@ -11,8 +11,11 @@
         p
           = @user.introduction
           br
-          - if current_user == @user
-            = link_to 'プロフィールを編集する', edit_user_registration_path(@user)
+          .edit
+            - if current_user == @user
+              = link_to edit_user_registration_path(@user) do
+                i.fas.fa-edit
+                | プロフィールを編集する
 
       li.child_info
         ul
