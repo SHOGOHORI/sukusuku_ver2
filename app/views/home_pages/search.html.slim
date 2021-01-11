@@ -25,9 +25,10 @@
                 i.far.fa-flushed.fa-3x
                 h2 投稿はありません
             .page
-              = paginate @votes_result, param_name: 'page_1'
+              = paginate @consultations_result, param_name: 'page_1'
             ul.card-body
-              = render partial: 'consultations/consul style="display: none;"
+              = render partial: 'consultations/consultation', collection: @consultations_result, id: 'consultation-index'
+          .content2
             - if @votes_result.total_count == 0
               .unfind
                 i.far.fa-flushed.fa-3x
