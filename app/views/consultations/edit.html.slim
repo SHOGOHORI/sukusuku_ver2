@@ -2,6 +2,7 @@
   h1
     | 相談を編集する
   = form_for @consultation, local: true do |f|
+    = render 'users/shared/error_messages', resource: @consultation
     .field
       = f.label :title, 'タイトル'
       = f.text_field :title, class: 'form-control', placeholder: '30字以内'

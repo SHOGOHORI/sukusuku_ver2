@@ -20,10 +20,6 @@
         = link_to edit_child_path(@child), class: 'btn btn-primary'do
           i.fas.fa-edit
           | 子供の情報を編集する
-  - if @child.comment
-    .comment
-      .say
-        = @child.comment
 ul
   li.category
     = render partial: 'consultations/category'

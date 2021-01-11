@@ -3,4 +3,5 @@
     = "第#{current_user.children.count + 1}子の情報を登録する"
   #children_new
     = form_for @child do |child|
+      = render 'users/shared/error_messages', resource: @child
       = render 'child_fields', f: child, btn: '登録する'

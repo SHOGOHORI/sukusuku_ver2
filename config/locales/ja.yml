@@ -15,7 +15,7 @@ ja:
       vote: アンケート
     attributes:
       children:
-        nick_name: ニックネーム
+        nick name: ニックネーム
         birthday: 誕生日
   datetime:
     distance_in_words:

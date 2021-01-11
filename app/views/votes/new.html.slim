@@ -1,6 +1,7 @@
 .form.vote_new
   h1 アンケートを投稿
   = form_for @vote, local: true do |f|
+    = render 'users/shared/error_messages', resource: @vote
     .field
       = f.label :title, 'タイトル'
       = f.text_field :title, class: 'form-control', placeholder: '30字以内'

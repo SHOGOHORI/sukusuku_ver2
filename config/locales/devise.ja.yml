@@ -22,6 +22,7 @@ ja:
             password_confirmation:
               confirmation: 'が一致しません。'
             name:
+              blank: 'が入力されていません。'
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
             introduction:
@@ -34,6 +35,18 @@ ja:
             birthday:
               blank: 'が入力されていません。'
               too_long: "は%{count}文字以下に設定して下さい。"
+        consultation:
+          attributes:
+            title:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            content:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            category_id:
+              blank: 'が入力されていません。'
+            category:
+              required: ''
     attributes:
       user:
         current_password: '現在のパスワード'
@@ -46,10 +59,16 @@ ja:
       children:
         nick_name: 'ニックネーム'
         birthday: '誕生日'
+      consultation:
+        title: 'タイトル'
+        content: '本文'
+        category: ''
+        category_id: 'カテゴリー'
 
     models:
       user: 'ユーザ'
       child: '子供の情報'
+      consultation: '相談'
 
   devise:
     passwords:
