@@ -151,6 +151,8 @@ li.comment {
   box-shadow: 0;
 }
 
+/* アンケート結果 */
+
 .result {
   position: relative;
   ul.aggregate {
@@ -206,6 +208,18 @@ li.comment {
         font-weight: 800;
         color: black;
       }
+    }
+  }
+}
+
+/* アンケート結果 */
+
+ul.nonlogin_item {
+  margin-top: 30px;
+  li.item {
+    height: 40px;
+    &:hover {
+      background-color: white;
     }
   }
 }

@@ -72,7 +72,6 @@ ul
                   = link_to @vote, method: :delete, data: { confirm: '削除しますか？' } do
                     i.fas.fa-trash-alt
                     | 削除
-      .box
         - if  user_signed_in?
           - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
             = render 'result'
@@ -93,15 +92,13 @@ ul
           - if Date.today > @vote.closed_at
             = render 'result'
           - else
-            .result
-              ul.aggregate
-                - @vote.vote_items.each do |vote_item|
-                  li.item
-                    .circle
-                    span
-                      = vote_item.item
-            br
-            | ログインして投票する。
+            ul.vote_item.nonlogin_item
+              - @vote.vote_items.each do |vote_item|
+                li.item
+                  .circle
+                  span
+                    = vote_item.item
+              br
         .period
           | 受付期間：
           = @vote.created_at.to_date
@@ -115,7 +112,7 @@ ul
         = render 'vote_comments/modal'
       - else
         = link_to 'ログイン', user_session_path
-        | してコメントする。
+        | する。
       = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
         i.fab.fa-twitter
         |  tweet
