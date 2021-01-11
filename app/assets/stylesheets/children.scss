@@ -2,26 +2,31 @@
 .child_show {
   padding: 50px 200px;
   min-width: 1400px;
-  height: 500px;
+  height: 600px;
   border-bottom: 1px solid #eaeaea;
 }
 
-.child_show_left {
-  float: left;
+.child_show_info {
   list-style: none;
-  text-align: left;
   background: white;
   width: 500px;
+  height: 450px;
   padding: 0;
-  h2 {
+  margin: 50px 300px;
+  .nick_name{
+    text-align: center;
+    font-weight: 800;
+  }
+  h3 {
     text-align: center;
   }
-}
-
-.child_show_rigth {
-  float: right;
-  list-style: none;
-  margin-top: 70px;
+  .btn-primary {
+    background-color: gray;
+    margin: 30px 150px;
+    &:hover {
+      background-color: rgb(92, 92, 92);
+    }
+  }
 }
 
 .child_image {

@@ -34,7 +34,9 @@
                   = age_and_moon_age(child.birthday)
               = link_to '', child_path(child)
             - if current_user == @user
-              = link_to '編集', edit_child_path(child)
+              = link_to edit_child_path(child) do
+                i.fas.fa-edit
+                | 編集
           - if current_user == @user && @user.children.count < 3
             li.register
               = link_to new_child_path, class: 'btn btn-info' do
