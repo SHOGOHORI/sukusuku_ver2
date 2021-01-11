@@ -32,7 +32,8 @@ a.guest__btn {
   min-width: 1400px;
 }
 .user_part{
-  margin: 0 50px 50px 100px;
+  margin: 0 auto;
+  width: 1400px;
   height: 300px;
   display: block;
   img{
@@ -40,11 +41,12 @@ a.guest__btn {
     object-fit: cover;
   }
   .profile {
+    float: left;
     position: relative;
-    width: 250px;
+    width: 400px;
     height: 400px;
     padding: 0.5em 1em;
-    margin: 2em;
+    margin: 30px 0 30px 50px;
     color: #2c2c2f;
     background: white;
     box-shadow: 1px 1px 2px -1px;
@@ -57,6 +59,10 @@ a.guest__btn {
       margin: 1rem auto;
       text-align: center;
     }
+    p {
+      width: 250px;
+      margin: 0 auto;
+    }
     img{
       display: block;
       margin-left: auto;
@@ -65,13 +71,17 @@ a.guest__btn {
     .edit{
       position: absolute;
       bottom: 10px;
-      right: 50px;
+      right: 120px;
       text-align: center;
+    }
+    .btn-primary {
+      background-color: gray;
+      padding: 0 5px;
     }
   }
   .child_info{
-    display: inline;
-    width: 400px;
+    width: 600px;
+    float: left;
     padding: 0.5em 1em;
     margin: 2em;
     color: #2c2c2f;
@@ -113,9 +123,13 @@ a.guest__btn {
     text-indent:-999px;
     z-index: 2;
   }
+  h3 {
+    font-weight: 800;
+  }
 }
 .content_part {
-  margin-top: 250px;
+  margin: 250px auto 0 auto;
+  width: 1400px;
   display: block;
   .tabs{
     float: left;

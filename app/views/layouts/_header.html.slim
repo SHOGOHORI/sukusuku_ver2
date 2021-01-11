@@ -7,7 +7,6 @@ header
         = text_field_tag :keyword, nil, placeholder: 'キーワード検索'
         = button_tag type: 'submit', class: 'btn btn-primary' do
           i.fas.fa-search
-
   ul.header-right
     - if user_signed_in?
       li.dropdown

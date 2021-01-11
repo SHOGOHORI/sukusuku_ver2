@@ -13,7 +13,7 @@
           br
           .edit
             - if current_user == @user
-              = link_to edit_user_registration_path(@user) do
+              = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do
                 i.fas.fa-edit
                 | プロフィールを編集する
 
@@ -26,7 +26,7 @@
               - else
                 = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
               .explanation
-                h4
+                h3
                   = child.nick_name
                 p
                   = child_birthday(child.birthday)
@@ -36,8 +36,10 @@
             - if current_user == @user
               = link_to '編集', edit_child_path(child)
           - if current_user == @user && @user.children.count < 3
-            li
-              = link_to '子どもの情報を登録する', new_child_path
+            li.register
+              = link_to new_child_path, class: 'btn btn-info' do
+                i.fas.fa-baby
+                | 子どもの情報を追加登録する
   ul.content_part
     li.category
       = render partial: 'consultations/category'

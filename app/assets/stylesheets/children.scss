@@ -10,6 +10,11 @@
   float: left;
   list-style: none;
   text-align: left;
+  background: white;
+  width: 300px;
+  h2 {
+    text-align: center;
+  }
 }
 
 .child_show_rigth {
@@ -28,6 +33,7 @@
     img {
       width: 100%;
       height: auto;
+      border-radius: 50%;
     }
   }
   .comment {
