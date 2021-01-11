@@ -91,6 +91,7 @@ li.comment {
     border-radius: 12px;
     background: #AEFFBD;
     box-sizing: border-box;
+    box-shadow: 1px 1px 2px -1px;
     &::after {
       content: "";
       display: inline-block;
