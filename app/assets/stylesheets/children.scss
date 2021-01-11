@@ -11,7 +11,8 @@
   list-style: none;
   text-align: left;
   background: white;
-  width: 300px;
+  width: 500px;
+  padding: 0;
   h2 {
     text-align: center;
   }
@@ -24,16 +25,11 @@
 }
 
 .child_image {
-  width: 100%;
-  margin: 10px 0;
-  overflow: hidden;
   .image {
-    float: left;
-    margin-right: -50px;
+    text-align: center;
     img {
-      width: 100%;
-      height: auto;
       border-radius: 50%;
+      margin: 10px auto;
     }
   }
   .comment {
