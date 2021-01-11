@@ -1,5 +1,3 @@
-$('#home_pagenate').html("<%= escape_javascript(render 'home') %>");
-
 $('.tab-buttons span').click(function(){
   var thisclass=$(this).attr('class');
   $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
@@ -12,3 +10,9 @@ $('.tab-buttons span').click(function(){
     }
   });
 });
+$('.content1 .pagination a').click(function() {
+  $('#home_pagenate').html("<%= escape_javascript(render 'home') %>");
+})
+$('.content2 .pagination a').click(function() {
+  $('#home_pagenate').html("<%= escape_javascript(render 'home2') %>");
+})

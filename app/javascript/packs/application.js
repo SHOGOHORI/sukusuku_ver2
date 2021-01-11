@@ -25,13 +25,6 @@ import "bootstrap"
 document.addEventListener("turbolinks:load"
 , function () {
   $(document).ready(function() {
-    $('.tab-content>div').first().slideDown();
-    $('.content1 .pagination a').click(function() {
-      console.log('content1 js');
-    })
-    $('.content2 .pagination a').click(function() {
-      console.log('content2 js');
-    })
     $('.tab-buttons span').click(function(){
       var thisclass=$(this).attr('class');
       $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);

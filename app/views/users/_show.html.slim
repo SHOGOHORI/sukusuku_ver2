@@ -74,7 +74,7 @@
             = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
           .page
             = paginate @user_consultations, remote: true
-        .content2
+        .content2 style="display: none;"
           - if @user_comments.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
@@ -83,7 +83,7 @@
             = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
           .page
             = paginate @user_comments, remote: true
-        .content3
+        .content3 style="display: none;"
           - if @user_votes.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
@@ -92,7 +92,7 @@
             = render partial: 'votes/vote', collection: @user_votes
           .page
             = paginate @user_votes, remote: true
-        .content4
+        .content4 style="display: none;"
           - if @user_poll.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
