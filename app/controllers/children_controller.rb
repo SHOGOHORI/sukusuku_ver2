@@ -19,9 +19,9 @@ class ChildrenController < ApplicationController
   def show
     if @child.birthday < Date.today
       age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
-      age += 12 if age < 0
+      age += 12 if age.negative?
       moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
-      moon_age += 12 if moon_age < 0
+      moon_age += 12 if moon_age.negative?
       @consultations = Consultation.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
       @votes = Vote.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
     else

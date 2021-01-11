@@ -325,25 +325,25 @@ ConsultationComment.create!(content: "保湿用のクリームがお肌に合っ
 
 # サンプルアンケート(1)
 vote_first = Vote.create!(title: '6ヶ月の子供の寝る時間について',
-                     content: "6ヶ月の子供の寝る時間は何時ぐらいでしょうか？",
-                     pregnant: 0,
-                     child_age_moon_age: 6,
-                     user_id: 49,
-                     category_id: health.id,
-                     closed_at: '2021/03/31')
+                          content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
+                          pregnant: 0,
+                          child_age_moon_age: 6,
+                          user_id: 49,
+                          category_id: health.id,
+                          closed_at: '2021/03/31')
 
 v1 = VoteItem.create!(item: 'PM7:00〜8:00',
-                 vote_id: vote_first.id,
-                 item_number: 1)
+                      vote_id: vote_first.id,
+                      item_number: 1)
 v2 = VoteItem.create!(item: 'PM8:00〜9:00',
-                 vote_id: vote_first.id,
-                 item_number: 2)
+                      vote_id: vote_first.id,
+                      item_number: 2)
 v3 = VoteItem.create!(item: 'PM9:00〜10:00',
-                 vote_id: vote_first.id,
-                 item_number: 3)
+                      vote_id: vote_first.id,
+                      item_number: 3)
 v4 = VoteItem.create!(item: 'PM10:00〜',
-                 vote_id: vote_first.id,
-                 item_number: 4)
+                      vote_id: vote_first.id,
+                      item_number: 4)
 
 27.times do |n|
   VoteRelationship.create!(user_id: n + 1,

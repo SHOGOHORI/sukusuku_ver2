@@ -1,13 +1,12 @@
 Chartkick.options = {
   donut: true,
-  colors: ["#FF0000",
-           "#008000",
-           "#FFFF00",
-           "#0000FF"
-          ],
-  message: {empty: "データがありません"},
-  thousands: ",",
-  suffix: "票",
+  colors: ['#FF0000',
+           '#008000',
+           '#FFFF00',
+           '#0000FF'],
+  message: { empty: 'データがありません' },
+  thousands: ',',
+  suffix: '票',
   library: {
     chart: {
       backgroundColor: 'none',
