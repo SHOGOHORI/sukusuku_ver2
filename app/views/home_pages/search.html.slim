@@ -27,8 +27,7 @@
             .page
               = paginate @votes_result, param_name: 'page_1'
             ul.card-body
-              = render partial: 'consultations/consultation', collection: @consultations_result, id: 'consultation-index'
-          .content2 style="display: none;"
+              = render partial: 'consultations/consul style="display: none;"
             - if @votes_result.total_count == 0
               .unfind
                 i.far.fa-flushed.fa-3x

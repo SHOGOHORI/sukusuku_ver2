@@ -22,7 +22,7 @@
             = paginate @consultations, remote: true, param_name: 'page_1'
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-        .content2 style="display: none;"
+        .content2
           - if @votes.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
