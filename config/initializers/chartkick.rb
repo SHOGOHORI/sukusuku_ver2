@@ -30,5 +30,9 @@ Chartkick.options = {
         borderWidth: 0
       }
     }
+  },
+  tooltips: {
+    titleFontSize: 18,
+    bodyFontSize: 18,
   }
 }
