@@ -1,35 +1,40 @@
+- if params[:keyword]
+  = provide(:title, "「#{params[:keyword]}」の検索結果 - ")
+- elsif params[:category]
+  = provide(:title, "「#{Category.find(params[:category]).category}」の検索結果 - ")
 .search
   ul
     li.category
       = render partial: 'consultations/category'
-    li.tabs
-      .tab-buttons
-        span.content1
-          | 相談（
-          = @consultations_result.total_count
-          | ）
-        span.content2
-          | アンケート（
-          = @votes_result.total_count
-          | ）
-        #lamp.content1
-      .tab-content
-        .content1
-          - if @consultations_result.total_count == 0
-            .unfind
-              i.far.fa-flushed.fa-3x
-              h2 投稿はありません
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @consultations_result, id: 'consultation-index'
-          .page
-            = paginate @consultations_result
-        .content2
-          - if @votes_result.total_count == 0
-            .unfind
-              i.far.fa-flushed.fa-3x
-              h2 投稿はありません
-          ul.card-body
-            = render partial: 'votes/vote', collection: @votes_result, id: 'consultation-index'
-          .page
-            = paginate @votes_result
+    li
+      .tabs
+        .tab-buttons
+          span.content1
+            | 相談（
+            = @consultations_result.total_count
+            | ）
+          span.content2
+            | アンケート（
+            = @votes_result.total_count
+            | ）
+          #lamp.content1
+        .tab-content
+          .content1
+            - if @consultations_result.total_count == 0
+              .unfind
+                i.far.fa-flushed.fa-3x
+                h2 投稿はありません
+            .page
+              = paginate @votes_result, param_name: 'page_1'
+            ul.card-body
+              = render partial: 'consultations/consultation', collection: @consultations_result, id: 'consultation-index'
+          .content2
+            - if @votes_result.total_count == 0
+              .unfind
+                i.far.fa-flushed.fa-3x
+                h2 投稿はありません
+            .page
+              = paginate @votes_result, param_name: 'page_2'
+            ul.card-body
+              = render partial: 'votes/vote', collection: @votes_result, id: 'consultation-index'
 .credit
