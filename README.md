@@ -1,15 +1,15 @@
 # あなたの育児の困った！を救うQ&Aサイト*ーSUKUSUKUー*　ver.2
 
 ## 更新履歴
-ver.1:2020/10/20
-ver.2
+ver.1：2020/10/20
+ver.2：2021/1/11
 
 ## *ーSUKUSUKUー*とは？
 育児の悩み、不安を救うための育児特化型のQ&Aアプリです。<br>
 長男が生まれた直後、妻の病気により一週間ほど一人で育児をしていました。<br>
 孤独で不安だったその時の経験から、ママ、パパの不安を少しでも埋めたいという思いから、SNSに近い形のQ&Aアプリを作成しました。<br>
 
-Herokuで公開しています→[ーSUKUSUKUー](https://childcare-questions-and-answer.herokuapp.com/)
+URL：　https://www.sukusuku-app.com/
 
 ## 使用技術
 フレームワーク：Rails6.0.3<br>
