@@ -15,6 +15,11 @@ __URL：__　https://www.sukusuku-app.com/
 
 ## 使い方
 
+## デモ
+#### 相談機能
+#### アンケート機能
+
+![ezgif-4-deb3365d51b2](https://user-images.githubusercontent.com/69126475/104308809-91dfc400-5514-11eb-9b18-f5f3f05bb93c.gif)
 ## 使用技術
 
 * __開発環境__
