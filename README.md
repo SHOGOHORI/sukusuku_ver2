@@ -12,18 +12,25 @@ ver.2：2021/1/11
 URL：　https://www.sukusuku-app.com/
 
 ## 使用技術
-フレームワーク：Rails6.0.3<br>
-フロント：HTML、Sass、JavaScript（jQuery）<br>
-サーバーサイド言語：Ruby2.7.1<br>
-データベース：MYSQL<br>
-テストフレームワーク：Rspec<br>
-サーバー構築：puma<br>
-開発環境：Docker 19.3.12　→　ローカル環境<br>
-本番環境：Heroku<br>
-検索機能：ransack<br>
-ページネーション機能：kaminari<br>
-使用マシン：Mac Catalina(10.15.7)<br>
-エディタ：VSCode<br>
+
+* __開発環境__
+
+* __フロントエンド__
+  * __jQuery 3.5.1__
+  * __HTML / Sass / MDBootstrap__
+
+* __バックエンド__
+  * __Ruby 2.7.2__
+  * __rails 6.0.3__
+
+* __インフラ__
+  * __CircleCi__
+  * __Docker 19.03.12 / docker-compose 1.26.2__
+  * __nginx 1.18__
+  * __mysql 5.7.31__
+  * __AWS__ ( EC2, ALB, ACM, S3, RDS, Route53, VPC, EIP, IAM )
+
+ER図(https://user-images.githubusercontent.com/69126475/104265414-e4978c80-54d0-11eb-80e0-31d957fbcee8.png)
 
 ## 機能
 ユーザー機能：<br>

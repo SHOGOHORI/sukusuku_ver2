@@ -25,6 +25,9 @@ import "bootstrap"
 document.addEventListener("turbolinks:load"
 , function () {
   $(document).ready(function() {
+    $(function() {
+      console.log($.fn.jquery);
+    });
     $('.tab-content>div').hide();
     $('.tab-content>div').first().show();
     $('.tab-buttons span').click(function(){
