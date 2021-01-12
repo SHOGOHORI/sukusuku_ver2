@@ -38,39 +38,6 @@ end
                 comment: "#{nick_name}だ。")
 end
 
-10.times do
-  title = Faker::Lorem.sentence(word_count: 3)
-  content = Faker::Lorem.sentence(word_count: 30)
-  category = Category.all.sample
-  user = User.all.sample
-  s1 = Date.parse('2020/11/30')
-  s2 = Date.parse('2021/03/31')
-  s = Random.rand(s1..s2)
-  Vote.create!(title: title,
-               content: content,
-               pregnant: 1,
-               user_id: user.id,
-               category_id: category.id,
-               closed_at: s)
-end
-
-40.times do
-  title = Faker::Lorem.sentence(word_count: 3)
-  content = Faker::Lorem.sentence(word_count: 30)
-  category = Category.all.sample
-  user = User.all.sample
-  s1 = Date.parse('2020/11/30')
-  s2 = Date.parse('2021/03/31')
-  s = Random.rand(s1..s2)
-  Vote.create!(title: title,
-               content: content,
-               pregnant: 0,
-               child_age_moon_age: rand(0..47),
-               user_id: user.id,
-               category_id: category.id,
-               closed_at: s)
-end
-
 # サンプル質問、回答(1)
 health = Category.find_by(category: '健康')
 Consultation.create!(title: '生後一ヶ月のイビキについて',
@@ -324,7 +291,7 @@ ConsultationComment.create!(content: "保湿用のクリームがお肌に合っ
                             consultation_id: 11)
 
 # サンプルアンケート(1)
-vote_first = Vote.create!(title: '6ヶ月の子供の寝る時間について',
+vote = Vote.create!(title: '6ヶ月の子供の寝る時間について',
                           content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
                           pregnant: 0,
                           child_age_moon_age: 6,
@@ -333,16 +300,16 @@ vote_first = Vote.create!(title: '6ヶ月の子供の寝る時間について',
                           closed_at: '2021/03/31')
 
 v1 = VoteItem.create!(item: 'PM7:00〜8:00',
-                      vote_id: vote_first.id,
+                      vote_id: vote.id,
                       item_number: 1)
 v2 = VoteItem.create!(item: 'PM8:00〜9:00',
-                      vote_id: vote_first.id,
+                      vote_id: vote.id,
                       item_number: 2)
 v3 = VoteItem.create!(item: 'PM9:00〜10:00',
-                      vote_id: vote_first.id,
+                      vote_id: vote.id,
                       item_number: 3)
 v4 = VoteItem.create!(item: 'PM10:00〜',
-                      vote_id: vote_first.id,
+                      vote_id: vote.id,
                       item_number: 4)
 
 27.times do |n|
@@ -363,4 +330,77 @@ end
 21.times do |n|
   VoteRelationship.create!(user_id: n + 75,
                            vote_item_id: v4.id)
+end
+
+# サンプルアンケート(2)
+vote = Vote.create!(title: 'スマホを与えるべきか',
+                           content: '出先などで癇癪を起したときにスマホの知育アプリなどを遊ばせると黙って遊んでくれるのでよく利用しているのですが、義母がスマホばかりやらせるなと言います。
+                                     みなさんはスマホによる子守をどう思いますか？',
+                           pregnant: 0,
+                           child_age_moon_age: 20,
+                           user_id: 49,
+                           category_id: education.id,
+                           closed_at: '2021/12/10')
+
+v1 = VoteItem.create!(item: '使ってもOK',
+                      vote_id: vote.id,
+                      item_number: 1)
+v2 = VoteItem.create!(item: 'なるべく使わない',
+                      vote_id: vote.id,
+                      item_number: 2)
+v3 = VoteItem.create!(item: 'まったく使わない',
+                      vote_id: vote.id,
+                      item_number: 3)
+
+16.times do |n|
+  VoteRelationship.create!(user_id: n + 1,
+                           vote_item_id: v1.id)
+end
+
+18.times do |n|
+  VoteRelationship.create!(user_id: n + 30,
+                           vote_item_id: v2.id)
+end
+
+25.times do |n|
+  VoteRelationship.create!(user_id: n + 50,
+                           vote_item_id: v3.id)
+end
+
+
+# サンプルアンケート(3)
+vote = Vote.create!(title: '子どもを叱るタイミング',
+                    content: '最近こどもが伝い歩きを覚えました。
+                              私も主人も基本的に自由にさせてあげたいと考えています。
+                              しかし、一歩間違えたらケガをするような場所に行ってしまいそうなときに私は早めに注意して連れ戻すのですが、主人はギリギリまで見守っていて良いといいます。
+                              どちらが正しいというのはないかもしれませんがみなさんならどうされますか？',
+                    pregnant: 0,
+                    child_age_moon_age:11,
+                    user_id: 49,
+                    category_id: education.id,
+                    closed_at: '2021/12/10')
+
+v1 = VoteItem.create!(item: '早めに連れ戻す',
+                      vote_id: vote.id,
+                      item_number: 1)
+v2 = VoteItem.create!(item: 'ギリギリまで見守る',
+                      vote_id: vote.id,
+                      item_number: 2)
+v3 = VoteItem.create!(item: 'その他（コメント欄）',
+                      vote_id: vote.id,
+                      item_number: 3)
+
+27.times do |n|
+VoteRelationship.create!(user_id: n + 1,
+  vote_item_id: v1.id)
+end
+
+15.times do |n|
+VoteRelationship.create!(user_id: n + 30,
+  vote_item_id: v2.id)
+end
+
+19.times do |n|
+VoteRelationship.create!(user_id: n + 50,
+  vote_item_id: v3.id)
 end

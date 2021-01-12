@@ -112,7 +112,7 @@ ul
         = render 'vote_comments/modal'
       - else
         = link_to 'ログイン', user_session_path
-        | する。
+        | して投票する。
       = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
         i.fab.fa-twitter
         |  tweet
