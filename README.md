@@ -14,6 +14,7 @@ URL：　https://www.sukusuku-app.com/
 ## 使用技術
 
 * __開発環境__
+  * __Mac Catalina(10.15.7)_
 
 * __フロントエンド__
   * __jQuery 3.5.1__
@@ -30,15 +31,20 @@ URL：　https://www.sukusuku-app.com/
   * __mysql 5.7.31__
   * __AWS__ ( EC2, ALB, ACM, S3, RDS, Route53, VPC, EIP, IAM )
 
+* その他使用ツール
+  * Visual Studio Code
+  * draw.io
+
 ![ER図ver2](https://user-images.githubusercontent.com/69126475/104265584-46f08d00-54d1-11eb-9b0a-ba2b1eaf8f3b.png)
 
+![サイトマップ](https://user-images.githubusercontent.com/69126475/104268336-03008680-54d7-11eb-814c-e92dd2cde1d3.png)
 ## 機能
-ユーザー機能：<br>
-　・新規登録、ログイン、ログアウト、ゲストユーザーログイン機能<br>
-　・ユーザープロフィール編集機能<br>
-　・ユーザーマイページが投稿した質問、回答の一覧表示<br>
-<br>
-投稿機能：<br>
+* __ユーザー登録関連__
+  * 新規登録、プロフィール編集機能
+  * ログイン、ログアウト機能
+  * かんたんログイン機能（ゲストユーザーログイン）
+
+* __投稿機能__
 　・一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除機能<br>
 　・回答投稿機能<br>
 <br>
