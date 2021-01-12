@@ -11,7 +11,7 @@ class ChildrenController < ApplicationController
     if @child.save
       redirect_to user_path(@child.user_id), notice: '子どもの情報を登録しました。'
     else
-      flash.now[:alert] = '必須項目を入力願います。'
+      flash.now[:alert] = '登録に失敗しました。'
       render :new
     end
   end

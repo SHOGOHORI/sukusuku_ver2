@@ -32,7 +32,8 @@ a.guest__btn {
   min-width: 1400px;
 }
 .user_part{
-  margin: 0 50px 50px 100px;
+  margin: 0 auto;
+  width: 1400px;
   height: 300px;
   display: block;
   img{
@@ -41,37 +42,52 @@ a.guest__btn {
   }
   .profile {
     float: left;
-    width: 250px;
+    position: relative;
+    width: 400px;
+    height: 400px;
     padding: 0.5em 1em;
-    margin: 2em;
+    margin: 30px 0 30px 50px;
     color: #2c2c2f;
     background: white;
-    box-shadow: 10px 10px 15px -10px;
+    box-shadow: 1px 1px 2px -1px;
     h3 {
       text-align: center;
+      font-weight: 800;
       margin: 0;
-      padding: 0;
     }
     i {
-      display: block;
       margin: 1rem auto;
       text-align: center;
+    }
+    p {
+      width: 250px;
+      margin: 0 auto;
     }
     img{
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
+    .edit{
+      position: absolute;
+      bottom: 10px;
+      right: 120px;
+      text-align: center;
+    }
+    .btn-primary {
+      background-color: gray;
+      padding: 0 5px;
+    }
   }
   .child_info{
-    width: 500px;
+    width: 600px;
     float: left;
     padding: 0.5em 1em;
     margin: 2em;
     color: #2c2c2f;
     background: white;
     position: relative;
-    box-shadow: 10px 10px 15px -10px;
+    box-shadow: 1px 1px 2px -1px;
     ul{
       display: flex;
       flex-direction: column;
@@ -107,9 +123,13 @@ a.guest__btn {
     text-indent:-999px;
     z-index: 2;
   }
+  h3 {
+    font-weight: 800;
+  }
 }
 .content_part {
-  margin-top: 100px;
+  margin: 250px auto 0 auto;
+  width: 1400px;
   display: block;
   .tabs{
     float: left;

@@ -1,28 +1,25 @@
 .child_show
-  ul.child_show_left
+  ul.child_show_info
     li.child_image
-      div.image
+      .image
         - if @child.avatar?
-          = image_tag @child.avatar.url, alt: 'icon', height: '300px', width: '300px'
+          = image_tag @child.avatar.url, alt: 'icon', height: '200px', width: '200px'
         - else
-          = image_tag 'child_icon.png', alt: 'icon', height: '300px', width: '300px'
-      - if @child.comment
-        div.comment
-          div.say
-            h2
-              = @child.comment
+          = image_tag 'child_icon.png', alt: 'icon', height: '200px', width: '200px'
     li
-      h2
+      h2.nick_name
         = @child.nick_name
-  ul.child_show_rigth
     li
-      h2
+      h3
         = age_and_moon_age(@child.birthday)
     li
-      h2
+      h3
         = child_birthday(@child.birthday)
-    li
-      = link_to '編集', edit_child_path(@child)
+    - if @child.user == current_user
+      li
+        = link_to edit_child_path(@child), class: 'btn btn-primary'do
+          i.fas.fa-edit
+          | 子供の情報を編集する
 ul
   li.category
     = render partial: 'consultations/category'

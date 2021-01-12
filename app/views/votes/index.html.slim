@@ -1,9 +1,10 @@
+= provide(:title, "詳細検索 - ")
 #index-box
   ul
     li.category
       = render partial: 'consultations/category'
     li.consultation-index
-      - if @search_consultations.count == 0
+      - if @search_votes.count == 0
         .unfind
           i.far.fa-flushed.fa-3x
           h2 投稿はありません
@@ -11,7 +12,7 @@
         | 検索結果
         = @search_votes.total_count
         | 件
-      = paginate @search_votes
+      .page
+        = paginate @search_votes
       ul.card-body
         = render partial: 'votes/vote', collection: @search_votes, id: 'consultation-index'
-      = paginate @search_votes

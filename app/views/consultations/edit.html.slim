@@ -2,16 +2,17 @@
   h1
     | 相談を編集する
   = form_for @consultation, local: true do |f|
+    = render 'users/shared/error_messages', resource: @consultation
     .field
       = f.label :title, 'タイトル'
-      = f.text_field :title, class: 'form-control'
+      = f.text_field :title, class: 'form-control', placeholder: '30字以内'
     span
       | カテゴリー：
       = @category.category
       = consultation_tag(@consultation)
     .field
       = f.label :content, '本文'
-      = f.text_area :content, class: 'form-control',:size=>'300x10'
+      = f.text_area :content, class: 'form-control',size: '300x10', placeholder: '1000字以内'
     .field
       = f.file_field :image, multiple: true
       = f.hidden_field :user_id, :value => current_user.id
