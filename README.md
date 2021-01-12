@@ -19,7 +19,7 @@ __URL：__　https://www.sukusuku-app.com/
 #### 相談機能
 #### アンケート機能
 
-* __投票__
+* __投票__<br>
 ![ezgif-4-1af7569f5bb7](https://user-images.githubusercontent.com/69126475/104315527-6feb3f00-551e-11eb-9c56-b5d7a79afab7.gif)
 ## 使用技術
 
@@ -75,11 +75,26 @@ __URL：__　https://www.sukusuku-app.com/
 * __画像アップロード機能__ (carrierwave, AWS S3)
 
 * __テスト機能__ (RSpec)
-  * キーワード検索、タグ検索
+  * 単体テスト、統合テスト
 
 
 ## DB設計
 
 ### ER図
 ![ER図ver2](https://user-images.githubusercontent.com/69126475/104265584-46f08d00-54d1-11eb-9b0a-ba2b1eaf8f3b.png)
+
+### テーブル
+| テーブル | 説明 |
+|:-:|:-:|
+| Users | ユーザー情報  |
+| Children | 子どもの情報  |
+| Consultations | 相談投稿の情報  |
+| Consultation_comments | 相談対するコメント  |
+| Consultation_comment_replys | 相談対するコメントの返信  |
+| Votes  | アンケート情報  |
+| Vote_items | アンケートの選択肢  |
+| likes  | 投稿への、いいねの情報  |
+| comments  | ユーザー投稿への、コメントの情報  |
+
+各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 ## 今後実装したい項目
