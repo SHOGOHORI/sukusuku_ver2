@@ -33,6 +33,6 @@ Chartkick.options = {
   },
   tooltips: {
     titleFontSize: 18,
-    bodyFontSize: 18,
+    bodyFontSize: 18
   }
 }
