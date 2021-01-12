@@ -15,6 +15,11 @@ __URL：__　https://www.sukusuku-app.com/
 
 ## デモ
 #### 相談機能
+* __相談投稿__<br>
+![ezgif-3-cf11a0bdcdd4](https://user-images.githubusercontent.com/69126475/104345946-36c4c600-5542-11eb-987d-7275accd283a.gif)
+
+* __コメント投稿__<br>
+![ezgif-3-de68b7e5aa5a](https://user-images.githubusercontent.com/69126475/104346659-02053e80-5543-11eb-86f1-9d1b0c5b2e3e.gif)
 #### アンケート機能
 
 * __投票__<br>
@@ -97,4 +102,3 @@ __URL：__　https://www.sukusuku-app.com/
 | Categories | カテゴリー |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
-## 今後実装したい項目
