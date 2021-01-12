@@ -1,7 +1,7 @@
 # ![home_logo](https://user-images.githubusercontent.com/69126475/104287280-934fc300-54f9-11eb-84eb-94f8f5635032.png)
 
 ## 更新履歴
-ver.1：2020/10/20 → https://childcare-questions-and-answer.herokuapp.com/<br>
+ver.1：2020/10/20 → https://github.com/SHOGOHORI/myapp<br>
 ver.2：2021/1/11
 
 ## ーSUKUSUKUーとは？
@@ -12,8 +12,6 @@ ver.2：2021/1/11
 __URL：__　https://www.sukusuku-app.com/
 
 <img width="1438" alt="スクリーンショット 2021-01-12 12 10 44" src="https://user-images.githubusercontent.com/69126475/104273842-dfdbd400-54e2-11eb-9559-8293eba93b52.png">
-
-## 使い方
 
 ## デモ
 #### 相談機能
@@ -58,13 +56,14 @@ __URL：__　https://www.sukusuku-app.com/
 
 * __相談投稿機能__
   * 一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除
-
-  * コメント投稿
+  * コメント投稿、コメント返信
 
 * __アンケート機能__
+  * 一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除
+  * コメント投稿、コメント返信
   * 回答期限設定
 
-* __アンケート回答機能__
+* __アンケート投票機能__
 
 * __検索機能__(Ransack)
   * キーワード検索、タグ検索
@@ -85,7 +84,7 @@ __URL：__　https://www.sukusuku-app.com/
 
 ### テーブル
 | テーブル | 説明 |
-|-::|-::|
+|--:|--:|
 | Users | ユーザー情報  |
 | Children | 子どもの情報  |
 | Consultations | 相談投稿の情報  |
@@ -95,6 +94,7 @@ __URL：__　https://www.sukusuku-app.com/
 | Vote_items | アンケートの選択肢  |
 | Vote_relationships | アンケートの回答集計 |
 | Vote_comments | アンケートに対するコメント |
+| Categories | カテゴリー |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 ## 今後実装したい項目
