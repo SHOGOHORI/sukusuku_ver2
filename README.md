@@ -93,8 +93,8 @@ __URL：__　https://www.sukusuku-app.com/
 | Consultation_comment_replys | 相談対するコメントの返信  |
 | Votes  | アンケート情報  |
 | Vote_items | アンケートの選択肢  |
-| likes  | 投稿への、いいねの情報  |
-| comments  | ユーザー投稿への、コメントの情報  |
+| Vote_relationships | アンケートの回答集計 |
+| Vote_comments | アンケートに対するコメント |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 ## 今後実装したい項目
