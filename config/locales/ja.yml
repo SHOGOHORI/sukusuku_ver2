@@ -13,6 +13,7 @@ ja:
       child: 子どもの情報
       consultation: 相談
       vote: アンケート
+      vote_item: アンケート項目
     attributes:
       children:
         nick name: ニックネーム

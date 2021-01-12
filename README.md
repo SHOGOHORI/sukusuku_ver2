@@ -19,7 +19,8 @@ __URL：__　https://www.sukusuku-app.com/
 #### 相談機能
 #### アンケート機能
 
-![ezgif-4-deb3365d51b2](https://user-images.githubusercontent.com/69126475/104308809-91dfc400-5514-11eb-9b18-f5f3f05bb93c.gif)
+* __投票__
+![ezgif-4-1af7569f5bb7](https://user-images.githubusercontent.com/69126475/104315527-6feb3f00-551e-11eb-9c56-b5d7a79afab7.gif)
 ## 使用技術
 
 * __開発環境__

@@ -9,7 +9,7 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     @vote.child_age_moon_age = @vote.age.to_i * 12 + @vote.moon_age.to_i
-    @vote.closed_at = Date.today + @vote.days.to_i
+    @vote.closed_at = Date.today + @vote.days.to_i if @vote.days == 0
     if @vote.save
       redirect_to @vote, notice: '投稿しました。'
     else
