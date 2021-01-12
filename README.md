@@ -14,6 +14,7 @@ __URL：__　https://www.sukusuku-app.com/
 <img width="1438" alt="スクリーンショット 2021-01-12 12 10 44" src="https://user-images.githubusercontent.com/69126475/104273842-dfdbd400-54e2-11eb-9559-8293eba93b52.png">
 
 ## 使い方
+
 ## 使用技術
 
 * __開発環境__
@@ -57,7 +58,7 @@ __URL：__　https://www.sukusuku-app.com/
 * __アンケート機能__
   * 回答期限設定
 
-* __アンケート機能__
+* __アンケート回答機能__
 
 * __検索機能__(Ransack)
   * キーワード検索、タグ検索
