@@ -27,9 +27,9 @@ URL：　https://www.sukusuku-app.com/
 * __インフラ__
   * __CircleCi__
   * __Docker 19.03.12 / docker-compose 1.26.2__
-  * __nginx 1.18__
-  * __mysql 5.7.31__
-  * __AWS__ ( EC2, ALB, ACM, S3, RDS, Route53, VPC, EIP, IAM )
+  * __nginx 1.12.2__
+  * __mysql 8.0.22__
+  * __AWS__ (VPC, EC2, ALB, ACM, S3, RDS, Route53, EIP, IAM )
 
 * その他使用ツール
   * Visual Studio Code
