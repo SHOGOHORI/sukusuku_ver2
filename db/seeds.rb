@@ -404,3 +404,40 @@ end
 VoteRelationship.create!(user_id: n + 50,
   vote_item_id: v3.id)
 end
+
+# サンプルアンケート(4)
+vote = Vote.create!(title: 'つわりはいつまで？',
+                    content: '現在妊娠５か月です。つわりがつらいです。
+                              みなさんはいつ頃つわりが終わりましたか？',
+                    pregnant: 1,
+                    user_id: 49,
+                    category_id: prodlem.id,
+                    closed_at: '2021/12/10')
+
+v1 = VoteItem.create!(item: '5ヶ月未満',
+                      vote_id: vote.id,
+                      item_number: 1)
+v2 = VoteItem.create!(item: '5～6ヵ月以下',
+                      vote_id: vote.id,
+                      item_number: 2)
+v3 = VoteItem.create!(item: '7ヵ月以上',
+                      vote_id: vote.id,
+                      item_number: 3)
+v3 = VoteItem.create!(item: 'つわりはなかった',
+                      vote_id: vote.id,
+                      item_number: 4)
+
+27.times do |n|
+VoteRelationship.create!(user_id: n + 1,
+vote_item_id: v1.id)
+end
+
+15.times do |n|
+VoteRelationship.create!(user_id: n + 30,
+vote_item_id: v2.id)
+end
+
+19.times do |n|
+VoteRelationship.create!(user_id: n + 50,
+vote_item_id: v3.id)
+end
