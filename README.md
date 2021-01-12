@@ -18,18 +18,18 @@ URL：　https://www.sukusuku-app.com/
 
 * __フロントエンド__
   * __jQuery 3.5.1__
-  * __HTML / Sass / MDBootstrap__
+  * __HTML / Sass / Bootstrap__
 
 * __バックエンド__
   * __Ruby 2.7.2__
   * __rails 6.0.3__
 
 * __インフラ__
-  * __CircleCi__
-  * __Docker 19.03.12 / docker-compose 1.26.2__
+  * __CircleCI__
+  * __Docker 20.10.2 / docker-compose 1.27.4__
   * __nginx 1.12.2__
   * __mysql 8.0.22__
-  * __AWS__ (VPC, EC2, ALB, ACM, S3, RDS, Route53, EIP, IAM )
+  * __AWS__ (VPC, EC2, ALB, ACM, S3, RDS, Route53, EIP, IAM)
 
 * その他使用ツール
   * Visual Studio Code
@@ -44,14 +44,17 @@ URL：　https://www.sukusuku-app.com/
   * ログイン、ログアウト機能
   * かんたんログイン機能（ゲストユーザーログイン）
 
-* __投稿機能__
-　・一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除機能<br>
-　・回答投稿機能<br>
-<br>
-質問検索機能：<br>
-　・キーワード検索、タグ検索機能<br>
-<br>
-ページネーション機能：<br>
+* __投稿機能(CRUD)__
+  * 一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除
+  * コメント投稿
+
+* __検索機能__(Ransack)
+  * キーワード検索、タグ検索
+  * 詳細検索
+
+* ____ページネーション機能__(kaminari)
+
+* __画像アップロード機能__ (carrierwave, AWS S3)
 　・Ajax対応<br>
 <br>
 テスト機能：<br>
