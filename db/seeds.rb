@@ -340,7 +340,7 @@ vote = Vote.create!(title: 'スマホを与えるべきか',
                            child_age_moon_age: 20,
                            user_id: 49,
                            category_id: education.id,
-                           closed_at: '2021/12/10')
+                           closed_at: '2020/12/10')
 
 v1 = VoteItem.create!(item: '使ってもOK',
                       vote_id: vote.id,
@@ -411,7 +411,7 @@ vote = Vote.create!(title: 'つわりはいつまで？',
                               みなさんはいつ頃つわりが終わりましたか？',
                     pregnant: 1,
                     user_id: 49,
-                    category_id: prodlem.id,
+                    category_id: problem.id,
                     closed_at: '2021/12/10')
 
 v1 = VoteItem.create!(item: '5ヶ月未満',
