@@ -37,6 +37,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
+    @vote = Vote.find(params[:id])
     @vote.destroy
     redirect_to root_path, notice: '削除しました'
   end
