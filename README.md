@@ -84,7 +84,7 @@ __URL：__　https://www.sukusuku-app.com/
 
 ### テーブル
 | テーブル | 説明 |
-|--:|--:|
+|:--|:--|
 | Users | ユーザー情報  |
 | Children | 子どもの情報  |
 | Consultations | 相談投稿の情報  |
