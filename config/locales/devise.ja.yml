@@ -59,9 +59,14 @@ ja:
               blank: 'が入力されていません。'
             category:
               required: ''
+            closed_at:
+              blank: 'が入力されていません。'
+            vote_item:
+              blank: 'が入力されていません。'
         vote_item:
           attributes:
-            blank: 'が入力されていません。'
+            item:
+              blank: 'が入力されていません。'
     attributes:
       user:
         current_password: '現在のパスワード'
@@ -84,6 +89,8 @@ ja:
         content: '本文'
         category: ''
         category_id: 'カテゴリー'
+        closed_at: '投票期間'
+        item: 'アンケート項目'
       vote_item:
         item: 'アンケート項目'
 

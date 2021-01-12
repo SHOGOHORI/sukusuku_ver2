@@ -9,7 +9,7 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     @vote.child_age_moon_age = @vote.age.to_i * 12 + @vote.moon_age.to_i
-    @vote.closed_at = Date.today + @vote.days.to_i
+    @vote.closed_at = Date.today + @vote.days.to_i unless @vote.days.empty?
     if @vote.save
       redirect_to @vote, notice: '投稿しました。'
     else
@@ -37,6 +37,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
+    @vote = Vote.find(params[:id])
     @vote.destroy
     redirect_to root_path, notice: '削除しました'
   end

@@ -286,9 +286,12 @@ label{
   color: red;
   font-weight: 800;
 }
-.alert{
-  margin: 0;
+
+p.alert {
+  width: 100%;
+  margin: 0 auto;
   font-weight: 800;
+  text-align: center;
 }
 
 
