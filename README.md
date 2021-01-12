@@ -30,7 +30,7 @@ URL：　https://www.sukusuku-app.com/
   * __mysql 5.7.31__
   * __AWS__ ( EC2, ALB, ACM, S3, RDS, Route53, VPC, EIP, IAM )
 
-ER図(https://user-images.githubusercontent.com/69126475/104265414-e4978c80-54d0-11eb-80e0-31d957fbcee8.png)
+![ER図ver2](https://user-images.githubusercontent.com/69126475/104265584-46f08d00-54d1-11eb-9b0a-ba2b1eaf8f3b.png)
 
 ## 機能
 ユーザー機能：<br>
