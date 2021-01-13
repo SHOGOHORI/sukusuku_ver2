@@ -361,14 +361,19 @@
   }
 }
 
-.clip {
+.clip, .clip-check {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  color: green;
   border: none;
   box-shadow: 3px 3px 4px -3px;
   &:focus, &:active {
     box-shadow: 0;
   }
+}
+.clip {
+  color: gray;
+}
+.clip-check {
+  color: green;
 }

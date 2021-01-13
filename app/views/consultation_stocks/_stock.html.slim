@@ -1,5 +1,5 @@
 - if current_user.already_liked_consultation?(@consultation)
-  = button_to consultation_consultation_stock_path(@consultation), method: :delete, remote: true, class: 'clip' do
+  = button_to consultation_consultation_stock_path(@consultation, current_user), method: :delete, remote: true, class: 'clip-check' do
     span tooltip="ストック"
       i.fas.fa-clipboard-check.fa-3x
 - else
