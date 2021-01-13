@@ -94,11 +94,13 @@ ul
             i.fas.fa-clock
             | 受付終了する
       - if current_user.already_liked_consultation?(@consultation)
-        = button_to consultation_consultation_stock_path(@consultation), method: :delete , class: 'clip' do
-          i.fas.fa-clipboard-check.fa-3x
+        = button_to consultation_consultation_stock_path(@consultation), method: :delete, data: {toggle: 'tooltip'}, title: 'ストック', class: 'clip', remote: true do
+          span tooltip="ストック"
+            i.fas.fa-clipboard-check.fa-3x
       - else
-        = button_to consultation_consultation_stocks_path(@consultation), class: 'clip' do
-          i.fas.fa-clipboard.fa-3x
+        = button_to consultation_consultation_stocks_path(@consultation), data: {toggle: 'tooltip'}, title: 'ストック', class: 'clip', remote: true do
+          span tooltip="ストック"
+            i.fas.fa-clipboard.fa-3x
       = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
         i.fab.fa-twitter
         |  tweet

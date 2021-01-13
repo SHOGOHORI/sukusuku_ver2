@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def stock
+    @stocks =  Kaminari.paginate_array(@user.stocked_consultations.recently).page(params[:page]).per(5)
   end
 
   private

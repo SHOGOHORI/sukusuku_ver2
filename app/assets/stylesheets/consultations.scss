@@ -356,5 +356,9 @@
   width: 60px;
   height: 60px;
   color: green;
-  border: solid 1px #666666;
+  border: none;
+  box-shadow: 3px 3px 4px -3px;
+  &:focus, &:active {
+    box-shadow: 0;
+  }
 }

@@ -1,0 +1,13 @@
+.stock
+  ul.item
+    li.category
+      = render partial: 'consultations/category'
+    li.consultation-index
+      - if @stocks.count == 0
+        .unfind
+          i.far.fa-flushed.fa-3x
+          h2 ストックはありません
+      .page
+        = paginate @stocks
+      ul.card-body
+        = render partial: 'consultations/consultation', collection: @stocks, id: 'consultation-index'
