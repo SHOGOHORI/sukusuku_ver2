@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_043625) do
+ActiveRecord::Schema.define(version: 2021_01_13_004221) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -101,6 +101,15 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "consultation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_stocks_on_consultation_id"
+    t.index ["user_id"], name: "index_stocks_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -165,6 +174,8 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
   add_foreign_key "consultation_comments", "consultations"
   add_foreign_key "consultation_comments", "users"
   add_foreign_key "consultations", "users"
+  add_foreign_key "stocks", "consultations"
+  add_foreign_key "stocks", "users"
   add_foreign_key "vote_comments", "users"
   add_foreign_key "vote_comments", "votes"
   add_foreign_key "vote_items", "votes"
