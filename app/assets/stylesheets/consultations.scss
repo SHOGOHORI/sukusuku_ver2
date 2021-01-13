@@ -60,6 +60,11 @@
         text-align: center;
       }
     }
+    .btn-primary, .close {
+      position: absolute;
+      top: 120px;
+      left: -30px;
+    }
   }
   .box_bottom {
     display: inline;
@@ -81,10 +86,10 @@
   .content {
     width: 600px;
     position: relative;
-    margin: 0 0 0 130px;
+    margin: 0 20px 0 130px;
     padding: 10px;
     border-radius: 12px;
-    background: #edf1ee;
+    background: #BBFFFF;
     box-sizing: border-box;
     &::after {
         content: "";
@@ -93,7 +98,7 @@
         top: 40px;
         left: -28px;
         border: 10px solid transparent;
-        border-right: 26px solid #edf1ee;
+        border-right: 26px solid #BBFFFF;
         -webkit-transform: rotate(32deg);
         transform: rotate(32deg);
       }
@@ -139,6 +144,8 @@
     background: #3399FF;
     color: white;
     font-weight: 800;
+    margin: 10px 0 0 auto;
+    float: right;
   }
   img{
     border-radius: 50%;
@@ -362,14 +369,14 @@
 }
 
 .clip, .clip-check {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  border-radius: 5px;
+  float: right;
+  width: auto;
+  height: 34px;
   border: none;
-  box-shadow: 3px 3px 4px -3px;
-  &:focus, &:active {
-    box-shadow: 0;
-  }
+  font-weight: 800;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 .clip {
   color: gray;

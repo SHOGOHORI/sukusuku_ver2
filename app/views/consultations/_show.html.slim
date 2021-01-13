@@ -16,6 +16,11 @@ ul
                 p
                   = @consultation.user.name
             = link_to '', @consultation.user
+          - if current_user == @consultation.user
+            - unless @consultation.reception_closed
+              = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
+                i.fas.fa-clock
+                | 受付終了する
         .box_bottom
           .content
             h2
@@ -79,6 +84,11 @@ ul
                   = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
                     i.fas.fa-trash-alt
                     | 削除
+          = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            i.fab.fa-twitter
+            |  tweet
+          #stocks_buttons
+            = render partial: 'consultation_stocks/stock'
       .modal_wrapper
       - unless @consultation.reception_closed
         - if  user_signed_in?
@@ -89,15 +99,5 @@ ul
         - else
           = link_to 'ログイン', user_session_path
           | してコメントする。
-        - if current_user == @consultation.user
-          = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
-            i.fas.fa-clock
-            | 受付終了する
-
-      = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
-        i.fab.fa-twitter
-        |  tweet
-      #stocks_buttons
-        = render partial: 'consultation_stocks/stock'
       .comment_index
         = render 'consultation_comments/comment'
