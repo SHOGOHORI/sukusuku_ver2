@@ -5,7 +5,7 @@ class Consultation < ApplicationRecord
   belongs_to :category
   has_many :consultation_comments, dependent: :destroy
   has_many :consultation_stocks, dependent: :destroy
-  has_many :stocked_users, through: :consultations, source: :user
+  has_many :stocked_users, through: :consultation_stocks, source: :user
   mount_uploaders :image, ImageUploader
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { maximum: 1000 }
