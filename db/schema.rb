@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_004221) do
+ActiveRecord::Schema.define(version: 2021_01_13_004816) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2021_01_13_004221) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["consultation_id"], name: "index_consultation_comments_on_consultation_id"
     t.index ["user_id"], name: "index_consultation_comments_on_user_id"
+  end
+
+  create_table "consultation_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "consultation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_consultation_stocks_on_consultation_id"
+    t.index ["user_id"], name: "index_consultation_stocks_on_user_id"
   end
 
   create_table "consultations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -99,15 +108,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_004221) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: { message: 255 }
     t.index ["user_id"], name: "index_impressions_on_user_id"
-  end
-
-  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "consultation_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["consultation_id"], name: "index_stocks_on_consultation_id"
-    t.index ["user_id"], name: "index_stocks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -173,9 +173,9 @@ ActiveRecord::Schema.define(version: 2021_01_13_004221) do
   add_foreign_key "consultation_comment_replies", "users"
   add_foreign_key "consultation_comments", "consultations"
   add_foreign_key "consultation_comments", "users"
+  add_foreign_key "consultation_stocks", "consultations"
+  add_foreign_key "consultation_stocks", "users"
   add_foreign_key "consultations", "users"
-  add_foreign_key "stocks", "consultations"
-  add_foreign_key "stocks", "users"
   add_foreign_key "vote_comments", "users"
   add_foreign_key "vote_comments", "votes"
   add_foreign_key "vote_items", "votes"

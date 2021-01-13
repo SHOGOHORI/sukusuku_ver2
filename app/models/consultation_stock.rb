@@ -1,4 +1,4 @@
-class Stock < ApplicationRecord
+class ConsultationStock < ApplicationRecord
   belongs_to :consultation
   belongs_to :user
 end

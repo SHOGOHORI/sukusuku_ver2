@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :stock do
+  factory :consultation_stock do
     consultation { nil }
     user { nil }
   end
