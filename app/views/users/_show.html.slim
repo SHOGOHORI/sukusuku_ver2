@@ -14,7 +14,7 @@
           .user_stock
             = link_to stock_path(@user) do
               h3
-                = @user.stocked_consultations.count
+                = @user.stocked_consultations.count + @user.stocked_votes.count
               p
                 | ストック
         .edit
