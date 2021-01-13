@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete 'children/:id/delete_avater', to: 'children#delete_avater', as: 'child_delete_avater'
 
   resources :consultations do
+    resources :consultation_stocks, only: [:create, :destroy]
     member do
       post 'reception_closed', to: 'consultations#reception_closed'
     end

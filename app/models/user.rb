@@ -13,4 +13,8 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   accepts_nested_attributes_for :children, allow_destroy: true
   mount_uploader :avatar, AvatarUploader
+
+  def already_liked_consultation?(consultaion)
+    self.consultaion_stocks.exists?(consultaion_id: consultaion.id)
+  end
 end

@@ -93,6 +93,10 @@ ul
           = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
             i.fas.fa-clock
             | 受付終了する
+      - if current_user.already_liked_consultation?(@consultaion)
+        = button_to 'いいねを取り消す', consultation_consultation_stock_path(@consultation), method: :delete
+      - else
+        = button_to 'いいね', consultation_consultation_stocks_path(@consultation)
       = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
         i.fab.fa-twitter
         |  tweet
