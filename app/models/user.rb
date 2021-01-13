@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def already_liked_consultation?(consultation)
     self.consultation_stocks.exists?(consultation_id: consultation.id)
   end
+
+  def already_liked_vote?(vote)
+    self.vote_stocks.exists?(vote_id: vote.id)
+  end
 end
