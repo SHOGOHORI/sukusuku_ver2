@@ -69,9 +69,13 @@
     .category_tag {
       margin-left: -40px;
     }
-    .post_time, .pv_count {
+    .post_time, .pv_count, .stock_count {
       color: #808080;
       margin-top: 10px;
+    }
+    .pv_count,.stock_count {
+      display: inline;
+      margin-right: 10px;
     }
   }
   .content {
@@ -314,6 +318,12 @@
     .pv_count {
       position: absolute;
       left: 20px;
+      bottom: 10px;
+      font-weight: 800;
+    }
+    .stock_count {
+      position: absolute;
+      left: 120px;
       bottom: 10px;
       font-weight: 800;
     }

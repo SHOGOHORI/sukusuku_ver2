@@ -4,7 +4,7 @@ class ConsultationStocksController < ApplicationController
     @consultation = Consultation.find(params[:consultation_id])
     @stock = current_user.consultation_stocks.create(consultation_id: params[:consultation_id])
     respond_to do |format|
-      format.html { redirect_to @consultation }
+      format.html {redirect_to @consultation }
       format.js
     end
   end
