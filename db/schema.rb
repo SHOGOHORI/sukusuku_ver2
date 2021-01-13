@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_004816) do
+ActiveRecord::Schema.define(version: 2021_01_13_102912) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -153,6 +153,15 @@ ActiveRecord::Schema.define(version: 2021_01_13_004816) do
     t.index ["vote_item_id"], name: "index_vote_relationships_on_vote_item_id"
   end
 
+  create_table "vote_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "vote_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_vote_stocks_on_user_id"
+    t.index ["vote_id"], name: "index_vote_stocks_on_vote_id"
+  end
+
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -179,5 +188,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_004816) do
   add_foreign_key "vote_comments", "users"
   add_foreign_key "vote_comments", "votes"
   add_foreign_key "vote_items", "votes"
+  add_foreign_key "vote_stocks", "users"
+  add_foreign_key "vote_stocks", "votes"
   add_foreign_key "votes", "users"
 end
