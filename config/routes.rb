@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update, :show]
   get 'users/:id/profile_register', to: 'users#profile_create', as: 'profile_create'
+  get 'users/:id/stock', to: 'users#stock', as: 'stock'
   delete 'users/:id/delete_avater', to: 'users#delete_avater', as: 'user_delete_avater'
 
   resources :children
