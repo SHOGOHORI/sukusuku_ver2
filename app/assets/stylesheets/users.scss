@@ -68,6 +68,13 @@ a.guest__btn {
       margin-left: auto;
       margin-right: auto;
     }
+    .user_stock {
+      text-align: center;
+      font-weight: 800;
+      position: absolute;
+      bottom: 60px;
+      right: 90px;
+    }
     .edit{
       position: absolute;
       bottom: 10px;
@@ -192,8 +199,4 @@ a.guest__btn {
   -webkit-transition: all .3s ease-in;
   -moz-transition: all .3s ease-in;
   }
-}
-
-.user_stock {
-  text-align: center;
 }

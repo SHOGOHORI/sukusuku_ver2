@@ -2,7 +2,11 @@
   = button_to consultation_consultation_stock_path(@consultation, current_user), method: :delete, remote: true, class: 'clip-check' do
     span tooltip="ストック"
       i.fas.fa-clipboard-check.fa-3x
+      | ストック数
+      = @consultation.consultation_stocks.count
 - else
   = button_to consultation_consultation_stocks_path(@consultation), method: :post, remote: true, class: 'clip' do
     span tooltip="ストック"
       i.fas.fa-clipboard.fa-3x
+      | ストック数
+      = @consultation.consultation_stocks.count
