@@ -66,8 +66,6 @@ ul
               i.fas.fa-shoe-prints.fa-rotate-270
               | 閲覧数
               = number_with_delimiter(@vote.impressionist_count)
-            .stock_count
-              = render partial: 'vote_stocks/count'
             - if  user_signed_in?
               - if current_user == @vote.user
                 .consultation_link
@@ -106,6 +104,13 @@ ul
           = @vote.created_at.to_date
           | 〜
           = @vote.closed_at.to_s
+        .share
+          = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            i.fab.fa-twitter
+            |  tweet
+          - if user_signed_in?
+            #stocks_buttons
+              = render partial: 'vote_stocks/stock'
       .modal_wrapper
       - if  user_signed_in?
         .button.comment_button.btn.btn-success
@@ -113,12 +118,8 @@ ul
           | コメント
         = render 'vote_comments/modal'
       - else
+        p.nonlogin_comment
         = link_to 'ログイン', user_session_path
         | して投票する。
-      = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
-        i.fab.fa-twitter
-        |  tweet
-      #stocks_buttons
-        = render partial: 'vote_stocks/stock'
       .vote_comment
         = render 'vote_comments/comment'

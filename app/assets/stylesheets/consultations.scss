@@ -147,6 +147,21 @@
     margin: 10px 0 0 auto;
     float: right;
   }
+  .clip, .clip-check {
+    float: right;
+    border-radius: 5px;
+    width: auto;
+    height: 34px;
+    border: none;
+    font-weight: 800;
+    margin: 10px;
+  }
+  .clip {
+    color: gray;
+  }
+  .clip-check {
+    color: green;
+  }
   img{
     border-radius: 50%;
   }
@@ -161,6 +176,11 @@
   .page {
     width: 900px;
   }
+}
+
+.nonlogin_comment {
+  margin: 30px 300px;
+  font-weight: 800;
 }
 
 /* 相談一覧 */
@@ -366,21 +386,4 @@
       }
     }
   }
-}
-
-.clip, .clip-check {
-  border-radius: 5px;
-  float: right;
-  width: auto;
-  height: 34px;
-  border: none;
-  font-weight: 800;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-.clip {
-  color: gray;
-}
-.clip-check {
-  color: green;
 }

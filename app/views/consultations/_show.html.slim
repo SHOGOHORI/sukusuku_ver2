@@ -87,8 +87,9 @@ ul
           = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
             i.fab.fa-twitter
             |  tweet
-          #stocks_buttons
-            = render partial: 'consultation_stocks/stock'
+          - if user_signed_in?
+            #stocks_buttons
+              = render partial: 'consultation_stocks/stock'
       .modal_wrapper
       - unless @consultation.reception_closed
         - if  user_signed_in?
@@ -97,7 +98,8 @@ ul
             | コメント
           = render 'consultation_comments/modal'
         - else
-          = link_to 'ログイン', user_session_path
-          | してコメントする。
+          p.nonlogin_comment
+            = link_to 'ログイン', user_session_path
+            | してコメントする。
       .comment_index
         = render 'consultation_comments/comment'

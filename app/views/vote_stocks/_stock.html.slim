@@ -2,9 +2,11 @@
   = button_to vote_vote_stock_path(@vote, current_user), method: :delete, remote: true, class: 'clip-check' do
     span tooltip="ストック"
       i.fas.fa-clipboard-check
+      | ストック数
+      = @vote.vote_stocks.count
 - else
   = button_to vote_vote_stocks_path(@vote), method: :post, remote: true, class: 'clip' do
     span tooltip="ストック"
       i.fas.fa-clipboard
-| ストック数
-= @vote.vote_stocks.count
+      | ストック数
+      = @vote.vote_stocks.count
