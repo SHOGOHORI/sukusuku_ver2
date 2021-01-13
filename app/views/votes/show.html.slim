@@ -67,9 +67,7 @@ ul
               | 閲覧数
               = number_with_delimiter(@vote.impressionist_count)
             .stock_count
-              i.fas.fa-clipboard-check
-              | ストック数
-              = @vote.vote_stocks.count
+              = render partial: 'vote_stocks/count'
             - if  user_signed_in?
               - if current_user == @vote.user
                 .consultation_link
