@@ -86,7 +86,7 @@ __URL：__　https://www.sukusuku-app.com/
 ## DB設計
 
 ### ER図
-![ER図ver2](https://user-images.githubusercontent.com/69126475/104265584-46f08d00-54d1-11eb-9b0a-ba2b1eaf8f3b.png)
+![ER図ver2](https://user-images.githubusercontent.com/69126475/104393818-b2e1fc80-5588-11eb-96ee-952428a5de70.png)
 
 ### テーブル
 | テーブル | 説明 |
@@ -96,10 +96,12 @@ __URL：__　https://www.sukusuku-app.com/
 | Consultations | 相談投稿の情報  |
 | Consultation_comments | 相談対するコメント  |
 | Consultation_comment_replys | 相談対するコメントの返信  |
+| consultation_stocks | 相談のストック |
 | Votes  | アンケート情報  |
 | Vote_items | アンケートの選択肢  |
 | Vote_relationships | アンケートの回答集計 |
 | Vote_comments | アンケートに対するコメント |
+| Vote_stocks | アンケートのストック |
 | Categories | カテゴリー |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
