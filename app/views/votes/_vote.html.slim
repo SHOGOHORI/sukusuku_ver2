@@ -47,6 +47,10 @@
       i.fas.fa-shoe-prints.fa-rotate-270
       | 閲覧数
       = number_with_delimiter(vote.impressionist_count)
+    .stock_count
+        i.fas.fa-clipboard-check
+        | ストック数
+        = vote.vote_stocks.count
     span.user
       - if vote.user.avatar?
         = image_tag vote.user.avatar.url, alt: 'icon', height: '20px'
