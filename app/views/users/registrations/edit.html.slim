@@ -14,14 +14,14 @@
       br
       = link_to '削除', user_delete_avater_path(resource), method: :delete
     - else
-      i.fas.fa-user.fa-5x
+      = image_tag 'user.png', alt: 'icon', height: '150px'
     br
     .field
       = f.file_field :avatar
     .field
       = f.label :introduction, '自己紹介'
       br
-      = f.text_area :introduction, placeholder: '200字以内', class: 'form-control'
+      = f.text_area :introduction, placeholder: '100字以内', class: 'form-control'
     .field
       = f.label :email
       br

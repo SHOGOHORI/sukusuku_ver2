@@ -7,7 +7,6 @@ header
         = text_field_tag :keyword, nil, placeholder: 'キーワード検索'
         = button_tag type: 'submit', class: 'btn btn-primary' do
           i.fas.fa-search
-
   ul.header-right
     - if user_signed_in?
       li.dropdown
@@ -24,7 +23,7 @@ header
           - if current_user.avatar?
             = image_tag current_user.avatar.url, alt: 'icon', height: '20px'
           - else
-            i.fas.fa-user
+            = image_tag 'user.png', alt: 'icon', height: '20px'
           = current_user.name
           b.caret
         ul.dropdown-menu

@@ -43,6 +43,7 @@ class ConsultationsController < ApplicationController
   end
 
   def update
+    @category = Category.find_by(id: @consultation.category_id)
     if @consultation.update(consultation_params)
       redirect_to @consultation, notice: '更新しました。'
     else

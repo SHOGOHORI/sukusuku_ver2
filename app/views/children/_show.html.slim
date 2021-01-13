@@ -1,51 +1,60 @@
- ul
-  .child_show
-    ul.child_show_left
-      li.child_image
-        div.image
-          - if @child.avatar?
-            = image_tag @child.avatar.url, alt: 'icon', height: '300px', width: '300px'
-          - else
-            = image_tag 'child_icon.png', alt: 'icon', height: '300px', width: '300px'
-        - if @child.comment
-          div.comment
-            div.say
-              h2
-                = @child.comment
-      li
-        h2
-          = @child.nick_name
-    ul.child_show_rigth
-      li
-        h2
-          = age_and_moon_age(@child.birthday)
-      li
-        h2
-          = child_birthday(@child.birthday)
-      li
-        = link_to '編集', edit_child_path(@child)
-  ul
-    li.category
-      = render partial: 'consultations/category'
-    li.p-3
-      h2
+.child_show
+  ul.child_show_info
+    li.child_image
+      .image
+        - if @child.avatar?
+          = image_tag @child.avatar.url, alt: 'icon', height: '200px', width: '200px'
+        - else
+          = image_tag 'child_icon.png', alt: 'icon', height: '200px', width: '200px'
+    li
+      h2.nick_name
+        = @child.nick_name
+    li
+      h3
         = age_and_moon_age(@child.birthday)
-        | の記事
-      ul.nav.nav-tabs
-        li.nav-item
-          a.nav-link.active href='#tab1' data-toggle='tab'
-            | 相談
-        li.nav-item
-          a.nav-link href='#tab2' data-toggle='tab'
-            | アンケート
+    li
+      h3
+        = child_birthday(@child.birthday)
+    - if @child.user == current_user
+      li
+        = link_to edit_child_path(@child), class: 'btn btn-primary'do
+          i.fas.fa-edit
+          | 子供の情報を編集する
+ul
+  li.category
+    = render partial: 'consultations/category'
+  li
+    h2.title
+      = age_and_moon_age(@child.birthday)
+      | の記事
+    .tabs
+      .tab-buttons
+        span.content1
+          | 相談（
+          = @consultations.total_count
+          | ）
+        span.content2
+          | アンケート（
+          = @votes.total_count
+          | ）
+        #lamp.content1
       .tab-content
-        #tab1.tab-pane.active
-          = paginate @consultations, remote:true
+        .content1
+          - if @consultations.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
             = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-          = paginate @consultations, remote:true
-        #tab2.tab-pane
-          = paginate @votes, remote:true
+          .page
+            = paginate @consultations, remote:true
+        .content2
+          - if @votes.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 投稿はありません
           ul.card-body
-            = render partial: 'consultations/consultation', collection: @votes, id: 'consultation-index'
-          = paginate @votes, remote:true
+            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
+          .page
+            = paginate @votes, remote:true
+.credit

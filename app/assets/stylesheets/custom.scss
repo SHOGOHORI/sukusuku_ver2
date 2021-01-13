@@ -110,6 +110,9 @@ header{
         }
       }
     }
+    img{
+      border-radius: 50%;
+    }
   }
 }
 
@@ -140,29 +143,9 @@ header{
 }
 
 /* ホーム */
-.non-login{
-  background: image-url('home.png');
-  height: 700px;
-  width: 100%;
-  background-size: cover;
-  .home-logo{
-    position: absolute;
-    top: 300px;
-    left: 30px;
-    color: #800000;
-    h3{
-      font-weight: 800;
-      padding-left: 40px;
-    }
-  }
-  .home_login{
-    width: 300px;
-    float: right;
-    margin: 300px 100px;
-    p{
-      font-weight: 800;
-    }
-  }
+.item {
+  margin: 0 auto;
+  width: 1400px;
 }
 
 .tabs{
@@ -189,6 +172,16 @@ header{
   padding:15px;
   display:inline-block;
   color:#333;
+  margin: 0 auto;
+  .unfind {
+    margin-top: 50px;
+    width: 800px;
+    text-align: center;
+    i {
+      text-align: center;
+      color: silver;
+    }
+  }
 }
 #lamp{
   width:50%;
@@ -266,6 +259,12 @@ footer{
     }
   }
 }
+/* 検索画面 */
+
+.search {
+  margin: 0 auto;
+  width: 1400px;
+}
 
 /* フォーム */
 .form{
@@ -287,9 +286,12 @@ label{
   color: red;
   font-weight: 800;
 }
-.alert{
-  margin: 0;
+
+p.alert {
+  width: 100%;
+  margin: 0 auto;
   font-weight: 800;
+  text-align: center;
 }
 
 

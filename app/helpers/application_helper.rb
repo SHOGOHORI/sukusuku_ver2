@@ -13,7 +13,9 @@ module ApplicationHelper
 
   def age_and_moon_age(birthday)
     age = (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10_000
+    age += 12 if age.negative?
     moon_age = (Date.today.strftime('%m%d').to_i - birthday.strftime('%m%d').to_i) / 100
+    moon_age += 12 if moon_age.negative?
     if birthday < Date.today
       "#{age}歳#{moon_age}ヶ月"
     else

@@ -11,16 +11,23 @@ class ChildrenController < ApplicationController
     if @child.save
       redirect_to user_path(@child.user_id), notice: '子どもの情報を登録しました。'
     else
-      flash.now[:alert] = '必須項目を入力願います。'
+      flash.now[:alert] = '登録に失敗しました。'
       render :new
     end
   end
 
   def show
-    age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
-    moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
-    @consultations = Consultation.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
-    @votes = Vote.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
+    if @child.birthday < Date.today
+      age = (Date.today.strftime('%Y%m%d').to_i - @child.birthday.strftime('%Y%m%d').to_i) / 10_000
+      age += 12 if age.negative?
+      moon_age = (Date.today.strftime('%m%d').to_i - @child.birthday.strftime('%m%d').to_i) / 100
+      moon_age += 12 if moon_age.negative?
+      @consultations = Consultation.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
+      @votes = Vote.where(child_age_moon_age: age * 12 + moon_age).recently.page(params[:page]).per(5)
+    else
+      @consultations = Consultation.where(pregnant: 1).recently.page(params[:page]).per(5)
+      @votes = Vote.where(pregnant: 1).recently.page(params[:page]).per(5)
+    end
     respond_to do |format|
       format.html
       format.js

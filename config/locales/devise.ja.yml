@@ -22,6 +22,7 @@ ja:
             password_confirmation:
               confirmation: 'が一致しません。'
             name:
+              blank: 'が入力されていません。'
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
             introduction:
@@ -34,21 +35,71 @@ ja:
             birthday:
               blank: 'が入力されていません。'
               too_long: "は%{count}文字以下に設定して下さい。"
+        consultation:
+          attributes:
+            title:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            content:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            category_id:
+              blank: 'が入力されていません。'
+            category:
+              required: ''
+        vote:
+          attributes:
+            title:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            content:
+              blank: 'が入力されていません。'
+              too_long: "は%{count}文字以下に設定して下さい。"
+            category_id:
+              blank: 'が入力されていません。'
+            category:
+              required: ''
+            closed_at:
+              blank: 'が入力されていません。'
+            vote_item:
+              blank: 'が入力されていません。'
+        vote_item:
+          attributes:
+            item:
+              blank: 'が入力されていません。'
     attributes:
       user:
         current_password: '現在のパスワード'
-        name: 名前
+        name: '名前'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: '確認用パスワード'
         remember_me: '次回から自動的にログイン'
+        introduction: '自己紹介'
       children:
         nick_name: 'ニックネーム'
         birthday: '誕生日'
+      consultation:
+        title: 'タイトル'
+        content: '本文'
+        category: ''
+        category_id: 'カテゴリー'
+      vote:
+        title: 'タイトル'
+        content: '本文'
+        category: ''
+        category_id: 'カテゴリー'
+        closed_at: '投票期間'
+        item: 'アンケート項目'
+      vote_item:
+        item: 'アンケート項目'
 
     models:
       user: 'ユーザ'
       child: '子供の情報'
+      consultation: '相談'
+      vote: 'アンケート'
+      vote_item: 'アンケート項目'
 
   devise:
     passwords:

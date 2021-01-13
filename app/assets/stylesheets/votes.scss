@@ -6,16 +6,218 @@
 
 ul.vote_item{
   display: block;
+  padding-left: 40px;
+  margin: 30px auto;
+  li.item{
+    width: 500px;
+    padding: 0;
+    margin: 5px 0;
+    p {
+      float: left;
+      font-size: 30px;
+      font-weight: 1800;
+      padding: 0;
+    }
+    span {
+      float: left;
+      font-weight: 800;
+      margin: 5px;
+      font-size: 20px;
+      color: black;
+    }
+    .focus {
+      background-color: #C0C0C0;
+      color: white;
+    }
+    &:hover {
+      background-color: #BBBBBB;
+      color: white;
+      -webkit-box-shadow: 0;
+      box-shadow: 0;
+    }
+    .circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      float: left;
+      margin: 14px;
+    }
+      &:nth-child(1) {
+        .circle {
+          background-color: #FF0000;
+        }
+      }
+      &:nth-child(2) {
+        .circle {
+        background-color: #008000;
+        }
+      }
+      &:nth-child(3) {
+        .circle {
+        background-color: #FFFF00;
+        }
+      }
+      &:nth-child(4) {
+        .circle {
+        background-color: #0000FF;
+      }
+    }
+  }
 }
 
-li.item {
-  margin: 10px 2px;
-  font-weight: 800;
-  input[type="radio"] {
-    width: auto;
-    float: left;
+
+ul.vote_box {
+  width: 730px;
+}
+li.comment {
+  img {
+    border-radius: 0;
   }
-  p {
-    margin-left: 10px;
+  .delete {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .post_time {
+    margin-bottom: 0;
+    color: #808080;
+  }
+  .comment_balloon {
+    height: 100%;
+    width: 500px;
+    position: relative;
+    margin: 20px 0 0 170px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #AEFFBD;
+    box-sizing: border-box;
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: -28px;
+      border: 10px solid transparent;
+      border-right: 26px solid #AEFFBD;
+      -webkit-transform: rotate(25deg);
+      transform: rotate(25deg);
+    }
+  }
+  .comment_user {
+    float: left;
+    margin-left: 60px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0;
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-indent:-999px;
+      z-index: 2;
+    }
+  }
+}
+
+#column-chart {
+  margin: 30px;
+  font-size: 30px;
+  text-align: right;
+  width: 600px;
+  height: 600px;
+}
+.box {
+  .btn-warning {
+    float: left;
+    margin: 0 40px;
+  }
+  .period {
+    float: left;
+    height: 35px;
+    text-align: center;
+    padding: 8px 0;
+  }
+}
+
+.btn:active, .btn.active{
+  background-color: #BBBBBB;
+  color: white;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+}
+
+/* アンケート結果 */
+
+.result {
+  position: relative;
+  ul.aggregate {
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    li.item {
+      display: block;
+      width: 350px;
+      height: 40px;
+      padding: 0;
+      margin-top: 10px;
+      .circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 14px;
+        display: inline;
+        float: left;
+      }
+      &:nth-child(1) {
+        .circle {
+          background-color: #FF0000;
+        }
+      }
+      &:nth-child(2) {
+        .circle {
+          background-color: #008000;
+        }
+      }
+      &:nth-child(3) {
+        .circle {
+          background-color: #FFFF00;
+        }
+      }
+      &:nth-child(4) {
+        .circle {
+          background-color: #0000FF;
+        }
+      }
+      span {
+        display: inline;
+        font-weight: 800;
+        margin: 5px;
+        font-size: 20px;
+        color: black;
+        float: left;
+      }
+      p {
+        display: inline;
+        float: right;
+        font-size: 20px;
+        font-weight: 800;
+        color: black;
+      }
+    }
+  }
+}
+
+/* アンケート結果 */
+
+ul.nonlogin_item {
+  margin-top: 30px;
+  li.item {
+    height: 40px;
+    &:hover {
+      background-color: white;
+    }
   }
 }

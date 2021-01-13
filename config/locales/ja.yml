@@ -6,15 +6,17 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         remember_me: パスワードを記憶
+        introduction: 自己紹介
         avatar: プロフィール画像
   activerecord:
     models:
       child: 子どもの情報
       consultation: 相談
       vote: アンケート
+      vote_item: アンケート項目
     attributes:
       children:
-        nick_name: ニックネーム
+        nick name: ニックネーム
         birthday: 誕生日
   datetime:
     distance_in_words:
