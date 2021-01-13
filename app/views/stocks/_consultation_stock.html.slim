@@ -1,8 +1,8 @@
 - if current_user.already_liked_consultation?(@consultation)
-  = button_to consultation_consultation_stock_path(@consultation), method: :delete, data: {toggle: 'tooltip'}, title: 'ストック', class: 'clip', remote: true do
+  = button_to consultation_consultation_stock_path(@consultation), method: :delete, class: 'clip', remote: true do
     span tooltip="ストック"
       i.fas.fa-clipboard-check.fa-3x
 - else
-  = button_to consultation_consultation_stocks_path(@consultation), data: {toggle: 'tooltip'}, title: 'ストック', class: 'clip', remote: true do
+  = button_to consultation_consultation_stocks_path(@consultation), class: 'clip', remote: true do
     span tooltip="ストック"
       i.fas.fa-clipboard.fa-3x
