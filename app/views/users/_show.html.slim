@@ -10,13 +10,18 @@
         br
         p
           = @user.introduction
-          br
-          .edit
-            - if current_user == @user
-              = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do
-                i.fas.fa-edit
-                | プロフィールを編集する
-
+        - if current_user == @user
+          .user_stock
+            = link_to stock_path(@user) do
+              h3
+                = @user.stocked_consultations.count + @user.stocked_votes.count
+              p
+                | ストック
+        .edit
+          - if current_user == @user
+            = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do
+              i.fas.fa-edit
+              | プロフィールを編集する
       li.child_info
         ul
           - @user.children.each do |child|

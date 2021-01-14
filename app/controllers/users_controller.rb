@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:profile_create, :update, :delete_avater]
+  before_action :set_user, only: [:profile_create, :update, :delete_avater, :stock]
   skip_before_action :noname_user, only: [:profile_create, :update]
 
   def show
@@ -35,6 +35,11 @@ class UsersController < ApplicationController
     @user.remove_avatar!
     @user.save
     redirect_to edit_user_registration_path(@user), notice: 'プロフィール画像を削除しました。'
+  end
+
+  def stock
+    @consultation_stocks = Kaminari.paginate_array(@user.stocked_consultations).page(params[:page_1]).per(5)
+    @vote_stocks = Kaminari.paginate_array(@user.stocked_votes).page(params[:page_2]).per(5)
   end
 
   private

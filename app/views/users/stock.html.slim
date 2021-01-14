@@ -1,0 +1,36 @@
+= provide(:title, "ストック - ")
+.stock
+  ul.item
+    li.category
+      = render partial: 'consultations/category'
+    li.tabs
+      .tab-buttons
+        span.content1
+          | 相談（
+          = @consultation_stocks.total_count
+          | ）
+        span.content2
+          | アンケート（
+          = @vote_stocks.total_count
+          | ）
+        #lamp.content1
+      .tab-content
+        .content1
+          - if @consultation_stocks.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 ストックはありません
+          .page
+            = paginate @consultation_stocks, param_name: 'page_1'
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @consultation_stocks, id: 'consultation-index'
+        .content2
+          - if @vote_stocks.total_count == 0
+            .unfind
+              i.far.fa-flushed.fa-3x
+              h2 ストックはありません
+          .page
+            = paginate @vote_stocks, param_name: 'page_2'
+          ul.card-body
+            = render partial: 'votes/vote', collection: @vote_stocks, id: 'consultation-index'
+.credit

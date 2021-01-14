@@ -21,6 +21,7 @@ class VotesController < ApplicationController
   def show
     store_location
     @vote = Vote.find(params[:id])
+    @stock = VoteStock.new
     impressionist(@vote, nil, unique: [:session_hash])
     @vote_relationship = VoteRelationship.new
     @comment = VoteComment.new

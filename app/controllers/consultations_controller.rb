@@ -23,6 +23,7 @@ class ConsultationsController < ApplicationController
     @comment = ConsultationComment.new
     @comments = @consultation.consultation_comments.recently.page(params[:page]).per(5)
     @reply = ConsultationCommentReply.new
+    @stock = ConsultationStock.new
     store_location
     respond_to do |format|
       format.html

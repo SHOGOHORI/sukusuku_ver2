@@ -18,11 +18,7 @@ __URL：__　https://www.sukusuku-app.com/
 * __相談投稿__<br>
 ![ezgif-3-cf11a0bdcdd4](https://user-images.githubusercontent.com/69126475/104345946-36c4c600-5542-11eb-987d-7275accd283a.gif)
 
-* __コメント投稿__<br>
-![ezgif-3-de68b7e5aa5a](https://user-images.githubusercontent.com/69126475/104346659-02053e80-5543-11eb-86f1-9d1b0c5b2e3e.gif)
 #### アンケート機能
-* __アンケート投稿__<br>
-![ezgif-3-f4b7535e2558](https://user-images.githubusercontent.com/69126475/104348766-77720e80-5545-11eb-9e24-b1b7bf1dabb8.gif)
 * __投票__<br>
 ![ezgif-4-1af7569f5bb7](https://user-images.githubusercontent.com/69126475/104315527-6feb3f00-551e-11eb-9c56-b5d7a79afab7.gif)
 ## 使用技術
@@ -71,6 +67,8 @@ __URL：__　https://www.sukusuku-app.com/
 
 * __アンケート投票機能__
 
+* __記事ストック機能（Ajax対応）__
+
 * __検索機能__(Ransack)
   * キーワード検索、タグ検索
   * 詳細検索
@@ -86,7 +84,7 @@ __URL：__　https://www.sukusuku-app.com/
 ## DB設計
 
 ### ER図
-![ER図ver2](https://user-images.githubusercontent.com/69126475/104265584-46f08d00-54d1-11eb-9b0a-ba2b1eaf8f3b.png)
+![ER図ver2](https://user-images.githubusercontent.com/69126475/104393818-b2e1fc80-5588-11eb-96ee-952428a5de70.png)
 
 ### テーブル
 | テーブル | 説明 |
@@ -96,10 +94,12 @@ __URL：__　https://www.sukusuku-app.com/
 | Consultations | 相談投稿の情報  |
 | Consultation_comments | 相談対するコメント  |
 | Consultation_comment_replys | 相談対するコメントの返信  |
+| consultation_stocks | 相談のストック |
 | Votes  | アンケート情報  |
 | Vote_items | アンケートの選択肢  |
 | Vote_relationships | アンケートの回答集計 |
 | Vote_comments | アンケートに対するコメント |
+| Vote_stocks | アンケートのストック |
 | Categories | カテゴリー |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。

@@ -20,41 +20,42 @@
         = link_to edit_child_path(@child), class: 'btn btn-primary'do
           i.fas.fa-edit
           | 子供の情報を編集する
-ul
-  li.category
-    = render partial: 'consultations/category'
-  li
-    h2.title
-      = age_and_moon_age(@child.birthday)
-      | の記事
-    .tabs
-      .tab-buttons
-        span.content1
-          | 相談（
-          = @consultations.total_count
-          | ）
-        span.content2
-          | アンケート（
-          = @votes.total_count
-          | ）
-        #lamp.content1
-      .tab-content
-        .content1
-          - if @consultations.total_count == 0
-            .unfind
-              i.far.fa-flushed.fa-3x
-              h2 投稿はありません
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
-          .page
-            = paginate @consultations, remote:true
-        .content2
-          - if @votes.total_count == 0
-            .unfind
-              i.far.fa-flushed.fa-3x
-              h2 投稿はありません
-          ul.card-body
-            = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
-          .page
-            = paginate @votes, remote:true
-.credit
+.child_show_bottom
+  ul
+    li.category
+      = render partial: 'consultations/category'
+    li
+      h2.title
+        = age_and_moon_age(@child.birthday)
+        | の記事
+      .tabs
+        .tab-buttons
+          span.content1
+            | 相談（
+            = @consultations.total_count
+            | ）
+          span.content2
+            | アンケート（
+            = @votes.total_count
+            | ）
+          #lamp.content1
+        .tab-content
+          .content1
+            - if @consultations.total_count == 0
+              .unfind
+                i.far.fa-flushed.fa-3x
+                h2 投稿はありません
+            ul.card-body
+              = render partial: 'consultations/consultation', collection: @consultations, id: 'consultation-index'
+            .page
+              = paginate @consultations, remote:true
+          .content2
+            - if @votes.total_count == 0
+              .unfind
+                i.far.fa-flushed.fa-3x
+                h2 投稿はありません
+            ul.card-body
+              = render partial: 'votes/vote', collection: @votes, id: 'consultation-index'
+            .page
+              = paginate @votes, remote:true
+  .credit

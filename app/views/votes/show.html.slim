@@ -1,120 +1,126 @@
 = provide(:title, "#{@vote.title} - ")
-ul
-  li.category
-    = render partial: 'consultations/category'
-  li.consultation_show
-    .consultation_body
-      .box
-        .box_top
-          .user
-            ul
-              li
-                - if @vote.user.avatar?
-                  = image_tag @vote.user.avatar.url, alt: 'icon', height: '100px'
+.vote_show
+  ul
+    li.category
+      = render partial: 'consultations/category'
+    li.consultation_show
+      .consultation_body
+        .box
+          .box_top
+            .user
+              ul
+                li
+                  - if @vote.user.avatar?
+                    = image_tag @vote.user.avatar.url, alt: 'icon', height: '100px'
+                  - else
+                    = image_tag 'user.png', alt: 'icon', height: '100px'
+                li
+                  p
+                    = @vote.user.name
+              = link_to '', @vote.user
+          .box_bottom
+            .content
+              h2
+                = @vote.title
+              .Reception
+                - if Date.today < @vote.closed_at
+                  | 投票受付中
                 - else
-                  = image_tag 'user.png', alt: 'icon', height: '100px'
-              li
+                  .Reception_close
+                    span
+                      | 投票受付終了
+              .post_time
                 p
-                  = @vote.user.name
-            = link_to '', @vote.user
-        .box_bottom
-          .content
-            h2
-              = @vote.title
-            .Reception
-              - if Date.today < @vote.closed_at
-                | 投票受付中
-              - else
-                .Reception_close
-                  span
-                    | 投票受付終了
-            .post_time
-              p
-                | 投稿日時：
-                = @vote.created_at.to_s(:datetime_jp)
-            ul.category_tag
-              li
-                i.fas.fa-tags
-              li.tag
-                = search_form_for @v, as: :v do |f|
-                  = f.hidden_field :category_id_eq, value: ''
-                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                    = @vote.model_name.human
-              li.tag
-                = search_form_for @v, as: :v do |f|
-                  = f.hidden_field :category_id_eq, value: @vote.category.id
-                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                    = @vote.category.category
-              li.tag
-                - if consultation_tag(@vote)
+                  | 投稿日時：
+                  = @vote.created_at.to_s(:datetime_jp)
+              ul.category_tag
+                li
+                  i.fas.fa-tags
+                li.tag
                   = search_form_for @v, as: :v do |f|
-                    = f.hidden_field :child_age_moon_age_eq, value: @vote.child_age_moon_age
-                    = f.hidden_field :pregnant_eq, value: @vote.pregnant
+                    = f.hidden_field :category_id_eq, value: ''
                     = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                      = consultation_tag(@vote)
-            br
-            br
-            .sentence
-              span
-                = safe_join(@vote.content.split("\n"),tag(:br))
-            br
-            - if @vote.image?
-              td
-                - @vote.image.each do |image|
-                  = image_tag image.to_s
-            .pv_count
-              i.fas.fa-shoe-prints.fa-rotate-270
-              | 閲覧数
-              = number_with_delimiter(@vote.impressionist_count)
-            - if  user_signed_in?
-              - if current_user == @vote.user
-                .consultation_link
-                  = link_to @vote, method: :delete, data: { confirm: '削除しますか？' } do
-                    i.fas.fa-trash-alt
-                    | 削除
-        - if  user_signed_in?
-          - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
-            = render 'result'
+                      = @vote.model_name.human
+                li.tag
+                  = search_form_for @v, as: :v do |f|
+                    = f.hidden_field :category_id_eq, value: @vote.category.id
+                    = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      = @vote.category.category
+                li.tag
+                  - if consultation_tag(@vote)
+                    = search_form_for @v, as: :v do |f|
+                      = f.hidden_field :child_age_moon_age_eq, value: @vote.child_age_moon_age
+                      = f.hidden_field :pregnant_eq, value: @vote.pregnant
+                      = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                        = consultation_tag(@vote)
+              br
+              br
+              .sentence
+                span
+                  = safe_join(@vote.content.split("\n"),tag(:br))
+              br
+              - if @vote.image?
+                td
+                  - @vote.image.each do |image|
+                    = image_tag image.to_s
+              .pv_count
+                i.fas.fa-shoe-prints.fa-rotate-270
+                | 閲覧数
+                = number_with_delimiter(@vote.impressionist_count)
+              - if  user_signed_in?
+                - if current_user == @vote.user
+                  .consultation_link
+                    = link_to @vote, method: :delete, data: { confirm: '削除しますか？' } do
+                      i.fas.fa-trash-alt
+                      | 削除
+          - if  user_signed_in?
+            - if Date.today > @vote.closed_at || (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
+              = render 'result'
+            - else
+              = form_tag "/vote_relationships", method: :post, local: true do |i|
+                = hidden_field(:vote_relationship, :user_id, value: current_user.id)
+                ul.vote_item data-toggle="buttons" autocomplete="off" aria-pressed="false"
+                  - @vote.vote_items.each do |vote_item|
+                    li.item.btn.btn-light
+                      = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
+                      .circle
+                      span
+                        = vote_item.item
+                = button_tag type: 'submit', class: 'btn btn-warning' do
+                  i.fas.fa-vote-yea
+                  | 投票
           - else
-            = form_tag "/vote_relationships", method: :post, local: true do |i|
-              = hidden_field(:vote_relationship, :user_id, value: current_user.id)
-              ul.vote_item data-toggle="buttons" autocomplete="off" aria-pressed="false"
+            - if Date.today > @vote.closed_at
+              = render 'result'
+            - else
+              ul.vote_item.nonlogin_item
                 - @vote.vote_items.each do |vote_item|
-                  li.item.btn.btn-light
-                    = radio_button "vote_relationship", "vote_item_id", vote_item.id, class: "visually-hidden"
+                  li.item
                     .circle
                     span
                       = vote_item.item
-              = button_tag type: 'submit', class: 'btn btn-warning' do
-                i.fas.fa-vote-yea
-                | 投票
+                br
+          .period
+            | 受付期間：
+            = @vote.created_at.to_date
+            | 〜
+            = @vote.closed_at.to_s
+          .share
+            = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+              i.fab.fa-twitter
+              |  tweet
+            - if user_signed_in?
+              #stocks_buttons
+                = render partial: 'vote_stocks/stock'
+        .modal_wrapper
+        - if  user_signed_in?
+          .button.comment_button.btn.btn-success
+            i.fas.fa-comments
+            | コメント
+          = render 'vote_comments/modal'
         - else
-          - if Date.today > @vote.closed_at
-            = render 'result'
-          - else
-            ul.vote_item.nonlogin_item
-              - @vote.vote_items.each do |vote_item|
-                li.item
-                  .circle
-                  span
-                    = vote_item.item
-              br
-        .period
-          | 受付期間：
-          = @vote.created_at.to_date
-          | 〜
-          = @vote.closed_at.to_s
-      .modal_wrapper
-      - if  user_signed_in?
-        .button.comment_button.btn.btn-success
-          i.fas.fa-comments
-          | コメント
-        = render 'vote_comments/modal'
-      - else
-        = link_to 'ログイン', user_session_path
-        | して投票する。
-      = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
-        i.fab.fa-twitter
-        |  tweet
-      .vote_comment
-        = render 'vote_comments/comment'
+          p.nonlogin_comment
+          = link_to 'ログイン', user_session_path
+          | して投票する。
+        .vote_comment
+          = render 'vote_comments/comment'

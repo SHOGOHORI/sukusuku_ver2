@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_043625) do
+ActiveRecord::Schema.define(version: 2021_01_13_102912) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
     t.index ["user_id"], name: "index_consultation_comments_on_user_id"
   end
 
+  create_table "consultation_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "consultation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_consultation_stocks_on_consultation_id"
+    t.index ["user_id"], name: "index_consultation_stocks_on_user_id"
+  end
+
   create_table "consultations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -67,6 +76,12 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
     t.integer "child_age_moon_age"
     t.index ["user_id", "created_at"], name: "index_consultations_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_consultations_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -138,6 +153,15 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
     t.index ["vote_item_id"], name: "index_vote_relationships_on_vote_item_id"
   end
 
+  create_table "vote_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "vote_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_vote_stocks_on_user_id"
+    t.index ["vote_id"], name: "index_vote_stocks_on_vote_id"
+  end
+
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -158,9 +182,13 @@ ActiveRecord::Schema.define(version: 2021_01_05_043625) do
   add_foreign_key "consultation_comment_replies", "users"
   add_foreign_key "consultation_comments", "consultations"
   add_foreign_key "consultation_comments", "users"
+  add_foreign_key "consultation_stocks", "consultations"
+  add_foreign_key "consultation_stocks", "users"
   add_foreign_key "consultations", "users"
   add_foreign_key "vote_comments", "users"
   add_foreign_key "vote_comments", "votes"
   add_foreign_key "vote_items", "votes"
+  add_foreign_key "vote_stocks", "users"
+  add_foreign_key "vote_stocks", "votes"
   add_foreign_key "votes", "users"
 end

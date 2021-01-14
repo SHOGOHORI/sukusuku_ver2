@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /* アンケート投稿ページ */
-
+.vote_show {
+  margin: 0 auto;
+  width: 1400px;
+}
 ul.vote_item{
   display: block;
   padding-left: 40px;
@@ -155,7 +158,7 @@ li.comment {
   position: relative;
   ul.aggregate {
     position: absolute;
-    bottom: 100px;
+    bottom: 150px;
     right: 30px;
     li.item {
       display: block;
@@ -207,6 +210,21 @@ li.comment {
         color: black;
       }
     }
+  }
+}
+/* アンケート一覧 */
+.vote_count {
+  position: absolute;
+  top: 40px;
+  right: 58px;
+  text-align: center;
+  p {
+    margin-bottom: 0;
+  }
+  .count {
+    text-align: center;
+    font-weight: 800;
+    margin-top: 0;
   }
 }
 
