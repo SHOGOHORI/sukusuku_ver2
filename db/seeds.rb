@@ -292,12 +292,12 @@ ConsultationComment.create!(content: "保湿用のクリームがお肌に合っ
 
 # サンプルアンケート(1)
 vote = Vote.create!(title: '6ヶ月の子供の寝る時間について',
-                          content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
-                          pregnant: 0,
-                          child_age_moon_age: 6,
-                          user_id: 49,
-                          category_id: health.id,
-                          closed_at: '2021/03/31')
+                    content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
+                    pregnant: 0,
+                    child_age_moon_age: 6,
+                    user_id: 49,
+                    category_id: health.id,
+                    closed_at: '2021/03/31')
 
 v1 = VoteItem.create!(item: 'PM7:00〜8:00',
                       vote_id: vote.id,
@@ -334,13 +334,13 @@ end
 
 # サンプルアンケート(2)
 vote = Vote.create!(title: 'スマホを与えるべきか',
-                           content: '出先などで癇癪を起したときにスマホの知育アプリなどを遊ばせると黙って遊んでくれるのでよく利用しているのですが、義母がスマホばかりやらせるなと言います。
+                    content: '出先などで癇癪を起したときにスマホの知育アプリなどを遊ばせると黙って遊んでくれるのでよく利用しているのですが、義母がスマホばかりやらせるなと言います。
                                      みなさんはスマホによる子守をどう思いますか？',
-                           pregnant: 0,
-                           child_age_moon_age: 20,
-                           user_id: 49,
-                           category_id: education.id,
-                           closed_at: '2020/12/10')
+                    pregnant: 0,
+                    child_age_moon_age: 20,
+                    user_id: 49,
+                    category_id: education.id,
+                    closed_at: '2020/12/10')
 
 v1 = VoteItem.create!(item: '使ってもOK',
                       vote_id: vote.id,
@@ -367,7 +367,6 @@ end
                            vote_item_id: v3.id)
 end
 
-
 # サンプルアンケート(3)
 vote = Vote.create!(title: '子どもを叱るタイミング',
                     content: '最近こどもが伝い歩きを覚えました。
@@ -375,7 +374,7 @@ vote = Vote.create!(title: '子どもを叱るタイミング',
                               しかし、一歩間違えたらケガをするような場所に行ってしまいそうなときに私は早めに注意して連れ戻すのですが、主人はギリギリまで見守っていて良いといいます。
                               どちらが正しいというのはないかもしれませんがみなさんならどうされますか？',
                     pregnant: 0,
-                    child_age_moon_age:11,
+                    child_age_moon_age: 11,
                     user_id: 49,
                     category_id: education.id,
                     closed_at: '2021/12/10')
@@ -391,18 +390,18 @@ v3 = VoteItem.create!(item: 'その他（コメント欄）',
                       item_number: 3)
 
 27.times do |n|
-VoteRelationship.create!(user_id: n + 1,
-  vote_item_id: v1.id)
+  VoteRelationship.create!(user_id: n + 1,
+                           vote_item_id: v1.id)
 end
 
 15.times do |n|
-VoteRelationship.create!(user_id: n + 30,
-  vote_item_id: v2.id)
+  VoteRelationship.create!(user_id: n + 30,
+                           vote_item_id: v2.id)
 end
 
 19.times do |n|
-VoteRelationship.create!(user_id: n + 50,
-  vote_item_id: v3.id)
+  VoteRelationship.create!(user_id: n + 50,
+                           vote_item_id: v3.id)
 end
 
 # サンプルアンケート(4)
@@ -428,16 +427,16 @@ v3 = VoteItem.create!(item: 'つわりはなかった',
                       item_number: 4)
 
 27.times do |n|
-VoteRelationship.create!(user_id: n + 1,
-vote_item_id: v1.id)
+  VoteRelationship.create!(user_id: n + 1,
+                           vote_item_id: v1.id)
 end
 
 15.times do |n|
-VoteRelationship.create!(user_id: n + 30,
-vote_item_id: v2.id)
+  VoteRelationship.create!(user_id: n + 30,
+                           vote_item_id: v2.id)
 end
 
 19.times do |n|
-VoteRelationship.create!(user_id: n + 50,
-vote_item_id: v3.id)
+  VoteRelationship.create!(user_id: n + 50,
+                           vote_item_id: v3.id)
 end
