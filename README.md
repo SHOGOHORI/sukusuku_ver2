@@ -18,11 +18,7 @@ __URL：__　https://www.sukusuku-app.com/
 * __相談投稿__<br>
 ![ezgif-3-cf11a0bdcdd4](https://user-images.githubusercontent.com/69126475/104345946-36c4c600-5542-11eb-987d-7275accd283a.gif)
 
-* __コメント投稿__<br>
-![ezgif-3-de68b7e5aa5a](https://user-images.githubusercontent.com/69126475/104346659-02053e80-5543-11eb-86f1-9d1b0c5b2e3e.gif)
 #### アンケート機能
-* __アンケート投稿__<br>
-![ezgif-3-f4b7535e2558](https://user-images.githubusercontent.com/69126475/104348766-77720e80-5545-11eb-9e24-b1b7bf1dabb8.gif)
 * __投票__<br>
 ![ezgif-4-1af7569f5bb7](https://user-images.githubusercontent.com/69126475/104315527-6feb3f00-551e-11eb-9c56-b5d7a79afab7.gif)
 ## 使用技術
