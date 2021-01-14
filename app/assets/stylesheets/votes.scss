@@ -155,7 +155,7 @@ li.comment {
   position: relative;
   ul.aggregate {
     position: absolute;
-    bottom: 100px;
+    bottom: 150px;
     right: 30px;
     li.item {
       display: block;
@@ -207,6 +207,21 @@ li.comment {
         color: black;
       }
     }
+  }
+}
+/* アンケート一覧 */
+.vote_count {
+  position: absolute;
+  top: 40px;
+  right: 55px;
+  text-align: center;
+  p {
+    margin-bottom: 0;
+  }
+  .count {
+    text-align: center;
+    font-weight: 800;
+    margin-top: 0;
   }
 }
 

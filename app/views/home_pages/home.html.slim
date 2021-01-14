@@ -1,2 +1,17 @@
-#home_pagenate
-  = render partial: 'home'
+.home
+  - unless  user_signed_in?
+    .non-login
+      = image_tag 'home.png', alt: 'img', height: '100%', width: '100%'
+  ul.item
+    li.category
+      = render partial: 'consultations/category'
+    li.tabs
+      .tab-buttons
+        span.content1
+          | 相談
+        span.content2
+          | アンケート
+        #lamp.content1
+      .tab-content
+        = render  'home'
+.credit

@@ -38,11 +38,11 @@
     = image_tag 'hukidashi.png', height: '80px', width: '100px',class: 'hukidashi'
     - if Date.today > vote.closed_at
       = image_tag 'check.png', height: '30px', width: '30px',class: 'check'
-    .comment_count
+    .vote_count
       p
-        | コメント数
+        | 投票数
       h1.count
-        = vote.vote_comments.count
+        = Vote.joins(vote_items: :vote_relationships).where(id: vote.id).count
     .pv_count
       i.fas.fa-shoe-prints.fa-rotate-270
       | 閲覧数
