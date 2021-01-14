@@ -8,5 +8,5 @@
         span
           = vote_item.item
         p
-          = (VoteRelationship.where(vote_item_id: vote_item.id).count.to_f / @data.values.sum.to_f * 100).round
+          / = (VoteRelationship.where(vote_item_id: vote_item.id).count.to_f / @data.values.sum.to_f * 100).round
           | ％
