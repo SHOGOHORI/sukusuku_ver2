@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /* アンケート投稿ページ */
-
+.vote_show {
+  margin: 0 auto;
+  width: 1400px;
+}
 ul.vote_item{
   display: block;
   padding-left: 40px;

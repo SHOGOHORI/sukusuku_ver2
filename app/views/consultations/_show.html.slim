@@ -1,105 +1,106 @@
-ul
-  li.category
-    = render partial: 'consultations/category'
-  li.consultation_show
-    .consultation_body
-      .box
-        .box_top
-          .user
-            ul
-              li
-                - if @consultation.user.avatar?
-                  = image_tag @consultation.user.avatar.url, alt: 'icon', height: '100px'
-                - else
-                  = image_tag 'user.png', alt: 'icon', height: '100px'
-                br
-                p
-                  = @consultation.user.name
-            = link_to '', @consultation.user
-          - if current_user == @consultation.user
-            - unless @consultation.reception_closed
-              = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
-                i.fas.fa-clock
-                | 受付終了する
-        .box_bottom
-          .content
-            h2
-              = @consultation.title
-            .Reception
+.consultation_show_page
+  ul
+    li.category
+      = render partial: 'consultations/category'
+    li.consultation_show
+      .consultation_body
+        .box
+          .box_top
+            .user
+              ul
+                li
+                  - if @consultation.user.avatar?
+                    = image_tag @consultation.user.avatar.url, alt: 'icon', height: '100px'
+                  - else
+                    = image_tag 'user.png', alt: 'icon', height: '100px'
+                  br
+                  p
+                    = @consultation.user.name
+              = link_to '', @consultation.user
+            - if current_user == @consultation.user
               - unless @consultation.reception_closed
-                | コメント受付中
-              - else
-                .Reception_close
-                  span
-                    | コメント受付終了
-            .post_time
-              - if @consultation.created_at == @consultation.updated_at
-                p
-                  | 投稿日時：
-                  = @consultation.created_at.to_s(:datetime_jp)
-              - else
-                p
-                  | 更新日時：
-                  = @consultation.updated_at.to_s(:datetime_jp)
-            ul.category_tag
-              li
-                i.fas.fa-tags
-              li.tag
-                = search_form_for @q do |f|
-                  = f.hidden_field :category_id_eq, value: ''
-                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                    = @consultation.model_name.human
-              li.tag
-                = search_form_for @q do |f|
-                  = f.hidden_field :category_id_eq, value: @consultation.category_id
-                  = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                    = @consultation.category.category
-              li.tag
-                - if consultation_tag(@consultation)
+                = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
+                  i.fas.fa-clock
+                  | 受付終了する
+          .box_bottom
+            .content
+              h2
+                = @consultation.title
+              .Reception
+                - unless @consultation.reception_closed
+                  | コメント受付中
+                - else
+                  .Reception_close
+                    span
+                      | コメント受付終了
+              .post_time
+                - if @consultation.created_at == @consultation.updated_at
+                  p
+                    | 投稿日時：
+                    = @consultation.created_at.to_s(:datetime_jp)
+                - else
+                  p
+                    | 更新日時：
+                    = @consultation.updated_at.to_s(:datetime_jp)
+              ul.category_tag
+                li
+                  i.fas.fa-tags
+                li.tag
                   = search_form_for @q do |f|
-                    = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
-                    = f.hidden_field :pregnant_eq, value: @consultation.pregnant
+                    = f.hidden_field :category_id_eq, value: ''
                     = button_tag type: 'submit', class: 'card-category btn-secondary' do
-                      = consultation_tag(@consultation)
-            br
-            br
-            .sentence
-              span
-                = safe_join(@consultation.content.split("\n"),tag(:br))
-            br
-            - if @consultation.image?
-              td
-                - @consultation.image.each do |image|
-                  = image_tag image.to_s
-            .pv_count
-              i.fas.fa-shoe-prints.fa-rotate-270
-              | 閲覧数
-              = number_with_delimiter(@consultation.impressionist_count)
-            - if  user_signed_in?
-              - if current_user == @consultation.user
-                .consultation_link
-                  = link_to edit_consultation_path(@consultation) do
-                    i.fas.fa-edit
-                    | 編集
-                  = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
-                    i.fas.fa-trash-alt
-                    | 削除
-          = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
-            i.fab.fa-twitter
-            |  tweet
-          - if user_signed_in?
-            #stocks_buttons
-              = render partial: 'consultation_stocks/stock'
-      .modal_wrapper
-      - unless @consultation.reception_closed
-        - if  user_signed_in?
-          .button.comment_button.btn.btn-success
-            i.fas.fa-comments
-            | コメント
-          = render 'consultation_comments/modal'
-        - else
-          p.nonlogin_comment
-            = link_to 'ログイン', user_session_path
-            | してコメントする。
-      .comment_index
-        = render 'consultation_comments/comment'
+                      = @consultation.model_name.human
+                li.tag
+                  = search_form_for @q do |f|
+                    = f.hidden_field :category_id_eq, value: @consultation.category_id
+                    = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      = @consultation.category.category
+                li.tag
+                  - if consultation_tag(@consultation)
+                    = search_form_for @q do |f|
+                      = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
+                      = f.hidden_field :pregnant_eq, value: @consultation.pregnant
+                      = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                        = consultation_tag(@consultation)
+              br
+              br
+              .sentence
+                span
+                  = safe_join(@consultation.content.split("\n"),tag(:br))
+              br
+              - if @consultation.image?
+                td
+                  - @consultation.image.each do |image|
+                    = image_tag image.to_s
+              .pv_count
+                i.fas.fa-shoe-prints.fa-rotate-270
+                | 閲覧数
+                = number_with_delimiter(@consultation.impressionist_count)
+              - if  user_signed_in?
+                - if current_user == @consultation.user
+                  .consultation_link
+                    = link_to edit_consultation_path(@consultation) do
+                      i.fas.fa-edit
+                      | 編集
+                    = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
+                      i.fas.fa-trash-alt
+                      | 削除
+            = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+              i.fab.fa-twitter
+              |  tweet
+            - if user_signed_in?
+              #stocks_buttons
+                = render partial: 'consultation_stocks/stock'
+        .modal_wrapper
+        - unless @consultation.reception_closed
+          - if  user_signed_in?
+            .button.comment_button.btn.btn-success
+              i.fas.fa-comments
+              | コメント
+            = render 'consultation_comments/modal'
+          - else
+            p.nonlogin_comment
+              = link_to 'ログイン', user_session_path
+              | してコメントする。
+        .comment_index
+          = render 'consultation_comments/comment'
