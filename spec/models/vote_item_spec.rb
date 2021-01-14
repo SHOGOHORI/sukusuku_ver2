@@ -20,5 +20,15 @@ RSpec.describe VoteItem, type: :model do
       let(:vote_id) { vote.id }
       it { is_expected.to be_valid }
     end
+
+    context 'アンケート項目の一意性' do
+      let!(:vote_item) { create(:vote_item, item: '項目１',
+                                            item_number: 1,
+                                            vote_id: vote.id) }
+      vote_item = build(:user, item: '項目１',
+                               item_number: 2,
+                               vote_id: vote.id) }
+      expect(vote_item).to_not be_valid
+    end
   end
 end
