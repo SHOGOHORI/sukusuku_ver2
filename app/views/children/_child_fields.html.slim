@@ -19,11 +19,12 @@
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
     .col-xs-3.col-sm-3.col-md-3.col-lg-3
-      = f.date_select :birthday,
+      = f.date_select  :birthday,
                       { use_month_numbers: true,
                       start_year: Time.now.ago(6.years).year,
                       end_year: Time.now.next_year.year,
-                      prompt: '--' },
+                      prompt: '--',
+                      date_separator: '/' },
                       {class:'form-control bootstrap-date'}
   = f.hidden_field :child_number, :value => @child.child_number || current_user.children.count + 1
   = f.hidden_field :user_id, :value => current_user.id

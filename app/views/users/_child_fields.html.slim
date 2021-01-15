@@ -9,7 +9,14 @@
   .field
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
-    = f.date_field :birthday, class: 'form-control'
+    .col-xs-3.col-sm-3.col-md-3.col-lg-3
+      = f.date_select  :birthday,
+                      { use_month_numbers: true,
+                      start_year: Time.now.ago(6.years).year,
+                      end_year: Time.now.next_year.year,
+                      prompt: '--',
+                      date_separator: '/' },
+                      {class:'form-control bootstrap-date'}
   = f.hidden_field :child_number, :value => 1, class: 'hidden'
   br
   = link_to_remove_association '削除', f
