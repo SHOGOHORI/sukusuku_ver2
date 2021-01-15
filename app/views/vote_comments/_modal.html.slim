@@ -6,7 +6,7 @@
   = form_for @comment, local: true do |f|
     .field
       = f.label :content, '本文'
-      = f.text_area :content, class: 'form-control', placeholder: '500字以内'
+      = f.text_area :content, class: 'form-control', :size=>'50x5', placeholder: '500字以内'
     .field
       = f.hidden_field :user_id, :value => current_user.id
       = f.hidden_field :vote_id, :value => @vote.id
