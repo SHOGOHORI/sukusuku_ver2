@@ -294,11 +294,13 @@
       color: white;
       position: absolute;
       top: 8px;
-      right: 50px;
+      right: 40px;
       font-size: 18px;
       p {
         margin: 2px;
         font-weight: 800;
+        text-align: center;
+        width: 74px;
       }
     }
     .danger{
@@ -314,7 +316,7 @@
     }
     .check {
       position: absolute;
-      top: 80px;
+      top: 100px;
       right: 30px;
     }
     h4 {
