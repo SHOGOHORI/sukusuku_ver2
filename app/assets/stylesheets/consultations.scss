@@ -293,8 +293,9 @@
       border-radius: 100vh;
       color: white;
       position: absolute;
-      top: 10px;
-      right: 200px;
+      top: 8px;
+      right: 50px;
+      font-size: 18px;
       p {
         margin: 2px;
         font-weight: 800;
@@ -308,7 +309,7 @@
     }
     .hukidashi {
       position: absolute;
-      top: 30px;
+      top: 50px;
       right: 30px;
     }
     .check {
@@ -320,7 +321,7 @@
       font-weight: 800;
       text-decoration : underline;
       display: inline;
-      font-size: 20px;
+      font-size: 18px;
     }
     .content {
       margin-top: 10px;
@@ -335,7 +336,7 @@
     }
     .comment_count {
       position: absolute;
-      top: 40px;
+      top: 60px;
       right: 45px;
       p {
         margin-bottom: 0;

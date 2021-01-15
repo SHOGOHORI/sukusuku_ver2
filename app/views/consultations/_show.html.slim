@@ -79,9 +79,10 @@
               - if  user_signed_in?
                 - if current_user == @consultation.user
                   .consultation_link
-                    = link_to edit_consultation_path(@consultation) do
-                      i.fas.fa-edit
-                      | 編集
+                    - unless @consultation.reception_closed
+                      = link_to edit_consultation_path(@consultation) do
+                        i.fas.fa-edit
+                        | 編集
                     = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
                       i.fas.fa-trash-alt
                       | 削除
