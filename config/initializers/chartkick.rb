@@ -20,13 +20,13 @@ Chartkick.options = {
           distance: -40,
           allowOverlap: false,
           style: {
-            color: '#555',
-            textAlign: 'center',
+            color: '#000',
+            textAlign: 'left',
             textOutline: 0
           }
         },
         size: '110%',
-        innerSize: '50%',
+        innerSize: '30%',
         borderWidth: 0
       }
     }

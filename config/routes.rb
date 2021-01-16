@@ -30,8 +30,9 @@ Rails.application.routes.draw do
 
   resources :votes do
     resources :vote_stocks, only: [:create, :destroy]
+    resources :vote_relationships, only: [:destroy]
   end
   resources :vote_items, only: [:create, :destroy]
-  resources :vote_relationships, only: [:create, :destroy]
+  resources :vote_relationships, only: [:create]
   resources :vote_comments, only: [:create, :destroy]
 end

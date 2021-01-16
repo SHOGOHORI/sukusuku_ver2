@@ -89,6 +89,10 @@
                 = button_tag type: 'submit', class: 'btn btn-warning' do
                   i.fas.fa-vote-yea
                   | 投票
+            - if (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
+              = button_to vote_vote_relationship_path(@vote), method: :delete, class: 'btn btn-secondary' do
+                .fas.fa-minus-circle
+                | 投票を取り消す
           - else
             - if Date.today > @vote.closed_at
               = render 'result'
