@@ -26,7 +26,7 @@ Chartkick.options = {
           }
         },
         size: '110%',
-        innerSize: '30%',
+        innerSize: '50%',
         borderWidth: 0
       }
     }

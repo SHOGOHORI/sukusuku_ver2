@@ -4,4 +4,5 @@ class VoteRelationship < ApplicationRecord
   has_many :vote_relationships, dependent: :destroy
   validates :user_id, presence: true
   validates :vote_item_id, presence: true
+  validates_uniqueness_of :vote_item_id, scope: :user_id
 end

@@ -11,9 +11,8 @@ class VoteRelationshipsController < ApplicationController
 
   def destroy
     @vote = Vote.find(params[:vote_id])
-    @vote_item = VoteItem.joins(:vote_relationships).find_by(vote_items: { vote: @vote} ,vote_relationships: { user: current_user })
-    @vote_relationship = VoteRelationship.find_by(vote_item_id: @vote_item.id, user_id: current_user.id)
-    @vote_relationship.destroy
+    @vote_relationship = VoteRelationship.joins(:vote_item).find_by(vote_items: { vote_id: @vote.id }, vote_relationships: { user_id: current_user.id })
+    @vote_relationship.delete
     redirect_to @vote, notice: '投票を取り消しました'
   end
 
