@@ -101,13 +101,14 @@
                       = vote_item.item
                 br
           - if user_signed_in? && (current_user.vote_relationships.pluck(:vote_item_id) & @vote.vote_items.ids).any?
-            = current_user.name
-            | さんが投票したのは「
-            = VoteItem.joins(:vote_relationships).find_by(vote_items: { vote_id: @vote.id }, vote_relationships: { user_id: current_user.id }).item
-            |」です。
-            = button_to vote_vote_relationship_path(@vote), method: :delete, class: 'btn btn-secondary' do
-              .fas.fa-minus-circle
-              | 投票を取り消す
+            .cancel
+              = current_user.name
+              | さんが投票したのは「
+              = VoteItem.joins(:vote_relationships).find_by(vote_items: { vote_id: @vote.id }, vote_relationships: { user_id: current_user.id }).item
+              |」です。
+              = button_to vote_vote_relationship_path(@vote), method: :delete, class: 'btn btn-secondary' do
+                .fas.fa-minus-circle
+                | 投票を取り消す
           .period
             | 受付期間：
             = @vote.created_at.to_date

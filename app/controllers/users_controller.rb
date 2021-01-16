@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:profile_create, :update, :delete_avater, :stock]
+  before_action :set_search, only: [:show]
   skip_before_action :noname_user, only: [:profile_create, :update]
 
   def show
