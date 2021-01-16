@@ -218,6 +218,9 @@
     padding: 10px;
     border-radius: 30px;
     box-shadow: 1px 1px 2px -1px;
+    h4 {
+      font-weight: 800;
+    }
   }
   .radio .col {
     margin-left: 30px;
@@ -227,19 +230,12 @@
       width: auto;
     }
   }
-  details {
-    transition: .5s;
-    height: 25px;
-    &[open] {
-      height: 500px;
-    }
-    summary {
-      cursor: pointer;
-      width: 100%;
-      font-weight: 800;
-      text-align: center;
-      font-size: 18px;
-    }
+  summary {
+    cursor: pointer;
+    width: 100%;
+    font-weight: 800;
+    text-align: center;
+    font-size: 18px;
   }
   h4 {
     font-weight: 800;
@@ -249,6 +245,7 @@
     display: none;
   }
 }
+
 
 .category-index {
   :hover{
