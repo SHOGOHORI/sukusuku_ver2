@@ -3,7 +3,10 @@
     h2
       i.far.fa-flushed.fa-2x
       br
-      | コメントはまだありません。
+      - if @consultation.reception_closed
+        | コメントはありません。
+      - else
+        | コメントはまだありません。
 - @comments.each do |comment|
   .particular-case
     .box
