@@ -8,7 +8,9 @@ class ConsultationsController < ApplicationController
 
   def create
     @consultation = Consultation.new(consultation_params)
-    @consultation.child_age_moon_age = @consultation.age.to_i * 12 + @consultation.moon_age.to_i
+    unless @consultation.age + @consultation.moon_age == 0
+      @consultation.child_age_moon_age = @consultation.age.to_i * 12 + @consultation.moon_age.to_i
+    end
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
