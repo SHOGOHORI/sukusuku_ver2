@@ -48,8 +48,8 @@
                 i.fas.fa-baby
                 | 子どもの情報を追加登録する
   ul.content_part
-    / li.category
-    /   = render partial: 'consultations/category'
+    li.category
+      = render partial: 'consultations/category'
     li.tabs
       .tab-buttons
         span.content1
@@ -58,7 +58,7 @@
           | ）
         span.content2
           | 相談コメント（
-          = @c.uniq.count
+          = @user_comments.total_count
           | ）
         span.content3
           | アンケート（

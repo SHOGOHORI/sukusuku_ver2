@@ -1,19 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:profile_create, :update, :delete_avater, :stock]
-  before_action :set_search, only: [:show]
+  before_action :set_s, only: [:stock]
   skip_before_action :noname_user, only: [:profile_create, :update]
 
   def show
     @user = User.find(params[:id])
     @user_consultations = Kaminari.paginate_array(@user.consultations.recently).page(params[:page]).per(5)
-    @c = Consultation.joins(:consultation_comments).where(consultation_comments: { user: User.find(@user.id) })
+    @co = Consultation.joins(:consultation_comments).where(consultation_comments: { user: User.find(@user.id) })
     @comments = ConsultationComment.joins(:consultation_comment_replies).where(consultation_comment_replies: { user: User.find(@user.id) })
-    @c += Consultation.joins(:consultation_comments).where(consultation_comments: @comments).recently
-    @user_comments = Kaminari.paginate_array(@c.uniq).page(params[:page]).per(5)
+    @co += Consultation.joins(:consultation_comments).where(consultation_comments: @comments).recently
+    @user_comments = Kaminari.paginate_array(@co.uniq).page(params[:page]).per(5)
     @user_votes =  Kaminari.paginate_array(@user.votes.recently).page(params[:page]).per(5)
     @p = VoteItem.joins(:vote_relationships).where(vote_relationships: { user: User.find(@user.id) })
     @user_poll =  Kaminari.paginate_array(Vote.where(id: @p.pluck(:vote_id)).recently).page(params[:page]).per(5)
-    pry.building
     respond_to do |format|
       format.html
       format.js
@@ -53,5 +52,14 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user == @user
+  end
+
+  def set_s
+    @model1 = Consultation.ransack(params[:model1], search_key: :model1)
+    @model1.sorts = 'updated_at desc' if @model1.sorts.empty?
+    @search_consultations = Kaminari.paginate_array(@model1.result).page(params[:page]).per(5)
+    @model2 = Vote.search(params[:model2 ], search_key: :model2)
+    @model2.sorts = 'updated_at desc' if @model2.sorts.empty?
+    @search_votes = Kaminari.paginate_array(@model2.result).page(params[:page]).per(5)
   end
 end

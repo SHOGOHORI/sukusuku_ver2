@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :set_category
 
   def set_search
-    @c = Consultation.ransack(params[:c], search_key: :c)
-    @c.sorts = 'updated_at desc' if @c.sorts.empty?
-    @search_consultations = Kaminari.paginate_array(@c.result).page(params[:page]).per(5)
-    @v = Vote.search(params[:v], search_key: :v)
-    @v.sorts = 'updated_at desc' if @v.sorts.empty?
-    @search_votes = Kaminari.paginate_array(@v.result).page(params[:page]).per(5)
+    @model1 = Consultation.ransack(params[:model1], search_key: :model1)
+    @model1.sorts = 'updated_at desc' if @model1.sorts.empty?
+    @search_consultations = Kaminari.paginate_array(@model1.result).page(params[:page]).per(5)
+    @model2 = Vote.search(params[:model2 ], search_key: :model2)
+    @model2.sorts = 'updated_at desc' if @model2.sorts.empty?
+    @search_votes = Kaminari.paginate_array(@model2.result).page(params[:page]).per(5)
   end
 
   def set_category

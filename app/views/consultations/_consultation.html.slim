@@ -18,19 +18,19 @@
         li
           i.fas.fa-tags
         li.tag
-          = search_form_for @c, as: :c do |f|
+          = search_form_for @model1, as: :model1  do |f|
             = f.hidden_field :category_id_eq, value: ''
             = button_tag type: 'submit', class: 'card-category  btn-secondary' do
               = consultation.model_name.human
           - @category = Category.find_by(id: consultation.category_id)
         li.tag
-           = search_form_for @c, as: :c  do |f|
+           = search_form_for @model1, as: :model1   do |f|
              = f.hidden_field :category_id_eq, value: @category.id
              = button_tag type: 'submit', class: 'card-category  btn-secondary' do
                = @category.category
         li.tag
           - if consultation_tag(consultation)
-            = search_form_for @c, as: :c  do |f|
+            = search_form_for @model1, as: :model1   do |f|
               = f.hidden_field :child_age_moon_age_eq, value: consultation.child_age_moon_age
               = f.hidden_field :pregnant_eq, value: consultation.pregnant
               = button_tag type: 'submit', class: 'card-category btn-secondary' do
