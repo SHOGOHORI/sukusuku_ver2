@@ -1,4 +1,4 @@
-= search_form_for @v, as: :v do |f|
+= search_form_for @model2, as: :model2 do |f|
   .field
     = f.label :title, 'カテゴリー'
     = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
@@ -20,5 +20,5 @@
         = f.select :child_age_moon_age_lteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control child_age_moon_age'
         |  ヶ月
   .field
-    = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control'
+    = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control', value: @model2.content_or_title_cont
   = f.submit '検索する', class: 'btn btn-primary'

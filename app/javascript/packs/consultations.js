@@ -16,13 +16,13 @@ document.addEventListener("turbolinks:load"
 document.addEventListener("turbolinks:load"
 , function () {
   $(function(){
-    $('#q_pregnant_eq').change(function(){
+    $('#model1_pregnant_eq').change(function(){
       if ($(this).val() == 1) {
-        $('#q_child_age_moon_age_gteq').prop('disabled', true);
-        $('#q_child_age_moon_age_lteq').prop('disabled', true);
+        $('#model1_child_age_moon_age_gteq').prop('disabled', true);
+        $('#model1_child_age_moon_age_lteq').prop('disabled', true);
       } else {
-        $('#q_child_age_moon_age_gteq').prop('disabled', false);
-        $('#q_child_age_moon_age_lteq').prop('disabled', false);
+        $('#model1_child_age_moon_age_gteq').prop('disabled', false);
+        $('#model1_child_age_moon_age_lteq').prop('disabled', false);
       }
     })
     $('.pregnant_eq').change(function(){

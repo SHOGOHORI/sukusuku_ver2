@@ -10,18 +10,18 @@
         br
         p
           = @user.introduction
-        - if current_user == @user
-          .user_stock
-            = link_to stock_path(@user) do
-              h3
-                = @user.stocked_consultations.count + @user.stocked_votes.count
-              p
-                | ストック
-        .edit
           - if current_user == @user
-            = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do
-              i.fas.fa-edit
-              | プロフィールを編集する
+            .user_stock
+              = link_to stock_path(@user) do
+                h3
+                  = @user.stocked_consultations.count + @user.stocked_votes.count
+                p
+                  | ストック
+          .edit
+            - if current_user == @user
+              = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do
+                i.fas.fa-edit
+                | プロフィールを編集する
       li.child_info
         ul
           - @user.children.each do |child|
@@ -58,7 +58,7 @@
           | ）
         span.content2
           | 相談コメント（
-          = @c.uniq.count
+          = @user_comments.total_count
           | ）
         span.content3
           | アンケート（
@@ -75,35 +75,35 @@
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
           .page
             = paginate @user_consultations, remote: true
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @user_consultations, id: 'consultation-index'
         .content2
           - if @user_comments.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
           .page
             = paginate @user_comments, remote: true
+          ul.card-body
+            = render partial: 'consultations/consultation', collection: @user_comments, id: 'consultation-index'
         .content3
           - if @user_votes.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'votes/vote', collection: @user_votes
           .page
             = paginate @user_votes, remote: true
+          ul.card-body
+            = render partial: 'votes/vote', collection: @user_votes
         .content4
           - if @user_poll.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
               h2 投稿はありません
-          ul.card-body
-            = render partial: 'votes/vote', collection: @user_poll
           .page
             = paginate @user_poll, remote: true
+          ul.card-body
+            = render partial: 'votes/vote', collection: @user_poll
 .credit

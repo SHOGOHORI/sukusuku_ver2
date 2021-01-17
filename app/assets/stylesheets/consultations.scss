@@ -94,6 +94,7 @@
     border-radius: 12px;
     background: #BBFFFF;
     box-sizing: border-box;
+    line-height: 25px;
     &::after {
         content: "";
         display: inline-block;
@@ -187,7 +188,10 @@
 }
 
 /* 相談一覧 */
-
+#index-box {
+  margin: 0 auto;
+  width: 1400px;
+}
 .consultation-index {
   float: left;
   position:relative;
@@ -217,6 +221,9 @@
     padding: 10px;
     border-radius: 30px;
     box-shadow: 1px 1px 2px -1px;
+    h4 {
+      font-weight: 800;
+    }
   }
   .radio .col {
     margin-left: 30px;
@@ -226,19 +233,12 @@
       width: auto;
     }
   }
-  details {
-    transition: .5s;
-    height: 25px;
-    &[open] {
-      height: 500px;
-    }
-    summary {
-      cursor: pointer;
-      width: 100%;
-      font-weight: 800;
-      text-align: center;
-      font-size: 18px;
-    }
+  summary {
+    cursor: pointer;
+    width: 100%;
+    font-weight: 800;
+    text-align: center;
+    font-size: 18px;
   }
   h4 {
     font-weight: 800;
@@ -248,6 +248,7 @@
     display: none;
   }
 }
+
 
 .category-index {
   :hover{
@@ -292,11 +293,14 @@
       border-radius: 100vh;
       color: white;
       position: absolute;
-      top: 10px;
-      right: 200px;
+      top: 8px;
+      right: 40px;
+      font-size: 18px;
       p {
         margin: 2px;
         font-weight: 800;
+        text-align: center;
+        width: 74px;
       }
     }
     .danger{
@@ -307,19 +311,19 @@
     }
     .hukidashi {
       position: absolute;
-      top: 30px;
+      top: 50px;
       right: 30px;
     }
     .check {
       position: absolute;
-      top: 80px;
+      top: 100px;
       right: 30px;
     }
     h4 {
       font-weight: 800;
       text-decoration : underline;
       display: inline;
-      font-size: 20px;
+      font-size: 18px;
     }
     .content {
       margin-top: 10px;
@@ -334,7 +338,7 @@
     }
     .comment_count {
       position: absolute;
-      top: 40px;
+      top: 60px;
       right: 45px;
       p {
         margin-bottom: 0;

@@ -50,11 +50,13 @@ __URL：__　https://www.sukusuku-app.com/
 ## 機能
 * __ユーザー登録関連__(devise)
   * 新規登録、プロフィール編集機能
+  * 削除機能
   * ログイン、ログアウト機能
   * ゲストユーザーログイン機能
 
 * __子どもの情報登録関連__
   * 新規登録、編集機能
+  * 削除機能
 
 * __相談投稿機能__
   * 一覧表示、記事詳細表示、投稿、画像アップロード、編集、削除
@@ -66,14 +68,21 @@ __URL：__　https://www.sukusuku-app.com/
   * 回答期限設定
 
 * __アンケート投票機能__
+  * アンケート集計、円グラフへ表示
+  * 投票取り消し
 
 * __記事ストック機能（Ajax対応）__
 
 * __検索機能__(Ransack)
-  * キーワード検索、タグ検索
+  * キーワード検索
+  * タグ検索
   * 詳細検索
 
-* ___ページネーション機能__(kaminari)
+* ___ページネーション機能（Ajax対応）__(kaminari)
+
+* ___タグ切り替え機能__
+
+* ___Twitterシェア機能__
 
 * __画像アップロード機能__ (carrierwave, AWS S3)
 
@@ -103,3 +112,5 @@ __URL：__　https://www.sukusuku-app.com/
 | Categories | カテゴリー |
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
+
+## 工夫した点

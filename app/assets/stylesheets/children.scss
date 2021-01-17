@@ -61,3 +61,16 @@ h2.title {
   margin: 0 auto;
   width: 1400px;
 }
+
+/* 子どもの情報登録ページ */
+.nested-fields {
+  .col-xs-3 {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    .form-control {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}

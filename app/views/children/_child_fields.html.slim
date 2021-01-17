@@ -2,7 +2,7 @@
   .field
     = f.label :nick_name, 'ニックネーム'
     br
-    = f.text_field :nick_name, autofocus: true, placeholder: '10字以内'
+    = f.text_field :nick_name, autofocus: true, placeholder: '10字以内', class: 'form-control'
   - if @child.avatar?
     = image_tag @child.avatar.url, alt: 'icon', height: '100px', width: '100px'
     br
@@ -14,11 +14,18 @@
   .field
     = f.label :comment, 'コメント'
     br
-    = f.text_area :comment, autofocus: true, placeholder: '200字以内'
+    = f.text_area :comment, autofocus: true, placeholder: '200字以内', class: 'form-control'
   .field
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br
-    = f.date_field :birthday, autofocus: true
+    .col-xs-3.col-sm-3.col-md-3.col-lg-3
+      = f.date_select  :birthday,
+                      { use_month_numbers: true,
+                      start_year: Time.now.ago(6.years).year,
+                      end_year: Time.now.next_year.year,
+                      prompt: '--',
+                      date_separator: '/' },
+                      {class:'form-control bootstrap-date'}
   = f.hidden_field :child_number, :value => @child.child_number || current_user.children.count + 1
   = f.hidden_field :user_id, :value => current_user.id
   .actions

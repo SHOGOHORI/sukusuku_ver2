@@ -8,11 +8,12 @@
         .unfind
           i.far.fa-flushed.fa-3x
           h2 投稿はありません
-      h3
-        | 検索結果
-        = @search_votes.total_count
-        | 件
-      .page
-        = paginate @search_votes
-      ul.card-body
-        = render partial: 'votes/vote', collection: @search_votes, id: 'consultation-index'
+      - else
+        h3
+          | 検索結果
+          = @search_votes.total_count
+          | 件
+        .page
+          = paginate @search_votes
+        ul.card-body
+          = render partial: 'votes/vote', collection: @search_votes, id: 'consultation-index'

@@ -78,12 +78,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_102912) do
     t.index ["user_id"], name: "index_consultations_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "impressionable_type"
     t.integer "impressionable_id"
@@ -144,8 +138,8 @@ ActiveRecord::Schema.define(version: 2021_01_13_102912) do
   end
 
   create_table "vote_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "vote_item_id"
+    t.integer "user_id", null: false
+    t.integer "vote_item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "vote_item_id"], name: "index_vote_relationships_on_user_id_and_vote_item_id", unique: true
