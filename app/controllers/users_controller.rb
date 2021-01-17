@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     @model1 = Consultation.ransack(params[:model1], search_key: :model1)
     @model1.sorts = 'updated_at desc' if @model1.sorts.empty?
     @search_consultations = Kaminari.paginate_array(@model1.result).page(params[:page]).per(5)
-    @model2 = Vote.search(params[:model2 ], search_key: :model2)
+    @model2 = Vote.search(params[:model2], search_key: :model2)
     @model2.sorts = 'updated_at desc' if @model2.sorts.empty?
     @search_votes = Kaminari.paginate_array(@model2.result).page(params[:page]).per(5)
   end

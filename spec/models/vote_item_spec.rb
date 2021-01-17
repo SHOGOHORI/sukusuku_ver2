@@ -6,7 +6,7 @@ RSpec.describe VoteItem, type: :model do
     let!(:category) { create(:category) }
     let!(:vote) do
       create(:vote, category_id: category.id,
-                            user_id: user.id)
+                    user_id: user.id)
     end
     let(:vote_item) do
       build(:vote_item,  item: item,
