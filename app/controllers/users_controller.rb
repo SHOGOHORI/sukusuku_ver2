@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user_votes =  Kaminari.paginate_array(@user.votes.recently).page(params[:page]).per(5)
     @p = VoteItem.joins(:vote_relationships).where(vote_relationships: { user: User.find(@user.id) })
     @user_poll =  Kaminari.paginate_array(Vote.where(id: @p.pluck(:vote_id)).recently).page(params[:page]).per(5)
+    pry.building
     respond_to do |format|
       format.html
       format.js
