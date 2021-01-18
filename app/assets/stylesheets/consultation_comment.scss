@@ -18,8 +18,8 @@
 .comment_modal, .reply_modal {
   position: fixed;
   background-color: #fff;
-  width: 450px;
-  height: 400px;
+  width: 600px;
+  height: 450px;
   border-radius: 10px;
   top: 0;
   left: 0;
@@ -30,6 +30,7 @@
   display: none;
   text-align: right;
   z-index: 7;
+  padding: 10px 40px;
 }
 
 .comment_modal_content, .reply_modal_content {
@@ -44,6 +45,7 @@
 
 .comment_index .particular-case .box {
   height: 100%;
+  width: 900px;
   border: 0;
   box-shadow: 1px 1px 2px -1px;
   .comment_balloon {
@@ -70,6 +72,9 @@
     img {
       border-radius: 0;
     }
+    .comment_user {
+      text-align: left;
+    }
     .delete {
       position: absolute;
       bottom: 10px;
@@ -87,6 +92,7 @@
     position: relative;
     z-index: 1;
     text-align: center;
+    margin-right: 200px;
     a {
       position: absolute;
       top: 0;
