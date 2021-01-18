@@ -283,8 +283,12 @@ ConsultationComment.create!(content: "うちの息子も生後間もない頃に
                             user_id: 28,
                             consultation_id: 10)
 
+18.times do |n|
+  ConsultationStock.create!(user_id: n + 1,
+                            consultation_id: 10)
+end
+
 # サンプル質問、回答(11)
-json = ActiveSupport::JSON.decode(File.read('app/assets/images/baby.png'))
 Consultation.create!(title: '1才児の肌荒れについて',
                      content: "1歳になって間もない子どもの肌荒れがすごいです
                                数ヶ月前からお腹のあたりが真っ赤になってぶつぶつしています（写真のような状態です）
@@ -298,22 +302,22 @@ Consultation.create!(title: '1才児の肌荒れについて',
                                みなさまは肌荒れ対策として気をつけていることはありますか？",
                      pregnant: 0,
                      child_age_moon_age: 12,
-                     user_id: 49,
+                     user_id: 4,
                      category_id: health.id)
 
 comment = ConsultationComment.create!(content: "保湿用のクリームがお肌に合ってないのかも？
                                                 別のクリームも試してみては？",
-                                      user_id: 11,
+                                      user_id: 5,
                                       consultation_id: 11)
 
 ConsultationCommentReply.create!(content: "回答ありがとうございます！！
                                            別のクリームも試してみてみます。
                                            なにかおすすめはありますか？",
-                                 user_id: 49,
+                                 user_id: 4,
                                  consultation_comment_id: comment.id)
 
-ConsultationCommentReply.create!(content: "。",
-                                 user_id: 11,
+ConsultationCommentReply.create!(content: "アロベビーという商品がおすすめです！",
+                                 user_id: 5,
                                  consultation_comment_id: comment.id)
 
 30.times do |n|

@@ -92,7 +92,7 @@ li.comment {
     margin: 20px 0 0 170px;
     padding: 10px;
     border-radius: 12px;
-    background: #AEFFBD;
+    background: #edf1ee;
     box-sizing: border-box;
     line-height: 25px;
     &::after {
@@ -102,7 +102,7 @@ li.comment {
       top: 15px;
       left: -28px;
       border: 10px solid transparent;
-      border-right: 26px solid #AEFFBD;
+      border-right: 26px solid #edf1ee;
       -webkit-transform: rotate(25deg);
       transform: rotate(25deg);
     }
