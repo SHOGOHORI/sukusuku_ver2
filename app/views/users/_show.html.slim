@@ -16,7 +16,7 @@
                 h3
                   = @user.stocked_consultations.count + @user.stocked_votes.count
                 p
-                  | ストック
+                  | お気に入り
           .edit
             - if current_user == @user
               = link_to edit_user_registration_path(@user) , class: 'btn btn-primary'do

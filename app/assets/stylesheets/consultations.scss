@@ -92,7 +92,7 @@
     margin: 0 20px 0 130px;
     padding: 10px;
     border-radius: 12px;
-    background: #BBFFFF;
+    background: #edf1ee;
     box-sizing: border-box;
     line-height: 25px;
     &::after {
@@ -102,7 +102,7 @@
         top: 40px;
         left: -28px;
         border: 10px solid transparent;
-        border-right: 26px solid #BBFFFF;
+        border-right: 26px solid #edf1ee;
         -webkit-transform: rotate(32deg);
         transform: rotate(32deg);
       }
@@ -159,12 +159,16 @@
     border: none;
     font-weight: 800;
     margin: 10px;
+    background-color: white;
   }
   .clip {
     color: gray;
   }
   .clip-check {
-    color: green;
+    color: #FFAA00;
+  }
+  .likes_count {
+    float: right;
   }
   img{
     border-radius: 50%;
@@ -367,6 +371,9 @@
       bottom: 10px;
       i {
         margin-right: 5px;
+      }
+      img {
+        border-radius: 50%;
       }
     }
   }

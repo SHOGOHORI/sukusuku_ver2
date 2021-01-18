@@ -15,6 +15,17 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
+names  = ["Naomi", "Youko", "Hanako", "Maria", "Yokota", "Koji"]
+names.each do |name|
+  email = "example-#{name}@example.org"
+  introduction = "#{name}です。宜しくおねがいします。"
+  User.create!(name:  name,
+              email: email,
+              password:              'password',
+              password_confirmation: 'password',
+              introduction: introduction)
+end
+
 100.times do |n|
   name  = Faker::Name.name
   email = "example-#{n + 1}@example.org"
@@ -26,7 +37,7 @@ end
                introduction: introduction)
 end
 
-100.times do |n|
+106.times do |n|
   nick_name = Faker::Games::Pokemon.name
   s1 = Date.parse('2018/01/01')
   s2 = Date.parse('2021/06/15')
@@ -47,16 +58,21 @@ Consultation.create!(title: '生後一ヶ月のイビキについて',
                               このまま様子を見るだけで良いのか、それとも鼻の吸引などしてあげた方がいいのでしょうか？",
                      pregnant: 0,
                      child_age_moon_age: 1,
-                     user_id: 3,
+                     user_id: 1,
                      category_id: health.id)
 
-ConsultationComment.create!(content: "こんにちは。
+comment = ConsultationComment.create!(content: "こんにちは。
                                       息苦しそうにしている赤ちゃんを見ていると心配になりますよね。
                                       赤ちゃんは大人より鼻孔が狭いためイビキをかきやすいです。
                                       イビキをかいているときに無呼吸にはなっておらず、顔色も悪くなく、起きているときに元気そうにしていれば大きな問題はないかと思います。
                                       もしイビキがひどく心配なようでしたらお医者様に相談した方が良いかもしれません。",
                             user_id: 4,
                             consultation_id: 1)
+
+ConsultationCommentReply.create!(content: "回答ありがとうございます！！
+                                           すごく心配なので、お医者様に相談します。",
+                                 user_id: 4,
+                                 consultation_comment_id: comment.id)
 
 # サンプル質問、回答(2)
 food = Category.find_by(category: '食事')
@@ -267,8 +283,12 @@ ConsultationComment.create!(content: "うちの息子も生後間もない頃に
                             user_id: 28,
                             consultation_id: 10)
 
+18.times do |n|
+  ConsultationStock.create!(user_id: n + 1,
+                            consultation_id: 10)
+end
+
 # サンプル質問、回答(11)
-health = Category.find_by(category: '健康')
 Consultation.create!(title: '1才児の肌荒れについて',
                      content: "1歳になって間もない子どもの肌荒れがすごいです
                                数ヶ月前からお腹のあたりが真っ赤になってぶつぶつしています（写真のような状態です）
@@ -282,13 +302,28 @@ Consultation.create!(title: '1才児の肌荒れについて',
                                みなさまは肌荒れ対策として気をつけていることはありますか？",
                      pregnant: 0,
                      child_age_moon_age: 12,
-                     user_id: 49,
+                     user_id: 4,
                      category_id: health.id)
 
-ConsultationComment.create!(content: "保湿用のクリームがお肌に合ってないのかも？
-                                      別のクリームも試してみては？",
-                            user_id: 11,
+comment = ConsultationComment.create!(content: "保湿用のクリームがお肌に合ってないのかも？
+                                                別のクリームも試してみては？",
+                                      user_id: 5,
+                                      consultation_id: 11)
+
+ConsultationCommentReply.create!(content: "回答ありがとうございます！！
+                                           別のクリームも試してみてみます。
+                                           なにかおすすめはありますか？",
+                                 user_id: 4,
+                                 consultation_comment_id: comment.id)
+
+ConsultationCommentReply.create!(content: "アロベビーという商品がおすすめです！",
+                                 user_id: 5,
+                                 consultation_comment_id: comment.id)
+
+30.times do |n|
+  ConsultationStock.create!(user_id: n + 1,
                             consultation_id: 11)
+end
 
 # サンプルアンケート(1)
 vote = Vote.create!(title: '6ヶ月の子供の寝る時間について',

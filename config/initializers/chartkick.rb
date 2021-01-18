@@ -1,9 +1,9 @@
 Chartkick.options = {
   donut: true,
-  colors: ['#FF0000',
-           '#008000',
-           '#FFFF00',
-           '#0000FF'],
+  colors: ['#e09085',
+           '#75ceb8',
+           '#ffce55',
+           '#7a9eb7'],
   message: { empty: 'データがありません' },
   thousands: ',',
   suffix: '票',

@@ -47,22 +47,22 @@ ul.vote_item{
     }
       &:nth-child(1) {
         .circle {
-          background-color: #FF0000;
+          background-color: #e09085;
         }
       }
       &:nth-child(2) {
         .circle {
-        background-color: #008000;
+        background-color: #75ceb8
         }
       }
       &:nth-child(3) {
         .circle {
-        background-color: #FFFF00;
+        background-color: #ffce55;
         }
       }
       &:nth-child(4) {
         .circle {
-        background-color: #0000FF;
+        background-color: #7a9eb7;
       }
     }
   }
@@ -92,7 +92,7 @@ li.comment {
     margin: 20px 0 0 170px;
     padding: 10px;
     border-radius: 12px;
-    background: #AEFFBD;
+    background: #edf1ee;
     box-sizing: border-box;
     line-height: 25px;
     &::after {
@@ -102,7 +102,7 @@ li.comment {
       top: 15px;
       left: -28px;
       border: 10px solid transparent;
-      border-right: 26px solid #AEFFBD;
+      border-right: 26px solid #edf1ee;
       -webkit-transform: rotate(25deg);
       transform: rotate(25deg);
     }
@@ -182,24 +182,24 @@ li.comment {
       }
       &:nth-child(1) {
         .circle {
-          background-color: #FF0000;
+          background-color: #e09085;
         }
       }
       &:nth-child(2) {
         .circle {
-          background-color: #008000;
+        background-color: #75ceb8
         }
       }
       &:nth-child(3) {
         .circle {
-          background-color: #FFFF00;
+        background-color: #ffce55;
         }
       }
       &:nth-child(4) {
         .circle {
-          background-color: #0000FF;
-        }
+        background-color: #7a9eb7;
       }
+    }
       span {
         display: inline;
         font-weight: 800;

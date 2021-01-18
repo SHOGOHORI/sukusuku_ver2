@@ -63,6 +63,7 @@
                 td
                   - @vote.image.each do |image|
                     = image_tag image.to_s
+              br
               .pv_count
                 i.fas.fa-shoe-prints.fa-rotate-270
                 | 閲覧数
@@ -106,7 +107,7 @@
               | さんが投票したのは「
               = VoteItem.joins(:vote_relationships).find_by(vote_items: { vote_id: @vote.id }, vote_relationships: { user_id: current_user.id }).item
               |」です。
-              = button_to vote_vote_relationship_path(@vote), method: :delete, class: 'btn btn-secondary' do
+              = button_to vote_vote_relationship_path(@vote), method: :delete, class: 'btn btn-secondary', data: { confirm: '投票を取り消しますか？' } do
                 .fas.fa-minus-circle
                 | 投票を取り消す
           .period

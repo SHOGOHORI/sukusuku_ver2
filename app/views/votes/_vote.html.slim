@@ -49,7 +49,7 @@
       = number_with_delimiter(vote.impressionist_count)
     .stock_count
         i.fas.fa-clipboard-check
-        | ストック数
+        | お気に入り数
         = vote.vote_stocks.count
     span.user
       - if vote.user.avatar?
