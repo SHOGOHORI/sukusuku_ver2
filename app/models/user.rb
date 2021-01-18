@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :consultation_comments, dependent: :destroy
   has_many :consultation_comment_replies, dependent: :destroy
   has_many :votes, dependent: :destroy
-  has_many :vote_relationships, dependent: :destroy
+  has_many :vote_relationships
   has_many :vote_items, through: :vote_relationships
   has_many :consultation_stocks, dependent: :destroy
   has_many :stocked_consultations, through: :consultation_stocks, source: :consultation
