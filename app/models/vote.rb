@@ -13,6 +13,7 @@ class Vote < ApplicationRecord
   validates :user_id, presence: true
   validates :category_id, presence: true
   validates :closed_at, presence: true
+  validates :days, presence: true
   accepts_nested_attributes_for :vote_items, allow_destroy: true
   scope :recently, -> { order(updated_at: :desc) }
   is_impressionable
