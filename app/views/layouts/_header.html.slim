@@ -1,38 +1,39 @@
 header
-  ul.header-left
-    li
-      = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
-    li.search-form
-      = form_tag search_path, method: :get do
-        = text_field_tag :keyword, nil, placeholder: 'キーワード検索', value: @keyword
-        = button_tag type: 'submit', class: 'btn btn-primary' do
-          i.fas.fa-search
-  ul.header-right
-    - if user_signed_in?
-      li.dropdown
-        a.btn.btn-primary.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-          | 投稿する
-          b.caret
-        ul.dropdown-menu
-          li
-            = link_to '相談', new_consultation_path
-          li
-            = link_to 'アンケート', new_vote_path
-      li.dropdown
-        a.btn.btn-info.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-          - if current_user.avatar?
-            = image_tag current_user.avatar.url, alt: 'icon', height: '20px'
-          - else
-            = image_tag 'user.png', alt: 'icon', height: '20px'
-          = current_user.name
-          b.caret
-        ul.dropdown-menu
-          li
-            = link_to 'マイページ', user_path(current_user)
-          li
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    - else
+  .header
+    ul.header-left
       li
-        = link_to 'アカウント登録', new_user_registration_path, class: 'white fas fa-sign-in-alt'
-      li
-        = link_to 'ログイン', user_session_path, class: 'white fas fa-key'
+        = link_to image_tag('header_logo.png', alt: 'logo', height: '50px', id: 'logo'), root_path
+      li.search-form
+        = form_tag search_path, method: :get, class: 'search_container' do
+          = text_field_tag :keyword, nil, placeholder: 'キーワード検索', size: '25', value: @keyword
+          = button_tag type: 'submit' do
+            i.fas.fa-search
+    ul.header-right
+      - if user_signed_in?
+        li.dropdown
+          a.btn.btn-primary.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            | 投稿する
+            b.caret
+          ul.dropdown-menu
+            li
+              = link_to '相談', new_consultation_path
+            li
+              = link_to 'アンケート', new_vote_path
+        li.dropdown
+          a.btn.btn-info.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            - if current_user.avatar?
+              = image_tag current_user.avatar.url, alt: 'icon', height: '20px'
+            - else
+              = image_tag 'user.png', alt: 'icon', height: '20px'
+            = current_user.name
+            b.caret
+          ul.dropdown-menu
+            li
+              = link_to 'マイページ', user_path(current_user)
+            li
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        li
+          = link_to 'アカウント登録', new_user_registration_path, class: 'white fas fa-sign-in-alt'
+        li
+          = link_to 'ログイン', user_session_path, class: 'white fas fa-key'

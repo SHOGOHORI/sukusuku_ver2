@@ -15,7 +15,7 @@ body {
   overflow-x: scroll;
   min-width: 1400px;
   font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
-  background-color: #fffaee;
+  background: image-url('background.png');
 }
 
 ul {
@@ -82,21 +82,27 @@ header{
   position: fixed;
   top:0;
   z-index:10;
+  .header{
+    position: fixed;
+    top:0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1400px;
+    margin: auto;
+  }
   .header-left{
     margin-top: 0;
+    margin-left: 10px;
     li{
       float: left;
       list-style: none;
       color: white;
-      padding-bottom: 0px;
-    }
-    button {
-      margin-left: 5px;
     }
   }
   .header-right{
     float: right;
     font-weight: 800;
+    margin-right: 90px;
     li{
       float: left;
       list-style: none;
@@ -124,14 +130,13 @@ header{
   font-size: 1.7em;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-bottom: 9px;
   font-weight: bold;
 }
 .search-form{
   display: table-cell;
   vertical-align: middle;
+  margin-top: 10px;
   margin-left: 60px;
-  padding-top: 10px;
   box-sizing: border-box;
   input[type="text"]{
     border: 1px solid #999;
@@ -141,6 +146,18 @@ header{
     width: 245px;
     overflow: hidden;
     color: black;
+  }
+  button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    margin-left: -30px;
+    width: auto;
+    height: auto;
+    color: gray;
+    border: none;
   }
 }
 
