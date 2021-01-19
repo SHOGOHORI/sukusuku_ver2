@@ -291,7 +291,8 @@ footer{
 
 /* フォーム */
 .form{
-  margin: 0 500px;
+  margin: 0 auto;
+  width: 500px;
 }
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
