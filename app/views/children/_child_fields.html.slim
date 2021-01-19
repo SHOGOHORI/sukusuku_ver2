@@ -11,10 +11,10 @@
     = image_tag 'child_icon.png', alt: 'icon', height: '100px', width: '100px'
   .field
     = f.file_field :avatar
-  .field
-    = f.label :comment, 'コメント'
-    br
-    = f.text_area :comment, autofocus: true, placeholder: '200字以内', class: 'form-control'
+  / .field
+  /   = f.label :comment, 'コメント'
+  /   br
+  /   = f.text_area :comment, autofocus: true, placeholder: '200字以内', class: 'form-control'
   .field
     = f.label :birthday, '誕生日(妊娠中の場合は予定日)'
     br

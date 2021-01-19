@@ -130,7 +130,7 @@
           = render 'vote_comments/modal'
         - else
           p.nonlogin_comment
-          = link_to 'ログイン', user_session_path
-          | して投票する。
+            = link_to 'ログイン', user_session_path
+            | して投票する。
         .vote_comment
           = render 'vote_comments/comment'

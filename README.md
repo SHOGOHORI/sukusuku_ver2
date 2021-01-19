@@ -51,6 +51,7 @@ __URL：__　https://www.sukusuku-app.com/
   * 新規登録、プロフィール編集機能
   * 削除機能
   * ログイン、ログアウト機能
+    * ログインした際、フレンドリーフォワーディングする
   * ゲストユーザーログイン機能
 
 * __子どもの情報登録関連__
@@ -121,3 +122,7 @@ __URL：__　https://www.sukusuku-app.com/
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 
 ## 工夫した点
+### 要件定義に力を入れた
+
+
+###

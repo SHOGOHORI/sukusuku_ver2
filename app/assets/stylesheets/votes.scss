@@ -114,6 +114,8 @@ li.comment {
     z-index: 1;
     text-align: center;
     padding: 0;
+    text-align: center;
+    width: 100px;
     a {
       position: absolute;
       top: 0;
@@ -122,6 +124,9 @@ li.comment {
       height: 100%;
       text-indent:-999px;
       z-index: 2;
+    }
+    img {
+      border-radius: 50%;
     }
   }
 }

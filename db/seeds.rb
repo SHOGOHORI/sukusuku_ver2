@@ -15,7 +15,7 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
-names  = ["Naomi", "Youko", "Hanako", "Maria", "Yokota", "Koji"]
+names  = ["Naomi", "Youko", "Hanako", "Maria", "Yokota", "Koji", "junnji"]
 names.each do |name|
   email = "example-#{name}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
@@ -332,6 +332,7 @@ vote = Vote.create!(title: '6ヶ月の子供の寝る時間について',
                     child_age_moon_age: 6,
                     user_id: 49,
                     category_id: health.id,
+                    days: 1,
                     closed_at: '2021/03/31')
 
 v1 = VoteItem.create!(item: 'PM7:00〜8:00',
@@ -375,6 +376,7 @@ vote = Vote.create!(title: 'スマホを与えるべきか',
                     child_age_moon_age: 20,
                     user_id: 49,
                     category_id: education.id,
+                    days: 1,
                     closed_at: '2020/12/10')
 
 v1 = VoteItem.create!(item: '使ってもOK',
@@ -412,6 +414,7 @@ vote = Vote.create!(title: '子どもを叱るタイミング',
                     child_age_moon_age: 11,
                     user_id: 49,
                     category_id: education.id,
+                    days: 1,
                     closed_at: '2021/12/10')
 
 v1 = VoteItem.create!(item: '早めに連れ戻す',
@@ -446,6 +449,7 @@ vote = Vote.create!(title: 'つわりはいつまで？',
                     pregnant: 1,
                     user_id: 49,
                     category_id: problem.id,
+                    days: 1,
                     closed_at: '2021/12/10')
 
 v1 = VoteItem.create!(item: '5ヶ月未満',
@@ -457,7 +461,7 @@ v2 = VoteItem.create!(item: '5～6ヵ月以下',
 v3 = VoteItem.create!(item: '7ヵ月以上',
                       vote_id: vote.id,
                       item_number: 3)
-v3 = VoteItem.create!(item: 'つわりはなかった',
+v4 = VoteItem.create!(item: 'つわりはなかった',
                       vote_id: vote.id,
                       item_number: 4)
 
@@ -475,3 +479,17 @@ end
   VoteRelationship.create!(user_id: n + 50,
                            vote_item_id: v3.id)
 end
+
+19.times do |n|
+  VoteRelationship.create!(user_id: n + 50,
+                           vote_item_id: v4.id)
+end
+
+45.times do |n|
+  VoteStock.create!(user_id: n + 1,
+                    vote_id: 4)
+end
+
+VoteComment.create!(content: "私は出産するまでずっと辛かったです。。。",
+                            user_id: 5,
+                            vote_id: 4)
