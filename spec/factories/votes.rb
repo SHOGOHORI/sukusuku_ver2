@@ -7,6 +7,7 @@ FactoryBot.define do
     pregnant { false }
     user { nil }
     category { '' }
+    days { 1 }
     closed_at { '2021-03-07' }
   end
 end
