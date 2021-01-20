@@ -122,7 +122,7 @@ __URL：__　https://www.sukusuku-app.com/
 ## インストール方法
 ```
 $ git clone https://github.com/SHOGOHORI/sukusuku_ver2.git
-$ cd full-gi-collection
+$ cd sukusuku_ver2
 $ docker-compose build
 $ docker-compose up -d
 $ docker-compose run web rails db:create
