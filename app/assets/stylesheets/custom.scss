@@ -126,7 +126,7 @@ header{
 
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-left: 50px;
   font-size: 1.7em;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -162,6 +162,20 @@ header{
 }
 
 /* ホーム */
+.non_login {
+  position: relative;
+  .home_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1{
+      text-align: left;
+      font-weight: 900;
+      color: #8B0000;
+    }
+  }
+}
 .item {
   margin: 0 auto;
   width: 1400px;

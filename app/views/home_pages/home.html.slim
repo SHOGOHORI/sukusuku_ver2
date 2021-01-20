@@ -1,7 +1,10 @@
 .home
   - unless  user_signed_in?
-    .non-login
+    .non_login
       = image_tag 'home.png', alt: 'img', height: '100%', width: '100%'
+      .home_logo
+        h1 あなたの育児の困った！を救う
+        = image_tag 'home_logo.png', alt: 'img', width: '800px'
   ul.item
     li.category
       = render partial: 'consultations/category'

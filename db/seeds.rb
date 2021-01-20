@@ -15,15 +15,15 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
-names  = ["Naomi", "Youko", "Hanako", "Maria", "Yokota", "Koji", "junnji"]
+names = %w[Naomi Youko Hanako Maria Yokota Koji junnji]
 names.each do |name|
   email = "example-#{name}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
-  User.create!(name:  name,
-              email: email,
-              password:              'password',
-              password_confirmation: 'password',
-              introduction: introduction)
+  User.create!(name: name,
+               email: email,
+               password: 'password',
+               password_confirmation: 'password',
+               introduction: introduction)
 end
 
 100.times do |n|
@@ -66,8 +66,8 @@ comment = ConsultationComment.create!(content: "こんにちは。
                                       赤ちゃんは大人より鼻孔が狭いためイビキをかきやすいです。
                                       イビキをかいているときに無呼吸にはなっておらず、顔色も悪くなく、起きているときに元気そうにしていれば大きな問題はないかと思います。
                                       もしイビキがひどく心配なようでしたらお医者様に相談した方が良いかもしれません。",
-                            user_id: 4,
-                            consultation_id: 1)
+                                      user_id: 4,
+                                      consultation_id: 1)
 
 ConsultationCommentReply.create!(content: "回答ありがとうございます！！
                                            すごく心配なので、お医者様に相談します。",
@@ -316,7 +316,7 @@ ConsultationCommentReply.create!(content: "回答ありがとうございます�
                                  user_id: 4,
                                  consultation_comment_id: comment.id)
 
-ConsultationCommentReply.create!(content: "アロベビーという商品がおすすめです！",
+ConsultationCommentReply.create!(content: 'アロベビーという商品がおすすめです！',
                                  user_id: 5,
                                  consultation_comment_id: comment.id)
 
@@ -490,6 +490,6 @@ end
                     vote_id: 4)
 end
 
-VoteComment.create!(content: "私は出産するまでずっと辛かったです。。。",
-                            user_id: 5,
-                            vote_id: 4)
+VoteComment.create!(content: '私は出産するまでずっと辛かったです。。。',
+                    user_id: 5,
+                    vote_id: 4)

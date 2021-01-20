@@ -6,25 +6,24 @@ ver.2：2021/1/11
 
 ## ーSUKUSUKUーとは？
 育児の悩み、不安を救うための育児特化型の相談アプリです。<br>
-長男が生まれた直後、妻の病気により一週間ほど一人で育児をしていました。<br>
-孤独で不安だったその時の経験から、ママ、パパの不安を少しでも埋めたいという思いから、SNSに近い形の相談アプリを作成しました。<br>
+ママ、パパの不安を少しでも埋めたいという思いから、SNSに近い形の相談アプリを作成しました。<br>
 
 __URL：__　https://www.sukusuku-app.com/
 
 <img width="1438" alt="スクリーンショット 2021-01-12 12 10 44" src="https://user-images.githubusercontent.com/69126475/104273842-dfdbd400-54e2-11eb-9559-8293eba93b52.png">
-
 ## デモ
 #### 相談機能
 * __相談投稿__<br>
-![ezgif-3-cf11a0bdcdd4](https://user-images.githubusercontent.com/69126475/104345946-36c4c600-5542-11eb-987d-7275accd283a.gif)
+![相談投稿](https://user-images.githubusercontent.com/69126475/105113005-702f9f80-5b07-11eb-9211-6677ca950928.gif)
 
 #### アンケート機能
 * __投票__<br>
-![ezgif-4-1af7569f5bb7](https://user-images.githubusercontent.com/69126475/104315527-6feb3f00-551e-11eb-9c56-b5d7a79afab7.gif)
+![アンケート](https://user-images.githubusercontent.com/69126475/105114236-d0274580-5b09-11eb-8071-ca50b4c62b1d.gif)
 ## 使用技術
 
 * __開発環境__
   * __Mac Catalina(10.15.7)__
+  * __Docker 20.10.2 / docker-compose 1.27.4__
 
 * __フロントエンド__
   * __jQuery 3.5.1__
@@ -36,7 +35,6 @@ __URL：__　https://www.sukusuku-app.com/
 
 * __インフラ__
   * __CircleCI__
-  * __Docker 20.10.2 / docker-compose 1.27.4__
   * __Nginx 1.12.2__
   * __MySQL 8.0.22__
   * __AWS__ (VPC, EC2, ALB, ACM, S3, RDS, Route53, EIP, IAM)
@@ -121,8 +119,18 @@ __URL：__　https://www.sukusuku-app.com/
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 
-## 工夫した点
-### 要件定義に力を入れた
+## インストール方法
+```
+$ git clone https://github.com/SHOGOHORI/sukusuku_ver2.git
+$ cd sukusuku_ver2
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:migrate
+$ docker-compose run web rails db:seed
+```
+## 製作者
+しょうご
+[twitter](https://twitter.com/shogo19881)
 
-
-###
+## ライセンス
