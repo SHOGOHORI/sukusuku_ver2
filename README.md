@@ -11,9 +11,6 @@ ver.2：2021/1/11
 __URL：__　https://www.sukusuku-app.com/
 
 <img width="1438" alt="スクリーンショット 2021-01-12 12 10 44" src="https://user-images.githubusercontent.com/69126475/104273842-dfdbd400-54e2-11eb-9559-8293eba93b52.png">
-
-## 使い方
-
 ## デモ
 #### 相談機能
 * __相談投稿__<br>
@@ -122,6 +119,16 @@ __URL：__　https://www.sukusuku-app.com/
 
 各テーブルのカラムについては[テーブル定義書](https://docs.google.com/spreadsheets/d/1TvVktXZPtrLlpxS2mJAdE3dkIZjo41ujKL53Q843fLY/edit?usp=sharing)を参照ください。
 
+## インストール方法
+```
+$ git clone https://github.com/SHOGOHORI/sukusuku_ver2.git
+$ cd full-gi-collection
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:migrate
+$ docker-compose run web rails db:seed
+```
 ## 製作者
 しょうご
 [twitter](https://twitter.com/shogo19881)
