@@ -131,7 +131,7 @@ $ docker-compose run web rails db:migrate
 $ docker-compose run web rails db:seed
 ```
 ## 製作者
-しょうご
+しょうご<br>
 [twitter](https://twitter.com/shogo19881)
 
 ## ライセンス
