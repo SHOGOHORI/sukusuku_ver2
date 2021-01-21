@@ -3,6 +3,7 @@ ja:
     errors:
       messages:
         record_invalid: '登録が有効ではありません。'
+
       models:
         user:
           attributes:
@@ -64,7 +65,7 @@ ja:
             vote_item:
               blank: 'が入力されていません。'
             days:
-              blank: 'が入力されていません。'
+              blank: ''
         vote_item:
           attributes:
             item:
@@ -93,7 +94,7 @@ ja:
         category_id: 'カテゴリー'
         closed_at: '投票期間'
         item: 'アンケート項目'
-        days: '投票期間'
+        days: ''
       vote_item:
         item: 'アンケート項目'
 
