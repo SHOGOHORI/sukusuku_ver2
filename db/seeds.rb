@@ -15,15 +15,18 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
-names = %w[Naomi Youko Hanako Maria Yokota Koji junnji]
-names.each do |name|
+names = %w[Naomi Youko Hanako Maria Yokota Yoshiko Koji Junnji]
+avatars = %w[left.jpg gunte.jpg kaizoku.jpg sai.jpg neko.jpg himawari.jpg tora.jpg number1.png]
+names.zip(avatars) do |name, avatar|
   email = "example-#{name}@example.org"
   introduction = "#{name}です。宜しくおねがいします。"
+  url = 'app/assets/images/'
   User.create!(name: name,
                email: email,
                password: 'password',
                password_confirmation: 'password',
-               introduction: introduction)
+               introduction: introduction,
+               avatar: open(url + avatar))
 end
 
 100.times do |n|
@@ -71,7 +74,7 @@ comment = ConsultationComment.create!(content: "こんにちは。
 
 ConsultationCommentReply.create!(content: "回答ありがとうございます！！
                                            すごく心配なので、お医者様に相談します。",
-                                 user_id: 4,
+                                 user_id: 1,
                                  consultation_comment_id: comment.id)
 
 # サンプル質問、回答(2)
@@ -84,7 +87,7 @@ Consultation.create!(title: '離乳食を嫌がる',
                                どうしたら食べてくれるでしょうか…",
                      pregnant: 0,
                      child_age_moon_age: 7,
-                     user_id: 3,
+                     user_id: 2,
                      category_id: food.id)
 
 ConsultationComment.create!(content: "裏ごしはしっかりしていますか？
@@ -127,7 +130,7 @@ Consultation.create!(title: '汚い言葉を辞めさせたい',
                                とても悲しいです。今すぐ辞めさせたいです。",
                      pregnant: 0,
                      child_age_moon_age: 39,
-                     user_id: 8,
+                     user_id: 2,
                      category_id: education.id)
 
 ConsultationComment.create!(content: "今幼稚園に通っているうちの子どもも言いますよ！
@@ -135,7 +138,7 @@ ConsultationComment.create!(content: "今幼稚園に通っているうちの子
                                       テレビや友達の真似なのかなと思ってます
                                       いずれその言葉の重みがわかれば自然と使わなくなるんじゃないですかね？
                                       一応諦めずに根気強くそういう言葉はよくないということだけは都度伝えるようにしてます！",
-                            user_id: 9,
+                            user_id: 6,
                             consultation_id: 4)
 
 # サンプル質問、回答(5)
@@ -145,7 +148,7 @@ Consultation.create!(title: '吐き戻しはいつまで？',
                                吐き戻しを減らすコツはありますか？また、いつまで吐き戻しは続くのでしょうか？",
                      pregnant: 0,
                      child_age_moon_age: 3,
-                     user_id: 10,
+                     user_id: 5,
                      category_id: health.id)
 
 ConsultationComment.create!(content: "吐き戻しはだいたい３～４ヶ月ほどで落ち着いてきますが、個人差がありますので１歳頃まで続く子もいます。
@@ -156,7 +159,7 @@ ConsultationComment.create!(content: "吐き戻しはだいたい３～４ヶ月
 ConsultationComment.create!(content: "赤ちゃんのお腹はとっくり上になっているのでちょっとの刺激で中身が出てしまうことがあります。
                                       うちの下の子もよく吐き戻すのでタオルをひいてなるべく家具など洗いづらいものを汚さないようにしています＾＾；
                                       代わりにタオルは一日何枚も洗います！",
-                            user_id: 20,
+                            user_id: 8,
                             consultation_id: 5)
 
 # サンプル質問、回答(6)
@@ -193,7 +196,7 @@ Consultation.create!(title: '人見知り場所見知りが酷い',
                                この時期がすぎるまで家で過ごしていてもそのうちおさまるのでしょうか？",
                      pregnant: 0,
                      child_age_moon_age: 5,
-                     user_id: 23,
+                     user_id: 2,
                      category_id: education.id)
 
 ConsultationComment.create!(content: "家で過ごさずどんどん外に連れて行って上げた方が外に慣れて泣くことも減ると思います。
@@ -214,7 +217,7 @@ Consultation.create!(title: '育児を手伝わない父親',
                                みなさんの旦那様は産後の育児や家事を手伝ってくれましたか？
                                手伝ってくれるご家庭は何かお願いをしましたか？",
                      pregnant: 0,
-                     user_id: 46,
+                     user_id: 1,
                      category_id: problem.id)
 
 ConsultationComment.create!(content: "うちは育児も家事もぼちぼち手伝ってくれていました。
@@ -222,7 +225,7 @@ ConsultationComment.create!(content: "うちは育児も家事もぼちぼち手
                                       とくに何かお願いはしていませんが主人が仕事の休みの日などは家事をやってくれるように頼んで私は少しゆっくりしていました。
                                       旦那さんに何を言っても何もしてくれないのであれば実家に頼るのはどうでしょうか。
                                       ひとりきりで育児はノイローゼになってしまうかもしれません、頼れる人に頼っていきましょう！",
-                            user_id: 38,
+                            user_id: 4,
                             consultation_id: 8)
 
 ConsultationComment.create!(content: "私は１歳になる子どもの父親です。
@@ -240,7 +243,7 @@ Consultation.create!(title: '女の子の名前に「信夢叶」とつけたい
                      content: "もうすぐ女の子を出産予定です。
                               「信夢叶」とかいて「しゆか」と名付けたいのですが読めますか？",
                      pregnant: 1,
-                     user_id: 47,
+                     user_id: 5,
                      category_id: problem.id)
 
 ConsultationComment.create!(content: '無理ですね。読めません。',
@@ -263,6 +266,11 @@ ConsultationComment.create!(content: "子供はペットやおもちゃじゃあ
                             user_id: 1,
                             consultation_id: 9)
 
+100.times do |n|
+  ConsultationStock.create!(user_id: n + 1,
+                            consultation_id: 9)
+end
+
 # サンプル質問、回答(10)
 Consultation.create!(title: '生後一ヶ月の男の子の臭い',
                      content: "生後一ヶ月になる男の子の母です。
@@ -273,7 +281,7 @@ Consultation.create!(title: '生後一ヶ月の男の子の臭い',
                                男の子ってみんなこうなんですか？それとも何か病気なんでしょうか？",
                      pregnant: 0,
                      child_age_moon_age: 1,
-                     user_id: 45,
+                     user_id: 2,
                      category_id: health.id)
 
 ConsultationComment.create!(content: "うちの息子も生後間もない頃に主人の臭いをキツくしたような独特な臭いになっていた頃があります笑
@@ -330,7 +338,7 @@ vote = Vote.create!(title: '6ヶ月の子供の寝る時間について',
                     content: '6ヶ月の子供の寝る時間は何時ぐらいでしょうか？',
                     pregnant: 0,
                     child_age_moon_age: 6,
-                    user_id: 49,
+                    user_id: 3,
                     category_id: health.id,
                     days: 1,
                     closed_at: '2021/03/31')
@@ -447,7 +455,7 @@ vote = Vote.create!(title: 'つわりはいつまで？',
                     content: '現在妊娠５か月です。つわりがつらいです。
                               みなさんはいつ頃つわりが終わりましたか？',
                     pregnant: 1,
-                    user_id: 49,
+                    user_id: 2,
                     category_id: problem.id,
                     days: 1,
                     closed_at: '2021/12/10')
