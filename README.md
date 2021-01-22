@@ -32,7 +32,7 @@ __URL：__　https://www.sukusuku-app.com/
 
 * __バックエンド__
   * __Ruby 2.7.2__
-  * __rails 6.0.3__
+  * __Rails 6.0.3__
 
 * __インフラ__
   * __CircleCI__
