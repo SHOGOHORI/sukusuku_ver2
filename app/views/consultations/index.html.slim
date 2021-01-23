@@ -13,8 +13,8 @@
           | 検索結果
           = @search_consultations.total_count
           | 件
-        = search_form_for @model1, as: :model1,html: { method: :post } do |f|
-          = f.select( :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc' }, { selected: params[:model1][:sorts] }, { onchange: 'this.form.submit()'})
+        = search_form_for @model1, url: consultations_path, as: :model1 do |f|
+          = f.select( :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc' }, { selected: params[:model1][:sorts] }, { class: 'form-control', onchange: 'this.form.submit()'})
         .page
           = paginate @search_consultations
         ul.card-body
