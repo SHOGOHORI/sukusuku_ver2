@@ -33,9 +33,9 @@ class ConsultationsController < ApplicationController
 
   def index
     store_location
-    respond_to do |format|
-      format.html
-      format.js
+    @search = Consultation.ransack
+    if params[:search1].present?
+      @search_consultations = Kaminari.paginate_array(@search.result).page(params[:page]).per(5)
     end
   end
 
@@ -81,5 +81,9 @@ class ConsultationsController < ApplicationController
 
   def consultations_path_with_search_params
     URI(request.referer).path == '/sonsultations' ? request.referer : items_path
+  end
+
+  def search_params
+    params.require(:search1).permit(:sorts)
   end
 end
