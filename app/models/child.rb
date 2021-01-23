@@ -10,6 +10,6 @@ class Child < ApplicationRecord
 
   def child_birthday
     errors.add(:birthday, 'は3歳までのお子さん及び出産予定日を入力してください。') if
-    birthday > Date.today.next_year || birthday < Date.today.ago(6.years)
+    birthday == nil || birthday > Date.today.next_year || birthday < Date.today.ago(6.years)
   end
 end
