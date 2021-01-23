@@ -12,5 +12,5 @@ class Consultation < ApplicationRecord
   validates :user_id, presence: true
   validates :category_id, presence: true
   scope :recently, -> { order(created_at: :desc) }
-  is_impressionable
+  is_impressionable counter_cache: true
 end
