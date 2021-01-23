@@ -33,10 +33,6 @@ class ConsultationsController < ApplicationController
 
   def index
     store_location
-    if params[:model1].present?
-      @search = Consultation.ransack(search_params)
-      @search_consultations = Kaminari.paginate_array(@search.result).page(params[:page]).per(5)
-    end
   end
 
   def edit
@@ -84,6 +80,6 @@ class ConsultationsController < ApplicationController
   end
 
   def search_params
-    params.require(:model1).permit(:sorts)
+    params.require(:search1).permit(:sorts)
   end
 end

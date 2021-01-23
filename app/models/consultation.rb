@@ -13,4 +13,9 @@ class Consultation < ApplicationRecord
   validates :category_id, presence: true
   scope :recently, -> { order(created_at: :desc) }
   is_impressionable counter_cache: true
+
+  ransacker :stocks_count do
+    query = '(SELECT COUNT(consultation_stocks.consultation_id) FROM consultation_stocks where consultation_stocks.consultation_id = consultations.id GROUP BY consultation_stocks.consultation_id)'
+    Arel.sql(query)
+  end
 end
