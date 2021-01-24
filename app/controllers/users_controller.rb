@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: 'プロフィールを登録しました。'
     else
-      flash.now[:alert] = '必須項目を入力願います。'
       render :profile_create
     end
   end
