@@ -23,5 +23,5 @@
     = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control', value: @model1.content_or_title_cont
   .field
     = f.label :sorts, '表示順'
-    = f.select( :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc', 'お気に入り数': 'stocks_count desc' }, { selected: params[:model1][:sorts] }, { class: 'form-control'})
+    = f.select :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc', 'お気に入り数': 'stocks_count desc'}, {}, {class: 'form-control'}
   = f.submit '検索する', class: 'btn btn-primary'
