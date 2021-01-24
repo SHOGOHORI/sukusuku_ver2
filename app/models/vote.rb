@@ -16,5 +16,5 @@ class Vote < ApplicationRecord
   validates :days, presence: true
   accepts_nested_attributes_for :vote_items, allow_destroy: true
   scope :recently, -> { order(updated_at: :desc) }
-  is_impressionable
+  is_impressionable counter_cache: true
 end
