@@ -30,4 +30,14 @@ module ApplicationHelper
       "予定日まであと#{(birthday - Date.today).to_i}日"
     end
   end
+
+  def select_pregnant(boolean)
+    if boolean == 0
+      'いいえ'
+    elsif boolean == 1
+      'はい'
+    else
+      '選択'
+    end
+  end
 end
