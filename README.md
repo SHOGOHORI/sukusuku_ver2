@@ -135,4 +135,4 @@ $ docker-compose run web rails db:seed
 [twitter](https://twitter.com/shogo19881)
 
 ## ライセンス
-[MIT](https://github.com/SHOGOHORI/sukusuku_ver2/blob/feature/add-license%2380/LICENSE)
+[MIT](https://github.com/SHOGOHORI/sukusuku_ver2/blob/main/LICENSE)
