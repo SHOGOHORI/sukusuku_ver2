@@ -9,11 +9,10 @@
           i.far.fa-flushed.fa-3x
           h2 投稿はありません
       - else
-        .block
-          h3
-            | 検索結果
-            = @search_consultations.total_count
-            | 件
+        h3
+          | 検索結果
+          = @search_consultations.total_count
+          | 件
         .page
           = paginate @search_consultations
         ul.card-body
