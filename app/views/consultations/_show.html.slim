@@ -87,7 +87,7 @@
                     = link_to @consultation, method: :delete, data: { confirm: '削除しますか？' } do
                       i.fas.fa-trash-alt
                       | 削除
-            = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            = link_to "https://twitter.com/share?url=#{ request.url }&text=相談：#{@consultation.title} #SukuSuku", class: 'btn btn-default', target: '_blank' do
               i.fab.fa-twitter
               |  tweet
             - if user_signed_in?

@@ -12,11 +12,11 @@ html
     = favicon_link_tag('favicon.ico')
     script src="https://kit.fontawesome.com/6201f9bda5.js" crossorigin="anonymous"
     link href="css/jquery.tabpager.css"
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@shogo19881" />
-    <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
-    <meta property="og:url" content="<%= request.url %>" />
-    <meta property="og:image" content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('/assets/images/home_logo.png') %>" />
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@shogo19881")
+    meta(property="og:title" content="#{yield(:title)}")
+    meta(property="og:url" content="#{request.url}")
+    meta(property="og:image" content="#{content_for?(:image_url) ? yield(:image_url) : full_url('/assets/images/home_logo.png')}")
   body
     = render 'layouts/header'
     .container
