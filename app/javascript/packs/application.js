@@ -35,8 +35,7 @@ document.addEventListener("turbolinks:load"
       $('.tab-content>div').each(function(){
         if($(this).hasClass(thisclass)){
           $(this).fadeIn(800);
-        }
-        else{
+        } else {
           $(this).hide();
         }
       });

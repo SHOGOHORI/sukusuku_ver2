@@ -4,20 +4,20 @@
     = f.collection_select :category_id_eq, Category.all, :id, :category, { include_blank: 'すべて' }, class: 'selectpicker form-control'
   .field
     = f.label :pregnant, '妊娠中'
-    = f.select :pregnant_eq, options_for_select([['いいえ',0],['はい',1]], selected: select_pregnant(@model1.pregnant_eq)), { include_blank: '選択'}, class: 'selectpicker form-control pregnant_eq'
+    = f.select :pregnant_eq, options_for_select([['いいえ',0],['はい',1]], selected: select_pregnant(@model2.pregnant_eq)), { include_blank: '選択'}, class: 'selectpicker form-control pregnant_eq'
   .form-group
     .form-inline
       .col
         = f.label :moon_age, '月齢:'
       .col
-        = f.select :child_age_moon_age_gteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control child_age_moon_age'
+        = f.select :child_age_moon_age_gteq, options_for_select((0..47).to_a, selected: @model2.child_age_moon_age_gteq), { include_blank: '選択'}, class: 'selectpicker form-control child_age_moon_age'
         |  ヶ月
     | 〜
     .form-inline
       .col
         = f.label :moon_age, '月齢:'
       .col
-        = f.select :child_age_moon_age_lteq, options_for_select((0..47).to_a), { include_blank: '選択'}, class: 'selectpicker form-control child_age_moon_age'
+        = f.select :child_age_moon_age_lteq, options_for_select((0..47).to_a, selected: @model2.child_age_moon_age_lteq), { include_blank: '選択'}, class: 'selectpicker form-control child_age_moon_age'
         |  ヶ月
   .field
     = f.text_field :content_or_title_cont, placeholder: 'キーワード検索', class: 'form-control', value: @model2.content_or_title_cont
