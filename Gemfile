@@ -33,7 +33,6 @@ gem 'ransack'
 gem 'faker'
 gem 'impressionist'
 gem 'chartkick'
-gem 'meta-tags'
 
 group :development, :test do
   gem 'pry-rails'
