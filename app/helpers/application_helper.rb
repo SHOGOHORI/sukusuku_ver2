@@ -32,9 +32,10 @@ module ApplicationHelper
   end
 
   def select_pregnant(boolean)
-    if boolean == 0
+    case boolean
+    when 0
       'いいえ'
-    elsif boolean == 1
+    when 1
       'はい'
     else
       '選択'
