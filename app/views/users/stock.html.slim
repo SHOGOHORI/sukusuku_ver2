@@ -19,7 +19,7 @@
           - if @consultation_stocks.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
-              h2 ストックはありません
+              h2 お気に入りはありません
           .page
             = paginate @consultation_stocks, param_name: 'page_1'
           ul.card-body
@@ -28,7 +28,7 @@
           - if @vote_stocks.total_count == 0
             .unfind
               i.far.fa-flushed.fa-3x
-              h2 ストックはありません
+              h2 お気に入りはありません
           .page
             = paginate @vote_stocks, param_name: 'page_2'
           ul.card-body
