@@ -203,24 +203,13 @@
   .unfind {
     width: 800px;
     text-align: center;
+    margin-top: 100px;
     i {
       text-align: center;
       color: silver;
     }
     h3 {
       margin: 0 auto;
-    }
-  }
-  .block{
-    display: block;
-    height: 50px;
-    h3 {
-      float: left;
-    }
-    .form-control {
-      float: right;
-      margin-top: 15px;
-      width: 150px;
     }
   }
 }

@@ -16,5 +16,10 @@ class Vote < ApplicationRecord
   validates :days, presence: true
   accepts_nested_attributes_for :vote_items, allow_destroy: true
   scope :recently, -> { order(updated_at: :desc) }
-  is_impressionable
+  is_impressionable counter_cache: true
+
+  ransacker :vote_stocks_count do
+    query = '(SELECT COUNT(vote_stocks.vote_id) FROM vote_stocks where vote_stocks.vote_id = votes.id GROUP BY vote_stocks.vote_id)'
+    Arel.sql(query)
+  end
 end

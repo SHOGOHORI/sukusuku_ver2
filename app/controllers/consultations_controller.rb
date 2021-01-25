@@ -12,7 +12,6 @@ class ConsultationsController < ApplicationController
     if @consultation.save
       redirect_to consultation_url(@consultation), notice: '投稿しました。'
     else
-      flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end
@@ -33,10 +32,6 @@ class ConsultationsController < ApplicationController
 
   def index
     store_location
-    @search = Consultation.ransack
-    if params[:search1].present?
-      @search_consultations = Kaminari.paginate_array(@search.result).page(params[:page]).per(5)
-    end
   end
 
   def edit
@@ -48,7 +43,6 @@ class ConsultationsController < ApplicationController
     if @consultation.update(consultation_params)
       redirect_to @consultation, notice: '更新しました。'
     else
-      flash.now[:alert] = '必須項目を入力願います。'
       render :edit
     end
   end

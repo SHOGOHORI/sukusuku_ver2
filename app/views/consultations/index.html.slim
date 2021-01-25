@@ -9,13 +9,10 @@
           i.far.fa-flushed.fa-3x
           h2 投稿はありません
       - else
-        .block
-          h3
-            | 検索結果
-            = @search_consultations.total_count
-            | 件
-          / = search_form_for @model1, url: consultations_path, as: :model1 do |f|
-          /   = f.select( :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc', 'お気に入り数': 'stocks_count desc' }, { selected: params[:model1][:sorts] }, { class: 'form-control', onchange: 'this.form.submit()'})
+        h3
+          | 検索結果
+          = @search_consultations.total_count
+          | 件
         .page
           = paginate @search_consultations
         ul.card-body

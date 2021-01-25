@@ -13,7 +13,6 @@ class VotesController < ApplicationController
     if @vote.save
       redirect_to @vote, notice: '投稿しました。'
     else
-      flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end

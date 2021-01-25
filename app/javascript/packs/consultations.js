@@ -42,11 +42,9 @@ document.addEventListener("turbolinks:load"
       if ($('#vote_search').prop('checked')) {
         $('.category .vote_search').show();
         $('.category .consultation_search').hide();
-        console.log('foo');
       } else {
         $('.category .vote_search').hide();
         $('.category .consultation_search').show();
-        console.log('bar');
       }
     });
   });
