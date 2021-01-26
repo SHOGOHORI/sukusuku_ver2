@@ -116,7 +116,7 @@
             | 〜
             = @vote.closed_at.to_s
           .share
-            = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title} @SukuSuku", class: 'btn btn-default', target: '_blank' do
+            = link_to "https://twitter.com/share?url=#{ request.url }&text=アンケート：#{@vote.title}", class: 'btn btn-default', target: '_blank' do
               i.fab.fa-twitter
               |  tweet
             - if user_signed_in?
