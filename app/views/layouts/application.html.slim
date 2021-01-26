@@ -16,7 +16,7 @@ html
     meta(name="twitter:site" content="@shogo19881")
     meta(property="og:title" content="#{yield(:title)}")
     meta(property="og:url" content="#{request.url}")
-    meta(property="og:image" content="#{content_for?(:image_url) ? yield(:image_url) : full_url('/assets/images/home_logo.png')}")
+    meta(property="og:image" content="#{content_for?(:image_url) ? yield(:image_url) : full_url('app/assets/images/home_logo.png')}")
   body
     = render 'layouts/header'
     .container
