@@ -14,9 +14,10 @@ html
     link href="css/jquery.tabpager.css"
     meta(name="twitter:card" content="summary")
     meta(name="twitter:site" content="@shogo19881")
-    meta(property="twitter:title" content="#{yield(:title)}")
+    meta(property="twitter:title" content="#{yield(:title)} SukuSuku")
+    meta(property="twitter:description" content="#{content_for?(:description)}")
     meta(property="twitter:url" content="#{request.url}")
-    meta(property="twitter:image" content="#{asset_url('favicon.ico')}")
+    meta(property="twitter:image" content="#{asset_url('twitter_card.png')}")
   body
     = render 'layouts/header'
     .container

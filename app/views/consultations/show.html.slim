@@ -1,3 +1,4 @@
 = provide(:title, "#{@consultation.title} - ")
+= content_for(:description, "#{@consultation.content.truncate(50, separator: '.')} ")
 #consultation_show_pagenate
   = render partial: 'consultations/show'
