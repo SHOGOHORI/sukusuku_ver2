@@ -24,4 +24,5 @@
   .field
     = f.label :sorts, '表示順'
     = f.select :sorts, { '最新順': 'updated_at desc', '閲覧数順': 'impressions_count desc', 'お気に入り数': 'vote_stocks_count desc' }, {}, {class: 'form-control'}
-  = f.submit '検索する', class: 'btn btn-primary'
+  .field
+    = f.submit '検索する', class: 'btn btn-warning'

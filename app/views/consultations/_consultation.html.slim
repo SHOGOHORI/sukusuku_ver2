@@ -46,10 +46,12 @@
     .pv_count
       i.fas.fa-shoe-prints.fa-rotate-270
       | 閲覧数
-      = number_with_delimiter(consultation.impressionist_count)
+      .a
+        = number_with_delimiter(consultation.impressionist_count)
     .stock_count
-        i.fas.fa-star
-        | お気に入り数
+      i.fas.fa-star
+      | お気に入り数
+      .a
         = consultation.consultation_stocks.count
     span.user
       - if consultation.user.avatar?
