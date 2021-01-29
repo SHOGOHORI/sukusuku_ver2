@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-icons = %w[heart-solid.svg book-open-solid.svg utensils-solid.svg building-solid.svg home-solid.svg hard-hat-solid.svg yen-sign-solid.svg female-solid.svg]
-items = %w[健康 教育 食事 仕事 住まい 安全 マネー ママの悩み]
+icons = %w[plus-square-solid.png hand-holding-heart-solid.png utensils-solid.png book-open-solid.png home-solid.png user-tie-solid.png yen-sign-solid.png female-solid.png]
+items = %w[健康 安全 食事 教育 住まい 仕事 マネー ママの悩み]
 
 items.zip(icons) do |t, c|
-  url = 'app/assets/images/'
+  url = 'app/assets/images/category_icon/'
   Category.create!(category: t,
                    icon: open(url + c))
 end

@@ -59,5 +59,6 @@
       - else
         = image_tag 'user.png', alt: 'icon', height: '20px'
       = link_to consultation.user.name, consultation.user
-      = time_ago_in_words(consultation.created_at)
-      | 前に投稿
+      .time
+        = time_ago_in_words(consultation.created_at)
+        | 前に投稿
