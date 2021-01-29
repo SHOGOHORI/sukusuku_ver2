@@ -13,6 +13,5 @@ RSpec.describe "Votes", type: :system do
     click_link 'アンケート'
     expect(current_path).to eq new_vote_path
     fill_in 'タイトル', with: 'テスト'
-    fill_in 'タイトル', with: 'テスト'
   end
 end
