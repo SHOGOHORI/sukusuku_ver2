@@ -10,16 +10,16 @@ ver.2：2021/1/11
 
 __URL：__　https://www.sukusuku-app.com/
 
-<img width="1438" alt="スクリーンショット 2021-01-12 12 10 44" src="https://user-images.githubusercontent.com/69126475/104273842-dfdbd400-54e2-11eb-9559-8293eba93b52.png">
+<img width="1252" alt="68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3638373038382f65383562363831362d333936332d393237382d336533382d3162353233613335643031622e706e67" src="https://user-images.githubusercontent.com/69126475/106260281-9372f100-6263-11eb-8264-41d9709c28c4.png">
 
 ## デモ
 #### 相談機能
 * __相談投稿__<br>
-![相談投稿](https://user-images.githubusercontent.com/69126475/105113005-702f9f80-5b07-11eb-9211-6677ca950928.gif)
+![相談投稿](https://user-images.githubusercontent.com/69126475/106262931-0c277c80-6267-11eb-98c6-1c42463442f3.gif)
 
 #### アンケート機能
 * __投票__<br>
-![アンケート](https://user-images.githubusercontent.com/69126475/105114236-d0274580-5b09-11eb-8071-ca50b4c62b1d.gif)
+![アンケート投票](https://user-images.githubusercontent.com/69126475/106262919-06319b80-6267-11eb-90c7-2f2da5fa640c.gif)
 ## 使用技術
 
 * __開発環境__
@@ -100,7 +100,7 @@ __URL：__　https://www.sukusuku-app.com/
 ## DB設計
 
 ### ER図
-![ER図ver2](https://user-images.githubusercontent.com/69126475/104393818-b2e1fc80-5588-11eb-96ee-952428a5de70.png)
+![68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3638373038382f38383162333362372d323765302d653432372d666162632d3164373430363961613239382e706e67](https://user-images.githubusercontent.com/69126475/106261242-a9cd7c80-6264-11eb-926e-dc904f3d6df3.png)
 
 ### テーブル
 | テーブル | 説明 |
