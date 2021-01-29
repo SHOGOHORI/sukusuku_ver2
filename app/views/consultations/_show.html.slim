@@ -19,7 +19,7 @@
               = link_to '', @consultation.user
             - if current_user == @consultation.user
               - unless @consultation.reception_closed
-                = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-primary' do
+                = link_to reception_closed_consultation_path(@consultation), method: :post, data: { confirm: '受付終了しますか？' }, class: 'btn btn-warning' do
                   i.fas.fa-clock
                   | 受付終了する
           .box_bottom

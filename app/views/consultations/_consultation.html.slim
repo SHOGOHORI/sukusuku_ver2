@@ -46,10 +46,12 @@
     .pv_count
       i.fas.fa-shoe-prints.fa-rotate-270
       | 閲覧数
-      = number_with_delimiter(consultation.impressionist_count)
+      .a
+        = number_with_delimiter(consultation.impressionist_count)
     .stock_count
-        i.fas.fa-star
-        | お気に入り数
+      i.fas.fa-star
+      | お気に入り数
+      .a
         = consultation.consultation_stocks.count
     span.user
       - if consultation.user.avatar?
@@ -57,5 +59,6 @@
       - else
         = image_tag 'user.png', alt: 'icon', height: '20px'
       = link_to consultation.user.name, consultation.user
-      = time_ago_in_words(consultation.created_at)
-      | 前に投稿
+      .time
+        = time_ago_in_words(consultation.created_at)
+        | 前に投稿

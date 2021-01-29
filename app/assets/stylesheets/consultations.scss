@@ -63,10 +63,10 @@
         text-align: center;
       }
     }
-    .btn-primary, .close {
+    .btn-warning, .close {
       position: absolute;
-      top: 120px;
-      left: -30px;
+      top: 140px;
+      left: -50px;
     }
   }
   .box_bottom {
@@ -217,6 +217,7 @@
 .category {
   margin: 100px 40px 100px 40px;
   float: left;
+  color: #666666;
   .box {
     margin: 10px 0 0 0;
     background-color: white;
@@ -229,13 +230,20 @@
     h4 {
       font-weight: 800;
     }
+    .btn-warning {
+      margin: 0;
+      float: none;
+    }
   }
-  .radio .col {
-    margin-left: 30px;
-    font-weight: 800;
-    input {
-      float: left;
-      width: auto;
+  .col-sm-10.btn-group {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .btn-outline-secondary {
+      display: inline-block;
+      font-weight: 800;
+      margin: 10px 0;
+      border: 1px solid #BBBBBB;
     }
   }
   summary {
@@ -268,6 +276,10 @@
     display: inline;
     float: left;
     margin: auto;
+    border-radius: 0;
+    &:hover{
+      border-radius: 0;
+    }
   }
   p {
     margin: auto;
@@ -275,6 +287,7 @@
     font-weight: 800;
     display: inline;
     float: left;
+    font-style: normal;
   }
 }
 
@@ -359,12 +372,26 @@
       left: 20px;
       bottom: 10px;
       font-weight: 800;
+      i {
+        margin-right: 5px;
+      }
+      .a {
+        margin-left: 5px;
+        float: right;
+      }
     }
     .stock_count {
       position: absolute;
       left: 120px;
       bottom: 10px;
       font-weight: 800;
+      i {
+        margin-right: 5px;
+      }
+      .a {
+        margin-left: 5px;
+        float: right;
+      }
     }
     .user {
       position: absolute;
@@ -375,6 +402,10 @@
       }
       img {
         border-radius: 50%;
+      }
+      .time {
+        margin-left: 10px;
+        float: right;
       }
     }
   }

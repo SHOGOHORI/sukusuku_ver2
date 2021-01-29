@@ -11,7 +11,7 @@ header
     ul.header-right
       - if user_signed_in?
         li.dropdown
-          a.btn.btn-primary.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          a.btn.btn-warning.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             | 投稿する
             b.caret
           ul.dropdown-menu
@@ -20,7 +20,7 @@ header
             li
               = link_to 'アンケート', new_vote_path
         li.dropdown
-          a.btn.btn-info.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          a.btn.btn-light.dropdown-toggle href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             - if current_user.avatar?
               = image_tag current_user.avatar.url, alt: 'icon', height: '20px'
             - else

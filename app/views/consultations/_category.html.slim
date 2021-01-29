@@ -14,12 +14,11 @@
   .details
     summary
       | 詳細検索
-    .radio
-      .col
+    .col-sm-10.btn-group data-toggle="buttons"
+      label.btn.btn-outline-secondary.active style="width:50%"
         input type="radio" name="model" id="consultation_search" class="visually-hidden" checked="checked"
         | 相談
-      br
-      .col
+      label.btn.btn-outline-secondary style="width:50%"
         input type="radio" name="model" id="vote_search" class="visually-hidden"
         | アンケート
     .consultation_search
