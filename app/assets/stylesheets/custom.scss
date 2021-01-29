@@ -15,6 +15,7 @@ body {
   overflow-x: scroll;
   min-width: 1400px;
   font-family: "Tsukushi A Round Gothic","筑紫A丸ゴシック";
+  color: #333333;
   background: image-url('background.png');
 }
 
@@ -122,6 +123,13 @@ header{
     }
     img{
       border-radius: 50%;
+    }
+    .btn-light {
+      color: #F08800;
+      background-color: white;
+    }
+    .caret {
+      margin-left: 5px;
     }
   }
 }

@@ -44,7 +44,7 @@
                 | 編集
           - if current_user == @user && @user.children.count < 3
             li.register
-              = link_to new_child_path, class: 'btn btn-info' do
+              = link_to new_child_path, class: 'btn btn-success' do
                 i.fas.fa-baby
                 | 子どもの情報を追加登録する
   ul.content_part
