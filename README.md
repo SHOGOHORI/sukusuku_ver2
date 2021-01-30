@@ -15,11 +15,11 @@ __URL：__　https://www.sukusuku-app.com/
 ## デモ
 #### 相談機能
 * __相談投稿__<br>
-![相談投稿](https://user-images.githubusercontent.com/69126475/106262931-0c277c80-6267-11eb-98c6-1c42463442f3.gif)
+![相談](https://user-images.githubusercontent.com/69126475/106344583-ee512a80-62ed-11eb-9b36-86b8d66dc1f3.gif)
 
 #### アンケート機能
 * __投票__<br>
-![アンケート投票](https://user-images.githubusercontent.com/69126475/106262919-06319b80-6267-11eb-90c7-2f2da5fa640c.gif)
+![アンケート](https://user-images.githubusercontent.com/69126475/106344578-e85b4980-62ed-11eb-8ade-1838de6c022d.gif)
 ## 使用技術
 
 * __開発環境__
