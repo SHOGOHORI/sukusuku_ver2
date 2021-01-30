@@ -414,20 +414,19 @@
 .category_tag {
   li {
     float: left;
-    i {
-      color: #777777;
-      margin-right: 5px;
-    }
     .btn-secondary {
       margin-right: 5px;
-      color: #fff;
-      font-weight: 800;
-      background-color: #777777;
-      border-radius: 100vh;
-      border-width: 0;
+      color: black;
+      border: solid 1px #DDDDDD;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: white;
+      i {
+        color: #eb7b0f;
+        margin-right: 5px;
+      }
       &:hover {
-        background-color: #888888;
-        border-radius: 100vh;
+        background-color: #BBBBBB;
         margin-right: 5px;
       }
     }

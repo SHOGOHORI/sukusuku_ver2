@@ -43,17 +43,17 @@
                     | 更新日時：
                     = @consultation.updated_at.to_s(:datetime_jp)
               ul.category_tag
-                li
-                  i.fas.fa-tags
                 li.tag
                   = search_form_for @model1, as: :model1  do |f|
                     = f.hidden_field :category_id_eq, value: ''
                     = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      i.fas.fa-tags
                       = @consultation.model_name.human
                 li.tag
                   = search_form_for @model1, as: :model1  do |f|
                     = f.hidden_field :category_id_eq, value: @consultation.category_id
                     = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                      i.fas.fa-tags
                       = @consultation.category.category
                 li.tag
                   - if consultation_tag(@consultation)
@@ -61,6 +61,7 @@
                       = f.hidden_field :child_age_moon_age_eq, value: @consultation.child_age_moon_age
                       = f.hidden_field :pregnant_eq, value: @consultation.pregnant
                       = button_tag type: 'submit', class: 'card-category btn-secondary' do
+                        i.fas.fa-tags
                         = consultation_tag(@consultation)
               br
               br
