@@ -4,9 +4,10 @@
 ver.1：2020/10/20 → https://github.com/SHOGOHORI/myapp<br>
 ver.2：2021/1/11
 
-## ーSUKUSUKUーとは？
+## ーSukuSukuーとは？
 育児の悩み、不安を救うための育児特化型の相談アプリです。<br>
 ママ、パパの不安を少しでも埋めたいという思いから、SNSに近い形の相談アプリを作成しました。<br>
+[SukuSuku詳細説明](https://qiita.com/shogo-1988/items/a96eb63a9b108696d966)
 
 __URL：__　https://www.sukusuku-app.com/
 
