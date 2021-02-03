@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/help', to: 'home_pages#help'
   get '/privacy', to: 'home_pages#privacy'
   get '/search', to: 'home_pages#search'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_134000) do
+ActiveRecord::Schema.define(version: 2021_02_03_140635) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_134000) do
     t.string "name"
     t.text "introduction"
     t.string "avatar"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
