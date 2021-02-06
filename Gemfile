@@ -34,6 +34,7 @@ gem 'faker'
 gem 'impressionist'
 gem 'chartkick'
 gem 'activeadmin'
+gem 'ckeditor', git: "https://github.com/galetahub/ckeditor", branch: "master"
 
 group :development, :test do
   gem 'pry-rails'
