@@ -33,8 +33,7 @@ gem 'ransack'
 gem 'faker'
 gem 'impressionist'
 gem 'chartkick'
-gem 'rails_admin', '~> 2.0'
-gem 'cancancan'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'pry-rails'

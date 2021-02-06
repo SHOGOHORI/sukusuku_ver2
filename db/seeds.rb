@@ -15,6 +15,13 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
+User.create!(name:'しょうご',
+             email: 'shogo.hori.1988@gmail.com',
+             password: 'password',
+             password_confirmation: 'password',
+             introduction: '夏はやっぱりそうめん',
+             admin: true)
+
 names = %w[Naomi Youko Hanako Maria Yokota Yoshiko Koji Junnji]
 avatars = %w[left.jpg gunte.jpg kaizoku.jpg sai.jpg neko.jpg himawari.jpg tora.jpg number1.png]
 names.zip(avatars) do |name, avatar|
@@ -501,3 +508,5 @@ end
 VoteComment.create!(content: '私は出産するまでずっと辛かったです。。。',
                     user_id: 5,
                     vote_id: 4)
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
