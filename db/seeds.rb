@@ -15,13 +15,6 @@ items.zip(icons) do |t, c|
                    icon: open(url + c))
 end
 
-User.create!(name:'しょうご',
-             email: 'shogo.hori.1988@gmail.com',
-             password: 'password',
-             password_confirmation: 'password',
-             introduction: '夏はやっぱりそうめん',
-             admin: true)
-
 names = %w[Naomi Youko Hanako Maria Yokota Yoshiko Koji Junnji]
 avatars = %w[left.jpg gunte.jpg kaizoku.jpg sai.jpg neko.jpg himawari.jpg tora.jpg number1.png]
 names.zip(avatars) do |name, avatar|
