@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+  before_action :set_vote, only: [:show, :destroy]
+  before_action :redirect_root, only: [:destroy]
+
   impressionist actions: [:show]
 
   def new
@@ -19,7 +22,6 @@ class VotesController < ApplicationController
 
   def show
     store_location
-    @vote = Vote.find(params[:id])
     @stock = VoteStock.new
     impressionist(@vote, nil, unique: [:session_hash])
     @vote_relationship = VoteRelationship.new
@@ -37,7 +39,6 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @vote = Vote.find(params[:id])
     @vote.destroy
     redirect_to root_path, notice: '削除しました'
   end
@@ -45,10 +46,18 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, :closed_at, { image: [] }, :days, vote_items_attributes: [:item, :item_number])
+    params.require(:vote).permit(:content, :title, :category_id, :age, :moon_age, :pregnant, :closed_at, { image: [] }, :days, vote_items_attributes: [:item, :item_number]).merge(user_id: current_user.id)
   end
 
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def set_vote
+    @vote = Vote.find(params[:id])
+  end
+
+  def redirect_root
+    redirect_to(root_url) unless current_user.id == @vote.user_id
   end
 end
