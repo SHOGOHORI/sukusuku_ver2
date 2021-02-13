@@ -8,8 +8,10 @@ class Child < ApplicationRecord
   validates :comment, length: { maximum: 200 }
   mount_uploader :avatar, AvatarUploader
 
+  MAX_AGE = 6
+
   def child_birthday
-    errors.add(:birthday, 'は3歳までのお子さん及び出産予定日を入力してください。') if
-    birthday.nil? || birthday > Date.today.next_year || birthday < Date.today.ago(6.years)
+    errors.add(:birthday, "は#{MAX_AGE}歳までのお子さん及び出産予定日を入力してください。") if
+    birthday.nil? || birthday > Date.today.next_year || birthday < Date.today.ago(MAX_AGE.years)
   end
 end
