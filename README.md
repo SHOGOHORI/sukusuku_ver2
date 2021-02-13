@@ -136,6 +136,7 @@ __URL：__　https://www.sukusuku-app.com/
 ```
 $ git clone https://github.com/SHOGOHORI/sukusuku_ver2.git
 $ cd sukusuku_ver2
+$ touch .env
 $ docker-compose build
 $ docker-compose up -d
 $ docker-compose run web rails db:create
