@@ -27,7 +27,7 @@ class ConsultationCommentController < ApplicationController
   private
 
   def comment_params
-    params.require(:consultation_comment).permit(:content, :user_id, :consultation_id, { image: [] })
+    params.require(:consultation_comment).permit(:content, :consultation_id, { image: [] }).merge(user_id: current_user.id)
   end
 
   def set_comment
