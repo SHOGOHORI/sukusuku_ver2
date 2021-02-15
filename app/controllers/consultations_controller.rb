@@ -61,7 +61,7 @@ class ConsultationsController < ApplicationController
   private
 
   def consultation_params
-    params.require(:consultation).permit(:content, :title, :user_id, :category_id, :age, :moon_age, :pregnant, { image: [] })
+    params.require(:consultation).permit(:content, :title, :category_id, :age, :moon_age, :pregnant, { image: [] }).merge(user_id: current_user.id)
   end
 
   def set_consultation
