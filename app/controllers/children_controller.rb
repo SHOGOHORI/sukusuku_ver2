@@ -1,6 +1,6 @@
 class ChildrenController < ApplicationController
   before_action :set_child, only: [:show, :edit, :update, :destroy, :delete_avater]
-  before_action :redirect_root, only: [:edit, :update, :destroy]
+  before_action :redirect_root, only: [:edit, :update, :destroy, :delete_avater]
 
   def new
     @child = Child.new
