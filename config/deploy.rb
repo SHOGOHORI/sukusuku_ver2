@@ -1,4 +1,4 @@
-lock '3.14.1'
+lock '3.15.0'
 
 set :application, 'sukusuku_ver2'
 set :deploy_to, '/var/www/rails/sukusuku_ver2'
