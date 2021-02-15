@@ -27,7 +27,7 @@ class ConsultationCommentReplyController < ApplicationController
   private
 
   def reply_params
-    params.require(:consultation_comment_reply).permit(:content, :user_id, :consultation_comment_id, { image: [] })
+    params.require(:consultation_comment_reply).permit(:content, :consultation_comment_id, { image: [] }).merge(user_id: current_user.id)
   end
 
   def set_reply
