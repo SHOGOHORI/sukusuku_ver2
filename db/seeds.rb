@@ -501,3 +501,5 @@ end
 VoteComment.create!(content: '私は出産するまでずっと辛かったです。。。',
                     user_id: 5,
                     vote_id: 4)
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'home_pages#home'
   get '/help', to: 'home_pages#help'
   get '/privacy', to: 'home_pages#privacy'

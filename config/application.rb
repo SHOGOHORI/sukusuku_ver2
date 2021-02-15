@@ -41,12 +41,14 @@ module Sukusuku
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.time_zone = 'Tokyo'
+    config.assets.paths << config.root.join("vendor/assets/javascripts")
+    config.assets.paths << config.root.join("vendor/assets/stylesheets")
   end
 end
 
 module Bookers2Debug
   class Application < Rails::Application
     config.load_defaults 5.2
-    config.i18n.default_locale = :ja # 追記
+    config.i18n.default_locale = :ja
   end
 end
